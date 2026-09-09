@@ -123,3 +123,94 @@ footer .droite{margin-left:auto}
   .carte,.bref .item,.donnees li,.pas li,.presta .p{break-inside:avoid}
   main a[href^="http"]::after{content:" (" attr(href) ")";font-size:.9em}
 }
+
+/* =====================================================================
+   ACCUEIL — le sommet occupe la hauteur de l'écran, pour que le bouton
+   de téléchargement soit lu SANS faire défiler, sur téléphone comme sur
+   ordinateur. C'est la seule raison d'être de cette section.
+
+   Le vert reste cantonné au sommet, comme l'exige la charte (SPECS §4 ter) :
+   le reste de la page garde les surfaces neutres des autres pages.
+   ===================================================================== */
+.sommet{
+  min-height:100vh; min-height:100svh;
+  display:flex; flex-direction:column;
+  background:linear-gradient(180deg,#1F5636 0%,#193925 62%);
+}
+.sommet header{background:transparent;border-bottom:0}
+
+.heros{
+  flex:1 1 auto; display:flex; flex-direction:column; align-items:center;
+  justify-content:center; text-align:center; gap:18px;
+  padding:28px 20px 44px; color:var(--blanc);
+}
+.heros .baniere{width:96px;height:96px;border-radius:24px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.heros h1{
+  margin:0; font-size:clamp(34px,8vw,60px); line-height:1.05;
+  letter-spacing:-.02em; font-weight:800; color:var(--blanc);
+}
+.heros .accentue{color:#FFB54B}
+.heros .accroche{
+  margin:0; max-width:34rem; font-size:clamp(16px,2.4vw,19px); line-height:1.55;
+  color:rgba(245,247,250,.86);
+}
+.heros .menue{margin:0; max-width:38rem; font-size:13px; line-height:1.5; color:rgba(245,247,250,.6)}
+
+.magasins{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:2px 0 0}
+.bouton.grand{display:inline-flex;align-items:center;gap:10px;font-size:16px;padding:14px 22px;margin:0}
+.bouton.grand svg{display:block;flex:0 0 auto}
+/* Bouton d'attente : il ne clique pas, mais il garde sa place et son rang.
+   Le bouton Google Play reste la couleur principale même avant la sortie —
+   c'est l'action de la page ; seul le mot change le jour de la publication.
+   Le bouton Apple, lui, reste discret : il annonce, il ne réclame rien. */
+.bouton.attente{cursor:default}
+.bouton.attente:hover{filter:none}
+.bouton.attente.secondaire{
+  background:transparent;color:rgba(245,247,250,.92);
+  border:1px solid rgba(245,247,250,.34);
+}
+/* L'interrupteur : voir le commentaire en tête de index.html. */
+body[data-store="bientot"] .play{display:none}
+body[data-store="en-ligne"] .play-bientot{display:none}
+
+/* Le corps de l'accueil : pleine largeur, avec sa propre gouttière. */
+main.accueil{max-width:none;padding:0}
+main.accueil .in{max-width:900px;margin:0 auto;padding:34px 20px 8px}
+main.accueil h2.centre{text-align:center;margin:34px 0 16px}
+main.accueil .in > h2.centre:first-child{margin-top:6px}
+
+/* Les compétitions, en pastilles */
+.competitions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 30px}
+.competitions span{
+  background:var(--surface);border:1px solid var(--line);border-radius:999px;
+  padding:7px 14px;font-size:14px;font-weight:600;box-shadow:var(--shadow);
+}
+
+footer .mention{width:100%;margin:12px 0 0;font-size:12.5px;line-height:1.5;color:var(--text-soft)}
+
+@media (max-width:640px){
+  .heros{gap:15px;padding:20px 18px 34px}
+  .heros .baniere{width:80px;height:80px;border-radius:20px}
+  .magasins{flex-direction:column;align-self:stretch}
+  .bouton.grand{justify-content:center;width:100%}
+}
+
+/* Téléphone tenu à l'horizontale, petit portable : la hauteur manque avant
+   la largeur. On resserre le sommet plutôt que de laisser le bouton passer
+   sous la ligne de flottaison — c'est toute la promesse de cette page. */
+@media (max-height:560px){
+  .heros{gap:10px;padding:14px 18px 22px}
+  .heros .baniere{width:56px;height:56px;border-radius:14px}
+  .heros h1{font-size:clamp(26px,5vw,36px)}
+  .heros .accroche{font-size:15px;line-height:1.45}
+  .heros .menue{display:none}
+  .magasins{flex-direction:row;align-self:auto}
+  .bouton.grand{width:auto;padding:11px 17px;font-size:14.5px}
+}
+
+@media print{
+  .sommet{min-height:0;background:none}
+  .heros{color:#000;padding:0 0 12px}
+  .heros .accroche,.heros .menue{color:#333}
+  .magasins{display:none}
+}

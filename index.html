@@ -3,37 +3,110 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Drop League — pronostics de rugby entre amis</title>
+<title>Drop League — les pronos rugby entre potes</title>
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1F5636">
-<meta name="description" content="Drop League, le jeu de pronostics de rugby entre amis : score exact, ligues privées, gratuit et sans argent réel.">
+<meta name="description" content="Drop League, le jeu de pronostics de rugby entre amis : le score exact du Top 14, de la Pro D2, des Coupes d'Europe et du Tournoi. Gratuit, sans argent réel.">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
 <link rel="apple-touch-icon" href="/icon-256.png">
 <link rel="stylesheet" href="/style.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Drop League — les pronos rugby entre potes">
+<meta property="og:description" content="Le score exact, entre amis. Gratuit, sans argent réel.">
+<meta property="og:image" content="https://dropleague.app/icon-256.png">
+<meta property="og:url" content="https://dropleague.app/">
+<meta name="twitter:card" content="summary">
 </head>
-<body>
-<header><div class="in">
-  <a class="marque" href="/"><img src="/icon-256.png" alt="" width="40" height="40" decoding="async"><span class="nom">Drop League</span></a>
-  <nav aria-label="Pages du site"><a href="/privacy/">Confidentialité</a><a href="/support/">Support</a><a href="/delete-account/">Supprimer mon compte</a></nav>
-</div></header>
-<main>
-<p class="sur-titre">Accueil</p>
-<h1>Le score exact, entre amis</h1>
-<p class="chapo">Drop League est une application mobile de pronostics de rugby. Tu prédis le
-score exact des matchs du Top 14, de la Pro D2, de la Champions Cup, du
-Tournoi des 6 Nations et des rencontres internationales. Tu marques des points,
-tu te compares dans des ligues privées, tu chambres.</p>
-<div class="encadre"><p>
-<strong>Gratuit, sans argent réel.</strong> Rien à verser, rien à retirer, aucune
-conversion&nbsp;: les points n’ont aucune valeur monétaire et ne comptent qu’entre
-les joueurs d’une même ligue.
-</p></div>
-<div class="carte">
-<h2>Une question&nbsp;?</h2>
-<p>Une question, un problème, une idée&nbsp;: <a href="mailto:contact@dropleague.app">contact@dropleague.app</a></p>
-<p><a class="bouton" href="mailto:contact@dropleague.app">Écris-nous</a></p>
+
+<!-- =====================================================================
+     UN SEUL MOT À CHANGER LE JOUR DE LA PUBLICATION.
+
+     data-store="bientot"   → le bouton annonce « Bientôt sur Google Play »
+                              et ne mène nulle part.
+     data-store="en-ligne"  → le bouton devient « Télécharger sur Google Play »
+                              et ouvre la fiche.
+
+     Tant que l'application n'est pas publiée, sa fiche Play n'existe pas :
+     un bouton qui promet un téléchargement tomberait sur une page d'erreur.
+     ===================================================================== -->
+<body data-store="bientot">
+
+<div class="sommet">
+  <header><div class="in">
+    <a class="marque" href="/"><img src="/icon-256.png" alt="" width="40" height="40" decoding="async"><span class="nom">Drop League</span></a>
+    <nav aria-label="Pages du site"><a href="/privacy/">Confidentialité</a><a href="/support/">Support</a><a href="/delete-account/">Supprimer mon compte</a></nav>
+  </div></header>
+
+  <section class="heros">
+    <img class="baniere" src="/icon-256.png" alt="" width="96" height="96" fetchpriority="high" decoding="async">
+    <h1><span class="mot">Drop</span> <span class="mot accentue">League</span></h1>
+    <p class="accroche">Les pronos rugby entre potes. Gratuit, sans argent réel&nbsp;—
+      juste le score exact, des points et la gloire.</p>
+
+    <div class="magasins">
+      <a class="bouton grand play" href="https://play.google.com/store/apps/details?id=com.dropleague.app">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+        Télécharger sur Google Play
+      </a>
+      <span class="bouton grand attente play-bientot">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+        Bientôt sur Google Play
+      </span>
+      <span class="bouton grand attente secondaire">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Bientôt sur l'App&nbsp;Store
+      </span>
+    </div>
+
+    <p class="menue">Android d'abord, iPhone ensuite. Aucune mise, aucun gain&nbsp;: les points ne valent rien en dehors du jeu.</p>
+  </section>
 </div>
+
+<main class="accueil">
+
+<div class="in">
+  <h2 class="centre">Ce que tu fais dans Drop League</h2>
+  <div class="bref quatre">
+    <div class="item">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></svg></div>
+      <div><b>Le score exact, en dix secondes</b><span>Tu poses ton score final avant le coup d'envoi. Après, c'est verrouillé — pour toi comme pour les autres.</span></div>
+    </div>
+    <div class="item">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19"/><circle cx="10" cy="8" r="3.2"/><path d="M20 19v-1.5a3.5 3.5 0 0 0-2.6-3.4"/><path d="M15.4 5.2a3.2 3.2 0 0 1 0 5.6"/></svg></div>
+      <div><b>Ta ligue, tes potes</b><span>Tu crées ta ligue privée, tu partages un code à six caractères, et le chambrage peut commencer.</span></div>
+    </div>
+    <div class="item">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 5.5H4.5V7a3 3 0 0 0 2.7 3"/><path d="M17 5.5h2.5V7a3 3 0 0 1-2.7 3"/><path d="M12 14v3"/><path d="M8.5 20h7"/><path d="M10 17h4l1 3H9l1-3z"/></svg></div>
+      <div><b>Le classement de la journée</b><span>Classement de journée et de saison, dans chaque ligue et dans La Bagarre Générale, où tout le monde se retrouve.</span></div>
+    </div>
+    <div class="item">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.5" rx="7" ry="3"/><path d="M5 6.5v11c0 1.7 3.1 3 7 3s7-1.3 7-3v-11"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></div>
+      <div><b>Tes DROPS</b><span>La monnaie du jeu. Elle sert aux GIFs de célébration et aux avatars — jamais aux points, jamais au classement.</span></div>
+    </div>
+  </div>
+
+  <h2 class="centre">Les compétitions</h2>
+  <p class="competitions">
+    <span>Top&nbsp;14</span><span>Pro&nbsp;D2</span><span>Champions&nbsp;Cup</span><span>Challenge&nbsp;Cup</span><span>Tournoi des 6&nbsp;Nations</span><span>Nations&nbsp;Championship</span>
+  </p>
+
+  <div class="encadre"><p>
+    <strong>Gratuit, sans argent réel.</strong> Rien à verser, rien à retirer, aucune
+    conversion&nbsp;: les points n'ont aucune valeur monétaire et ne comptent qu'entre
+    les joueurs d'une même ligue.
+  </p></div>
+
+  <div class="carte">
+    <h2>Une question&nbsp;?</h2>
+    <p>Une question, un problème, une idée&nbsp;: <a href="mailto:contact@dropleague.app">contact@dropleague.app</a></p>
+    <p><a class="bouton" href="mailto:contact@dropleague.app">Écris-nous</a></p>
+  </div>
+</div>
+
 </main>
-<footer><nav aria-label="Pied de page"><a href="/">Accueil</a><a href="/privacy/">Confidentialité</a><a href="/support/">Support</a><a href="/delete-account/">Supprimer mon compte</a></nav><span class="droite">© 2026 Drop League</span></footer>
+
+<footer><nav aria-label="Pied de page"><a href="/">Accueil</a><a href="/privacy/">Confidentialité</a><a href="/support/">Support</a><a href="/delete-account/">Supprimer mon compte</a></nav><span class="droite">© 2026 Drop League</span>
+<p class="mention">Application indépendante, sans lien avec la Ligue nationale de rugby, la Fédération française de rugby ni aucune compétition officielle.</p>
+</footer>
 </body>
 </html>
