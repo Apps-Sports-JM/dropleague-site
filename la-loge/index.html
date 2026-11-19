@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La Loge : les stats en plus pour tes pronos rugby · Drop League</title>
+<meta name="description" content="Lis le match avant ton prono : écart moyen, face-à-face, avis des tribunes, bilan des équipes et plus une seule pub avec la Loge, sur iPhone et Android.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1F5636">
+<link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
+<link rel="apple-touch-icon" href="/icon-256.png">
+<link rel="canonical" href="https://dropleague.app/la-loge/">
+<meta name="apple-itunes-app" content="app-id=6814801571">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Drop League">
+<meta property="og:title" content="La Loge : les stats en plus pour tes pronos rugby · Drop League">
+<meta property="og:description" content="Lis le match avant ton prono : écart moyen, face-à-face, avis des tribunes, bilan des équipes et plus une seule pub avec la Loge, sur iPhone et Android.">
+<meta property="og:image" content="https://dropleague.app/icon-256.png">
+<meta property="og:url" content="https://dropleague.app/la-loge/">
+<meta name="twitter:card" content="summary">
+<style>
+/* Composition : bandeau vert plein cadre en tête (la marque), puis une colonne de lecture de 680 px
+   où alternent blocs de texte et blocs image, une bande grise pour la FAQ dépliante, un pied en 4 colonnes.
+   Charte du site existant : vert pour le bandeau seulement, surfaces neutres, orange pour l'accent. Aucun dégradé. */
+:root{
+  --vert:#193925; --vert-haut:#1F5636; --sur-vert:#F5F7FA; --sur-vert-doux:#C9D6CC;
+  --orange:#F28E00; --bouton:#FFB54B; --sur-bouton:#193925;
+  --bg:#F3F5EF; --surface:#FFFFFF; --surface-2:#EAEEE3;
+  --text:#171C18; --text-soft:#57604F; --accent:#8F5400; --line:#D8DCCF;
+  --texte:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --chiffres:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101312; --surface:#191D1B; --surface-2:#151917;
+    --text:#F5F7FA; --text-soft:#93A395; --accent:#F28E00; --line:#2A302D; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101312; --surface:#191D1B; --surface-2:#151917;
+  --text:#F5F7FA; --text-soft:#93A395; --accent:#F28E00; --line:#2A302D; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--texte)}
+a{color:var(--accent);text-underline-offset:3px}
+.cadre{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.lecture{max-width:680px}
+
+/* Avertissement de maquette */
+.maquette{background:var(--surface-2);border-bottom:1px solid var(--line);font-size:13px;color:var(--text-soft)}
+.maquette .cadre{padding-block:8px}
+
+/* En-tête */
+header{background:var(--vert-haut);color:var(--sur-vert);border-bottom:4px solid var(--vert)}
+header .cadre{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;padding-block:14px}
+.marque{display:flex;align-items:center;gap:10px;color:var(--sur-vert);text-decoration:none;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:17px}
+.marque span.logo{width:36px;height:36px;border-radius:9px;background:var(--vert);display:grid;place-items:center;font-size:14px;letter-spacing:0;color:var(--bouton)}
+header nav{margin-left:auto;display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;font-size:14.5px;font-weight:600}
+header nav a{color:var(--sur-vert-doux);text-decoration:none}
+header nav a:hover,header nav a[aria-current]{color:var(--sur-vert);text-decoration:underline;text-underline-offset:5px}
+header nav a.telecharger{background:var(--bouton);color:var(--sur-bouton);padding:7px 14px;border-radius:10px;text-decoration:none}
+@media (max-width:720px){header nav{margin-left:0;width:100%}}
+
+/* Fil d'Ariane */
+.ariane{font-size:13.5px;color:var(--text-soft);padding-block:12px 0}
+.ariane a{color:var(--text-soft)}
+
+/* Bannière principale (bandeau de page) */
+.banniere{background:var(--vert-haut);color:var(--sur-vert)}
+.banniere .cadre{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px;align-items:center;padding-block:40px 44px}
+@media (max-width:760px){.banniere .cadre{grid-template-columns:1fr;padding-block:28px 32px}}
+.sur-titre{display:inline-block;font-weight:800;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--bouton);margin:0 0 10px}
+.banniere h1{font-size:clamp(28px,4.6vw,42px);line-height:1.12;margin:0 0 14px;letter-spacing:-.01em;text-wrap:balance}
+.banniere .chapo{font-size:18px;line-height:1.55;color:var(--sur-vert-doux);margin:0 0 20px;max-width:34em}
+.magasins{display:flex;gap:10px;flex-wrap:wrap}
+.bouton{display:inline-flex;align-items:center;gap:8px;background:var(--bouton);color:var(--sur-bouton);font-weight:800;text-decoration:none;border-radius:12px;padding:12px 18px}
+.bouton.clair{background:transparent;color:var(--sur-vert);border:1.5px solid var(--sur-vert-doux)}
+.bouton:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.ligne-marque{margin:16px 0 0;font-size:14.5px;color:var(--sur-vert-doux)}
+.illustration{width:100%;max-width:380px;justify-self:center}
+.illustration svg{display:block;width:100%;height:auto}
+
+/* Corps */
+main{padding-block:8px 24px}
+section.bloc{padding-block:34px 6px}
+h2{font-size:clamp(22px,3vw,27px);line-height:1.25;margin:0 0 12px;letter-spacing:-.005em;text-wrap:balance}
+h3{font-size:17px;line-height:1.35;margin:0 0 6px}
+p{margin:0 0 12px}
+
+/* Bloc texte + image */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:start}
+.duo.inverse{grid-template-columns:260px minmax(0,1fr)}
+.duo.inverse .texte{order:2}
+@media (max-width:760px){.duo,.duo.inverse{grid-template-columns:1fr}.duo.inverse .texte{order:0}}
+.etapes{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:14px;counter-reset:e}
+.etapes li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;counter-increment:e}
+.etapes li::before{content:counter(e);width:30px;height:30px;border-radius:50%;background:var(--bouton);color:var(--sur-bouton);font-weight:800;display:grid;place-items:center;font-size:14px;margin-top:2px}
+.etapes p{margin:0;color:var(--text-soft)}
+
+/* Emplacement de capture d'écran (rempli par les vraies captures de la 1.1.0) */
+figure.capture{margin:0}
+.ecran{aspect-ratio:9/19.5;max-width:100%;width:100%;border:2px dashed var(--line);border-radius:28px;background:var(--surface);display:grid;place-items:center;text-align:center;padding:18px;color:var(--text-soft);font-size:13.5px;line-height:1.45}
+.ecran b{display:block;color:var(--text);font-size:14px;margin-bottom:4px}
+figure.capture figcaption{font-size:13px;color:var(--text-soft);margin-top:8px;text-align:center}
+
+/* Pastilles des compétitions */
+.competitions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.competitions a{display:inline-block;padding:7px 13px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14.5px}
+.competitions a:hover{border-color:var(--accent)}
+
+/* Barème */
+.tableau{overflow-x:auto;margin:14px 0 8px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-soft)}
+td.points{font-family:var(--chiffres);font-weight:700;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
+.exemple{border-left:4px solid var(--orange);background:var(--surface);border-radius:0 12px 12px 0;padding:12px 16px;font-size:15px}
+.exemple p{margin:0 0 4px}.exemple p:last-child{margin:0}
+.exemple .score{font-family:var(--chiffres);font-weight:700}
+
+/* FAQ dépliante */
+.faq{background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:40px}
+.faq .cadre{padding-block:36px 40px}
+.faq-liste{display:grid;gap:12px;margin-top:18px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary h3{margin:0;font-size:14.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;line-height:1.4}
+.faq summary .fleche{flex:0 0 auto;width:10px;height:10px;border-right:2px solid var(--text);border-bottom:2px solid var(--text);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+.faq details[open] summary .fleche{transform:rotate(-135deg) translate(-2px,-2px)}
+.faq .reponse{padding:0 20px 18px;color:var(--text-soft)}
+.faq .reponse p:last-child{margin:0}
+@media (prefers-reduced-motion:reduce){.faq summary .fleche{transition:none}}
+
+/* C'est quoi, Drop League ? */
+.definition{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 28px;align-items:center;padding-block:34px 10px}
+@media (max-width:760px){.definition{grid-template-columns:1fr}}
+.definition h2{font-size:20px}
+.definition p{color:var(--text-soft);margin:0}
+
+/* Pied */
+footer{border-top:1px solid var(--line);margin-top:28px;font-size:14px;color:var(--text-soft)}
+footer .cadre{padding-block:26px 34px}
+.colonnes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+@media (max-width:760px){.colonnes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.colonnes b{display:block;color:var(--text);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.colonnes ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.colonnes a{color:var(--text-soft);text-decoration:none}
+.colonnes a:hover{color:var(--text);text-decoration:underline}
+.copyright{margin-top:22px}
+
+/* Ajout de l'accueil : les six compétitions, une pastille et une phrase par ligne */
+.competitions.detail{display:grid;gap:10px}
+.competitions.detail li{display:grid;grid-template-columns:200px minmax(0,1fr);gap:6px 16px;align-items:center}
+.competitions.detail a{justify-self:start}
+.competitions.detail p{margin:0;font-size:15px;color:var(--text-soft)}
+@media (max-width:560px){.competitions.detail li{grid-template-columns:1fr}}
+.suite{margin-top:12px;font-weight:600}
+/* Ajouts de la page La Loge : blocs titrés sous un H2, phrases de l'app en liste, garantie encadrée */
+.stat{margin-top:22px}
+.phrases-app{margin:0 0 12px;padding-left:20px}
+.phrases-app li{margin-bottom:4px}
+.exemple.garantie{margin:14px 0 14px}
+.marque img.logo{width:36px;height:36px;border-radius:9px;display:block}
+</style>
+</head>
+<body>
+<header>
+  <div class="cadre">
+    <a class="marque" href="/"><img class="logo" src="/icon-256.png" alt="" width="36" height="36">Drop League</a>
+    <nav aria-label="Menu principal">
+      <a href="/regles/">Le jeu</a>
+      <a href="/competitions/">Compétitions</a>
+      <a href="/pronostics-rugby-entre-amis/">Entre amis</a>
+      <a href="/questions/">Questions</a>
+      <a class="telecharger" href="/application-pronostics-rugby/">Télécharger l'app</a>
+    </nav>
+  </div>
+</header>
+
+<section class="banniere" aria-labelledby="titre-page">
+  <div class="cadre">
+    <div>
+      <p class="sur-titre">L'abonnement Premium</p>
+      <h1 id="titre-page">La Loge, pour lire le match avant le match</h1>
+      <p class="chapo">Quatre stats en plus sur la page de chaque match, pour lire la rencontre avant ton prono, et plus une seule pub dans l'app. La Loge est l'abonnement Premium de Drop League : le seul achat de l'app, et il ne rapporte aucun point.</p>
+      <div class="magasins">
+        <a class="bouton" href="https://apps.apple.com/fr/app/drop-league/id6814801571">Télécharger sur l'App Store</a>
+        <a class="bouton clair" href="https://play.google.com/store/apps/details?id=com.dropleague.app">Disponible sur Google Play</a>
+      </div>
+      <p class="ligne-marque">Pronostics entre amis : les points ne servent qu'au classement.</p>
+    </div>
+    <div class="illustration" aria-hidden="true">
+      <svg viewBox="0 0 380 300" role="img" aria-label="Une loge au-dessus du terrain, avec quatre barres de stats">
+        <rect x="0" y="0" width="380" height="300" rx="20" fill="#193925"/>
+        <rect x="20" y="34" width="340" height="14" rx="3" fill="#1F5636"/>
+        <rect x="20" y="56" width="340" height="14" rx="3" fill="#1F5636"/>
+        <rect x="20" y="78" width="340" height="14" rx="3" fill="#1F5636"/>
+        <rect x="20" y="100" width="340" height="14" rx="3" fill="#1F5636"/>
+        <rect x="20" y="122" width="340" height="14" rx="3" fill="#1F5636"/>
+        <rect x="108" y="22" width="164" height="16" rx="5" fill="#F28E00"/>
+        <rect x="118" y="38" width="144" height="98" rx="10" fill="#F5F7FA" stroke="#F28E00" stroke-width="4"/>
+        <line x1="134" y1="120" x2="246" y2="120" stroke="#C9D6CC" stroke-width="2"/>
+        <rect x="140" y="80" width="18" height="40" rx="3" fill="#1F5636"/>
+        <rect x="168" y="94" width="18" height="26" rx="3" fill="#F28E00"/>
+        <rect x="196" y="64" width="18" height="56" rx="3" fill="#1F5636"/>
+        <rect x="224" y="86" width="18" height="34" rx="3" fill="#F28E00"/>
+        <rect x="0" y="150" width="380" height="150" fill="#24603C"/>
+        <line x1="0" y1="150" x2="380" y2="150" stroke="#F5F7FA" stroke-width="3"/>
+        <line x1="166" y1="164" x2="166" y2="232" stroke="#F5F7FA" stroke-width="5" stroke-linecap="round"/>
+        <line x1="214" y1="164" x2="214" y2="232" stroke="#F5F7FA" stroke-width="5" stroke-linecap="round"/>
+        <line x1="166" y1="206" x2="214" y2="206" stroke="#F5F7FA" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="190" cy="184" rx="14" ry="9" transform="rotate(-28 190 184)" fill="#F28E00"/>
+        <rect x="30" y="250" width="320" height="38" rx="10" fill="#F5F7FA"/>
+        <text x="190" y="275" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#193925">La meilleure place du stade</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="cadre">
+    <nav class="ariane" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › La Loge</nav>
+
+    <section class="bloc lecture">
+      <h2>Ce que tu vois dans la Loge</h2>
+      <p>La Loge ajoute quatre stats sur la page de chaque match : l'écart moyen de chaque équipe, le face-à-face, l'avis des tribunes et le bilan des équipes. Ce sont les stats pour tes pronos rugby, à lire juste avant de poser ton score exact. Elles s'affichent sous ton prono, à la place de la carte « Plus de stats ». Le cinquième bénéfice, c'est zéro publicité.</p>
+      <div class="tableau">
+        <table>
+          <thead><tr><th scope="col">Le bénéfice</th><th scope="col">Ce que ça change</th></tr></thead>
+          <tbody>
+            <tr><td>L'écart moyen de chaque équipe</td><td>Ses points d'écart en moyenne cette saison, utile pour viser la transformation (+2).</td></tr>
+            <tr><td>Le face-à-face</td><td>L'historique des confrontations entre les deux équipes.</td></tr>
+            <tr><td>L'avis des tribunes</td><td>Ce que pronostique la communauté sur le match.</td></tr>
+            <tr><td>Le bilan des équipes</td><td>Joués, gagnés, perdus et différence de points.</td></tr>
+            <tr><td>Zéro publicité</td><td>Plus une seule pub.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Sans la Loge, la page du match garde la forme des deux équipes : sous le nom de chaque équipe, des ronds de couleur racontent ses derniers matchs, jusqu'à cinq, du plus ancien au plus récent. La carte « Plus de stats » montre, elle, un vrai écart moyen flouté et le bouton « Prendre ma place dans la Loge ».</p>
+
+      <div class="stat">
+        <h3>L'écart moyen de chaque équipe</h3>
+        <p>Pour chacune des deux équipes, ses points d'écart en moyenne cette saison, et le nombre de matchs comptés. Un écart positif dit que l'équipe marque en moyenne plus qu'elle n'encaisse ; négatif, l'inverse. Dessous, l'app te glisse : « Utile pour viser la transformation (+2). » La transformation, c'est le bon vainqueur avec l'écart juste à 3 points près : tout est dans <a href="/regles/">les règles du jeu</a>.</p>
+      </div>
+      <div class="stat">
+        <h3>Le face-à-face</h3>
+        <p>L'historique des confrontations entre les deux équipes, saisons passées comprises : jusqu'aux huit dernières, de la plus récente à la plus ancienne. Pour chacune, l'année, la compétition, le score, et si l'équipe qui reçoit sur ce match jouait à domicile ou à l'extérieur. En tête, le bilan de l'équipe qui reçoit sur ces confrontations : ses victoires, ses nuls et ses défaites.</p>
+      </div>
+      <div class="stat">
+        <h3>L'avis des tribunes</h3>
+        <p>La répartition des pronos de tous les joueurs sur ce match — jamais un conseil. Une barre partage les tribunes entre les deux équipes et le nul, une phrase dit quelle issue l'emporte et sur combien de pronos, et les trois scores les plus posés s'affichent avec leur nombre. Personne n'a encore pronostiqué ? L'app te le dit : « Personne n'a encore posé son prono sur ce match. À toi d'ouvrir le bal. »</p>
+      </div>
+      <div class="stat">
+        <h3>Le bilan des équipes</h3>
+        <p>Le tableau des équipes de la compétition : matchs joués, gagnés, nuls, perdus et différence de points, rangé par différence de points, avec les deux équipes du match surlignées. Il s'arrête au coup d'envoi du match que tu regardes. C'est ce que disent les résultats de la compétition, pas le classement officiel.</p>
+      </div>
+    </section>
+
+    <section class="bloc lecture">
+      <h2>La Loge ne donne aucun point</h2>
+      <p>La Loge donne de la lecture, jamais des points. Avec ou sans la Loge, tu marques exactement les mêmes points, au même barème, dans ta ligue comme dans La Bagarre Générale. Ton prono reste le score exact du match, comme pour tout le monde.</p>
+      <div class="exemple garantie">
+        <p>« Rien de ce qui s'achète n'influence tes points ni ton classement. »</p>
+        <p>C'est écrit dans la Boutique, sous la liste de ce que la Loge change.</p>
+      </div>
+      <p>Les gestes techniques ne s'achètent pas non plus : la Chistera et le Caramel, c'est un de chaque par compétition et par saison, les mêmes pour tout le monde, jamais achetables.</p>
+      <p class="suite"><a href="/regles/gestes-techniques/">La Chistera et le Caramel en détail</a></p>
+    </section>
+
+    <section class="bloc lecture">
+      <h2>Zéro publicité</h2>
+      <p>Plus une seule pub. Avec la Loge, tu ne vois aucune annonce dans Drop League : aucune n'est demandée ni chargée pour toi. Place au rugby, de l'onglet Pronos jusqu'au Classement.</p>
+      <p>Concrètement, la Loge retire :</p>
+      <ul class="phrases-app">
+        <li>le bandeau en bas des écrans Pronos, Résultats, Ligues et Classement ;</li>
+        <li>l'annonce glissée dans la liste des Résultats, marquée « Annonce » ;</li>
+        <li>l'annonce plein écran qui arrive quand tu as validé le dernier prono d'une journée.</li>
+      </ul>
+      <p>Dans Réglages, la ligne « Choix publicitaires » ouvre l'écran « Tes choix publicitaires », qui te le confirme : « Avec la Loge, tu ne vois aucune annonce : aucune n'est demandée ni chargée pour toi. »</p>
+      <p class="suite"><a href="/publicite/">La publicité dans Drop League, en détail</a></p>
+    </section>
+
+    <section class="bloc lecture">
+      <h2>Où trouver la Loge dans l'app</h2>
+      <p>La Loge vit dans l'onglet Boutique. Tu y lis ce que la Loge change, tu choisis ta formule, puis tu touches « Prendre ma place dans la Loge ». Sur la page de chaque match, la carte « Plus de stats », marquée d'un cadenas, porte le même bouton : il t'emmène à la Boutique.</p>
+      <ol class="etapes">
+        <li><div><h3>Ouvre l'onglet Boutique</h3><p>En tête, « La Loge » : « L'abonnement Premium de Drop League. C'est le seul achat de l'app. » Dessous, la carte « Vue imprenable sur chaque match » et la liste « Ce que la Loge change ».</p></div></li>
+        <li><div><h3>Choisis ta formule</h3><p>Sous « Choisis ta formule », touche celle qui te va.</p></div></li>
+        <li><div><h3>Touche « Prendre ma place dans la Loge »</h3><p>Juste sous le bouton, l'app rappelle le renouvellement automatique et la façon de l'arrêter. Tu touches, et le magasin de ton téléphone prend le relais. Une fois dans la Loge, l'app t'accueille : « Bienvenue dans la Loge. La meilleure place du stade est à toi. »</p></div></li>
+      </ol>
+      <div class="stat">
+        <h3>Restaurer mes achats</h3>
+        <p>Tu as déjà ta place et l'app ne la voit pas ? Touche « Restaurer mes achats », au pied de la Boutique ou dans Réglages, section « Ton compte ». L'app te répond par une de ces trois phrases :</p>
+        <ul class="phrases-app">
+          <li>« Ta place dans la Loge est retrouvée. »</li>
+          <li>« Aucun achat à restaurer pour le moment. »</li>
+          <li>« Le magasin n'a pas répondu. Réessaie dans un instant. »</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bloc lecture">
+      <h2>Arrêter ton abonnement</h2>
+      <p>L'abonnement à la Loge se renouvelle automatiquement, et tu l'arrêtes quand tu veux, dans le magasin de ton téléphone. Sur iPhone, c'est dans les réglages de ton iPhone ; sur Android, dans Google Play. Pour arrêter le renouvellement, fais-le au moins 24 h avant la fin de la période en cours. La période déjà réglée reste à toi jusqu'à son terme.</p>
+      <div class="tableau">
+        <table>
+          <thead><tr><th scope="col">Ton téléphone</th><th scope="col">Où arrêter l'abonnement</th></tr></thead>
+          <tbody>
+            <tr><td>iPhone</td><td>Dans les réglages de ton iPhone, dans la gestion des abonnements de ton compte App Store.</td></tr>
+            <tr><td>Android</td><td>Dans Google Play, dans la gestion des abonnements de ton compte Google Play.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stat">
+        <h3>Supprimer ton compte n'arrête pas l'abonnement</h3>
+        <p>Supprimer ton compte efface tes pronos, tes points et ta place dans tes ligues, mais l'abonnement, c'est le magasin qui le tient. Avant la suppression, l'app le rappelle aux abonnés : « Ton abonnement à La Loge continue tant que tu ne l'annules pas, dans les réglages de ton iPhone. » Sur Android, la phrase finit par « dans Google Play ». Arrête donc l'abonnement d'abord, puis suis la page <a href="/delete-account/">Supprimer mon compte</a>.</p>
+      </div>
+      <p>Une question sur ton abonnement ? Passe par la page <a href="/support/">Support</a> ou écris à <a href="mailto:contact@dropleague.app">contact@dropleague.app</a>.</p>
+    </section>
+  </div>
+
+  <section class="faq" aria-labelledby="titre-faq">
+    <div class="cadre lecture-large">
+      <h2 id="titre-faq">Questions fréquentes sur la Loge</h2>
+      <div class="faq-liste">
+        <details>
+          <summary><h3>Qu'est-ce que la Loge de Drop League ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>La Loge est l'abonnement Premium de Drop League, et c'est le seul achat de l'app. Elle ajoute quatre stats sur la page de chaque match, pour lire la rencontre avant ton prono : l'écart moyen de chaque équipe, le face-à-face, l'avis des tribunes et le bilan des équipes. Et plus une seule pub dans l'app.</p></div>
+        </details>
+        <details>
+          <summary><h3>La Loge rapporte-t-elle des points ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Non. La Loge donne de la lecture, jamais des points : rien de ce qui s'achète n'influence tes points ni ton classement. Avec ou sans la Loge, tu marques exactement les mêmes points, au même barème.</p></div>
+        </details>
+        <details>
+          <summary><h3>Que montre l'avis des tribunes ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>La répartition des pronos de tous les joueurs sur un match — jamais un conseil. Une barre partage les pronos entre les deux équipes et le nul, une phrase donne la part de l'issue la plus choisie, et les trois scores les plus posés s'affichent.</p></div>
+        </details>
+        <details>
+          <summary><h3>La Loge retire-t-elle toutes les pubs ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Oui. Avec la Loge, tu ne vois aucune annonce : aucune n'est demandée ni chargée pour toi. Le bandeau en bas des écrans, l'annonce de la liste des Résultats et l'annonce plein écran s'en vont.</p></div>
+        </details>
+        <details>
+          <summary><h3>Où trouver la Loge dans l'app ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Dans l'onglet Boutique : tu choisis ta formule, puis tu touches « Prendre ma place dans la Loge ». Sur la page de chaque match, le même bouton, dans la carte « Plus de stats », t'emmène à la Boutique.</p></div>
+        </details>
+        <details>
+          <summary><h3>Comment retrouver ta place dans la Loge ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Touche « Restaurer mes achats », au pied de la Boutique ou dans Réglages, section « Ton compte ». Quand l'abonnement est retrouvé, l'app te le dit : « Ta place dans la Loge est retrouvée. »</p></div>
+        </details>
+        <details>
+          <summary><h3>Comment arrêter l'abonnement à la Loge ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Dans le magasin de ton téléphone : sur iPhone, dans les réglages de ton iPhone ; sur Android, dans Google Play. Pour arrêter le renouvellement, fais-le au moins 24 h avant la fin de la période en cours. La période déjà réglée reste à toi jusqu'à son terme. Supprimer ton compte, lui, n'arrête pas l'abonnement.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="cadre">
+    <section class="definition" aria-labelledby="titre-definition">
+      <div>
+        <h2 id="titre-definition">C'est quoi, Drop League ?</h2>
+        <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+      </div>
+      <div class="magasins">
+        <a class="bouton" href="https://apps.apple.com/fr/app/drop-league/id6814801571">App Store</a>
+        <a class="bouton" href="https://play.google.com/store/apps/details?id=com.dropleague.app">Google Play</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="cadre">
+    <div class="colonnes">
+      <div><b>Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a aria-current="page">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
+      <div><b>Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b>Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
+      <div><b>Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
+    </div>
+    <p class="copyright">© 2026 Drop League</p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"La Loge","item":"https://dropleague.app/la-loge/"}]},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Qu'est-ce que la Loge de Drop League ?","acceptedAnswer":{"@type":"Answer","text":"La Loge est l'abonnement Premium de Drop League, et c'est le seul achat de l'app. Elle ajoute quatre stats sur la page de chaque match, pour lire la rencontre avant ton prono : l'écart moyen de chaque équipe, le face-à-face, l'avis des tribunes et le bilan des équipes. Et plus une seule pub dans l'app."}},
+  {"@type":"Question","name":"La Loge rapporte-t-elle des points ?","acceptedAnswer":{"@type":"Answer","text":"Non. La Loge donne de la lecture, jamais des points : rien de ce qui s'achète n'influence tes points ni ton classement. Avec ou sans la Loge, tu marques exactement les mêmes points, au même barème."}},
+  {"@type":"Question","name":"Que montre l'avis des tribunes ?","acceptedAnswer":{"@type":"Answer","text":"La répartition des pronos de tous les joueurs sur un match — jamais un conseil. Une barre partage les pronos entre les deux équipes et le nul, une phrase donne la part de l'issue la plus choisie, et les trois scores les plus posés s'affichent."}},
+  {"@type":"Question","name":"La Loge retire-t-elle toutes les pubs ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Avec la Loge, tu ne vois aucune annonce : aucune n'est demandée ni chargée pour toi. Le bandeau en bas des écrans, l'annonce de la liste des Résultats et l'annonce plein écran s'en vont."}},
+  {"@type":"Question","name":"Où trouver la Loge dans l'app ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'onglet Boutique : tu choisis ta formule, puis tu touches « Prendre ma place dans la Loge ». Sur la page de chaque match, le même bouton, dans la carte « Plus de stats », t'emmène à la Boutique."}},
+  {"@type":"Question","name":"Comment retrouver ta place dans la Loge ?","acceptedAnswer":{"@type":"Answer","text":"Touche « Restaurer mes achats », au pied de la Boutique ou dans Réglages, section « Ton compte ». Quand l'abonnement est retrouvé, l'app te le dit : « Ta place dans la Loge est retrouvée. »"}},
+  {"@type":"Question","name":"Comment arrêter l'abonnement à la Loge ?","acceptedAnswer":{"@type":"Answer","text":"Dans le magasin de ton téléphone : sur iPhone, dans les réglages de ton iPhone ; sur Android, dans Google Play. Pour arrêter le renouvellement, fais-le au moins 24 h avant la fin de la période en cours. La période déjà réglée reste à toi jusqu'à son terme. Supprimer ton compte, lui, n'arrête pas l'abonnement."}}
+ ]}
+]}
+</script>
+</body>
+</html>

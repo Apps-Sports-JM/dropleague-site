@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La Bagarre Générale, le classement de tous les joueurs · Drop League</title>
+<meta name="description" content="Grimpe au classement de tous les joueurs de Drop League : La Bagarre Générale, ton rang dès l'inscription et ta Chistera comprise, sur iPhone et Android.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1F5636">
+<link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
+<link rel="apple-touch-icon" href="/icon-256.png">
+<link rel="canonical" href="https://dropleague.app/la-bagarre-generale/">
+<meta name="apple-itunes-app" content="app-id=6814801571">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Drop League">
+<meta property="og:title" content="La Bagarre Générale, le classement de tous les joueurs · Drop League">
+<meta property="og:description" content="Grimpe au classement de tous les joueurs de Drop League : La Bagarre Générale, ton rang dès l'inscription et ta Chistera comprise, sur iPhone et Android.">
+<meta property="og:image" content="https://dropleague.app/icon-256.png">
+<meta property="og:url" content="https://dropleague.app/la-bagarre-generale/">
+<meta name="twitter:card" content="summary">
+<style>
+/* Composition : bandeau vert plein cadre en tête (la marque), puis une colonne de lecture de 680 px
+   où alternent blocs de texte et blocs image, une bande grise pour la FAQ dépliante, un pied en 4 colonnes.
+   Charte du site existant : vert pour le bandeau seulement, surfaces neutres, orange pour l'accent. Aucun dégradé. */
+:root{
+  --vert:#193925; --vert-haut:#1F5636; --sur-vert:#F5F7FA; --sur-vert-doux:#C9D6CC;
+  --orange:#F28E00; --bouton:#FFB54B; --sur-bouton:#193925;
+  --bg:#F3F5EF; --surface:#FFFFFF; --surface-2:#EAEEE3;
+  --text:#171C18; --text-soft:#57604F; --accent:#8F5400; --line:#D8DCCF;
+  --texte:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --chiffres:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101312; --surface:#191D1B; --surface-2:#151917;
+    --text:#F5F7FA; --text-soft:#93A395; --accent:#F28E00; --line:#2A302D; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101312; --surface:#191D1B; --surface-2:#151917;
+  --text:#F5F7FA; --text-soft:#93A395; --accent:#F28E00; --line:#2A302D; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--texte)}
+a{color:var(--accent);text-underline-offset:3px}
+.cadre{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.lecture{max-width:680px}
+
+/* Avertissement de maquette */
+.maquette{background:var(--surface-2);border-bottom:1px solid var(--line);font-size:13px;color:var(--text-soft)}
+.maquette .cadre{padding-block:8px}
+
+/* En-tête */
+header{background:var(--vert-haut);color:var(--sur-vert);border-bottom:4px solid var(--vert)}
+header .cadre{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;padding-block:14px}
+.marque{display:flex;align-items:center;gap:10px;color:var(--sur-vert);text-decoration:none;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:17px}
+.marque span.logo{width:36px;height:36px;border-radius:9px;background:var(--vert);display:grid;place-items:center;font-size:14px;letter-spacing:0;color:var(--bouton)}
+header nav{margin-left:auto;display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;font-size:14.5px;font-weight:600}
+header nav a{color:var(--sur-vert-doux);text-decoration:none}
+header nav a:hover,header nav a[aria-current]{color:var(--sur-vert);text-decoration:underline;text-underline-offset:5px}
+header nav a.telecharger{background:var(--bouton);color:var(--sur-bouton);padding:7px 14px;border-radius:10px;text-decoration:none}
+@media (max-width:720px){header nav{margin-left:0;width:100%}}
+
+/* Fil d'Ariane */
+.ariane{font-size:13.5px;color:var(--text-soft);padding-block:12px 0}
+.ariane a{color:var(--text-soft)}
+
+/* Bannière principale (bandeau de page) */
+.banniere{background:var(--vert-haut);color:var(--sur-vert)}
+.banniere .cadre{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px;align-items:center;padding-block:40px 44px}
+@media (max-width:760px){.banniere .cadre{grid-template-columns:1fr;padding-block:28px 32px}}
+.sur-titre{display:inline-block;font-weight:800;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--bouton);margin:0 0 10px}
+.banniere h1{font-size:clamp(28px,4.6vw,42px);line-height:1.12;margin:0 0 14px;letter-spacing:-.01em;text-wrap:balance}
+.banniere .chapo{font-size:18px;line-height:1.55;color:var(--sur-vert-doux);margin:0 0 20px;max-width:34em}
+.magasins{display:flex;gap:10px;flex-wrap:wrap}
+.bouton{display:inline-flex;align-items:center;gap:8px;background:var(--bouton);color:var(--sur-bouton);font-weight:800;text-decoration:none;border-radius:12px;padding:12px 18px}
+.bouton.clair{background:transparent;color:var(--sur-vert);border:1.5px solid var(--sur-vert-doux)}
+.bouton:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.ligne-marque{margin:16px 0 0;font-size:14.5px;color:var(--sur-vert-doux)}
+.illustration{width:100%;max-width:380px;justify-self:center}
+.illustration svg{display:block;width:100%;height:auto}
+
+/* Corps */
+main{padding-block:8px 24px}
+section.bloc{padding-block:34px 6px}
+h2{font-size:clamp(22px,3vw,27px);line-height:1.25;margin:0 0 12px;letter-spacing:-.005em;text-wrap:balance}
+h3{font-size:17px;line-height:1.35;margin:0 0 6px}
+p{margin:0 0 12px}
+
+/* Bloc texte + image */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:start}
+.duo.inverse{grid-template-columns:260px minmax(0,1fr)}
+.duo.inverse .texte{order:2}
+@media (max-width:760px){.duo,.duo.inverse{grid-template-columns:1fr}.duo.inverse .texte{order:0}}
+.etapes{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:14px;counter-reset:e}
+.etapes li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;counter-increment:e}
+.etapes li::before{content:counter(e);width:30px;height:30px;border-radius:50%;background:var(--bouton);color:var(--sur-bouton);font-weight:800;display:grid;place-items:center;font-size:14px;margin-top:2px}
+.etapes p{margin:0;color:var(--text-soft)}
+
+/* Emplacement de capture d'écran (rempli par les vraies captures de la 1.1.0) */
+figure.capture{margin:0}
+.ecran{aspect-ratio:9/19.5;max-width:100%;width:100%;border:2px dashed var(--line);border-radius:28px;background:var(--surface);display:grid;place-items:center;text-align:center;padding:18px;color:var(--text-soft);font-size:13.5px;line-height:1.45}
+.ecran b{display:block;color:var(--text);font-size:14px;margin-bottom:4px}
+figure.capture figcaption{font-size:13px;color:var(--text-soft);margin-top:8px;text-align:center}
+
+/* Pastilles des compétitions */
+.competitions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.competitions a{display:inline-block;padding:7px 13px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14.5px}
+.competitions a:hover{border-color:var(--accent)}
+
+/* Barème */
+.tableau{overflow-x:auto;margin:14px 0 8px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-soft)}
+td.points{font-family:var(--chiffres);font-weight:700;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
+.exemple{border-left:4px solid var(--orange);background:var(--surface);border-radius:0 12px 12px 0;padding:12px 16px;font-size:15px}
+.exemple p{margin:0 0 4px}.exemple p:last-child{margin:0}
+.exemple .score{font-family:var(--chiffres);font-weight:700}
+
+/* FAQ dépliante */
+.faq{background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:40px}
+.faq .cadre{padding-block:36px 40px}
+.faq-liste{display:grid;gap:12px;margin-top:18px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary h3{margin:0;font-size:14.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;line-height:1.4}
+.faq summary .fleche{flex:0 0 auto;width:10px;height:10px;border-right:2px solid var(--text);border-bottom:2px solid var(--text);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+.faq details[open] summary .fleche{transform:rotate(-135deg) translate(-2px,-2px)}
+.faq .reponse{padding:0 20px 18px;color:var(--text-soft)}
+.faq .reponse p:last-child{margin:0}
+@media (prefers-reduced-motion:reduce){.faq summary .fleche{transition:none}}
+
+/* C'est quoi, Drop League ? */
+.definition{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 28px;align-items:center;padding-block:34px 10px}
+@media (max-width:760px){.definition{grid-template-columns:1fr}}
+.definition h2{font-size:20px}
+.definition p{color:var(--text-soft);margin:0}
+
+/* Pied */
+footer{border-top:1px solid var(--line);margin-top:28px;font-size:14px;color:var(--text-soft)}
+footer .cadre{padding-block:26px 34px}
+.colonnes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+@media (max-width:760px){.colonnes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.colonnes b{display:block;color:var(--text);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.colonnes ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.colonnes a{color:var(--text-soft);text-decoration:none}
+.colonnes a:hover{color:var(--text);text-decoration:underline}
+.copyright{margin-top:22px}
+
+/* Ajout de l'accueil : les six compétitions, une pastille et une phrase par ligne */
+.competitions.detail{display:grid;gap:10px}
+.competitions.detail li{display:grid;grid-template-columns:200px minmax(0,1fr);gap:6px 16px;align-items:center}
+.competitions.detail a{justify-self:start}
+.competitions.detail p{margin:0;font-size:15px;color:var(--text-soft)}
+@media (max-width:560px){.competitions.detail li{grid-template-columns:1fr}}
+.suite{margin-top:12px;font-weight:600}
+
+/* Ajouts de la page La Bagarre Générale : intitulés de tableau, intertitres, effet des gestes */
+td.cas{font-weight:700;color:var(--text);min-width:9em}
+.effet{font-family:var(--chiffres);font-weight:700;color:var(--accent)}
+h3.intertitre{margin-top:22px}
+.bloc .exemple{margin:4px 0 12px}
+.renvoi{font-size:15px;color:var(--text-soft);margin-top:14px}
+.marque img.logo{width:36px;height:36px;border-radius:9px;display:block}
+</style>
+</head>
+<body>
+<header>
+  <div class="cadre">
+    <a class="marque" href="/"><img class="logo" src="/icon-256.png" alt="" width="36" height="36">Drop League</a>
+    <nav aria-label="Menu principal">
+      <a href="/regles/">Le jeu</a>
+      <a href="/competitions/">Compétitions</a>
+      <a href="/pronostics-rugby-entre-amis/">Entre amis</a>
+      <a href="/questions/">Questions</a>
+      <a class="telecharger" href="/application-pronostics-rugby/">Télécharger l'app</a>
+    </nav>
+  </div>
+</header>
+
+<section class="banniere" aria-labelledby="titre-page">
+  <div class="cadre">
+    <div>
+      <p class="sur-titre">Classement général</p>
+      <h1 id="titre-page">La Bagarre Générale, le classement de tous les joueurs</h1>
+      <p class="chapo">Tous les joueurs de Drop League dans un seul classement. Tu y es dès ton inscription, avec tes pronos des six compétitions et ta Chistera : tu as toujours quelqu'un à dépasser.</p>
+      <div class="magasins">
+        <a class="bouton" href="https://apps.apple.com/fr/app/drop-league/id6814801571">Télécharger sur l'App Store</a>
+        <a class="bouton clair" href="https://play.google.com/store/apps/details?id=com.dropleague.app">Disponible sur Google Play</a>
+      </div>
+      <p class="ligne-marque">Pronostics entre amis : les points ne servent qu'au classement.</p>
+    </div>
+    <div class="illustration" aria-hidden="true">
+      <svg viewBox="0 0 380 300" role="img" aria-label="Un classement ouvert sur la ligne du joueur, entre ses voisins">
+        <rect x="0" y="0" width="380" height="300" rx="20" fill="#193925"/>
+        <rect x="40" y="26" width="300" height="34" rx="9" fill="#24603C"/>
+        <circle cx="62" cy="43" r="12" fill="#193925"/>
+        <text x="62" y="48" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="12.5" font-weight="800" fill="#C9D6CC">48</text>
+        <circle cx="93" cy="43" r="10" fill="#C9D6CC"/>
+        <rect x="112" y="39" width="104" height="8" rx="4" fill="#C9D6CC"/>
+        <text x="324" y="49" text-anchor="end" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="16" font-weight="800" fill="#F5F7FA">214</text>
+        <rect x="40" y="70" width="300" height="34" rx="9" fill="#24603C"/>
+        <circle cx="62" cy="87" r="12" fill="#193925"/>
+        <text x="62" y="92" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="12.5" font-weight="800" fill="#C9D6CC">49</text>
+        <circle cx="93" cy="87" r="10" fill="#C9D6CC"/>
+        <rect x="112" y="83" width="82" height="8" rx="4" fill="#C9D6CC"/>
+        <text x="324" y="93" text-anchor="end" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="16" font-weight="800" fill="#F5F7FA">212</text>
+        <rect x="36" y="112" width="308" height="40" rx="10" fill="#F5F7FA" stroke="#FFB54B" stroke-width="3"/>
+        <circle cx="62" cy="132" r="13" fill="#193925"/>
+        <text x="62" y="137" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="13" font-weight="800" fill="#F5F7FA">50</text>
+        <circle cx="94" cy="132" r="11" fill="#C9D6CC"/>
+        <text x="114" y="138" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="16" font-weight="800" fill="#193925">Toi</text>
+        <text x="326" y="138" text-anchor="end" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#193925">209</text>
+        <rect x="40" y="160" width="300" height="34" rx="9" fill="#24603C"/>
+        <circle cx="62" cy="177" r="12" fill="#193925"/>
+        <text x="62" y="182" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="12.5" font-weight="800" fill="#C9D6CC">51</text>
+        <circle cx="93" cy="177" r="10" fill="#C9D6CC"/>
+        <rect x="112" y="173" width="118" height="8" rx="4" fill="#C9D6CC"/>
+        <text x="324" y="183" text-anchor="end" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="16" font-weight="800" fill="#F5F7FA">207</text>
+        <rect x="40" y="204" width="300" height="34" rx="9" fill="#24603C"/>
+        <circle cx="62" cy="221" r="12" fill="#193925"/>
+        <text x="62" y="226" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="12.5" font-weight="800" fill="#C9D6CC">52</text>
+        <circle cx="93" cy="221" r="10" fill="#C9D6CC"/>
+        <rect x="112" y="217" width="92" height="8" rx="4" fill="#C9D6CC"/>
+        <text x="324" y="227" text-anchor="end" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="16" font-weight="800" fill="#F5F7FA">203</text>
+        <rect x="40" y="252" width="300" height="36" rx="10" fill="#F5F7FA"/>
+        <text x="190" y="276" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="16" font-weight="800" fill="#193925">La liste s'ouvre sur ta ligne</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="cadre">
+    <nav class="ariane" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › <span aria-current="page">La Bagarre Générale</span></nav>
+
+    <section class="bloc">
+      <h2>Qui est dans La Bagarre Générale ?</h2>
+      <p>Tout le monde. Dès ton inscription, tu entres dans La Bagarre Générale, le classement de tous les joueurs de Drop League, sans rien avoir à faire. Tes potes y sont, des gens que tu ne connais pas encore aussi, et chaque match réglé rebat les places.</p>
+      <p>Tu peux donc jouer sans ligue privée : tes pronos y comptent dès le premier match réglé. Dans l'onglet Ligues, sa carte est en tête, avec ton rang et le nombre de joueurs. Touche son « i » pour lire la définition : « Le classement de tous les joueurs de Drop League. »</p>
+    </section>
+
+    <section class="bloc">
+      <h2>Comment se calcule le classement ?</h2>
+      <p>La Bagarre Générale additionne les points de tous tes pronos réglés, Chistera comprise, sur <a href="/competitions/">les six compétitions</a> : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Chaque prono rapporte selon le barème : 1 point de participation, puis le bon vainqueur, la transformation, le buteur, le graal ou le XV. Les points tombent quelques minutes après le coup de sifflet final, et le classement bouge avec eux.</p>
+      <p>Ici, tous tes pronos réglés comptent, quelle que soit la journée. Avec ou sans <a href="/la-loge/">La Loge</a>, l'abonnement facultatif, tu marques exactement les mêmes points. Le barème complet et ses exemples sont sur la page <a href="/regles/">Règles du jeu</a>.</p>
+      <h3 class="intertitre">Ce que montre chaque ligne</h3>
+      <div class="tableau">
+        <table>
+          <thead><tr><th scope="col">Sur la ligne</th><th scope="col">Ce que c'est</th></tr></thead>
+          <tbody>
+            <tr><td class="cas">Le rang</td><td>La place au classement. La première ligne ressort en orange.</td></tr>
+            <tr><td class="cas">La photo</td><td>La photo du joueur, son avatar ou ses initiales.</td></tr>
+            <tr><td class="cas">Le nom de joueur</td><td>Celui choisi à l'inscription, modifiable dans ta fiche joueur. Le tien commence par « Toi · ».</td></tr>
+            <tr><td class="cas">Les pronos réglés</td><td>Le nombre de pronos dont les points sont déjà comptés.</td></tr>
+            <tr><td class="cas">Les points</td><td>Le total dans La Bagarre Générale, Chistera comprise.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="bloc">
+      <h2>Le classement s'ouvre sur ta ligne</h2>
+      <p>Dans l'onglet Classement, la liste s'ouvre directement sur ta ligne, au milieu de l'écran. Tu vois d'un coup d'œil qui est juste devant toi et qui pousse derrière. Fais défiler vers le haut pour voir la tête du classement : la liste est à toi jusqu'à la prochaine ouverture.</p>
+      <ol class="etapes">
+        <li><div><h3>Ouvre l'onglet Ligues</h3><p>La carte de La Bagarre Générale est en tête, avec ton rang sur le nombre de joueurs.</p></div></li>
+        <li><div><h3>Touche la carte</h3><p>L'onglet Classement s'ouvre sur La Bagarre Générale, directement sur ta ligne, avec tes voisins au-dessus et au-dessous.</p></div></li>
+        <li><div><h3>Change de classement</h3><p>Avec une ligue privée, des pastilles en haut de l'écran passent de La Bagarre Générale à tes ligues. Chaque classement s'ouvre, lui aussi, sur ta ligne.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="bloc">
+      <h2>La Chistera y compte aussi</h2>
+      <p>La Chistera, la passe dans le dos, double tes points d'une journée dans toutes tes ligues, La Bagarre Générale comprise. Tu la poses en secret avant le coup d'envoi de la journée ; une fois tous ses matchs joués, ton total de la journée compte double.</p>
+      <div class="exemple">
+        <p>Ta journée : <span class="score">14</span> points.</p>
+        <p>Avec ta Chistera : <span class="score">28</span> points dans La Bagarre Générale, comme dans tes ligues.</p>
+      </div>
+      <p>Le Caramel, lui, se joue en ligue privée : il coupe en deux la journée d'un membre, dans cette ligue seulement. Dans La Bagarre Générale, tes points restent entiers. Et si tu prends un caramel la journée de ta Chistera, les deux s'annulent dans la ligue du caramel, le contre parfait, mais ici ta Chistera double. Une Chistera par compétition et par saison, la même pour tout le monde : choisis bien ta journée.</p>
+      <p class="renvoi"><a href="/regles/gestes-techniques/">La Chistera, le Caramel et leurs cas particuliers</a>, en détail.</p>
+    </section>
+
+    <section class="bloc">
+      <h2>Quelle différence entre ta ligue privée et La Bagarre Générale ?</h2>
+      <p>Tu fais ton prono une fois : il compte dans La Bagarre Générale et dans chacune de tes ligues privées qui suit la compétition, à partir des journées commencées après sa création. La Bagarre Générale te mesure à tous les joueurs ; ta ligue privée, à ta bande, avec son code d'invitation et son Club-house. Une ligue créée en cours de saison part de zéro : la course y repart du même point pour tout le monde.</p>
+      <div class="tableau">
+        <table>
+          <thead><tr><th scope="col">Le point</th><th scope="col">La Bagarre Générale</th><th scope="col">Ta ligue privée</th></tr></thead>
+          <tbody>
+            <tr><td class="cas">Qui y joue</td><td>Tous les joueurs, dès l'inscription</td><td>Ta bande, invitée avec le code d'invitation de six caractères</td></tr>
+            <tr><td class="cas">Les compétitions</td><td>Les six</td><td>Toutes, ou une seule, au choix de qui la crée</td></tr>
+            <tr><td class="cas">Ce qui compte</td><td>Tous tes pronos réglés</td><td>Les journées commencées après sa création</td></tr>
+            <tr><td class="cas">La Chistera</td><td class="points">×2</td><td class="points">×2</td></tr>
+            <tr><td class="cas">Le Caramel</td><td>Tes points restent entiers</td><td><span class="effet">÷2</span> sur la journée d'un membre, dans cette ligue</td></tr>
+            <tr><td class="cas">En plus du classement</td><td>La fiche de chaque joueur</td><td>La fiche de chaque joueur et le Club-house, le fil de discussion de la ligue</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Pour monter la tienne, suis le guide des <a href="/pronostics-rugby-entre-amis/">pronostics rugby entre amis</a>. Au bureau ou au club, c'est le même principe : <a href="/concours-pronostics-rugby/">ton concours de pronostics rugby</a>.</p>
+    </section>
+
+    <section class="bloc">
+      <h2>Touche un joueur pour voir sa fiche</h2>
+      <p>Envie de savoir comment fait la personne juste devant toi ? Touche sa ligne : sa fiche joueur s'ouvre, avec sa photo ou son avatar, son club de cœur, ses points de la saison, sa réussite, sa moyenne par journée, sa meilleure journée et sa meilleure série. Elle redit aussi son rang et ses points dans La Bagarre Générale, avec cette précision : « Les points de la ligue comptent la Chistera. »</p>
+      <p>Sur une fiche joueur, tu ne vois que des matchs terminés. Ta propre ligne, elle, ouvre ton Profil. Au retour d'une fiche, la liste t'attend là où tu l'as laissée.</p>
+      <h3 class="intertitre">Une photo qui dérange ?</h3>
+      <p>Un appui long sur la photo d'un joueur permet de la signaler, ou de bloquer la personne. Une photo signalée par deux joueurs différents est retirée automatiquement.</p>
+    </section>
+  </div>
+
+  <section class="faq" aria-labelledby="titre-faq">
+    <div class="cadre lecture-large">
+      <h2 id="titre-faq">Questions fréquentes sur La Bagarre Générale</h2>
+      <div class="faq-liste">
+        <details>
+          <summary><h3>Qu'est-ce que La Bagarre Générale ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>La Bagarre Générale est le classement de tous les joueurs de Drop League, le jeu de pronostics rugby entre amis sur iPhone et Android. Tu y es dès ton inscription, avec tes pronos du Top 14, de la Pro D2, de la Champions Cup, de la Challenge Cup, du 6 Nations et du Nations Championship. Les points ne servent qu'au classement.</p></div>
+        </details>
+        <details>
+          <summary><h3>Comment entre-t-on dans La Bagarre Générale ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Automatiquement, à l'inscription : tu n'as ni code à taper ni ligue à rejoindre. Le code d'invitation, lui, sert aux ligues privées, pour jouer avec ta bande.</p></div>
+        </details>
+        <details>
+          <summary><h3>Peut-on jouer sans ligue privée ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Oui. Tes pronos comptent dans La Bagarre Générale dès le premier match réglé. Une ligue privée ajoute un classement entre potes et son Club-house, le fil de discussion de la ligue.</p></div>
+        </details>
+        <details>
+          <summary><h3>La Chistera et le Caramel comptent-ils dans La Bagarre Générale ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>La Chistera, oui : elle double tes points d'une journée dans toutes tes ligues, La Bagarre Générale comprise. Le Caramel joue seulement dans la ligue privée où il est posé : dans La Bagarre Générale, les points restent entiers.</p></div>
+        </details>
+        <details>
+          <summary><h3>Pourquoi les points de ta fiche joueur ne sont-ils pas ceux de La Bagarre Générale ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>La tuile « POINTS CETTE SAISON » de ta fiche joueur compte tes points sans geste technique. La Bagarre Générale compte aussi ta Chistera : la journée où tu l'as posée y pèse double. La fiche d'un joueur ouverte depuis La Bagarre Générale le rappelle : « Les points de la ligue comptent la Chistera. »</p></div>
+        </details>
+        <details>
+          <summary><h3>Et si tu t'inscris en cours de saison ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Tu entres dans La Bagarre Générale à 0 point, et les pronos déjà réglés des autres y comptent, quelle que soit la journée. Pour une course où tout le monde part du même point, crée ta ligue privée : une ligue créée en cours de saison part de zéro, les journées déjà commencées ne comptent pas pour elle.</p></div>
+        </details>
+        <details>
+          <summary><h3>La Loge change-t-elle quelque chose au classement ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Non. La Loge, l'abonnement facultatif de Drop League, ajoute quatre stats sur la page de chaque match, et plus une seule pub. Avec ou sans La Loge, tu marques exactement les mêmes points.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="cadre">
+    <section class="definition" aria-labelledby="titre-definition">
+      <div>
+        <h2 id="titre-definition">C'est quoi, Drop League ?</h2>
+        <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+      </div>
+      <div class="magasins">
+        <a class="bouton" href="https://apps.apple.com/fr/app/drop-league/id6814801571">App Store</a>
+        <a class="bouton" href="https://play.google.com/store/apps/details?id=com.dropleague.app">Google Play</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="cadre">
+    <div class="colonnes">
+      <div><b>Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a aria-current="page">La Bagarre Générale</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
+      <div><b>Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b>Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
+      <div><b>Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
+    </div>
+    <p class="copyright">© 2026 Drop League</p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"La Bagarre Générale","item":"https://dropleague.app/la-bagarre-generale/"}]},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Qu'est-ce que La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"La Bagarre Générale est le classement de tous les joueurs de Drop League, le jeu de pronostics rugby entre amis sur iPhone et Android. Tu y es dès ton inscription, avec tes pronos du Top 14, de la Pro D2, de la Champions Cup, de la Challenge Cup, du 6 Nations et du Nations Championship. Les points ne servent qu'au classement."}},
+  {"@type":"Question","name":"Comment entre-t-on dans La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"Automatiquement, à l'inscription : tu n'as ni code à taper ni ligue à rejoindre. Le code d'invitation, lui, sert aux ligues privées, pour jouer avec ta bande."}},
+  {"@type":"Question","name":"Peut-on jouer sans ligue privée ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Tes pronos comptent dans La Bagarre Générale dès le premier match réglé. Une ligue privée ajoute un classement entre potes et son Club-house, le fil de discussion de la ligue."}},
+  {"@type":"Question","name":"La Chistera et le Caramel comptent-ils dans La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"La Chistera, oui : elle double tes points d'une journée dans toutes tes ligues, La Bagarre Générale comprise. Le Caramel joue seulement dans la ligue privée où il est posé : dans La Bagarre Générale, les points restent entiers."}},
+  {"@type":"Question","name":"Pourquoi les points de ta fiche joueur ne sont-ils pas ceux de La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"La tuile « POINTS CETTE SAISON » de ta fiche joueur compte tes points sans geste technique. La Bagarre Générale compte aussi ta Chistera : la journée où tu l'as posée y pèse double. La fiche d'un joueur ouverte depuis La Bagarre Générale le rappelle : « Les points de la ligue comptent la Chistera. »"}},
+  {"@type":"Question","name":"Et si tu t'inscris en cours de saison ?","acceptedAnswer":{"@type":"Answer","text":"Tu entres dans La Bagarre Générale à 0 point, et les pronos déjà réglés des autres y comptent, quelle que soit la journée. Pour une course où tout le monde part du même point, crée ta ligue privée : une ligue créée en cours de saison part de zéro, les journées déjà commencées ne comptent pas pour elle."}},
+  {"@type":"Question","name":"La Loge change-t-elle quelque chose au classement ?","acceptedAnswer":{"@type":"Answer","text":"Non. La Loge, l'abonnement facultatif de Drop League, ajoute quatre stats sur la page de chaque match, et plus une seule pub. Avec ou sans La Loge, tu marques exactement les mêmes points."}}
+ ]}
+]}
+</script>
+</body>
+</html>

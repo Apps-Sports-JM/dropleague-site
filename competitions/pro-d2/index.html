@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pro D2 : calendrier 2026-2027 et pronos entre amis · Drop League</title>
+<meta name="description" content="Annonce le score exact des matchs de la Pro D2 2026-2027 avec ta bande : le calendrier des 30 journées, les points et ta ligue, sur iPhone et Android.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1F5636">
+<link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
+<link rel="apple-touch-icon" href="/icon-256.png">
+<link rel="canonical" href="https://dropleague.app/competitions/pro-d2/">
+<meta name="apple-itunes-app" content="app-id=6814801571">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Drop League">
+<meta property="og:title" content="Pro D2 : calendrier 2026-2027 et pronos entre amis · Drop League">
+<meta property="og:description" content="Annonce le score exact des matchs de la Pro D2 2026-2027 avec ta bande : le calendrier des 30 journées, les points et ta ligue, sur iPhone et Android.">
+<meta property="og:image" content="https://dropleague.app/icon-256.png">
+<meta property="og:url" content="https://dropleague.app/competitions/pro-d2/">
+<meta name="twitter:card" content="summary">
+<style>
+/* Composition : bandeau vert plein cadre en tête (la marque), puis une colonne de lecture de 680 px
+   où alternent blocs de texte et blocs image, une bande grise pour la FAQ dépliante, un pied en 4 colonnes.
+   Charte du site existant : vert pour le bandeau seulement, surfaces neutres, orange pour l'accent. Aucun dégradé. */
+:root{
+  --vert:#193925; --vert-haut:#1F5636; --sur-vert:#F5F7FA; --sur-vert-doux:#C9D6CC;
+  --orange:#F28E00; --bouton:#FFB54B; --sur-bouton:#193925;
+  --bg:#F3F5EF; --surface:#FFFFFF; --surface-2:#EAEEE3;
+  --text:#171C18; --text-soft:#57604F; --accent:#8F5400; --line:#D8DCCF;
+  --texte:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --chiffres:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101312; --surface:#191D1B; --surface-2:#151917;
+    --text:#F5F7FA; --text-soft:#93A395; --accent:#F28E00; --line:#2A302D; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101312; --surface:#191D1B; --surface-2:#151917;
+  --text:#F5F7FA; --text-soft:#93A395; --accent:#F28E00; --line:#2A302D; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--texte)}
+a{color:var(--accent);text-underline-offset:3px}
+.cadre{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.lecture{max-width:680px}
+
+/* Avertissement de maquette */
+.maquette{background:var(--surface-2);border-bottom:1px solid var(--line);font-size:13px;color:var(--text-soft)}
+.maquette .cadre{padding-block:8px}
+
+/* En-tête */
+header{background:var(--vert-haut);color:var(--sur-vert);border-bottom:4px solid var(--vert)}
+header .cadre{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;padding-block:14px}
+.marque{display:flex;align-items:center;gap:10px;color:var(--sur-vert);text-decoration:none;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:17px}
+.marque span.logo{width:36px;height:36px;border-radius:9px;background:var(--vert);display:grid;place-items:center;font-size:14px;letter-spacing:0;color:var(--bouton)}
+header nav{margin-left:auto;display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;font-size:14.5px;font-weight:600}
+header nav a{color:var(--sur-vert-doux);text-decoration:none}
+header nav a:hover,header nav a[aria-current]{color:var(--sur-vert);text-decoration:underline;text-underline-offset:5px}
+header nav a.telecharger{background:var(--bouton);color:var(--sur-bouton);padding:7px 14px;border-radius:10px;text-decoration:none}
+@media (max-width:720px){header nav{margin-left:0;width:100%}}
+
+/* Fil d'Ariane */
+.ariane{font-size:13.5px;color:var(--text-soft);padding-block:12px 0}
+.ariane a{color:var(--text-soft)}
+
+/* Bannière principale (bandeau de page) */
+.banniere{background:var(--vert-haut);color:var(--sur-vert)}
+.banniere .cadre{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px;align-items:center;padding-block:40px 44px}
+@media (max-width:760px){.banniere .cadre{grid-template-columns:1fr;padding-block:28px 32px}}
+.sur-titre{display:inline-block;font-weight:800;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--bouton);margin:0 0 10px}
+.banniere h1{font-size:clamp(28px,4.6vw,42px);line-height:1.12;margin:0 0 14px;letter-spacing:-.01em;text-wrap:balance}
+.banniere .chapo{font-size:18px;line-height:1.55;color:var(--sur-vert-doux);margin:0 0 20px;max-width:34em}
+.magasins{display:flex;gap:10px;flex-wrap:wrap}
+.bouton{display:inline-flex;align-items:center;gap:8px;background:var(--bouton);color:var(--sur-bouton);font-weight:800;text-decoration:none;border-radius:12px;padding:12px 18px}
+.bouton.clair{background:transparent;color:var(--sur-vert);border:1.5px solid var(--sur-vert-doux)}
+.bouton:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.ligne-marque{margin:16px 0 0;font-size:14.5px;color:var(--sur-vert-doux)}
+.illustration{width:100%;max-width:380px;justify-self:center}
+.illustration svg{display:block;width:100%;height:auto}
+
+/* Corps */
+main{padding-block:8px 24px}
+section.bloc{padding-block:34px 6px}
+h2{font-size:clamp(22px,3vw,27px);line-height:1.25;margin:0 0 12px;letter-spacing:-.005em;text-wrap:balance}
+h3{font-size:17px;line-height:1.35;margin:0 0 6px}
+p{margin:0 0 12px}
+
+/* Bloc texte + image */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:start}
+.duo.inverse{grid-template-columns:260px minmax(0,1fr)}
+.duo.inverse .texte{order:2}
+@media (max-width:760px){.duo,.duo.inverse{grid-template-columns:1fr}.duo.inverse .texte{order:0}}
+.etapes{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:14px;counter-reset:e}
+.etapes li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;counter-increment:e}
+.etapes li::before{content:counter(e);width:30px;height:30px;border-radius:50%;background:var(--bouton);color:var(--sur-bouton);font-weight:800;display:grid;place-items:center;font-size:14px;margin-top:2px}
+.etapes p{margin:0;color:var(--text-soft)}
+
+/* Emplacement de capture d'écran (rempli par les vraies captures de la 1.1.0) */
+figure.capture{margin:0}
+.ecran{aspect-ratio:9/19.5;max-width:100%;width:100%;border:2px dashed var(--line);border-radius:28px;background:var(--surface);display:grid;place-items:center;text-align:center;padding:18px;color:var(--text-soft);font-size:13.5px;line-height:1.45}
+.ecran b{display:block;color:var(--text);font-size:14px;margin-bottom:4px}
+figure.capture figcaption{font-size:13px;color:var(--text-soft);margin-top:8px;text-align:center}
+
+/* Pastilles des compétitions */
+.competitions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.competitions a{display:inline-block;padding:7px 13px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14.5px}
+.competitions a:hover{border-color:var(--accent)}
+
+/* Barème */
+.tableau{overflow-x:auto;margin:14px 0 8px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-soft)}
+td.points{font-family:var(--chiffres);font-weight:700;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
+.exemple{border-left:4px solid var(--orange);background:var(--surface);border-radius:0 12px 12px 0;padding:12px 16px;font-size:15px}
+.exemple p{margin:0 0 4px}.exemple p:last-child{margin:0}
+.exemple .score{font-family:var(--chiffres);font-weight:700}
+
+/* FAQ dépliante */
+.faq{background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:40px}
+.faq .cadre{padding-block:36px 40px}
+.faq-liste{display:grid;gap:12px;margin-top:18px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary h3{margin:0;font-size:14.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;line-height:1.4}
+.faq summary .fleche{flex:0 0 auto;width:10px;height:10px;border-right:2px solid var(--text);border-bottom:2px solid var(--text);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+.faq details[open] summary .fleche{transform:rotate(-135deg) translate(-2px,-2px)}
+.faq .reponse{padding:0 20px 18px;color:var(--text-soft)}
+.faq .reponse p:last-child{margin:0}
+@media (prefers-reduced-motion:reduce){.faq summary .fleche{transition:none}}
+
+/* C'est quoi, Drop League ? */
+.definition{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 28px;align-items:center;padding-block:34px 10px}
+@media (max-width:760px){.definition{grid-template-columns:1fr}}
+.definition h2{font-size:20px}
+.definition p{color:var(--text-soft);margin:0}
+
+/* Pied */
+footer{border-top:1px solid var(--line);margin-top:28px;font-size:14px;color:var(--text-soft)}
+footer .cadre{padding-block:26px 34px}
+.colonnes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+@media (max-width:760px){.colonnes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.colonnes b{display:block;color:var(--text);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.colonnes ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.colonnes a{color:var(--text-soft);text-decoration:none}
+.colonnes a:hover{color:var(--text);text-decoration:underline}
+.copyright{margin-top:22px}
+
+/* Ajout de l'accueil : les six compétitions, une pastille et une phrase par ligne */
+.competitions.detail{display:grid;gap:10px}
+.competitions.detail li{display:grid;grid-template-columns:200px minmax(0,1fr);gap:6px 16px;align-items:center}
+.competitions.detail a{justify-self:start}
+.competitions.detail p{margin:0;font-size:15px;color:var(--text-soft)}
+@media (max-width:560px){.competitions.detail li{grid-template-columns:1fr}}
+.suite{margin-top:12px;font-weight:600}
+/* Ajouts de la page Pro D2 : la page courante dans le fil et le pied, le calendrier dépliant
+   (journées en <details>, comme la FAQ), la note du relevé, le paragraphe qui suit les étapes. */
+.ariane [aria-current]{color:var(--text)}
+.colonnes a[aria-current]{color:var(--text);font-weight:700}
+.calendrier{display:grid;gap:10px;margin:16px 0 0}
+.calendrier details{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.calendrier summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px}
+.calendrier summary::-webkit-details-marker{display:none}
+.calendrier summary h3{margin:0;font-size:15.5px}
+.calendrier summary .fleche{flex:0 0 auto;width:9px;height:9px;border-right:2px solid var(--text);border-bottom:2px solid var(--text);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+.calendrier details[open] summary .fleche{transform:rotate(-135deg) translate(-2px,-2px)}
+.matchs{list-style:none;margin:0;padding:0 18px 12px}
+.matchs li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px;padding:8px 0;border-top:1px solid var(--line);font-size:15px}
+.matchs time{color:var(--text-soft);white-space:nowrap;font-size:14px}
+@media (prefers-reduced-motion:reduce){.calendrier summary .fleche{transition:none}}
+.releve{font-size:14.5px;color:var(--text-soft);margin-top:12px}
+.exemple{margin:12px 0}
+.apres-etapes{margin-top:18px}
+.marque img.logo{width:36px;height:36px;border-radius:9px;display:block}
+.calendrier{display:grid;gap:10px;margin:16px 0 8px}
+.journee{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.journee summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px}
+.journee summary::-webkit-details-marker{display:none}
+.journee summary h3{margin:0;font-size:16px;font-weight:700}
+.journee summary .fleche{flex:0 0 auto;width:10px;height:10px;border-right:2px solid var(--text);border-bottom:2px solid var(--text);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+.journee[open] summary .fleche{transform:rotate(-135deg) translate(-2px,-2px)}
+.matchs{list-style:none;margin:0;padding:0 18px 12px}
+.matchs li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding:9px 0;border-top:1px solid var(--line);font-size:15px}
+.matchs time{color:var(--text-soft);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.journee summary .fleche{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="cadre">
+    <a class="marque" href="/"><img class="logo" src="/icon-256.png" alt="" width="36" height="36">Drop League</a>
+    <nav aria-label="Menu principal">
+      <a href="/regles/">Le jeu</a>
+      <a href="/competitions/" aria-current="true">Compétitions</a>
+      <a href="/pronostics-rugby-entre-amis/">Entre amis</a>
+      <a href="/questions/">Questions</a>
+      <a class="telecharger" href="/application-pronostics-rugby/">Télécharger l'app</a>
+    </nav>
+  </div>
+</header>
+
+<section class="banniere" aria-labelledby="titre-page">
+  <div class="cadre">
+    <div>
+      <p class="sur-titre">Pro D2 · Saison 2026-2027</p>
+      <h1 id="titre-page">Le calendrier de la Pro D2 2026-2027, à pronostiquer entre amis</h1>
+      <p class="chapo">16 clubs, 30 journées, 240 matchs, du 27 août 2026 au 15 mai 2027. Annonce le score exact des matchs à venir avec ta bande et grimpe au classement de ta ligue.</p>
+      <div class="magasins">
+        <a class="bouton" href="https://apps.apple.com/fr/app/drop-league/id6814801571">Télécharger sur l'App Store</a>
+        <a class="bouton clair" href="https://play.google.com/store/apps/details?id=com.dropleague.app">Disponible sur Google Play</a>
+      </div>
+      <p class="ligne-marque">Pronostics entre amis : les points ne servent qu'au classement.</p>
+    </div>
+    <div class="illustration" aria-hidden="true">
+      <svg viewBox="0 0 380 300" role="img" aria-label="Des poteaux de rugby, un ballon et les 30 journées de la Pro D2">
+        <rect x="0" y="0" width="380" height="300" rx="20" fill="#193925"/>
+        <rect x="0" y="232" width="380" height="68" fill="#24603C"/>
+        <line x1="0" y1="232" x2="380" y2="232" stroke="#F5F7FA" stroke-width="3"/>
+        <line x1="118" y1="40" x2="118" y2="232" stroke="#F5F7FA" stroke-width="7" stroke-linecap="round"/>
+        <line x1="262" y1="40" x2="262" y2="232" stroke="#F5F7FA" stroke-width="7" stroke-linecap="round"/>
+        <line x1="118" y1="150" x2="262" y2="150" stroke="#F5F7FA" stroke-width="7" stroke-linecap="round"/>
+        <ellipse cx="190" cy="92" rx="30" ry="19" transform="rotate(-28 190 92)" fill="#F28E00"/>
+        <path d="M172 101 L208 83" stroke="#193925" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M184 99 l-3 -6 M191 95 l-3 -6 M198 91 l-3 -6" stroke="#193925" stroke-width="2" stroke-linecap="round"/>
+        <rect x="60" y="250" width="260" height="38" rx="10" fill="#F5F7FA"/>
+        <text x="190" y="276" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="20" font-weight="800" fill="#193925">Pro D2 : 30 journées</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="cadre">
+    <nav class="ariane" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › <a href="/competitions/">Compétitions</a> › <span aria-current="page">Pro D2</span></nav>
+
+    <section class="bloc lecture">
+      <h2>Le calendrier de la saison 2026-2027</h2>
+      <p>La Pro D2 2026-2027 se joue à 16 clubs, sur 30 journées de 8 matchs, du 27 août 2026 au 15 mai 2027. Jusqu'au 18 décembre, presque tous les matchs tombent le jeudi et le vendredi soir ; pour 2027, le calendrier relevé les fixe tous au samedi soir. Les 16 clubs : Agen, Angoulême, Aurillac, Béziers, Biarritz Olympique, CA Brive, Colomiers, Grenoble FC, Montauban, Narbonne, Nevers, Nissa, Provence Rugby, US Dax, US Oyonnax et Valence Romans.</p>
+      <div class="calendrier">
+  <details class="journee"><summary><h3>Journée 1 · 27 et 28 août 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Biarritz Olympique – Nissa</span><time datetime="2026-08-27">jeu. 27 août</time></li>
+      <li><span>Angoulême – Colomiers</span><time datetime="2026-08-27">jeu. 27 août</time></li>
+      <li><span>Béziers – US Oyonnax</span><time datetime="2026-08-27">jeu. 27 août</time></li>
+      <li><span>Grenoble FC – Aurillac</span><time datetime="2026-08-27">jeu. 27 août</time></li>
+      <li><span>Nevers – Montauban</span><time datetime="2026-08-27">jeu. 27 août</time></li>
+      <li><span>US Dax – Narbonne</span><time datetime="2026-08-27">jeu. 27 août</time></li>
+      <li><span>Provence Rugby – Agen</span><time datetime="2026-08-27">jeu. 27 août</time></li>
+      <li><span>CA Brive – Valence Romans</span><time datetime="2026-08-28">ven. 28 août</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 2 · 3 et 4 septembre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Colomiers – Provence Rugby</span><time datetime="2026-09-03">jeu. 3 septembre</time></li>
+      <li><span>Montauban – Grenoble FC</span><time datetime="2026-09-04">ven. 4 septembre</time></li>
+      <li><span>Aurillac – US Dax</span><time datetime="2026-09-04">ven. 4 septembre</time></li>
+      <li><span>Narbonne – Nevers</span><time datetime="2026-09-04">ven. 4 septembre</time></li>
+      <li><span>Nissa – Béziers</span><time datetime="2026-09-04">ven. 4 septembre</time></li>
+      <li><span>US Oyonnax – Biarritz Olympique</span><time datetime="2026-09-04">ven. 4 septembre</time></li>
+      <li><span>Valence Romans – Angoulême</span><time datetime="2026-09-04">ven. 4 septembre</time></li>
+      <li><span>Agen – CA Brive</span><time datetime="2026-09-04">ven. 4 septembre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 3 · 10 et 11 septembre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Biarritz Olympique – Colomiers</span><time datetime="2026-09-10">jeu. 10 septembre</time></li>
+      <li><span>Angoulême – Montauban</span><time datetime="2026-09-11">ven. 11 septembre</time></li>
+      <li><span>Béziers – Nevers</span><time datetime="2026-09-11">ven. 11 septembre</time></li>
+      <li><span>CA Brive – Nissa</span><time datetime="2026-09-11">ven. 11 septembre</time></li>
+      <li><span>Provence Rugby – Narbonne</span><time datetime="2026-09-11">ven. 11 septembre</time></li>
+      <li><span>US Dax – Valence Romans</span><time datetime="2026-09-11">ven. 11 septembre</time></li>
+      <li><span>US Oyonnax – Aurillac</span><time datetime="2026-09-11">ven. 11 septembre</time></li>
+      <li><span>Grenoble FC – Agen</span><time datetime="2026-09-11">ven. 11 septembre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 4 · 17 et 18 septembre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Aurillac – CA Brive</span><time datetime="2026-09-17">jeu. 17 septembre</time></li>
+      <li><span>Nissa – Grenoble FC</span><time datetime="2026-09-18">ven. 18 septembre</time></li>
+      <li><span>Colomiers – US Dax</span><time datetime="2026-09-18">ven. 18 septembre</time></li>
+      <li><span>Montauban – Béziers</span><time datetime="2026-09-18">ven. 18 septembre</time></li>
+      <li><span>Narbonne – Angoulême</span><time datetime="2026-09-18">ven. 18 septembre</time></li>
+      <li><span>Nevers – Biarritz Olympique</span><time datetime="2026-09-18">ven. 18 septembre</time></li>
+      <li><span>Valence Romans – Provence Rugby</span><time datetime="2026-09-18">ven. 18 septembre</time></li>
+      <li><span>Agen – US Oyonnax</span><time datetime="2026-09-18">ven. 18 septembre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 5 · 24 et 25 septembre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>CA Brive – Colomiers</span><time datetime="2026-09-24">jeu. 24 septembre</time></li>
+      <li><span>Béziers – Narbonne</span><time datetime="2026-09-25">ven. 25 septembre</time></li>
+      <li><span>Angoulême – Agen</span><time datetime="2026-09-25">ven. 25 septembre</time></li>
+      <li><span>Biarritz Olympique – Montauban</span><time datetime="2026-09-25">ven. 25 septembre</time></li>
+      <li><span>Provence Rugby – Aurillac</span><time datetime="2026-09-25">ven. 25 septembre</time></li>
+      <li><span>US Dax – Nissa</span><time datetime="2026-09-25">ven. 25 septembre</time></li>
+      <li><span>US Oyonnax – Nevers</span><time datetime="2026-09-25">ven. 25 septembre</time></li>
+      <li><span>Grenoble FC – Valence Romans</span><time datetime="2026-09-25">ven. 25 septembre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 6 · 8 et 9 octobre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Montauban – CA Brive</span><time datetime="2026-10-08">jeu. 8 octobre</time></li>
+      <li><span>Angoulême – Provence Rugby</span><time datetime="2026-10-09">ven. 9 octobre</time></li>
+      <li><span>Agen – US Dax</span><time datetime="2026-10-09">ven. 9 octobre</time></li>
+      <li><span>Narbonne – US Oyonnax</span><time datetime="2026-10-09">ven. 9 octobre</time></li>
+      <li><span>Nissa – Nevers</span><time datetime="2026-10-09">ven. 9 octobre</time></li>
+      <li><span>Valence Romans – Béziers</span><time datetime="2026-10-09">ven. 9 octobre</time></li>
+      <li><span>Aurillac – Biarritz Olympique</span><time datetime="2026-10-09">ven. 9 octobre</time></li>
+      <li><span>Grenoble FC – Colomiers</span><time datetime="2026-10-09">ven. 9 octobre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 7 · 16 et 17 octobre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>US Oyonnax – Valence Romans</span><time datetime="2026-10-16">ven. 16 octobre</time></li>
+      <li><span>Béziers – Aurillac</span><time datetime="2026-10-16">ven. 16 octobre</time></li>
+      <li><span>Colomiers – Narbonne</span><time datetime="2026-10-16">ven. 16 octobre</time></li>
+      <li><span>Nissa – Provence Rugby</span><time datetime="2026-10-16">ven. 16 octobre</time></li>
+      <li><span>US Dax – Montauban</span><time datetime="2026-10-16">ven. 16 octobre</time></li>
+      <li><span>Biarritz Olympique – Angoulême</span><time datetime="2026-10-16">ven. 16 octobre</time></li>
+      <li><span>Nevers – Agen</span><time datetime="2026-10-16">ven. 16 octobre</time></li>
+      <li><span>CA Brive – Grenoble FC</span><time datetime="2026-10-17">sam. 17 octobre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 8 · 22 et 23 octobre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Montauban – US Oyonnax</span><time datetime="2026-10-22">jeu. 22 octobre</time></li>
+      <li><span>Narbonne – CA Brive</span><time datetime="2026-10-23">ven. 23 octobre</time></li>
+      <li><span>Agen – Nissa</span><time datetime="2026-10-23">ven. 23 octobre</time></li>
+      <li><span>Angoulême – US Dax</span><time datetime="2026-10-23">ven. 23 octobre</time></li>
+      <li><span>Aurillac – Nevers</span><time datetime="2026-10-23">ven. 23 octobre</time></li>
+      <li><span>Valence Romans – Colomiers</span><time datetime="2026-10-23">ven. 23 octobre</time></li>
+      <li><span>Grenoble FC – Biarritz Olympique</span><time datetime="2026-10-23">ven. 23 octobre</time></li>
+      <li><span>Provence Rugby – Béziers</span><time datetime="2026-10-23">ven. 23 octobre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 9 · 29 et 30 octobre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>US Dax – Provence Rugby</span><time datetime="2026-10-29">jeu. 29 octobre</time></li>
+      <li><span>Colomiers – Agen</span><time datetime="2026-10-30">ven. 30 octobre</time></li>
+      <li><span>Béziers – Grenoble FC</span><time datetime="2026-10-30">ven. 30 octobre</time></li>
+      <li><span>Montauban – Narbonne</span><time datetime="2026-10-30">ven. 30 octobre</time></li>
+      <li><span>Nissa – Aurillac</span><time datetime="2026-10-30">ven. 30 octobre</time></li>
+      <li><span>US Oyonnax – Angoulême</span><time datetime="2026-10-30">ven. 30 octobre</time></li>
+      <li><span>Biarritz Olympique – Valence Romans</span><time datetime="2026-10-30">ven. 30 octobre</time></li>
+      <li><span>Nevers – CA Brive</span><time datetime="2026-10-30">ven. 30 octobre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 10 · 5 et 6 novembre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Agen – Biarritz Olympique</span><time datetime="2026-11-05">jeu. 5 novembre</time></li>
+      <li><span>CA Brive – US Dax</span><time datetime="2026-11-06">ven. 6 novembre</time></li>
+      <li><span>Aurillac – Montauban</span><time datetime="2026-11-06">ven. 6 novembre</time></li>
+      <li><span>Colomiers – Béziers</span><time datetime="2026-11-06">ven. 6 novembre</time></li>
+      <li><span>Narbonne – Nissa</span><time datetime="2026-11-06">ven. 6 novembre</time></li>
+      <li><span>Valence Romans – Nevers</span><time datetime="2026-11-06">ven. 6 novembre</time></li>
+      <li><span>Angoulême – Grenoble FC</span><time datetime="2026-11-06">ven. 6 novembre</time></li>
+      <li><span>Provence Rugby – US Oyonnax</span><time datetime="2026-11-06">ven. 6 novembre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 11 · 19 et 20 novembre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Grenoble FC – Provence Rugby</span><time datetime="2026-11-19">jeu. 19 novembre</time></li>
+      <li><span>Montauban – Agen</span><time datetime="2026-11-20">ven. 20 novembre</time></li>
+      <li><span>Aurillac – Colomiers</span><time datetime="2026-11-20">ven. 20 novembre</time></li>
+      <li><span>Béziers – US Dax</span><time datetime="2026-11-20">ven. 20 novembre</time></li>
+      <li><span>Nevers – Angoulême</span><time datetime="2026-11-20">ven. 20 novembre</time></li>
+      <li><span>Nissa – Valence Romans</span><time datetime="2026-11-20">ven. 20 novembre</time></li>
+      <li><span>Biarritz Olympique – Narbonne</span><time datetime="2026-11-20">ven. 20 novembre</time></li>
+      <li><span>US Oyonnax – CA Brive</span><time datetime="2026-11-20">ven. 20 novembre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 12 · 26 et 27 novembre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>CA Brive – Biarritz Olympique</span><time datetime="2026-11-26">jeu. 26 novembre</time></li>
+      <li><span>US Dax – US Oyonnax</span><time datetime="2026-11-27">ven. 27 novembre</time></li>
+      <li><span>Agen – Béziers</span><time datetime="2026-11-27">ven. 27 novembre</time></li>
+      <li><span>Angoulême – Nissa</span><time datetime="2026-11-27">ven. 27 novembre</time></li>
+      <li><span>Colomiers – Nevers</span><time datetime="2026-11-27">ven. 27 novembre</time></li>
+      <li><span>Valence Romans – Aurillac</span><time datetime="2026-11-27">ven. 27 novembre</time></li>
+      <li><span>Narbonne – Grenoble FC</span><time datetime="2026-11-27">ven. 27 novembre</time></li>
+      <li><span>Provence Rugby – Montauban</span><time datetime="2026-11-27">ven. 27 novembre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 13 · 3 et 4 décembre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Biarritz Olympique – Provence Rugby</span><time datetime="2026-12-03">jeu. 3 décembre</time></li>
+      <li><span>Béziers – CA Brive</span><time datetime="2026-12-04">ven. 4 décembre</time></li>
+      <li><span>Aurillac – Angoulême</span><time datetime="2026-12-04">ven. 4 décembre</time></li>
+      <li><span>Montauban – Valence Romans</span><time datetime="2026-12-04">ven. 4 décembre</time></li>
+      <li><span>Nevers – US Dax</span><time datetime="2026-12-04">ven. 4 décembre</time></li>
+      <li><span>Nissa – Colomiers</span><time datetime="2026-12-04">ven. 4 décembre</time></li>
+      <li><span>Narbonne – Agen</span><time datetime="2026-12-04">ven. 4 décembre</time></li>
+      <li><span>US Oyonnax – Grenoble FC</span><time datetime="2026-12-04">ven. 4 décembre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 14 · 10 et 11 décembre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Provence Rugby – CA Brive</span><time datetime="2026-12-10">jeu. 10 décembre</time></li>
+      <li><span>Colomiers – Montauban</span><time datetime="2026-12-11">ven. 11 décembre</time></li>
+      <li><span>Angoulême – Béziers</span><time datetime="2026-12-11">ven. 11 décembre</time></li>
+      <li><span>Grenoble FC – Nevers</span><time datetime="2026-12-11">ven. 11 décembre</time></li>
+      <li><span>Nissa – US Oyonnax</span><time datetime="2026-12-11">ven. 11 décembre</time></li>
+      <li><span>Valence Romans – Narbonne</span><time datetime="2026-12-11">ven. 11 décembre</time></li>
+      <li><span>Agen – Aurillac</span><time datetime="2026-12-11">ven. 11 décembre</time></li>
+      <li><span>US Dax – Biarritz Olympique</span><time datetime="2026-12-11">ven. 11 décembre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 15 · 17 et 18 décembre 2026</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>US Dax – Grenoble FC</span><time datetime="2026-12-17">jeu. 17 décembre</time></li>
+      <li><span>Nevers – Provence Rugby</span><time datetime="2026-12-18">ven. 18 décembre</time></li>
+      <li><span>Aurillac – Narbonne</span><time datetime="2026-12-18">ven. 18 décembre</time></li>
+      <li><span>Montauban – Nissa</span><time datetime="2026-12-18">ven. 18 décembre</time></li>
+      <li><span>US Oyonnax – Colomiers</span><time datetime="2026-12-18">ven. 18 décembre</time></li>
+      <li><span>Valence Romans – Agen</span><time datetime="2026-12-18">ven. 18 décembre</time></li>
+      <li><span>Béziers – Biarritz Olympique</span><time datetime="2026-12-18">ven. 18 décembre</time></li>
+      <li><span>CA Brive – Angoulême</span><time datetime="2026-12-18">ven. 18 décembre</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 16 · 9 janvier 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Agen – Nevers</span><time datetime="2027-01-09">sam. 9 janvier</time></li>
+      <li><span>Angoulême – US Oyonnax</span><time datetime="2027-01-09">sam. 9 janvier</time></li>
+      <li><span>Biarritz Olympique – Aurillac</span><time datetime="2027-01-09">sam. 9 janvier</time></li>
+      <li><span>Colomiers – CA Brive</span><time datetime="2027-01-09">sam. 9 janvier</time></li>
+      <li><span>Grenoble FC – Béziers</span><time datetime="2027-01-09">sam. 9 janvier</time></li>
+      <li><span>Narbonne – Montauban</span><time datetime="2027-01-09">sam. 9 janvier</time></li>
+      <li><span>Nissa – US Dax</span><time datetime="2027-01-09">sam. 9 janvier</time></li>
+      <li><span>Provence Rugby – Valence Romans</span><time datetime="2027-01-09">sam. 9 janvier</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 17 · 16 janvier 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Aurillac – Provence Rugby</span><time datetime="2027-01-16">sam. 16 janvier</time></li>
+      <li><span>Béziers – Colomiers</span><time datetime="2027-01-16">sam. 16 janvier</time></li>
+      <li><span>CA Brive – Agen</span><time datetime="2027-01-16">sam. 16 janvier</time></li>
+      <li><span>Montauban – Biarritz Olympique</span><time datetime="2027-01-16">sam. 16 janvier</time></li>
+      <li><span>Nevers – Nissa</span><time datetime="2027-01-16">sam. 16 janvier</time></li>
+      <li><span>US Dax – Angoulême</span><time datetime="2027-01-16">sam. 16 janvier</time></li>
+      <li><span>US Oyonnax – Narbonne</span><time datetime="2027-01-16">sam. 16 janvier</time></li>
+      <li><span>Valence Romans – Grenoble FC</span><time datetime="2027-01-16">sam. 16 janvier</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 18 · 23 janvier 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Agen – Montauban</span><time datetime="2027-01-23">sam. 23 janvier</time></li>
+      <li><span>Angoulême – Valence Romans</span><time datetime="2027-01-23">sam. 23 janvier</time></li>
+      <li><span>Biarritz Olympique – Nevers</span><time datetime="2027-01-23">sam. 23 janvier</time></li>
+      <li><span>Colomiers – Aurillac</span><time datetime="2027-01-23">sam. 23 janvier</time></li>
+      <li><span>Narbonne – US Dax</span><time datetime="2027-01-23">sam. 23 janvier</time></li>
+      <li><span>Nissa – CA Brive</span><time datetime="2027-01-23">sam. 23 janvier</time></li>
+      <li><span>Provence Rugby – Grenoble FC</span><time datetime="2027-01-23">sam. 23 janvier</time></li>
+      <li><span>US Oyonnax – Béziers</span><time datetime="2027-01-23">sam. 23 janvier</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 19 · 30 janvier 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Aurillac – US Oyonnax</span><time datetime="2027-01-30">sam. 30 janvier</time></li>
+      <li><span>Béziers – Provence Rugby</span><time datetime="2027-01-30">sam. 30 janvier</time></li>
+      <li><span>CA Brive – Narbonne</span><time datetime="2027-01-30">sam. 30 janvier</time></li>
+      <li><span>Grenoble FC – Nissa</span><time datetime="2027-01-30">sam. 30 janvier</time></li>
+      <li><span>Montauban – Angoulême</span><time datetime="2027-01-30">sam. 30 janvier</time></li>
+      <li><span>Nevers – Colomiers</span><time datetime="2027-01-30">sam. 30 janvier</time></li>
+      <li><span>US Dax – Agen</span><time datetime="2027-01-30">sam. 30 janvier</time></li>
+      <li><span>Valence Romans – Biarritz Olympique</span><time datetime="2027-01-30">sam. 30 janvier</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 20 · 13 février 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Angoulême – Nevers</span><time datetime="2027-02-13">sam. 13 février</time></li>
+      <li><span>Aurillac – Béziers</span><time datetime="2027-02-13">sam. 13 février</time></li>
+      <li><span>Colomiers – Valence Romans</span><time datetime="2027-02-13">sam. 13 février</time></li>
+      <li><span>Grenoble FC – CA Brive</span><time datetime="2027-02-13">sam. 13 février</time></li>
+      <li><span>Narbonne – Biarritz Olympique</span><time datetime="2027-02-13">sam. 13 février</time></li>
+      <li><span>Nissa – Agen</span><time datetime="2027-02-13">sam. 13 février</time></li>
+      <li><span>Provence Rugby – US Dax</span><time datetime="2027-02-13">sam. 13 février</time></li>
+      <li><span>US Oyonnax – Montauban</span><time datetime="2027-02-13">sam. 13 février</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 21 · 20 février 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Agen – Narbonne</span><time datetime="2027-02-20">sam. 20 février</time></li>
+      <li><span>Béziers – Angoulême</span><time datetime="2027-02-20">sam. 20 février</time></li>
+      <li><span>Biarritz Olympique – US Oyonnax</span><time datetime="2027-02-20">sam. 20 février</time></li>
+      <li><span>CA Brive – Provence Rugby</span><time datetime="2027-02-20">sam. 20 février</time></li>
+      <li><span>Montauban – Aurillac</span><time datetime="2027-02-20">sam. 20 février</time></li>
+      <li><span>Nevers – Grenoble FC</span><time datetime="2027-02-20">sam. 20 février</time></li>
+      <li><span>US Dax – Colomiers</span><time datetime="2027-02-20">sam. 20 février</time></li>
+      <li><span>Valence Romans – Nissa</span><time datetime="2027-02-20">sam. 20 février</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 22 · 27 février 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Aurillac – Agen</span><time datetime="2027-02-27">sam. 27 février</time></li>
+      <li><span>CA Brive – Béziers</span><time datetime="2027-02-27">sam. 27 février</time></li>
+      <li><span>Colomiers – Angoulême</span><time datetime="2027-02-27">sam. 27 février</time></li>
+      <li><span>Grenoble FC – Montauban</span><time datetime="2027-02-27">sam. 27 février</time></li>
+      <li><span>Narbonne – Valence Romans</span><time datetime="2027-02-27">sam. 27 février</time></li>
+      <li><span>Nissa – Biarritz Olympique</span><time datetime="2027-02-27">sam. 27 février</time></li>
+      <li><span>Provence Rugby – Nevers</span><time datetime="2027-02-27">sam. 27 février</time></li>
+      <li><span>US Oyonnax – US Dax</span><time datetime="2027-02-27">sam. 27 février</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 23 · 6 mars 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Agen – Colomiers</span><time datetime="2027-03-06">sam. 6 mars</time></li>
+      <li><span>Angoulême – Narbonne</span><time datetime="2027-03-06">sam. 6 mars</time></li>
+      <li><span>Béziers – Nissa</span><time datetime="2027-03-06">sam. 6 mars</time></li>
+      <li><span>Biarritz Olympique – Grenoble FC</span><time datetime="2027-03-06">sam. 6 mars</time></li>
+      <li><span>Montauban – Provence Rugby</span><time datetime="2027-03-06">sam. 6 mars</time></li>
+      <li><span>Nevers – US Oyonnax</span><time datetime="2027-03-06">sam. 6 mars</time></li>
+      <li><span>US Dax – Aurillac</span><time datetime="2027-03-06">sam. 6 mars</time></li>
+      <li><span>Valence Romans – CA Brive</span><time datetime="2027-03-06">sam. 6 mars</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 24 · 27 mars 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Aurillac – Valence Romans</span><time datetime="2027-03-27">sam. 27 mars</time></li>
+      <li><span>Biarritz Olympique – Agen</span><time datetime="2027-03-27">sam. 27 mars</time></li>
+      <li><span>CA Brive – Nevers</span><time datetime="2027-03-27">sam. 27 mars</time></li>
+      <li><span>Colomiers – US Oyonnax</span><time datetime="2027-03-27">sam. 27 mars</time></li>
+      <li><span>Grenoble FC – Narbonne</span><time datetime="2027-03-27">sam. 27 mars</time></li>
+      <li><span>Nissa – Montauban</span><time datetime="2027-03-27">sam. 27 mars</time></li>
+      <li><span>Provence Rugby – Angoulême</span><time datetime="2027-03-27">sam. 27 mars</time></li>
+      <li><span>US Dax – Béziers</span><time datetime="2027-03-27">sam. 27 mars</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 25 · 3 avril 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Agen – Grenoble FC</span><time datetime="2027-04-03">sam. 3 avril</time></li>
+      <li><span>Angoulême – CA Brive</span><time datetime="2027-04-03">sam. 3 avril</time></li>
+      <li><span>Béziers – Montauban</span><time datetime="2027-04-03">sam. 3 avril</time></li>
+      <li><span>Colomiers – Biarritz Olympique</span><time datetime="2027-04-03">sam. 3 avril</time></li>
+      <li><span>Narbonne – Provence Rugby</span><time datetime="2027-04-03">sam. 3 avril</time></li>
+      <li><span>Nevers – Aurillac</span><time datetime="2027-04-03">sam. 3 avril</time></li>
+      <li><span>US Oyonnax – Nissa</span><time datetime="2027-04-03">sam. 3 avril</time></li>
+      <li><span>Valence Romans – US Dax</span><time datetime="2027-04-03">sam. 3 avril</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 26 · 10 avril 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Agen – Valence Romans</span><time datetime="2027-04-10">sam. 10 avril</time></li>
+      <li><span>Biarritz Olympique – Béziers</span><time datetime="2027-04-10">sam. 10 avril</time></li>
+      <li><span>CA Brive – US Oyonnax</span><time datetime="2027-04-10">sam. 10 avril</time></li>
+      <li><span>Grenoble FC – US Dax</span><time datetime="2027-04-10">sam. 10 avril</time></li>
+      <li><span>Montauban – Nevers</span><time datetime="2027-04-10">sam. 10 avril</time></li>
+      <li><span>Narbonne – Aurillac</span><time datetime="2027-04-10">sam. 10 avril</time></li>
+      <li><span>Nissa – Angoulême</span><time datetime="2027-04-10">sam. 10 avril</time></li>
+      <li><span>Provence Rugby – Colomiers</span><time datetime="2027-04-10">sam. 10 avril</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 27 · 17 avril 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Angoulême – Biarritz Olympique</span><time datetime="2027-04-17">sam. 17 avril</time></li>
+      <li><span>Aurillac – Grenoble FC</span><time datetime="2027-04-17">sam. 17 avril</time></li>
+      <li><span>Béziers – Agen</span><time datetime="2027-04-17">sam. 17 avril</time></li>
+      <li><span>Colomiers – Nissa</span><time datetime="2027-04-17">sam. 17 avril</time></li>
+      <li><span>Nevers – Narbonne</span><time datetime="2027-04-17">sam. 17 avril</time></li>
+      <li><span>US Dax – CA Brive</span><time datetime="2027-04-17">sam. 17 avril</time></li>
+      <li><span>US Oyonnax – Provence Rugby</span><time datetime="2027-04-17">sam. 17 avril</time></li>
+      <li><span>Valence Romans – Montauban</span><time datetime="2027-04-17">sam. 17 avril</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 28 · 24 avril 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Agen – Angoulême</span><time datetime="2027-04-24">sam. 24 avril</time></li>
+      <li><span>Biarritz Olympique – US Dax</span><time datetime="2027-04-24">sam. 24 avril</time></li>
+      <li><span>CA Brive – Aurillac</span><time datetime="2027-04-24">sam. 24 avril</time></li>
+      <li><span>Grenoble FC – US Oyonnax</span><time datetime="2027-04-24">sam. 24 avril</time></li>
+      <li><span>Montauban – Colomiers</span><time datetime="2027-04-24">sam. 24 avril</time></li>
+      <li><span>Narbonne – Béziers</span><time datetime="2027-04-24">sam. 24 avril</time></li>
+      <li><span>Nevers – Valence Romans</span><time datetime="2027-04-24">sam. 24 avril</time></li>
+      <li><span>Provence Rugby – Nissa</span><time datetime="2027-04-24">sam. 24 avril</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 29 · 8 mai 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Angoulême – Aurillac</span><time datetime="2027-05-08">sam. 8 mai</time></li>
+      <li><span>Béziers – Valence Romans</span><time datetime="2027-05-08">sam. 8 mai</time></li>
+      <li><span>CA Brive – Montauban</span><time datetime="2027-05-08">sam. 8 mai</time></li>
+      <li><span>Colomiers – Grenoble FC</span><time datetime="2027-05-08">sam. 8 mai</time></li>
+      <li><span>Nissa – Narbonne</span><time datetime="2027-05-08">sam. 8 mai</time></li>
+      <li><span>Provence Rugby – Biarritz Olympique</span><time datetime="2027-05-08">sam. 8 mai</time></li>
+      <li><span>US Dax – Nevers</span><time datetime="2027-05-08">sam. 8 mai</time></li>
+      <li><span>US Oyonnax – Agen</span><time datetime="2027-05-08">sam. 8 mai</time></li>
+    </ul>
+  </details>
+  <details class="journee"><summary><h3>Journée 30 · 15 mai 2027</h3><span class="fleche" aria-hidden="true"></span></summary>
+    <ul class="matchs">
+      <li><span>Agen – Provence Rugby</span><time datetime="2027-05-15">sam. 15 mai</time></li>
+      <li><span>Aurillac – Nissa</span><time datetime="2027-05-15">sam. 15 mai</time></li>
+      <li><span>Biarritz Olympique – CA Brive</span><time datetime="2027-05-15">sam. 15 mai</time></li>
+      <li><span>Grenoble FC – Angoulême</span><time datetime="2027-05-15">sam. 15 mai</time></li>
+      <li><span>Montauban – US Dax</span><time datetime="2027-05-15">sam. 15 mai</time></li>
+      <li><span>Narbonne – Colomiers</span><time datetime="2027-05-15">sam. 15 mai</time></li>
+      <li><span>Nevers – Béziers</span><time datetime="2027-05-15">sam. 15 mai</time></li>
+      <li><span>Valence Romans – US Oyonnax</span><time datetime="2027-05-15">sam. 15 mai</time></li>
+    </ul>
+  </details>
+</div>
+      <p class="releve">Calendrier relevé le 19 novembre 2026. Les dates et les horaires à jour sont dans l'app : c'est là que tu poses tes pronos.</p>
+      <p class="suite"><a href="/competitions/">Les six compétitions de Drop League</a></p>
+    </section>
+
+    <section class="bloc lecture">
+      <h2>Combien de points vaut ton prono en Pro D2 ?</h2>
+      <p>La Pro D2 est un championnat de clubs : son barème est celui du <a href="/competitions/top-14/">Top 14</a>. Chaque prono posé avant le coup d'envoi rapporte 1 point ; le bon vainqueur en rapporte 3 quand l'équipe qui reçoit gagne, 5 quand celle qui se déplace gagne. Le score exact d'une équipe ajoute 2 points ; celui des deux équipes, le graal, en ajoute 10 à la place de ces 2.</p>
+      <div class="tableau">
+        <table>
+          <thead><tr><th scope="col">Points</th><th scope="col">Ce qui les rapporte</th></tr></thead>
+          <tbody>
+            <tr><td class="points">+1</td><td>La participation : chaque prono posé avant le coup d'envoi.</td></tr>
+            <tr><td class="points">+3</td><td>La pénalité passée : bon vainqueur, quand l'équipe qui reçoit gagne.</td></tr>
+            <tr><td class="points">+5</td><td>L'essai : bon vainqueur, quand l'équipe qui se déplace gagne.</td></tr>
+            <tr><td class="points">+2</td><td>La transformation : bon vainqueur, et écart juste à 3 points près.</td></tr>
+            <tr><td class="points">+2</td><td>Le buteur : le score exact d'une des deux équipes.</td></tr>
+            <tr><td class="points">+10</td><td>Le graal : le score exact des deux équipes, à la place du buteur.</td></tr>
+            <tr><td class="points">+15</td><td>Le XV : nul annoncé, nul joué.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="exemple">
+        <p>Le match finit <span class="score">20-24</span> : l'équipe qui se déplace gagne de 4 points.</p>
+        <p>Prono <span class="score">18-24</span> : 1 + 5 + 2 + 2 = 10 points. La participation, l'essai, la transformation (un écart de 6, juste à 3 points près) et le buteur.</p>
+        <p>Prono <span class="score">20-24</span> : 1 + 5 + 2 + 10 = 18 points, le plus haut total quand l'équipe qui se déplace gagne.</p>
+      </div>
+      <p>Voir venir la victoire à l'extérieur rapporte 5 points au lieu de 3 : de quoi chambrer toute la semaine au Club-house. Au plus 16 points sur un match quand l'équipe qui reçoit gagne, 26 sur un nul annoncé au score exact.</p>
+      <p class="suite"><a href="/regles/">Toutes les règles du jeu</a>, avec un exemple chiffré</p>
+    </section>
+
+    <section class="bloc lecture">
+      <h2>Que vaut la finale de la Pro D2, sur terrain neutre ?</h2>
+      <p>En Pro D2, seule la finale se joue sur terrain neutre. Aucune équipe ne reçoit : le bon vainqueur y vaut 4 points, quelle que soit l'équipe qui gagne. Avec un vainqueur, ton prono y rapporte au plus 17 points. Tous les autres matchs de la saison gardent le barème des clubs, 3 ou 5 points pour le bon vainqueur.</p>
+      <div class="tableau">
+        <table>
+          <thead><tr><th scope="col">Le match</th><th scope="col">L'équipe qui reçoit gagne</th><th scope="col">L'équipe qui se déplace gagne</th></tr></thead>
+          <tbody>
+            <tr><td>Tous les autres matchs de Pro D2</td><td class="points">+3</td><td class="points">+5</td></tr>
+            <tr><td>La finale, sur terrain neutre</td><td class="points" colspan="2">+4</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Dans l'app, un badge « Terrain neutre » le signale sur l'écran du match, avant ta saisie. Le score retenu est celui de la fin des 80 minutes : les prolongations ne comptent pas. Les matchs des phases finales ne sont pas encore au calendrier relevé : ils s'ajouteront à l'app quand ils seront connus.</p>
+      <p>C'est la même règle qu'en <a href="/competitions/champions-cup/">Champions Cup</a> et en Challenge Cup : la finale seule sur terrain neutre. En Top 14, les demi-finales aussi.</p>
+    </section>
+
+    <section class="bloc lecture">
+      <h2>Crée ta ligue Pro D2</h2>
+      <p>À la création de ta ligue, sous « Sur quelle compétition ? », touche « Pro D2 » : ta ligue ne compte que les matchs de Pro D2. Avec « Toutes compétitions », elle suit les six compétitions de Drop League. Tu peux avoir plusieurs ligues, chacune avec son classement.</p>
+      <ol class="etapes">
+        <li><div><h3>Crée ta ligue</h3><p>Dans l'onglet Ligues, touche « Créer ma ligue », donne-lui un nom, puis choisis « Pro D2 » sous « Sur quelle compétition ? ».</p></div></li>
+        <li><div><h3>Invite ta bande avec le code</h3><p>Touche « Inviter des potes » pour envoyer le code d'invitation de six caractères : tes potes le tapent dans « J'ai un code d'invitation ».</p></div></li>
+        <li><div><h3>Annonce le score exact, match par match</h3><p>Dans l'onglet Pronos, touche « Faire mon prono » et pose les deux chiffres. Chaque prono ferme au coup d'envoi de son match : celui du vendredi reste ouvert après le match du jeudi.</p></div></li>
+      </ol>
+      <p class="apres-etapes">En cours de saison, ta ligue part de zéro : seules comptent les journées dont le premier coup d'envoi tombe après sa création. Jusqu'en décembre, la journée de Pro D2 s'ouvre presque toujours le jeudi soir : une ligue créée le vendredi démarre alors à la journée suivante.</p>
+      <p class="suite">Collègues, famille, bande du club : le guide des <a href="/pronostics-rugby-entre-amis/">pronostics rugby entre amis</a>.</p>
+    </section>
+
+    <section class="bloc lecture">
+      <h2>Ta Chistera et ton Caramel pour la saison de Pro D2</h2>
+      <p>Pour la Pro D2, tu as une Chistera et un Caramel pour toute la saison, les mêmes pour tout le monde. La Chistera double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise ; le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement. Tu les poses en secret avant le premier coup d'envoi de la journée : en Pro D2, jusqu'en décembre, presque toujours le jeudi soir.</p>
+      <p>Avec ses 30 journées, la Pro D2 est une compétition longue : ton caramel t'est rendu si ta cible en a déjà subi 2 dans cette ligue, contre 1 dans une compétition de moins de 20 journées. Pour ce plafond, seuls comptent les caramels subis sur une journée où elle avait au moins 4 points.</p>
+      <p class="suite"><a href="/regles/gestes-techniques/">Les gestes techniques et leurs cas particuliers</a></p>
+    </section>
+  </div>
+
+  <section class="faq" aria-labelledby="titre-faq">
+    <div class="cadre lecture-large">
+      <h2 id="titre-faq">Questions fréquentes sur les pronos Pro D2</h2>
+      <div class="faq-liste">
+        <details>
+          <summary><h3>Quand commence la Pro D2 2026-2027 ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>La Pro D2 2026-2027 a commencé le jeudi 27 août 2026. Sa 30e journée est prévue le 15 mai 2027, d'après le calendrier relevé le 19 novembre 2026. Les phases finales viennent ensuite ; leurs dates ne sont pas encore au calendrier.</p></div>
+        </details>
+        <details>
+          <summary><h3>Combien de journées compte la Pro D2 2026-2027 ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>30 journées de 8 matchs : 240 matchs en tout, du 27 août 2026 au 15 mai 2027. Jusqu'au 18 décembre, presque tous les matchs se jouent le jeudi et le vendredi soir. Les phases finales s'ajoutent après la 30e journée.</p></div>
+        </details>
+        <details>
+          <summary><h3>Quels clubs jouent la Pro D2 2026-2027 ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>16 clubs : Agen, Angoulême, Aurillac, Béziers, Biarritz Olympique, CA Brive, Colomiers, Grenoble FC, Montauban, Narbonne, Nevers, Nissa, Provence Rugby, US Dax, US Oyonnax et Valence Romans. Chaque journée compte 8 matchs : tu annonces le score exact de chacun avant son coup d'envoi.</p></div>
+        </details>
+        <details>
+          <summary><h3>Combien de points rapporte un prono en Pro D2 ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>La Pro D2 suit le barème des clubs. Chaque prono posé avant le coup d'envoi rapporte 1 point ; le bon vainqueur en rapporte 3 quand l'équipe qui reçoit gagne, 5 quand celle qui se déplace gagne, et 4 en finale, sur terrain neutre. Le score exact d'une équipe ajoute 2 points ; celui des deux équipes, le graal, en ajoute 10 à la place de ces 2. Au plus 16 points sur un match quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne.</p></div>
+        </details>
+        <details>
+          <summary><h3>Peut-on créer une ligue rien que pour la Pro D2 ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Oui. Dans l'onglet Ligues, touche « Créer ma ligue », puis choisis « Pro D2 » sous « Sur quelle compétition ? ». Tu partages ensuite le code d'invitation avec ta bande. En cours de saison, la ligue part de zéro : les journées déjà commencées ne comptent pas pour elle.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="cadre">
+    <section class="definition" aria-labelledby="titre-definition">
+      <div>
+        <h2 id="titre-definition">C'est quoi, Drop League ?</h2>
+        <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+      </div>
+      <div class="magasins">
+        <a class="bouton" href="https://apps.apple.com/fr/app/drop-league/id6814801571">App Store</a>
+        <a class="bouton" href="https://play.google.com/store/apps/details?id=com.dropleague.app">Google Play</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="cadre">
+    <div class="colonnes">
+      <div><b>Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
+      <div><b>Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a aria-current="page">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b>Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
+      <div><b>Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
+    </div>
+    <p class="copyright">© 2026 Drop League</p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Compétitions","item":"https://dropleague.app/competitions/"},{"@type":"ListItem","position":3,"name":"Pro D2","item":"https://dropleague.app/competitions/pro-d2/"}]},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Quand commence la Pro D2 2026-2027 ?","acceptedAnswer":{"@type":"Answer","text":"La Pro D2 2026-2027 a commencé le jeudi 27 août 2026. Sa 30e journée est prévue le 15 mai 2027, d'après le calendrier relevé le 19 novembre 2026. Les phases finales viennent ensuite ; leurs dates ne sont pas encore au calendrier."}},
+  {"@type":"Question","name":"Combien de journées compte la Pro D2 2026-2027 ?","acceptedAnswer":{"@type":"Answer","text":"30 journées de 8 matchs : 240 matchs en tout, du 27 août 2026 au 15 mai 2027. Jusqu'au 18 décembre, presque tous les matchs se jouent le jeudi et le vendredi soir. Les phases finales s'ajoutent après la 30e journée."}},
+  {"@type":"Question","name":"Quels clubs jouent la Pro D2 2026-2027 ?","acceptedAnswer":{"@type":"Answer","text":"16 clubs : Agen, Angoulême, Aurillac, Béziers, Biarritz Olympique, CA Brive, Colomiers, Grenoble FC, Montauban, Narbonne, Nevers, Nissa, Provence Rugby, US Dax, US Oyonnax et Valence Romans. Chaque journée compte 8 matchs : tu annonces le score exact de chacun avant son coup d'envoi."}},
+  {"@type":"Question","name":"Combien de points rapporte un prono en Pro D2 ?","acceptedAnswer":{"@type":"Answer","text":"La Pro D2 suit le barème des clubs. Chaque prono posé avant le coup d'envoi rapporte 1 point ; le bon vainqueur en rapporte 3 quand l'équipe qui reçoit gagne, 5 quand celle qui se déplace gagne, et 4 en finale, sur terrain neutre. Le score exact d'une équipe ajoute 2 points ; celui des deux équipes, le graal, en ajoute 10 à la place de ces 2. Au plus 16 points sur un match quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne."}},
+  {"@type":"Question","name":"Peut-on créer une ligue rien que pour la Pro D2 ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Dans l'onglet Ligues, touche « Créer ma ligue », puis choisis « Pro D2 » sous « Sur quelle compétition ? ». Tu partages ensuite le code d'invitation avec ta bande. En cours de saison, la ligue part de zéro : les journées déjà commencées ne comptent pas pour elle."}}
+ ]}
+]}
+</script>
+</body>
+</html>

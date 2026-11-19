@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pronostics entre amis pour le rugby : crée ta ligue · Drop League</title>
+<meta name="description" content="Crée ta ligue de pronostics rugby entre amis, partage le code et annonce le score exact de chaque match, du Top 14 au 6 Nations. Sur iPhone et Android.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1F5636">
+<link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
+<link rel="apple-touch-icon" href="/icon-256.png">
+<link rel="canonical" href="https://dropleague.app/pronostics-rugby-entre-amis/">
+<meta name="apple-itunes-app" content="app-id=6814801571">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Drop League">
+<meta property="og:title" content="Pronostics entre amis pour le rugby : crée ta ligue · Drop League">
+<meta property="og:description" content="Crée ta ligue de pronostics rugby entre amis, partage le code et annonce le score exact de chaque match, du Top 14 au 6 Nations. Sur iPhone et Android.">
+<meta property="og:image" content="https://dropleague.app/icon-256.png">
+<meta property="og:url" content="https://dropleague.app/pronostics-rugby-entre-amis/">
+<meta name="twitter:card" content="summary">
+<style>
+/* Composition : bandeau vert plein cadre en tête (la marque), puis une colonne de lecture de 680 px
+   où alternent blocs de texte et blocs image, une bande grise pour la FAQ dépliante, un pied en 4 colonnes.
+   Charte du site existant : vert pour le bandeau seulement, surfaces neutres, orange pour l'accent. Aucun dégradé. */
+:root{
+  --vert:#193925; --vert-haut:#1F5636; --sur-vert:#F5F7FA; --sur-vert-doux:#C9D6CC;
+  --orange:#F28E00; --bouton:#FFB54B; --sur-bouton:#193925;
+  --bg:#F3F5EF; --surface:#FFFFFF; --surface-2:#EAEEE3;
+  --text:#171C18; --text-soft:#57604F; --accent:#8F5400; --line:#D8DCCF;
+  --texte:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --chiffres:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101312; --surface:#191D1B; --surface-2:#151917;
+    --text:#F5F7FA; --text-soft:#93A395; --accent:#F28E00; --line:#2A302D; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101312; --surface:#191D1B; --surface-2:#151917;
+  --text:#F5F7FA; --text-soft:#93A395; --accent:#F28E00; --line:#2A302D; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--texte)}
+a{color:var(--accent);text-underline-offset:3px}
+.cadre{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.lecture{max-width:680px}
+
+/* Avertissement de maquette */
+.maquette{background:var(--surface-2);border-bottom:1px solid var(--line);font-size:13px;color:var(--text-soft)}
+.maquette .cadre{padding-block:8px}
+
+/* En-tête */
+header{background:var(--vert-haut);color:var(--sur-vert);border-bottom:4px solid var(--vert)}
+header .cadre{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;padding-block:14px}
+.marque{display:flex;align-items:center;gap:10px;color:var(--sur-vert);text-decoration:none;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:17px}
+.marque span.logo{width:36px;height:36px;border-radius:9px;background:var(--vert);display:grid;place-items:center;font-size:14px;letter-spacing:0;color:var(--bouton)}
+header nav{margin-left:auto;display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;font-size:14.5px;font-weight:600}
+header nav a{color:var(--sur-vert-doux);text-decoration:none}
+header nav a:hover,header nav a[aria-current]{color:var(--sur-vert);text-decoration:underline;text-underline-offset:5px}
+header nav a.telecharger{background:var(--bouton);color:var(--sur-bouton);padding:7px 14px;border-radius:10px;text-decoration:none}
+@media (max-width:720px){header nav{margin-left:0;width:100%}}
+
+/* Fil d'Ariane */
+.ariane{font-size:13.5px;color:var(--text-soft);padding-block:12px 0}
+.ariane a{color:var(--text-soft)}
+
+/* Bannière principale (bandeau de page) */
+.banniere{background:var(--vert-haut);color:var(--sur-vert)}
+.banniere .cadre{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px;align-items:center;padding-block:40px 44px}
+@media (max-width:760px){.banniere .cadre{grid-template-columns:1fr;padding-block:28px 32px}}
+.sur-titre{display:inline-block;font-weight:800;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--bouton);margin:0 0 10px}
+.banniere h1{font-size:clamp(28px,4.6vw,42px);line-height:1.12;margin:0 0 14px;letter-spacing:-.01em;text-wrap:balance}
+.banniere .chapo{font-size:18px;line-height:1.55;color:var(--sur-vert-doux);margin:0 0 20px;max-width:34em}
+.magasins{display:flex;gap:10px;flex-wrap:wrap}
+.bouton{display:inline-flex;align-items:center;gap:8px;background:var(--bouton);color:var(--sur-bouton);font-weight:800;text-decoration:none;border-radius:12px;padding:12px 18px}
+.bouton.clair{background:transparent;color:var(--sur-vert);border:1.5px solid var(--sur-vert-doux)}
+.bouton:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.ligne-marque{margin:16px 0 0;font-size:14.5px;color:var(--sur-vert-doux)}
+.illustration{width:100%;max-width:380px;justify-self:center}
+.illustration svg{display:block;width:100%;height:auto}
+
+/* Corps */
+main{padding-block:8px 24px}
+section.bloc{padding-block:34px 6px}
+h2{font-size:clamp(22px,3vw,27px);line-height:1.25;margin:0 0 12px;letter-spacing:-.005em;text-wrap:balance}
+h3{font-size:17px;line-height:1.35;margin:0 0 6px}
+p{margin:0 0 12px}
+
+/* Bloc texte + image */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:start}
+.duo.inverse{grid-template-columns:260px minmax(0,1fr)}
+.duo.inverse .texte{order:2}
+@media (max-width:760px){.duo,.duo.inverse{grid-template-columns:1fr}.duo.inverse .texte{order:0}}
+.etapes{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:14px;counter-reset:e}
+.etapes li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;counter-increment:e}
+.etapes li::before{content:counter(e);width:30px;height:30px;border-radius:50%;background:var(--bouton);color:var(--sur-bouton);font-weight:800;display:grid;place-items:center;font-size:14px;margin-top:2px}
+.etapes p{margin:0;color:var(--text-soft)}
+
+/* Emplacement de capture d'écran (rempli par les vraies captures de la 1.1.0) */
+figure.capture{margin:0}
+.ecran{aspect-ratio:9/19.5;max-width:100%;width:100%;border:2px dashed var(--line);border-radius:28px;background:var(--surface);display:grid;place-items:center;text-align:center;padding:18px;color:var(--text-soft);font-size:13.5px;line-height:1.45}
+.ecran b{display:block;color:var(--text);font-size:14px;margin-bottom:4px}
+figure.capture figcaption{font-size:13px;color:var(--text-soft);margin-top:8px;text-align:center}
+
+/* Pastilles des compétitions */
+.competitions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.competitions a{display:inline-block;padding:7px 13px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14.5px}
+.competitions a:hover{border-color:var(--accent)}
+
+/* Barème */
+.tableau{overflow-x:auto;margin:14px 0 8px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-soft)}
+td.points{font-family:var(--chiffres);font-weight:700;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
+.exemple{border-left:4px solid var(--orange);background:var(--surface);border-radius:0 12px 12px 0;padding:12px 16px;font-size:15px}
+.exemple p{margin:0 0 4px}.exemple p:last-child{margin:0}
+.exemple .score{font-family:var(--chiffres);font-weight:700}
+
+/* FAQ dépliante */
+.faq{background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:40px}
+.faq .cadre{padding-block:36px 40px}
+.faq-liste{display:grid;gap:12px;margin-top:18px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary h3{margin:0;font-size:14.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;line-height:1.4}
+.faq summary .fleche{flex:0 0 auto;width:10px;height:10px;border-right:2px solid var(--text);border-bottom:2px solid var(--text);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+.faq details[open] summary .fleche{transform:rotate(-135deg) translate(-2px,-2px)}
+.faq .reponse{padding:0 20px 18px;color:var(--text-soft)}
+.faq .reponse p:last-child{margin:0}
+@media (prefers-reduced-motion:reduce){.faq summary .fleche{transition:none}}
+
+/* C'est quoi, Drop League ? */
+.definition{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 28px;align-items:center;padding-block:34px 10px}
+@media (max-width:760px){.definition{grid-template-columns:1fr}}
+.definition h2{font-size:20px}
+.definition p{color:var(--text-soft);margin:0}
+
+/* Pied */
+footer{border-top:1px solid var(--line);margin-top:28px;font-size:14px;color:var(--text-soft)}
+footer .cadre{padding-block:26px 34px}
+.colonnes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+@media (max-width:760px){.colonnes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.colonnes b{display:block;color:var(--text);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.colonnes ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.colonnes a{color:var(--text-soft);text-decoration:none}
+.colonnes a:hover{color:var(--text);text-decoration:underline}
+.copyright{margin-top:22px}
+/* Ajouts de la v2 : note sous le tableau des points, lien de suite en fin de section */
+.note-bareme{font-size:14px;color:var(--text-soft);margin:0 0 14px}
+.suite{margin:14px 0 0;font-weight:600}
+.marque img.logo{width:36px;height:36px;border-radius:9px;display:block}
+</style>
+</head>
+<body>
+<header>
+  <div class="cadre">
+    <a class="marque" href="/"><img class="logo" src="/icon-256.png" alt="" width="36" height="36">Drop League</a>
+    <nav aria-label="Menu principal">
+      <a href="/regles/">Le jeu</a>
+      <a href="/competitions/">Compétitions</a>
+      <a aria-current="page">Entre amis</a>
+      <a href="/questions/">Questions</a>
+      <a class="telecharger" href="/application-pronostics-rugby/">Télécharger l'app</a>
+    </nav>
+  </div>
+</header>
+
+<section class="banniere" aria-labelledby="titre-page">
+  <div class="cadre">
+    <div>
+      <p class="sur-titre">Pronostics rugby entre amis</p>
+      <h1 id="titre-page">Des pronostics rugby entre amis, sur iPhone et Android</h1>
+      <p class="chapo">Tu crées ta ligue, tu partages le code, et tout le monde annonce le score exact des matchs. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+      <div class="magasins">
+        <a class="bouton" href="https://apps.apple.com/fr/app/drop-league/id6814801571">Télécharger sur l'App Store</a>
+        <a class="bouton clair" href="https://play.google.com/store/apps/details?id=com.dropleague.app">Disponible sur Google Play</a>
+      </div>
+      <p class="ligne-marque">Pronostics entre amis : les points ne servent qu'au classement.</p>
+    </div>
+    <div class="illustration" aria-hidden="true">
+      <svg viewBox="0 0 380 300" role="img" aria-label="Des poteaux de rugby, un ballon et un score annoncé">
+        <rect x="0" y="0" width="380" height="300" rx="20" fill="#193925"/>
+        <rect x="0" y="232" width="380" height="68" fill="#24603C"/>
+        <line x1="0" y1="232" x2="380" y2="232" stroke="#F5F7FA" stroke-width="3"/>
+        <line x1="118" y1="40" x2="118" y2="232" stroke="#F5F7FA" stroke-width="7" stroke-linecap="round"/>
+        <line x1="262" y1="40" x2="262" y2="232" stroke="#F5F7FA" stroke-width="7" stroke-linecap="round"/>
+        <line x1="118" y1="150" x2="262" y2="150" stroke="#F5F7FA" stroke-width="7" stroke-linecap="round"/>
+        <ellipse cx="190" cy="92" rx="30" ry="19" transform="rotate(-28 190 92)" fill="#F28E00"/>
+        <path d="M172 101 L208 83" stroke="#193925" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M184 99 l-3 -6 M191 95 l-3 -6 M198 91 l-3 -6" stroke="#193925" stroke-width="2" stroke-linecap="round"/>
+        <rect x="60" y="250" width="260" height="38" rx="10" fill="#F5F7FA"/>
+        <text x="190" y="276" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="20" font-weight="800" fill="#193925">Ton prono : 27 – 21</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="cadre">
+    <nav class="ariane" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › Pronostics rugby entre amis</nav>
+
+    <section class="bloc">
+      <div>
+        <div class="texte lecture">
+          <h2>Comment monter ta ligue de pronostics rugby ?</h2>
+          <p>Une ligue Drop League, c'est ton groupe à toi : ses joueurs, ses compétitions, son classement et son Club-house. Tu la crées dans l'app, tu envoies un code de six caractères, et le classement démarre. Deux minutes suffisent.</p>
+          <ol class="etapes">
+            <li><div><h3>Crée la ligue et choisis tes compétitions</h3><p>Dans l'onglet Ligues, touche « Créer ma ligue », donne-lui un nom, puis prends toutes les compétitions ou une seule. Dès ton inscription, l'étape « Ta première ligue » te propose le même bouton.</p></div></li>
+            <li><div><h3>Partage le code d'invitation</h3><p>Touche « Inviter des potes » pour l'envoyer. Tes potes touchent « J'ai un code d'invitation » et tapent les six caractères.</p></div></li>
+            <li><div><h3>Tout le monde annonce ses scores</h3><p>Avant le coup d'envoi, chaque membre pose le score exact de chaque match. Le classement bouge après le coup de sifflet final.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloc">
+      <div>
+        <div class="texte lecture">
+          <h2>Qui monte la ligue, qui l'anime ?</h2>
+          <p>La personne qui crée la ligue lui donne son nom et choisit : toutes les compétitions, ou une seule. Ensuite, tous les membres ont les mêmes boutons : tout le monde voit le code sur la carte de la ligue, dans l'onglet Ligues, et peut inviter de nouveaux potes. L'animation se fait au Club-house, à plusieurs voix.</p>
+          <p>Le bouton « Inviter des potes » ouvre le partage de ton téléphone avec un message tout prêt : « Rejoins mon vestiaire sur Drop League ! », suivi du code. Tant que personne ne t'a rejoint, la carte affiche « En attente d'un deuxième joueur ». À chaque arrivée, le Club-house l'annonce : « Karim rejoint le club-house. »</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloc">
+      <div>
+        <div class="texte lecture">
+          <h2>Qui inviter dans ta ligue ?</h2>
+          <p>Tout le monde avec qui tu refais le match le lundi matin. Des pronos rugby entre potes, entre collègues ou en famille : une ligue par bande, et tu peux en avoir plusieurs, chacune avec son classement.</p>
+          <h3>Les potes du club</h3>
+          <p>La bande du bord du terrain, la tablée de la buvette, et la personne qui a toujours raison une fois le match fini.</p>
+          <h3>Les collègues</h3>
+          <p>Le concours de l'équipe, sans tableur : le classement se met à jour tout seul après chaque match. Pour l'organiser au bureau, suis le guide du <a href="/concours-pronostics-rugby/">concours de pronostics rugby</a>.</p>
+          <h3>La famille</h3>
+          <p>Le Top 14 le week-end, le 6 Nations en février, et de quoi parler au repas du dimanche.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloc lecture">
+      <h2>Toutes les compétitions, ou une seule</h2>
+      <p>À la création de ta ligue, sous « Sur quelle compétition ? », tu touches « Toutes compétitions » ou tu en prends une seule. Toute la saison avec la bande du club, rien que le 6 Nations avec la famille : c'est toi qui choisis.</p>
+      <ul class="competitions">
+        <li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li>
+        <li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li>
+      </ul>
+      <p class="suite"><a href="/competitions/">Toutes les compétitions de Drop League</a></p>
+    </section>
+
+    <section class="bloc lecture">
+      <h2>Le score exact, les deux chiffres</h2>
+      <p>Ton prono, c'est le score exact du match : tu ne dis pas seulement qui gagne, tu dis 27-21. Il reste modifiable jusqu'au coup d'envoi, et chaque prono posé rapporte déjà un point.</p>
+      <div class="tableau">
+        <table>
+          <thead><tr><th scope="col">Points</th><th scope="col">Ce qui les rapporte</th></tr></thead>
+          <tbody>
+            <tr><td class="points">+1</td><td>La participation : chaque prono posé avant le coup d'envoi.</td></tr>
+            <tr><td class="points">+3</td><td>La pénalité passée : bon vainqueur, quand l'équipe qui reçoit gagne.</td></tr>
+            <tr><td class="points">+5</td><td>L'essai : bon vainqueur, quand l'équipe qui se déplace gagne.</td></tr>
+            <tr><td class="points">+3 ou +4</td><td>Bon vainqueur en sélection : 3 si l'équipe qui reçoit gagne, 4 si celle qui se déplace gagne.</td></tr>
+            <tr><td class="points">+4</td><td>Bon vainqueur sur terrain neutre : aucune équipe ne reçoit, 4 quel que soit le vainqueur.</td></tr>
+            <tr><td class="points">+2</td><td>La transformation : bon vainqueur, et écart juste à 3 points près.</td></tr>
+            <tr><td class="points">+2</td><td>Le buteur : le score exact d'une des deux équipes.</td></tr>
+            <tr><td class="points">+10</td><td>Le graal : le score exact des deux équipes. Il s'ajoute au reste et remplace le buteur.</td></tr>
+            <tr><td class="points">+15</td><td>Le XV : nul annoncé, nul joué. Il remplace le bon vainqueur, la transformation et le buteur.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note-bareme">Au plus 16 points sur un match quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, 26 sur un nul, et 17 quand le bon vainqueur vaut 4.</p>
+      <div class="exemple">
+        <p>Clermont reçoit et gagne <span class="score">27-21</span> : 6 points d'écart.</p>
+        <p>Prono <span class="score">25-19</span> : 1 + 3 + 2 = 6 points. Prono <span class="score">27-18</span> : 1 + 3 + 2 + 2 = 8 points. Prono <span class="score">27-21</span> : 1 + 3 + 2 + 10 = 16 points.</p>
+      </div>
+      <p class="suite"><a href="/regles/">Toutes les règles du jeu</a></p>
+    </section>
+
+    <section class="bloc">
+      <div>
+        <div class="texte lecture">
+          <h2>Chambrer au Club-house</h2>
+          <p>Un pronostic entre amis, ça se chambre. Chaque ligue privée a son fil de discussion, le Club-house. C'est là qu'on refait la journée, qu'on envoie un GIF, et qu'on rappelle pendant trois semaines le 40-0 annoncé par quelqu'un qui préférerait qu'on l'oublie.</p>
+          <p>C'est là aussi que se révèlent, aux résultats, les gestes techniques : la Chistera qui double les points d'une journée, et le Caramel qui coupe en deux la journée d'un membre de ta ligue. <a href="/regles/gestes-techniques/">Les gestes techniques en détail</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloc lecture">
+      <h2>Tu te mesures aussi à tous les joueurs</h2>
+      <p>Dès ton inscription, tu entres dans La Bagarre Générale, le classement de tous les joueurs de Drop League. Tu as toujours quelqu'un à dépasser. Ta Chistera y compte aussi, le Caramel reste dans tes ligues privées. Au classement, touche un nom pour ouvrir sa fiche joueur.</p>
+      <p class="suite"><a href="/la-bagarre-generale/">Tout sur La Bagarre Générale</a></p>
+    </section>
+  </div>
+
+  <section class="faq" aria-labelledby="titre-faq">
+    <div class="cadre lecture-large">
+      <h2 id="titre-faq">Questions fréquentes sur les pronostics rugby entre amis</h2>
+      <div class="faq-liste">
+        <details>
+          <summary><h3>Comment créer une ligue de pronostics rugby entre amis ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue ». Donne-lui un nom, prends toutes les compétitions ou une seule, puis touche « Inviter des potes » pour envoyer le code d'invitation. Tes amis touchent « J'ai un code d'invitation » et tapent les six caractères.</p></div>
+        </details>
+        <details>
+          <summary><h3>Comment sont calculés les points ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Chaque prono posé avant le coup d'envoi rapporte 1 point. Le bon vainqueur en rapporte 3 quand l'équipe qui reçoit gagne et 5 quand celle qui se déplace gagne (4 seulement en sélection) ; sur terrain neutre, c'est 4 quel que soit le vainqueur. Avec le bon vainqueur, un écart juste à 3 points près ajoute 2 points. Le score exact d'une équipe vaut 2 points, celui des deux équipes 10, à la place de ces 2. Un nul annoncé et joué rapporte 15 points d'un coup, à la place du bon vainqueur, de l'écart et du score d'une équipe.</p></div>
+        </details>
+        <details>
+          <summary><h3>Jusqu'à quand peut-on modifier son prono ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Jusqu'au coup d'envoi du match : les pronos ferment à ce moment-là. Le score retenu est celui de la fin des 80 minutes, sans les prolongations.</p></div>
+        </details>
+        <details>
+          <summary><h3>Une ligue créée en cours de saison, ça marche ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Oui. Elle part de zéro : les journées déjà commencées ne comptent pas pour elle. Quelqu'un qui la rejoint plus tard marque à partir de son arrivée : les journées déjà jouées de la ligue ne lui sont pas attribuées.</p></div>
+        </details>
+        <details>
+          <summary><h3>On peut avoir plusieurs ligues ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Oui : les collègues, la famille, la bande du club, chacune avec son classement. Tout le monde est aussi dans La Bagarre Générale, le classement de tous les joueurs de Drop League.</p></div>
+        </details>
+        <details>
+          <summary><h3>À quoi servent les points ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant.</p></div>
+        </details>
+        <details>
+          <summary><h3>Drop League est-elle sur iPhone et Android ?</h3><span class="fleche" aria-hidden="true"></span></summary>
+          <div class="reponse"><p>Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="cadre">
+    <section class="definition" aria-labelledby="titre-definition">
+      <div>
+        <h2 id="titre-definition">C'est quoi, Drop League ?</h2>
+        <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+      </div>
+      <div class="magasins">
+        <a class="bouton" href="https://apps.apple.com/fr/app/drop-league/id6814801571">App Store</a>
+        <a class="bouton" href="https://play.google.com/store/apps/details?id=com.dropleague.app">Google Play</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="cadre">
+    <div class="colonnes">
+      <div><b>Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
+      <div><b>Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b>Jouer avec</b><ul><li><a aria-current="page">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
+      <div><b>Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
+    </div>
+    <p class="copyright">© 2026 Drop League</p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Pronostics rugby entre amis","item":"https://dropleague.app/pronostics-rugby-entre-amis/"}]},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Comment créer une ligue de pronostics rugby entre amis ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue ». Donne-lui un nom, prends toutes les compétitions ou une seule, puis touche « Inviter des potes » pour envoyer le code d'invitation. Tes amis touchent « J'ai un code d'invitation » et tapent les six caractères."}},
+  {"@type":"Question","name":"Comment sont calculés les points ?","acceptedAnswer":{"@type":"Answer","text":"Chaque prono posé avant le coup d'envoi rapporte 1 point. Le bon vainqueur en rapporte 3 quand l'équipe qui reçoit gagne et 5 quand celle qui se déplace gagne (4 seulement en sélection) ; sur terrain neutre, c'est 4 quel que soit le vainqueur. Avec le bon vainqueur, un écart juste à 3 points près ajoute 2 points. Le score exact d'une équipe vaut 2 points, celui des deux équipes 10, à la place de ces 2. Un nul annoncé et joué rapporte 15 points d'un coup, à la place du bon vainqueur, de l'écart et du score d'une équipe."}},
+  {"@type":"Question","name":"Jusqu'à quand peut-on modifier son prono ?","acceptedAnswer":{"@type":"Answer","text":"Jusqu'au coup d'envoi du match : les pronos ferment à ce moment-là. Le score retenu est celui de la fin des 80 minutes, sans les prolongations."}},
+  {"@type":"Question","name":"Une ligue créée en cours de saison, ça marche ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Elle part de zéro : les journées déjà commencées ne comptent pas pour elle. Quelqu'un qui la rejoint plus tard marque à partir de son arrivée : les journées déjà jouées de la ligue ne lui sont pas attribuées."}},
+  {"@type":"Question","name":"On peut avoir plusieurs ligues ?","acceptedAnswer":{"@type":"Answer","text":"Oui : les collègues, la famille, la bande du club, chacune avec son classement. Tout le monde est aussi dans La Bagarre Générale, le classement de tous les joueurs de Drop League."}},
+  {"@type":"Question","name":"À quoi servent les points ?","acceptedAnswer":{"@type":"Answer","text":"Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant."}},
+  {"@type":"Question","name":"Drop League est-elle sur iPhone et Android ?","acceptedAnswer":{"@type":"Answer","text":"Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android."}}
+ ]}
+]}
+</script>
+</body>
+</html>
