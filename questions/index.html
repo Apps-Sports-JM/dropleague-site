@@ -2,443 +2,488 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Questions fréquentes sur Drop League, les pronos rugby entre amis</title>
-<meta name="description" content="Monte ta ligue, annonce le score exact, pose ta Chistera : 28 réponses sur le barème, les ligues, ton compte et tes données, sur iPhone et Android.">
+<meta name="description" content="Monte ta ligue, annonce le score exact, pose ta Chistera : 29 réponses sur le barème, les ligues, ton compte et tes données, sur iPhone et Android.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#1F5636">
+<meta name="theme-color" content="#1B3A26">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
 <link rel="apple-touch-icon" href="/icon-256.png">
 <link rel="canonical" href="https://dropleague.app/questions/">
+<link rel="preload" href="/polices/crimson-pro.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="apple-itunes-app" content="app-id=6814801571">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Drop League">
 <meta property="og:title" content="Questions fréquentes sur Drop League, les pronos rugby entre amis">
-<meta property="og:description" content="Monte ta ligue, annonce le score exact, pose ta Chistera : 28 réponses sur le barème, les ligues, ton compte et tes données, sur iPhone et Android.">
+<meta property="og:description" content="Monte ta ligue, annonce le score exact, pose ta Chistera : 29 réponses sur le barème, les ligues, ton compte et tes données, sur iPhone et Android.">
 <meta property="og:image" content="https://dropleague.app/icon-256.png">
 <meta property="og:url" content="https://dropleague.app/questions/">
 <meta name="twitter:card" content="summary">
-<style>
-/* Composition : bandeau vert plein cadre en tête (la marque), puis une colonne de lecture de 680 px
-   où alternent blocs de texte et blocs image, une bande grise pour la FAQ dépliante, un pied en 4 colonnes.
-   Charte du site existant : vert pour le bandeau seulement, surfaces neutres, orange pour l'accent. Aucun dégradé. */
+<style>/* Crimson Pro, © The Crimson Pro Project Authors, licence SIL Open Font License 1.1 */
+@font-face{font-family:"Crimson Pro";src:url("/polices/crimson-pro.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Crimson Pro";src:url("/polices/crimson-pro-italique.woff2") format("woff2");font-weight:400 700;font-style:italic;font-display:swap}
+/* Mise en page : colonne large (1440), bannière et pied pleine largeur en vert profond, grille de 4 affiches. */
 :root{
-  --vert:#193925; --vert-haut:#1F5636; --sur-vert:#F5F7FA; --sur-vert-doux:#C9D6CC;
-  --orange:#F28E00; --bouton:#FFB54B; --sur-bouton:#193925;
-  --bg:#F3F5EF; --surface:#FFFFFF; --surface-2:#EAEEE3;
-  --text:#171C18; --text-soft:#57604F; --accent:#8F5400; --line:#D8DCCF;
-  --texte:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --chiffres:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --fond:#FFFFFF; --texte:#14201A; --doux:#5C665F; --trait:#E2E7E1; --sauge:#EEF2EC; --carte:#FFFFFF;
+  --vert:#1B3A26; --vert-ligne:#2C5A3E; --sur-vert:#F4F6F1; --orange:#EE8A10; --sur-orange:#1B2A1F;
+  --noir:#0B0F0C;
+  --serif:"Crimson Pro","Minion Pro","Minion",Georgia,"Times New Roman",serif;
+  --sans:"Helvetica Neue",Helvetica,"Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#101312; --surface:#191D1B; --surface-2:#151917;
-    --text:#F5F7FA; --text-soft:#93A395; --accent:#F28E00; --line:#2A302D; color-scheme:dark;
-  }
-}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --fond:#0C130F; --texte:#EAF0EB; --doux:#A3ADA6; --trait:#243028; --sauge:#142019; --carte:#111A14;
+  --vert:#173322; --vert-ligne:#2A5139; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#101312; --surface:#191D1B; --surface-2:#151917;
-  --text:#F5F7FA; --text-soft:#93A395; --accent:#F28E00; --line:#2A302D; color-scheme:dark;
+  --fond:#0C130F; --texte:#EAF0EB; --doux:#A3ADA6; --trait:#243028; --sauge:#142019; --carte:#111A14;
+  --vert:#173322; --vert-ligne:#2A5139; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--fond);color:var(--texte);font-family:var(--sans);font-size:15px;line-height:1.6}
+a{color:inherit}
+img{max-width:100%;display:block}
+.largeur{max-width:1440px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+@media (min-width:990px){.largeur{padding-left:max(48px,env(safe-area-inset-left,0px));padding-right:max(48px,env(safe-area-inset-right,0px))}}
+.cache{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.maquette{background:var(--sauge);color:var(--doux);font-size:12px;text-align:center;padding:6px max(16px,env(safe-area-inset-right,0px)) 6px max(16px,env(safe-area-inset-left,0px))}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.petites-capitales{font-family:var(--serif);font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+
+/* Bandeau d'annonce qui défile */
+.annonce{background:var(--noir);color:var(--sur-vert);overflow:hidden;white-space:nowrap;font-family:var(--serif);font-size:13px;letter-spacing:.16em;text-transform:uppercase;padding-block:9px}
+.defile{display:flex;width:max-content;animation:defile 38s linear infinite}
+.defile span{padding-inline:28px}
+.defile span::after{content:"✦";color:var(--orange);margin-left:56px;letter-spacing:0}
+@keyframes defile{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.defile{animation:none}}
+
+/* En-tête collant : logo centré, menu en capitales dessous */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--fond)}
+.entete{position:sticky;top:env(safe-area-inset-top,0px);z-index:8;background:var(--fond);border-bottom:1px solid var(--trait)}
+.entete .haut{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:12px}
+.marque{display:flex;align-items:center;gap:10px;text-decoration:none}
+.marque img{width:38px;height:38px;border-radius:9px}
+.marque b{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.icones{display:flex;justify-content:flex-end;gap:22px}
+.icones a,.gauche a{display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--texte)}
+.icones svg,.gauche svg,.menu-mobile svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.5}
+.gauche{display:flex;gap:22px}
+.icones a.appli{background:var(--vert);color:var(--sur-vert);border-radius:999px;padding:9px 16px}
+.menu{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 30px;padding-block:2px 12px}
+.menu a{position:relative;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding-block:4px}
+.menu a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.menu a:hover::after,.menu a[aria-current]::after{transform:scaleX(1)}
+@media (prefers-reduced-motion:reduce){.menu a::after{transition:none}}
+.menu-mobile{display:none}
+@media (max-width:899px){
+  .menu{display:none}
+  .gauche .lien-questions{display:none}
+  .menu-mobile{display:block}
+  .menu-mobile summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .menu-mobile summary::-webkit-details-marker{display:none}
+  .menu-mobile .liste{position:absolute;left:0;right:0;top:100%;background:var(--fond);border-bottom:1px solid var(--trait);display:flex;flex-direction:column;padding:6px max(20px,env(safe-area-inset-right,0px)) 16px max(20px,env(safe-area-inset-left,0px))}
+  .menu-mobile .liste a{font-family:var(--serif);font-size:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--trait)}
+  .marque b{font-size:15px;letter-spacing:.16em}
+  .icones a.appli span{display:none}
+  .icones a.appli{padding:8px 10px}
 }
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--texte)}
-a{color:var(--accent);text-underline-offset:3px}
-.cadre{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.lecture{max-width:680px}
+@media (max-width:420px){.marque b{display:none}}
 
-/* Avertissement de maquette */
-.maquette{background:var(--surface-2);border-bottom:1px solid var(--line);font-size:13px;color:var(--text-soft)}
-.maquette .cadre{padding-block:8px}
+/* Bannière : la couverture de la page, dans le vert des posts */
+.banniere{position:relative;overflow:hidden;background:var(--vert);color:var(--sur-vert);text-align:center}
+.banniere .terrain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.banniere .contenu{position:relative;padding-block:22px 64px}
+.banniere .ariane{text-align:left;font-size:12.5px;color:var(--sur-vert);opacity:.75;margin-bottom:46px}
+.ariane ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.ariane li+li::before{content:"/";margin-right:6px;opacity:.7}
+.ariane a{text-decoration:none}
+.ariane a:hover{text-decoration:underline}
+.surtitre{margin:0;color:var(--orange)}
+.banniere h1{margin:14px auto 0;max-width:900px;font-family:var(--serif);font-weight:600;font-size:clamp(40px,6vw,76px);line-height:1;letter-spacing:-.01em;text-wrap:balance}
+.banniere h1 em{font-style:italic;font-weight:400;color:var(--orange)}
+.filet{width:64px;height:2px;background:var(--orange);margin:26px auto}
+.banniere .intro{max-width:660px;margin:0 auto;font-size:16px;line-height:1.65;color:var(--sur-vert);opacity:.92}
+.banniere .intro strong{color:#FFFFFF}
+.badges{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+.badge-magasin{display:block;line-height:0;border-radius:9px}
+.badge-magasin img{height:44px;width:auto}
+.pied .badge-magasin img{height:40px}
 
-/* En-tête */
-header{background:var(--vert-haut);color:var(--sur-vert);border-bottom:4px solid var(--vert)}
-header .cadre{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;padding-block:14px}
-.marque{display:flex;align-items:center;gap:10px;color:var(--sur-vert);text-decoration:none;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:17px}
-.marque span.logo{width:36px;height:36px;border-radius:9px;background:var(--vert);display:grid;place-items:center;font-size:14px;letter-spacing:0;color:var(--bouton)}
-header nav{margin-left:auto;display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;font-size:14.5px;font-weight:600}
-header nav a{color:var(--sur-vert-doux);text-decoration:none}
-header nav a:hover,header nav a[aria-current]{color:var(--sur-vert);text-decoration:underline;text-underline-offset:5px}
-header nav a.telecharger{background:var(--bouton);color:var(--sur-bouton);padding:7px 14px;border-radius:10px;text-decoration:none}
-@media (max-width:720px){header nav{margin-left:0;width:100%}}
 
-/* Fil d'Ariane */
-.ariane{font-size:13.5px;color:var(--text-soft);padding-block:12px 0}
-.ariane a{color:var(--text-soft)}
+.badge-magasin:hover{box-shadow:0 0 0 2px var(--orange)}
+.signature{margin:26px 0 0;font-family:var(--serif);font-style:italic;font-size:26px;color:var(--orange)}
+.banniere.photo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);text-align:left}
+.banniere.photo .bloc{position:relative;display:flex;flex-direction:column;justify-content:center;padding:28px max(48px,env(safe-area-inset-left,0px)) 56px;min-height:600px}
+.banniere.photo .bloc>*{max-width:600px}
+.banniere.photo .ariane{margin-bottom:auto;padding-bottom:40px}
+.banniere.photo h1{margin:14px 0 0;font-size:clamp(40px,4.6vw,72px)}
+.banniere.photo .filet{margin:24px 0}
+.banniere.photo .intro{margin:0}
+.banniere.photo .badges{justify-content:flex-start}
+.banniere.photo .signature{margin-top:22px}
+.banniere.photo .cliche{position:relative;min-height:100%;margin:0}
+.banniere.photo .cliche img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.banniere.photo .credit{position:absolute;right:10px;bottom:8px;font-size:10.5px;color:#FFFFFF;opacity:.75;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.banniere.photo .credit a{color:inherit}
+.banniere.photo.courte .bloc{min-height:380px;padding-bottom:40px}
+.banniere.photo.courte .ariane{padding-bottom:26px}
+.banniere.photo.courte h1{font-size:clamp(36px,3.8vw,58px)}
+.banniere.photo.courte .intro{font-size:15px}
+@media (max-width:899px){
+  .banniere.photo{grid-template-columns:1fr}
+  .banniere.photo .cliche{order:-1;aspect-ratio:16/10}
+  .banniere.photo.courte .cliche{aspect-ratio:16/8}
+  .banniere.photo .bloc,.banniere.photo.courte .bloc{min-height:0;padding:22px max(20px,env(safe-area-inset-right,0px)) 40px max(20px,env(safe-area-inset-left,0px))}
+  .banniere.photo .ariane{padding-bottom:22px}
+}
 
-/* Bannière principale (bandeau de page) */
-.banniere{background:var(--vert-haut);color:var(--sur-vert)}
-.banniere .cadre{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px;align-items:center;padding-block:40px 44px}
-@media (max-width:760px){.banniere .cadre{grid-template-columns:1fr;padding-block:28px 32px}}
-.sur-titre{display:inline-block;font-weight:800;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--bouton);margin:0 0 10px}
-.banniere h1{font-size:clamp(28px,4.6vw,42px);line-height:1.12;margin:0 0 14px;letter-spacing:-.01em;text-wrap:balance}
-.banniere .chapo{font-size:18px;line-height:1.55;color:var(--sur-vert-doux);margin:0 0 20px;max-width:34em}
-.magasins{display:flex;gap:10px;flex-wrap:wrap}
-.bouton{display:inline-flex;align-items:center;gap:8px;background:var(--bouton);color:var(--sur-bouton);font-weight:800;text-decoration:none;border-radius:12px;padding:12px 18px}
-.bouton.clair{background:transparent;color:var(--sur-vert);border:1.5px solid var(--sur-vert-doux)}
-.bouton:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
-.ligne-marque{margin:16px 0 0;font-size:14.5px;color:var(--sur-vert-doux)}
-.illustration{width:100%;max-width:380px;justify-self:center}
-.illustration svg{display:block;width:100%;height:auto}
+/* Pastilles des pages liées */
+.liees{display:flex;gap:10px;overflow-x:auto;padding-block:30px 6px;scrollbar-width:none}
+.liees::-webkit-scrollbar{display:none}
+.liees a{flex:0 0 auto;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid var(--trait);border-radius:999px;padding:11px 18px;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+.liees a:hover{background:var(--vert);border-color:var(--vert);color:var(--sur-vert)}
 
-/* Corps */
-main{padding-block:8px 24px}
-section.bloc{padding-block:34px 6px}
-h2{font-size:clamp(22px,3vw,27px);line-height:1.25;margin:0 0 12px;letter-spacing:-.005em;text-wrap:balance}
-h3{font-size:17px;line-height:1.35;margin:0 0 6px}
-p{margin:0 0 12px}
+/* Barre de comptage */
+.barre{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;font-size:12.5px;letter-spacing:.04em;color:var(--doux);padding-block:22px 16px;border-bottom:1px solid var(--trait);margin-bottom:22px}
+.barre .compte{font-family:var(--serif);font-size:16px;letter-spacing:0;color:var(--texte)}
+.barre .droite{text-align:right}
+@media (max-width:749px){.barre{grid-template-columns:1fr;text-align:center}.barre .gauche-barre,.barre .droite{display:none}}
 
-/* Bloc texte + image */
-.duo{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:start}
-.duo.inverse{grid-template-columns:260px minmax(0,1fr)}
-.duo.inverse .texte{order:2}
-@media (max-width:760px){.duo,.duo.inverse{grid-template-columns:1fr}.duo.inverse .texte{order:0}}
-.etapes{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:14px;counter-reset:e}
-.etapes li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;counter-increment:e}
-.etapes li::before{content:counter(e);width:30px;height:30px;border-radius:50%;background:var(--bouton);color:var(--sur-bouton);font-weight:800;display:grid;place-items:center;font-size:14px;margin-top:2px}
-.etapes p{margin:0;color:var(--text-soft)}
+/* Grille d'affiches, 4 colonnes comme la référence */
+.grille{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 14px}
+@media (max-width:1099px){.grille{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:749px){.grille{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 10px}}
+@media (max-width:480px){.grille{grid-template-columns:1fr}}
+.carte{display:flex;flex-direction:column;gap:12px;min-width:0;scroll-margin-top:140px}
+.visuel{position:relative;aspect-ratio:4/5;border-radius:4px;padding:22px;display:flex;flex-direction:column;overflow:hidden;background:var(--sauge);color:var(--texte);transition:box-shadow .25s}
+.carte:hover .visuel{box-shadow:inset 0 0 0 2px var(--orange)}
+@media (max-width:480px){.visuel{aspect-ratio:auto;min-height:300px}.tuile .visuel{min-height:460px}}
+.visuel .etiquette{color:var(--orange);font-size:11.5px}
+.visuel .numero{margin:auto 0 0;display:flex;align-items:baseline;gap:10px}
+.visuel .numero b{font-family:var(--serif);font-weight:600;font-size:clamp(70px,7vw,104px);line-height:.85;letter-spacing:-.03em;color:var(--vert);font-variant-numeric:lining-nums;transition:transform .35s}
+.carte:hover .numero b{transform:translateY(-5px)}
+.visuel .numero small{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--doux)}
+.visuel .trait{width:36px;height:2px;background:var(--orange);margin:16px 0 12px}
+.texte-carte{margin:0;font-size:13.5px;line-height:1.5;color:var(--doux)}
+.motif{position:absolute;right:-18px;top:-18px;width:58%;height:auto;opacity:.08;pointer-events:none}
+.ton-vert .motif,.ton-orange .motif{opacity:.13}
+.ton-vert .visuel{background:var(--vert);color:var(--sur-vert)}
+.ton-vert .visuel .numero b{color:#FFFFFF}
+.ton-vert .visuel .numero small,.ton-vert .texte-carte{color:var(--sur-vert);opacity:.85}
+.ton-orange .visuel{background:var(--orange);color:var(--sur-orange)}
+.ton-orange .visuel .etiquette{color:var(--sur-orange)}
+.ton-orange .visuel .numero b{color:var(--sur-orange)}
+.ton-orange .visuel .trait{background:var(--sur-orange)}
+.ton-orange .visuel .numero small,.ton-orange .texte-carte{color:var(--sur-orange);opacity:.85}
+.nom-carte{margin:0;font-size:14.5px;font-weight:500;line-height:1.35}
+.nom-carte a{text-decoration:none}
+.nom-carte a:hover{text-decoration:underline;text-underline-offset:3px}
+.prix{margin:-6px 0 0;font-family:var(--serif);font-size:17px;font-weight:600;color:var(--vert)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .prix,:root:not([data-theme="light"]) .visuel .numero b{color:#9FD3AE}}
+:root[data-theme="dark"] .prix,:root[data-theme="dark"] .visuel .numero b{color:#9FD3AE}
+.ton-vert .visuel .numero b,.ton-orange .visuel .numero b{color:inherit}
+@media (prefers-reduced-motion:reduce){.numero b,.visuel,.liees a{transition:none}}
 
-/* Emplacement de capture d'écran (rempli par les vraies captures de la 1.1.0) */
-figure.capture{margin:0}
-.ecran{aspect-ratio:9/19.5;max-width:100%;width:100%;border:2px dashed var(--line);border-radius:28px;background:var(--surface);display:grid;place-items:center;text-align:center;padding:18px;color:var(--text-soft);font-size:13.5px;line-height:1.45}
-.ecran b{display:block;color:var(--text);font-size:14px;margin-bottom:4px}
-figure.capture figcaption{font-size:13px;color:var(--text-soft);margin-top:8px;text-align:center}
+/* Tuile d'ambiance dans la grille */
+.tuile .visuel{background:var(--vert);color:var(--sur-vert);justify-content:flex-end;text-align:left}
+.tuile .dessin{position:absolute;top:0;left:0;width:100%;height:56%}
+.tuile h2{position:relative;margin:0;font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.05}
+.tuile h2 em{font-weight:400;color:var(--orange)}
+.tuile p{position:relative;margin:10px 0 0;font-size:13.5px;opacity:.9}
+.tuile a.cta{position:relative;align-self:flex-start;margin-top:16px;background:var(--orange);color:var(--sur-orange);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 18px;border-radius:999px}
 
-/* Pastilles des compétitions */
-.competitions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
-.competitions a{display:inline-block;padding:7px 13px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14.5px}
-.competitions a:hover{border-color:var(--accent)}
+/* Voir la suite de la grille, sans script */
+.suite-grille{margin-top:44px}
+.suite-grille>summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:12px;font-size:12px;color:var(--doux)}
+.suite-grille>summary::-webkit-details-marker{display:none}
+.progression{width:180px;height:2px;background:var(--trait);position:relative}
+.progression i{position:absolute;inset:0 auto 0 0;background:var(--orange)}
+.suite-grille .voir{border:1px solid var(--texte);color:var(--texte);border-radius:999px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.suite-grille[open]>summary{display:none}
 
-/* Barème */
-.tableau{overflow-x:auto;margin:14px 0 8px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
-table{width:100%;border-collapse:collapse;font-size:15px}
-th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-tr:last-child td{border-bottom:0}
-th{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-soft)}
-td.points{font-family:var(--chiffres);font-weight:700;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
-.exemple{border-left:4px solid var(--orange);background:var(--surface);border-radius:0 12px 12px 0;padding:12px 16px;font-size:15px}
-.exemple p{margin:0 0 4px}.exemple p:last-child{margin:0}
-.exemple .score{font-family:var(--chiffres);font-weight:700}
-
-/* FAQ dépliante */
-.faq{background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:40px}
-.faq .cadre{padding-block:36px 40px}
-.faq-liste{display:grid;gap:12px;margin-top:18px}
-.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px}
+/* FAQ */
+.faq{background:var(--sauge);margin-top:80px;padding-block:70px 76px}
+.faq .accroche{margin:0;text-align:center;color:var(--orange)}
+.faq h2{margin:12px 0 0;text-align:center;font-family:var(--serif);font-size:clamp(32px,4vw,46px);line-height:1.05;font-weight:600;text-wrap:balance}
+.faq .filet{margin:22px auto 34px}
+.faq-liste{max-width:820px;margin:0 auto;display:grid;gap:10px}
+.faq details{background:var(--carte);border-radius:10px;border:1px solid var(--trait);transition:border-color .2s}
+.faq details[open]{border-color:var(--orange)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary h3{margin:0;font-size:14.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;line-height:1.4}
-.faq summary .fleche{flex:0 0 auto;width:10px;height:10px;border-right:2px solid var(--text);border-bottom:2px solid var(--text);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
-.faq details[open] summary .fleche{transform:rotate(-135deg) translate(-2px,-2px)}
-.faq .reponse{padding:0 20px 18px;color:var(--text-soft)}
-.faq .reponse p:last-child{margin:0}
-@media (prefers-reduced-motion:reduce){.faq summary .fleche{transition:none}}
+.faq .rubrique{max-width:820px;margin:40px auto 14px;font-family:var(--serif);font-size:26px;font-weight:600;scroll-margin-top:140px}
+.faq .rubrique:first-of-type{margin-top:0}
+.faq summary h4{margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.45}
+.faq summary h3{margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.45}
+.plus{flex:0 0 auto;position:relative;width:14px;height:14px;transition:transform .25s}
+.plus::before,.plus::after{content:"";position:absolute;inset:6px 0 auto;height:2px;background:var(--orange)}
+.plus::after{transform:rotate(90deg)}
+details[open]>summary .plus{transform:rotate(45deg)}
+.faq .reponse{padding:0 22px 20px;font-size:14.5px;color:var(--doux)}
+.faq .reponse p{margin:0}
+@media (prefers-reduced-motion:reduce){.plus,.faq details{transition:none}}
 
-/* C'est quoi, Drop League ? */
-.definition{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 28px;align-items:center;padding-block:34px 10px}
-@media (max-width:760px){.definition{grid-template-columns:1fr}}
-.definition h2{font-size:20px}
-.definition p{color:var(--text-soft);margin:0}
+/* Texte de référencement, colonne étroite centrée */
+.texte-seo{max-width:760px;margin:0 auto;padding-block:76px 10px;font-size:15px;line-height:1.7}
+.texte-seo>h2:first-child{text-align:center;font-family:var(--serif);font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.05;margin:0}
+.texte-seo>h2:first-child+.filet{margin:22px auto 30px}
+.texte-seo h2{font-family:var(--serif);font-size:27px;font-weight:600;line-height:1.15;margin:40px 0 10px;text-wrap:balance}
+.texte-seo h3{font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin:24px 0 6px;color:var(--orange)}
+.texte-seo p{margin:0 0 14px}
+.texte-seo ol,.texte-seo ul{margin:0 0 14px;padding-left:20px}
+.texte-seo li{margin-bottom:6px}
+.texte-seo a{text-decoration-color:var(--orange);text-underline-offset:3px}
+.lire-plus>summary{list-style:none;cursor:pointer;display:inline-block;margin-top:6px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1.5px solid var(--orange);padding-bottom:2px}
+.lire-plus>summary::-webkit-details-marker{display:none}
+.lire-plus[open]>summary{display:none}
+.tableau{overflow-x:auto;margin:14px 0 18px;border:1px solid var(--trait);border-radius:8px}
+.tableau table{border-collapse:collapse;width:100%;min-width:420px;font-size:14px}
+.tableau th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--doux);font-weight:600;background:var(--sauge);padding:11px 14px}
+.tableau td{padding:11px 14px;border-top:1px solid var(--trait);vertical-align:top}
+.tableau td.points{font-family:var(--serif);font-size:17px;font-weight:600;white-space:nowrap}
+.exemple{background:var(--sauge);border-left:2px solid var(--orange);padding:16px 20px;margin:0 0 16px}
+.exemple p{margin:0 0 6px}.exemple p:last-child{margin:0}
+.score{font-family:var(--serif);font-size:17px;font-weight:600}
 
-/* Pied */
-footer{border-top:1px solid var(--line);margin-top:28px;font-size:14px;color:var(--text-soft)}
-footer .cadre{padding-block:26px 34px}
-.colonnes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
-@media (max-width:760px){.colonnes{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.colonnes b{display:block;color:var(--text);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-.colonnes ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
-.colonnes a{color:var(--text-soft);text-decoration:none}
-.colonnes a:hover{color:var(--text);text-decoration:underline}
-.copyright{margin-top:22px}
+/* Réassurance */
+.reassurance{margin-top:70px;padding-block:40px;border-top:1px solid var(--trait)}
+.reassurance ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;text-align:center}
+.reassurance .rond{width:56px;height:56px;border-radius:50%;background:var(--sauge);display:grid;place-items:center;margin:0 auto 12px}
+.reassurance svg{width:24px;height:24px;stroke:var(--vert);fill:none;stroke-width:1.5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .reassurance svg{stroke:#9FD3AE}}
+:root[data-theme="dark"] .reassurance svg{stroke:#9FD3AE}
+.reassurance b{display:block;font-family:var(--serif);font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.reassurance span{display:block;font-size:13px;color:var(--doux);margin-top:4px}
+@media (max-width:749px){.reassurance ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-/* Ajout de l'accueil : les six compétitions, une pastille et une phrase par ligne */
-.competitions.detail{display:grid;gap:10px}
-.competitions.detail li{display:grid;grid-template-columns:200px minmax(0,1fr);gap:6px 16px;align-items:center}
-.competitions.detail a{justify-self:start}
-.competitions.detail p{margin:0;font-size:15px;color:var(--text-soft)}
-@media (max-width:560px){.competitions.detail li{grid-template-columns:1fr}}
-.suite{margin-top:12px;font-weight:600}
-/* Ajouts de la page Questions : le sommaire en pastilles, les cinq rubriques de la FAQ dans une seule bande */
-.rubrique{scroll-margin-top:16px}
-.rubrique + .rubrique{margin-top:40px;padding-top:34px;border-top:1px solid var(--line)}
-.rubrique > p{color:var(--text-soft);max-width:680px;margin:0}
-.marque img.logo{width:36px;height:36px;border-radius:9px;display:block}
+/* Pied de page vert */
+.pied{background:var(--vert);color:var(--sur-vert);padding-block:60px 24px;font-size:13.5px}
+.pied .slogan{margin:0 0 44px;font-family:var(--serif);font-size:clamp(28px,3.4vw,44px);font-weight:600;line-height:1.05;color:var(--orange);text-wrap:balance;max-width:760px}
+.pied .colonnes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) 1.3fr;gap:30px}
+.pied .titre{display:block;color:var(--orange);font-size:12px;margin-bottom:14px}
+.pied ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.pied ul a{text-decoration:none;opacity:.88}
+.pied ul a:hover{opacity:1;text-decoration:underline}
+.pied ul a[aria-current]{opacity:1;font-weight:600}
+.pied .appli p{opacity:.85;margin:0 0 14px}
+.pied .appli .badges{justify-content:flex-start;margin-top:0}
+.pied .bas{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:48px;padding-top:20px;border-top:1px solid var(--vert-ligne);font-size:12px;opacity:.8}
+.pied .bas .marque b{font-size:14px}
+.pied .bas .marque img{width:30px;height:30px}
+@media (max-width:1100px){.pied .colonnes{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:600px){.pied .colonnes{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
-<header>
-  <div class="cadre">
-    <a class="marque" href="/"><img class="logo" src="/icon-256.png" alt="" width="36" height="36">Drop League</a>
-    <nav aria-label="Menu principal">
-      <a href="/regles/">Le jeu</a>
-      <a href="/competitions/">Compétitions</a>
-      <a href="/pronostics-rugby-entre-amis/">Entre amis</a>
-      <a aria-current="page">Questions</a>
-      <a class="telecharger" href="/application-pronostics-rugby/">Télécharger l'app</a>
-    </nav>
-  </div>
-</header>
-
-<section class="banniere" aria-labelledby="titre-page">
-  <div class="cadre">
-    <div>
-      <p class="sur-titre">Pronostics rugby entre amis</p>
-      <h1 id="titre-page">Questions fréquentes</h1>
-      <p class="chapo">Monter ta ligue, ce que vaut le score exact, quand poser ta Chistera, comment supprimer ton compte : les réponses à tes questions sur les pronos rugby entre amis, rangées en cinq rubriques.</p>
-      <div class="magasins">
-        <a class="bouton" href="https://apps.apple.com/fr/app/drop-league/id6814801571">Télécharger sur l'App Store</a>
-        <a class="bouton clair" href="https://play.google.com/store/apps/details?id=com.dropleague.app">Disponible sur Google Play</a>
-      </div>
-      <p class="ligne-marque">Pronostics entre amis : les points ne servent qu'au classement.</p>
+<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
+<header class="entete">
+  <div class="largeur haut">
+    <div class="gauche">
+      <details class="menu-mobile"><summary aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</summary><nav class="liste" aria-label="Menu principal"><a href="/regles/">Le jeu</a><a href="/competitions/">Compétitions</a><a href="/pronostics-rugby-entre-amis/">Entre amis</a><a href="/concours-pronostics-rugby/">Concours</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/la-loge/">La Loge</a><a href="/questions/" aria-current="true">Questions</a></nav></details>
+      <a class="lien-questions" href="/questions/"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.6 2.3c-.8.4-1.2 1-1.2 1.9v.4"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Questions</a>
     </div>
-    <div class="illustration" aria-hidden="true">
-      <svg viewBox="0 0 380 300" role="img" aria-label="Des poteaux de rugby, un ballon et une bulle de question">
-        <rect x="0" y="0" width="380" height="300" rx="20" fill="#193925"/>
-        <rect x="0" y="232" width="380" height="68" fill="#24603C"/>
-        <line x1="0" y1="232" x2="380" y2="232" stroke="#F5F7FA" stroke-width="3"/>
-        <line x1="118" y1="40" x2="118" y2="232" stroke="#F5F7FA" stroke-width="7" stroke-linecap="round"/>
-        <line x1="262" y1="40" x2="262" y2="232" stroke="#F5F7FA" stroke-width="7" stroke-linecap="round"/>
-        <line x1="118" y1="150" x2="262" y2="150" stroke="#F5F7FA" stroke-width="7" stroke-linecap="round"/>
-        <ellipse cx="190" cy="92" rx="30" ry="19" transform="rotate(-28 190 92)" fill="#F28E00"/>
-        <path d="M172 101 L208 83" stroke="#193925" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M184 99 l-3 -6 M191 95 l-3 -6 M198 91 l-3 -6" stroke="#193925" stroke-width="2" stroke-linecap="round"/>
-        <rect x="280" y="30" width="72" height="56" rx="14" fill="#FFB54B"/>
-        <path d="M292 84 L284 104 L310 86 Z" fill="#FFB54B"/>
-        <text x="316" y="72" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="38" font-weight="800" fill="#193925">?</text>
-        <rect x="60" y="250" width="260" height="38" rx="10" fill="#F5F7FA"/>
-        <text x="190" y="275" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="18" font-weight="800" fill="#193925">5 rubriques, 28 réponses</text>
-      </svg>
+    <a class="marque" href="/"><img src="/icon-256.png" alt="" width="38" height="38"><b>Drop League</b></a>
+    <div class="icones"><a class="appli" href="/application-pronostics-rugby/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.2"/><path d="M10.5 18.5h3"/></svg><span>Télécharger</span></a></div>
+  </div>
+  <nav class="largeur menu" aria-label="Menu principal"><a href="/regles/">Le jeu</a><a href="/competitions/">Compétitions</a><a href="/pronostics-rugby-entre-amis/">Entre amis</a><a href="/concours-pronostics-rugby/">Concours</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/la-loge/">La Loge</a><a href="/questions/" aria-current="true">Questions</a></nav>
+</header>
+<main>
+<section class="banniere photo courte" aria-labelledby="titre-page">
+  <div class="bloc">
+    <nav class="ariane" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><span aria-current="page">Questions fréquentes</span></li></ol></nav>
+    <p class="surtitre petites-capitales">Questions fréquentes</p>
+    <h1 id="titre-page">Questions <em>fréquentes</em></h1>
+    <div class="filet" aria-hidden="true"></div>
+    <p class="intro">Monter ta ligue, ce que vaut le score exact, quand poser ta Chistera, comment supprimer ton compte : les réponses à tes questions sur les <strong>pronos rugby entre amis</strong>, rangées en cinq rubriques. Chaque réponse tient en quelques lignes et t'indique la page qui détaille.</p>
+    <div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div>
+    <p class="signature">Pronostics entre amis : les points ne servent qu'au classement.</p>
+  </div>
+  <figure class="cliche">
+    <picture>
+      <source type="image/avif" srcset="/photos/poteaux-800.avif 800w, /photos/poteaux-1600.avif 1600w" sizes="(max-width: 899px) 100vw, 50vw">
+      <source type="image/webp" srcset="/photos/poteaux-800.webp 800w, /photos/poteaux-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 50vw">
+      <img src="/photos/poteaux-1600.jpg" alt="Poteaux de rugby blancs en forme de H sur une pelouse dorée, face à la mer bleue sous un ciel parsemé de nuages" width="1600" height="1000" fetchpriority="high" decoding="async" style="object-position:28% 55%">
+    </picture>
+    <figcaption class="credit">Photo : <a href="https://unsplash.com/@tommasodelton" rel="nofollow">Tommaso Delton</a> sur Unsplash</figcaption>
+  </figure>
+</section>
+<section class="largeur" aria-labelledby="titre-grille">
+  <nav class="liees" aria-label="Pages liées"><a href="/regles/">Règles du jeu</a><a href="/regles/gestes-techniques/">Gestes techniques</a><a href="/competitions/">Compétitions</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/la-loge/">La Loge</a><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/support/">Support</a><a href="/privacy/">Confidentialité</a><a href="/delete-account/">Supprimer mon compte</a></nav>
+  <h2 id="titre-grille" class="cache">Les cinq rubriques des questions fréquentes, les règles et le Support</h2>
+  <div class="barre"><span class="gauche-barre">Les questions sur Drop League</span><span class="compte">5 rubriques · 29 réponses</span><span class="droite">Des réponses en quelques lignes</span></div>
+  <ul class="grille">
+<li class="carte" id="carte-le-jeu">
+  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="40" ry="25" transform="rotate(-35 50 50)" fill="none" stroke="currentColor" stroke-width="5"/><path d="M30 64 L70 36" stroke="currentColor" stroke-width="4"/><path d="M44 58l-4-6M52 52l-4-6M60 47l-4-6" stroke="currentColor" stroke-width="3"/></svg>
+    <span class="etiquette petites-capitales">Pour commencer</span>
+    <div class="numero"><b>6</b><small>questions</small></div>
+    <div class="trait" aria-hidden="true"></div>
+    <p class="texte-carte">Les six compétitions, le calendrier, à quoi servent les points, La Bagarre Générale et la Loge.</p>
+  </div>
+  <h3 class="nom-carte"><a href="#le-jeu">Le jeu</a></h3>
+  <p class="prix">Pour découvrir le jeu</p>
+</li>
+<li class="carte ton-orange" id="carte-les-ligues">
+  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><line x1="30" y1="6" x2="30" y2="94"/><line x1="70" y1="6" x2="70" y2="94"/><line x1="30" y1="62" x2="70" y2="62"/></g></svg>
+    
+    <div class="numero"><b>5</b><small>questions</small></div>
+    <div class="trait" aria-hidden="true"></div>
+    <p class="texte-carte">Créer ta ligue, la rejoindre avec un code de six caractères, en avoir plusieurs, le Club-house.</p>
+  </div>
+  <h3 class="nom-carte"><a href="#les-ligues">Les ligues et les invitations</a></h3>
+  <p class="prix">Ta ligue, ton code</p>
+</li>
+<li class="carte tuile">
+  <div class="visuel">
+    <svg class="dessin" viewBox="0 0 300 260" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><circle cx="104" cy="96" r="34" fill="#F4F6F1"/><circle cx="196" cy="96" r="34" fill="#EE8A10"/><path d="M40 236c6-46 34-72 64-72s58 26 64 72z" fill="#F4F6F1"/><path d="M132 236c6-46 34-72 64-72s58 26 64 72z" fill="#EE8A10"/></svg>
+    <h2>Ta ligue <em>entre amis</em></h2>
+    <p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p>
+    <a class="cta" href="/application-pronostics-rugby/">Télécharger l'app</a>
+  </div>
+</li>
+<li class="carte" id="carte-les-points">
+  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><line x1="30" y1="6" x2="30" y2="94"/><line x1="70" y1="6" x2="70" y2="94"/><line x1="30" y1="62" x2="70" y2="62"/></g></svg>
+    
+    <div class="numero"><b>5</b><small>questions</small></div>
+    <div class="trait" aria-hidden="true"></div>
+    <p class="texte-carte">Le calcul des points, le score exact, le nul annoncé, le coup d'envoi et le match reporté.</p>
+  </div>
+  <h3 class="nom-carte"><a href="#les-points">Les points et le barème</a></h3>
+  <p class="prix">Ce que rapporte ton prono</p>
+</li>
+<li class="carte" id="carte-les-gestes">
+  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><circle cx="40" cy="58" r="26" fill="none" stroke="currentColor" stroke-width="5"/><path d="M58 40 L94 22 M62 54 L94 40" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+    
+    <div class="numero"><b>5</b><small>questions</small></div>
+    <div class="trait" aria-hidden="true"></div>
+    <p class="texte-carte">Ce que font la Chistera et le Caramel, combien tu en as, où et jusqu'à quand les poser.</p>
+  </div>
+  <h3 class="nom-carte"><a href="#les-gestes">La Chistera et Le Caramel</a></h3>
+  <p class="prix">Les gestes techniques</p>
+</li>
+<li class="carte" id="carte-ton-compte">
+  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="40" ry="25" transform="rotate(-35 50 50)" fill="none" stroke="currentColor" stroke-width="5"/><path d="M30 64 L70 36" stroke="currentColor" stroke-width="4"/><path d="M44 58l-4-6M52 52l-4-6M60 47l-4-6" stroke="currentColor" stroke-width="3"/></svg>
+    
+    <div class="numero"><b>8</b><small>questions</small></div>
+    <div class="trait" aria-hidden="true"></div>
+    <p class="texte-carte">Te connecter, ta fiche joueur, signaler, bloquer, la publicité, tes données, supprimer ton compte, nous écrire.</p>
+  </div>
+  <h3 class="nom-carte"><a href="#ton-compte">Ton compte et tes données</a></h3>
+  <p class="prix">Connexion, données, contact</p>
+</li>
+<li class="carte ton-vert" id="carte-regles">
+  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><circle cx="40" cy="58" r="26" fill="none" stroke="currentColor" stroke-width="5"/><path d="M58 40 L94 22 M62 54 L94 40" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+    <span class="etiquette petites-capitales">Le barème</span>
+    <div class="numero"><b>+10</b><small>points</small></div>
+    <div class="trait" aria-hidden="true"></div>
+    <p class="texte-carte">Le score exact des deux équipes, le graal, vaut 10 points : tout le barème tient dans un tableau, avec trois exemples chiffrés.</p>
+  </div>
+  <h3 class="nom-carte"><a href="/regles/">Les règles du jeu</a></h3>
+  <p class="prix">Le barème en détail</p>
+</li>
+<li class="carte ton-orange" id="carte-support">
+  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><line x1="30" y1="6" x2="30" y2="94"/><line x1="70" y1="6" x2="70" y2="94"/><line x1="30" y1="62" x2="70" y2="62"/></g></svg>
+    <span class="etiquette petites-capitales">Une autre question ?</span>
+    <div class="numero"><b>@</b></div>
+    <div class="trait" aria-hidden="true"></div>
+    <p class="texte-carte">Écris à contact@dropleague.app : on répond sous quelques jours ouvrés.</p>
+  </div>
+  <h3 class="nom-carte"><a href="/support/">Le Support</a></h3>
+  <p class="prix">Nous écrire</p>
+</li>
+  </ul>
+</section>
+<section class="faq" aria-labelledby="titre-faq">
+  <div class="largeur">
+    <p class="accroche petites-capitales">Trouve vite la réponse à tes questions</p>
+    <h2 id="titre-faq">FAQ pronos rugby entre amis</h2>
+    <div class="filet" aria-hidden="true"></div>
+    <h3 class="rubrique" id="le-jeu">Le jeu</h3>
+    <div class="faq-liste">
+      <details><summary><h4>Qu'est-ce que Drop League ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Drop League est le jeu de pronostics rugby entre amis, sur iPhone et Android. Tu annonces le score exact des matchs avant le coup d'envoi et tu grimpes au classement de ta ligue privée et de La Bagarre Générale. Six compétitions : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Pour l'installer, tout est sur la page de l'appli iPhone et Android.</p></div></details>
+      <details><summary><h4>Quelles compétitions peut-on pronostiquer ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée. Chacune est présentée sur la page Compétitions.</p></div></details>
+      <details><summary><h4>Où trouver le calendrier des matchs ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'app Drop League, onglet Pronos : chaque journée de chaque compétition y est, avec la date et l'heure de chaque match. Le calendrier est relu chaque jour : un match reporté y change de date, et ses pronos rouvrent jusqu'au nouveau coup d'envoi.</p></div></details>
+      <details><summary><h4>À quoi servent les points ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant. Ce que rapporte chaque prono est dans les règles du jeu.</p></div></details>
+      <details><summary><h4>Qu'est-ce que La Bagarre Générale ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>La Bagarre Générale, c'est le classement de tous les joueurs de Drop League. Tu y es dès ton inscription : tu as toujours quelqu'un à dépasser. Ta Chistera y compte aussi, le Caramel reste dans tes ligues privées. Dans l'onglet Classement, la liste s'ouvre directement sur ta ligne.</p></div></details>
+      <details><summary><h4>Qu'est-ce que la Loge ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>La Loge est l'abonnement facultatif de Drop League : quatre stats en plus sur la page de chaque match (l'écart moyen de chaque équipe, le face-à-face, l'avis des tribunes, le bilan des équipes) et plus une seule pub. C'est le seul achat de l'application. Avec ou sans la Loge, tu marques exactement les mêmes points. Le détail est sur la page La Loge.</p></div></details>
+    </div>
+    <h3 class="rubrique" id="les-ligues">Les ligues et les invitations</h3>
+    <div class="faq-liste">
+      <details><summary><h4>Comment créer une ligue de pronostics rugby entre amis ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue ». Donne-lui un nom, prends toutes les compétitions ou une seule, puis touche « Inviter des potes » pour envoyer le code d'invitation. Tes potes touchent « J'ai un code d'invitation » et tapent les six caractères. Le pas-à-pas est dans le guide des pronostics rugby entre amis.</p></div></details>
+      <details><summary><h4>Comment rejoindre une ligue avec un code ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'onglet Ligues, touche « J'ai un code d'invitation », tape les six caractères, puis touche « Rejoindre la ligue ». Tous les membres voient le code sur la carte de la ligue et peuvent le partager avec « Inviter des potes ». Si l'app te dit que le code ne correspond à aucune ligue, vérifie-le avec la personne qui te l'a envoyé. Tout est expliqué dans le guide entre amis.</p></div></details>
+      <details><summary><h4>On peut avoir plusieurs ligues ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui : les collègues, la famille, la bande du club, chacune avec son classement. Tout le monde est aussi dans La Bagarre Générale, le classement de tous les joueurs de Drop League. Pour monter celle du bureau, suis le guide du concours de pronostics rugby.</p></div></details>
+      <details><summary><h4>Une ligue créée en cours de saison, ça marche ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui. Elle part de zéro : les journées déjà commencées ne comptent pas pour elle. Quelqu'un qui la rejoint plus tard marque à partir de son arrivée : les journées déjà jouées de la ligue ne lui sont pas attribuées. Ce cadre est rappelé dans les règles du jeu.</p></div></details>
+      <details><summary><h4>Qu'est-ce que le Club-house ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Chaque ligue privée a son Club-house, son fil de discussion, réservé aux membres de la ligue. C'est là qu'on refait la journée, qu'on envoie un GIF, et qu'on rappelle pendant trois semaines le 40-0 annoncé par quelqu'un qui préférerait qu'on l'oublie. Dans l'onglet Ligues, touche « Discussion — Le Club-house » sur la carte de ta ligue. Pour que ça reste un bon endroit, il y a la Charte de Drop League.</p></div></details>
+    </div>
+    <h3 class="rubrique" id="les-points">Les points et le barème</h3>
+    <div class="faq-liste">
+      <details><summary><h4>Comment sont calculés les points ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Chaque prono posé avant le coup d'envoi rapporte 1 point. Le bon vainqueur en rapporte 3 quand l'équipe qui reçoit gagne, 5 quand celle qui se déplace gagne ; en sélection, 3 ou 4 ; sur terrain neutre, 4. Avec le bon vainqueur, l'écart juste à 3 points près ajoute 2 points ; le score exact d'une équipe vaut 2 points, celui des deux équipes en vaut 10, à la place de ces 2. Un nul annoncé et joué vaut 15 points, et tout le barème tient dans le tableau des règles du jeu.</p></div></details>
+      <details><summary><h4>Combien de points vaut le score exact ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le score exact des deux équipes, c'est le graal : 10 points, qui s'ajoutent au reste et remplacent le buteur. Sur un match de club, un score exact rapporte en tout 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, et 26 sur un nul. Le score exact d'une seule des deux équipes vaut 2 points : le buteur. Trois exemples chiffrés t'attendent dans les règles du jeu.</p></div></details>
+      <details><summary><h4>Que vaut un match nul annoncé ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Nul annoncé, nul joué : c'est le XV (le quinze), 15 points d'un coup. Il remplace le bon vainqueur, la transformation et le buteur. Avec la participation, ton prono rapporte 16 points, et 26 si tu as aussi le score exact. Le XV a sa ligne dans le barème des règles du jeu.</p></div></details>
+      <details><summary><h4>Jusqu'à quand peut-on modifier son prono ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Jusqu'au coup d'envoi du match : les pronos ferment à ce moment-là. Le score retenu est celui de la fin des 80 minutes, sans les prolongations. Les points tombent quelques minutes après le coup de sifflet final : dans l'onglet Résultats, touche un match pour voir le détail de tes points. Le cadre de chaque match est dans les règles du jeu.</p></div></details>
+      <details><summary><h4>Que se passe-t-il si un match est reporté ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Les pronos rouvrent jusqu'au nouveau coup d'envoi : tu peux poser ou modifier le tien. Un match annulé ou arrêté, lui, est neutralisé : 0 point pour tout le monde. Ces cas sont tranchés d'avance dans les règles du jeu.</p></div></details>
+    </div>
+    <h3 class="rubrique" id="les-gestes">La Chistera et Le Caramel</h3>
+    <div class="faq-liste">
+      <details><summary><h4>C'est quoi, la Chistera dans Drop League ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>La Chistera est un geste technique : elle double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise. Tu la poses en secret avant le coup d'envoi de la journée, et elle se révèle aux résultats. Ses cas particuliers sont sur la page Gestes techniques.</p></div></details>
+      <details><summary><h4>C'est quoi, le Caramel ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement, arrondi au point supérieur. Une journée à 9 points passe à 5. Dans ses autres ligues et dans La Bagarre Générale, ses points restent entiers. Le plaquage dans le vide et les autres cas sont sur la page Gestes techniques.</p></div></details>
+      <details><summary><h4>Combien de Chisteras et de Caramels as-tu ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Un de chaque par compétition et par saison, les mêmes pour tout le monde. Une Chistera et un Caramel pour le Top 14, une Chistera et un Caramel pour le 6 Nations, et ainsi de suite pour chaque compétition. Un seul Caramel par compétition, même avec plusieurs ligues : à toi de choisir où il fera le plus de bruit. Le détail est sur la page Gestes techniques.</p></div></details>
+      <details><summary><h4>Où et jusqu'à quand poser tes gestes ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'onglet Pronos, choisis la journée, puis touche « Tes gestes techniques — Chistera, Caramel ». Jusqu'au coup d'envoi de la journée, tu peux poser ton geste, le retirer ou le passer sur une autre journée. Il reste secret jusqu'aux résultats, puis le Club-house de ta ligue annonce qui a posé quoi. Le pas-à-pas est sur la page Gestes techniques.</p></div></details>
+      <details><summary><h4>Quand peut-on mettre son premier caramel ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le caramel se mérite sur le terrain : il te faut au moins un prono déjà réglé dans la compétition, sur une journée commencée après la création de la ligue. Réglé, c'est-à-dire avec ses points comptés. Il te faut aussi une ligue privée, la seule où le Caramel compte : pour monter la tienne, suis le guide des pronostics rugby entre amis.</p></div></details>
+    </div>
+    <h3 class="rubrique" id="ton-compte">Ton compte et tes données</h3>
+    <div class="faq-liste">
+      <details><summary><h4>Comment créer ton compte et te connecter ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le même écran crée ton compte ou te reconnecte : tape ton adresse e-mail, touche « Recevoir mon code », puis entre les six chiffres reçus. Sur Android, tu peux aussi toucher « Continuer avec Google ». Si le code n'arrive pas, vérifie tes courriers indésirables : il est valable une heure, et « Renvoyer le code » se réactive après un court compte à rebours. Si ça coince encore, la page Support te dit comment nous écrire.</p></div></details>
+      <details><summary><h4>Qui voit ton pseudo et ta fiche joueur ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Toute personne connectée à Drop League peut ouvrir ta fiche joueur en touchant ta ligne dans un classement, La Bagarre Générale comprise. On y voit ton pseudo, ton avatar ou ta photo, ton club de cœur, le mois de ton inscription et tes chiffres de la saison, jamais tes pronos eux-mêmes ni un match à venir ou en cours. Pour changer de pseudo, ouvre ton Profil et touche « Modifier mon profil ». Le détail est dans la politique de confidentialité.</p></div></details>
+      <details><summary><h4>Comment signaler un message ou une photo ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Appuie longuement sur le message ou sur la photo, puis touche « Signaler ce message » ou « Signaler la photo ». Un message ou une photo signalé par deux joueurs différents est retiré automatiquement, pour tout le monde ; un seul signalement ne change rien. La personne signalée ne sait pas qui l'a signalée. La Charte de Drop League tient en cinq règles simples, à relire dans Profil → Réglages.</p></div></details>
+      <details><summary><h4>Comment bloquer quelqu'un ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Appuie longuement sur un de ses messages au Club-house, puis touche « Bloquer » suivi de son pseudo ; tu peux aussi passer par le bouton « … » de sa fiche joueur. Vous ne voyez plus vos messages ni vos photos, dans les deux sens, et la personne bloquée ne peut plus écrire dans les fils que vous partagez. Vos pseudos restent visibles dans les classements. Ce qu'on garde de tes blocages est dans la politique de confidentialité.</p></div></details>
+      <details><summary><h4>Comment fonctionne la publicité dans Drop League ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Drop League est financée par des annonces, fournies par Google AdMob : un bandeau en bas des écrans Pronos, Résultats, Ligues et Classement, une annonce glissée dans la liste des Résultats, et une annonce plein écran quand tu as validé le dernier prono d'une journée. Jamais pendant que tu saisis un prono, ni dans le Club-house, et aucune pour les abonnés à la Loge. Dans l'Espace économique européen, un écran de consentement s'affiche une fois ton inscription terminée : si tu refuses, les annonces restent, mais sans personnalisation, et tu changes d'avis dans Profil → Réglages → Choix publicitaires. Les limites des annonces plein écran sont sur la page Tes choix publicitaires.</p></div></details>
+      <details><summary><h4>Comment supprimer ton compte ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'app, ouvre Profil → Réglages → Supprimer mon compte, puis touche « Supprimer définitivement ». La suppression est définitive et prend effet immédiatement : tes pronos, tes points, tes messages et ta place dans tes ligues sont effacés. Un abonnement à la Loge continue tant que tu ne l'annules pas, dans les réglages de ton iPhone ou dans Google Play. Sans passer par l'app, écris à contact@dropleague.app depuis l'adresse de ton compte, avec « Suppression de compte » en objet, comme l'explique la page Supprimer mon compte.</p></div></details>
+      <details><summary><h4>Où sont stockées tes données ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Ton compte et tes pronos sont hébergés dans l'Union européenne, en Irlande. Tes données ne sont ni vendues ni louées, et tu peux tout effacer toi-même depuis l'app. Pour les consulter, les corriger ou les récupérer, écris à contact@dropleague.app depuis l'adresse de ton compte : on répond sous un mois. Tout est dans la politique de confidentialité.</p></div></details>
+      <details><summary><h4>Comment contacter Drop League ?</h4><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Écris à contact@dropleague.app : on répond sous quelques jours ouvrés. Pour un problème technique, précise le modèle de ton téléphone, la version d'Android ou d'iOS et la version de l'app, affichée dans Profil → Réglages. Ces trois infos nous font gagner un aller-retour. Les questions les plus courantes sont aussi sur la page Support.</p></div></details>
     </div>
   </div>
 </section>
-
-<main>
-  <div class="cadre">
-    <nav class="ariane" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › <span aria-current="page">Questions fréquentes</span></nav>
-
-    <section class="bloc lecture" aria-labelledby="titre-sommaire">
-      <h2 id="titre-sommaire">Cinq rubriques pour trouver ta réponse</h2>
-      <p>Toutes les questions sur les pronos rugby entre amis avec Drop League, rangées en cinq rubriques : le jeu, les ligues, le barème, les gestes techniques et ton compte. Chaque réponse tient en quelques lignes et te mène à la page qui détaille.</p>
-      <ul class="competitions">
-        <li><a href="#le-jeu">Le jeu</a></li><li><a href="#les-ligues">Les ligues et les invitations</a></li><li><a href="#les-points">Les points et le barème</a></li>
-        <li><a href="#les-gestes">La Chistera et Le Caramel</a></li><li><a href="#ton-compte">Ton compte et tes données</a></li>
-      </ul>
-    </section>
-  </div>
-
-  <section class="faq" aria-label="Les questions, rubrique par rubrique">
-    <div class="cadre lecture-large">
-
-      <section class="rubrique" id="le-jeu" aria-labelledby="titre-le-jeu">
-        <h2 id="titre-le-jeu">Le jeu</h2>
-        <p>Drop League est le jeu de pronostics rugby entre amis : tu annonces le score exact des matchs, et les points ne servent qu'au classement. Voici l'essentiel pour découvrir le jeu ou l'expliquer à ta bande : les six compétitions, La Bagarre Générale et la Loge.</p>
-        <div class="faq-liste">
-          <details>
-            <summary><h3>Qu'est-ce que Drop League ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Drop League est le jeu de pronostics rugby entre amis, sur iPhone et Android. Tu annonces le score exact des matchs avant le coup d'envoi et tu grimpes au classement de ta ligue privée et de La Bagarre Générale. Six compétitions : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Pour l'installer, tout est sur la page de <a href="/application-pronostics-rugby/">l'appli iPhone et Android</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Quelles compétitions peut-on pronostiquer ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée. Chacune est présentée sur la page <a href="/competitions/">Compétitions</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>À quoi servent les points ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant. Ce que rapporte chaque prono est dans les <a href="/regles/">règles du jeu</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Qu'est-ce que La Bagarre Générale ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p><a href="/la-bagarre-generale/">La Bagarre Générale</a>, c'est le classement de tous les joueurs de Drop League. Tu y es dès ton inscription : tu as toujours quelqu'un à dépasser. Ta Chistera y compte aussi, le Caramel reste dans tes ligues privées. Dans l'onglet Classement, la liste s'ouvre directement sur ta ligne.</p></div>
-          </details>
-          <details>
-            <summary><h3>Qu'est-ce que la Loge ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>La Loge est l'abonnement facultatif de Drop League : quatre stats en plus sur la page de chaque match (l'écart moyen de chaque équipe, le face-à-face, l'avis des tribunes, le bilan des équipes) et plus une seule pub. C'est le seul achat de l'application. Avec ou sans la Loge, tu marques exactement les mêmes points. Le détail est sur la page <a href="/la-loge/">La Loge</a>.</p></div>
-          </details>
-        </div>
-      </section>
-
-      <section class="rubrique" id="les-ligues" aria-labelledby="titre-les-ligues">
-        <h2 id="titre-les-ligues">Les ligues et les invitations</h2>
-        <p>Une ligue Drop League, c'est ton groupe à toi : ses joueurs, ses compétitions, son classement et son Club-house. Tu la crées dans l'onglet Ligues, tu envoies un code de six caractères, et le classement démarre.</p>
-        <div class="faq-liste">
-          <details>
-            <summary><h3>Comment créer une ligue de pronostics rugby entre amis ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue ». Donne-lui un nom, prends toutes les compétitions ou une seule, puis touche « Inviter des potes » pour envoyer le code d'invitation. Tes amis touchent « J'ai un code d'invitation » et tapent les six caractères. Le pas-à-pas est dans le guide des <a href="/pronostics-rugby-entre-amis/">pronostics rugby entre amis</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Comment rejoindre une ligue avec un code ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Dans l'onglet Ligues, touche « J'ai un code d'invitation », tape les six caractères, puis touche « Rejoindre la ligue ». Tous les membres voient le code sur la carte de la ligue et peuvent le partager avec « Inviter des potes ». Si l'app te dit que le code ne correspond à aucune ligue, vérifie-le avec la personne qui te l'a envoyé. Tout est expliqué dans le guide <a href="/pronostics-rugby-entre-amis/">entre amis</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>On peut avoir plusieurs ligues ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Oui : les collègues, la famille, la bande du club, chacune avec son classement. Tout le monde est aussi dans La Bagarre Générale, le classement de tous les joueurs de Drop League. Pour monter celle du bureau, suis le guide du <a href="/concours-pronostics-rugby/">concours de pronostics rugby</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Une ligue créée en cours de saison, ça marche ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Oui. Elle part de zéro : les journées déjà commencées ne comptent pas pour elle. Quelqu'un qui la rejoint plus tard marque à partir de son arrivée : les journées déjà jouées de la ligue ne lui sont pas attribuées. Ce cadre est rappelé dans les <a href="/regles/">règles du jeu</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Qu'est-ce que le Club-house ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Chaque ligue privée a son Club-house, son fil de discussion, réservé aux membres de la ligue. C'est là qu'on refait la journée, qu'on envoie un GIF, et qu'on rappelle pendant trois semaines le 40-0 annoncé par quelqu'un qui préférerait qu'on l'oublie. Dans l'onglet Ligues, touche « Discussion — Le Club-house » sur la carte de ta ligue. Pour que ça reste un bon endroit, il y a la <a href="/charte/">Charte de Drop League</a>.</p></div>
-          </details>
-        </div>
-      </section>
-
-      <section class="rubrique" id="les-points" aria-labelledby="titre-les-points">
-        <h2 id="titre-les-points">Les points et le barème</h2>
-        <p>Ton prono, c'est le score exact du match : le vainqueur et l'écart suivent tout seuls. Voici ce que rapporte un prono, et quand tombent les points.</p>
-        <div class="faq-liste">
-          <details>
-            <summary><h3>Comment sont calculés les points ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Chaque prono posé avant le coup d'envoi rapporte 1 point. Le bon vainqueur en rapporte 3 quand l'équipe qui reçoit gagne, 5 quand celle qui se déplace gagne ; en sélection, 3 ou 4 ; sur terrain neutre, 4. Avec le bon vainqueur, l'écart juste à 3 points près ajoute 2 points ; le score exact d'une équipe vaut 2 points, celui des deux équipes en vaut 10, à la place de ces 2. Un nul annoncé et joué vaut 15 points, et tout le barème tient dans le tableau des <a href="/regles/">règles du jeu</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Combien de points vaut le score exact ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Le score exact des deux équipes, c'est le graal : 10 points, qui s'ajoutent au reste et remplacent le buteur. Sur un match de club, un score exact rapporte en tout 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, et 26 sur un nul. Le score exact d'une seule des deux équipes vaut 2 points : le buteur. Trois exemples chiffrés t'attendent dans les <a href="/regles/">règles du jeu</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Que vaut un match nul annoncé ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Nul annoncé, nul joué : c'est le XV (le quinze), 15 points d'un coup. Il remplace le bon vainqueur, la transformation et le buteur. Avec la participation, ton prono rapporte 16 points, et 26 si tu as aussi le score exact. Le XV a sa ligne dans le barème des <a href="/regles/">règles du jeu</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Jusqu'à quand peut-on modifier son prono ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Jusqu'au coup d'envoi du match : les pronos ferment à ce moment-là. Le score retenu est celui de la fin des 80 minutes, sans les prolongations. Les points tombent quelques minutes après le coup de sifflet final : dans l'onglet Résultats, touche un match pour voir le détail de tes points. Le cadre de chaque match est dans les <a href="/regles/">règles du jeu</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Que se passe-t-il si un match est reporté ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Les pronos rouvrent jusqu'au nouveau coup d'envoi : tu peux poser ou modifier le tien. Un match annulé ou arrêté, lui, est neutralisé : 0 point pour tout le monde. Ces cas sont tranchés d'avance dans les <a href="/regles/">règles du jeu</a>.</p></div>
-          </details>
-        </div>
-      </section>
-
-      <section class="rubrique" id="les-gestes" aria-labelledby="titre-les-gestes">
-        <h2 id="titre-les-gestes">La Chistera et Le Caramel</h2>
-        <p>Pour chaque compétition, tu as deux gestes techniques dans ta manche : un de chaque par saison, les mêmes pour tout le monde. Tu les poses en secret avant le coup d'envoi de la journée, et tout se révèle aux résultats.</p>
-        <div class="faq-liste">
-          <details>
-            <summary><h3>C'est quoi, la Chistera dans Drop League ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>La Chistera est un geste technique : elle double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise. Tu la poses en secret avant le coup d'envoi de la journée, et elle se révèle aux résultats. Ses cas particuliers sont sur la page <a href="/regles/gestes-techniques/">Gestes techniques</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>C'est quoi, le Caramel ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement, arrondi au point supérieur. Une journée à 9 points passe à 5. Dans ses autres ligues et dans La Bagarre Générale, ses points restent entiers. Le plaquage dans le vide et les autres cas sont sur la page <a href="/regles/gestes-techniques/">Gestes techniques</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Combien de Chisteras et de Caramels as-tu ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Un de chaque par compétition et par saison, les mêmes pour tout le monde. Une Chistera et un Caramel pour le Top 14, une Chistera et un Caramel pour le 6 Nations, et ainsi de suite pour chaque compétition. Un seul Caramel par compétition, même avec plusieurs ligues : à toi de choisir où il fera le plus de bruit. Le détail est sur la page <a href="/regles/gestes-techniques/">Gestes techniques</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Où et jusqu'à quand poser tes gestes ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Dans l'onglet Pronos, choisis la journée, puis touche « Tes gestes techniques — Chistera, Caramel ». Jusqu'au coup d'envoi de la journée, tu peux poser ton geste, le retirer ou le passer sur une autre journée. Il reste secret jusqu'aux résultats, puis le Club-house de ta ligue annonce qui a posé quoi. Le pas-à-pas est sur la page <a href="/regles/gestes-techniques/">Gestes techniques</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Quand peut-on mettre son premier caramel ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Le caramel se mérite sur le terrain : il te faut au moins un prono déjà réglé dans la compétition, sur une journée commencée après la création de la ligue. Réglé, c'est-à-dire avec ses points comptés. Il te faut aussi une ligue privée, la seule où le Caramel compte : pour monter la tienne, suis le guide des <a href="/pronostics-rugby-entre-amis/">pronostics rugby entre amis</a>.</p></div>
-          </details>
-        </div>
-      </section>
-
-      <section class="rubrique" id="ton-compte" aria-labelledby="titre-ton-compte">
-        <h2 id="titre-ton-compte">Ton compte et tes données</h2>
-        <p>Ton compte s'ouvre avec ton adresse e-mail, et tu peux tout effacer toi-même, depuis l'app. Drop League s'adresse aux personnes majeures. Voici comment te connecter, ce que voient les autres joueurs, comment signaler, bloquer, régler la publicité et nous écrire.</p>
-        <div class="faq-liste">
-          <details>
-            <summary><h3>Comment créer ton compte et te connecter ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Le même écran crée ton compte ou te reconnecte : tape ton adresse e-mail, touche « Recevoir mon code », puis entre les six chiffres reçus. Sur Android, tu peux aussi toucher « Continuer avec Google ». Si le code n'arrive pas, vérifie tes courriers indésirables : il est valable une heure, et « Renvoyer le code » se réactive après un court compte à rebours. Si ça coince encore, la page <a href="/support/">Support</a> te dit comment nous écrire.</p></div>
-          </details>
-          <details>
-            <summary><h3>Qui voit ton pseudo et ta fiche joueur ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Toute personne connectée à Drop League peut ouvrir ta fiche joueur en touchant ta ligne dans un classement, La Bagarre Générale comprise. On y voit ton pseudo, ton avatar ou ta photo, ton club de cœur, le mois de ton inscription et tes chiffres de la saison, jamais tes pronos eux-mêmes ni un match à venir ou en cours. Pour changer de pseudo, ouvre ton Profil et touche « Modifier mon profil ». Le détail est dans la <a href="/privacy/">politique de confidentialité</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Comment signaler un message ou une photo ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Appuie longuement sur le message ou sur la photo, puis touche « Signaler ce message » ou « Signaler la photo ». Un message ou une photo signalé par deux joueurs différents est retiré automatiquement, pour tout le monde ; un seul signalement ne change rien. La personne signalée ne sait pas qui l'a signalée. La <a href="/charte/">Charte de Drop League</a> tient en cinq règles simples, à relire dans Profil → Réglages.</p></div>
-          </details>
-          <details>
-            <summary><h3>Comment bloquer quelqu'un ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Appuie longuement sur un de ses messages au Club-house, puis touche « Bloquer » suivi de son pseudo ; tu peux aussi passer par le bouton « … » de sa fiche joueur. Vous ne voyez plus vos messages ni vos photos, dans les deux sens, et la personne bloquée ne peut plus écrire dans les fils que vous partagez. Vos pseudos restent visibles dans les classements. Ce qu'on garde de tes blocages est dans la <a href="/privacy/">politique de confidentialité</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Comment fonctionne la publicité dans Drop League ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Drop League est financée par des annonces, fournies par Google AdMob : un bandeau en bas des écrans Pronos, Résultats, Ligues et Classement, une annonce glissée dans la liste des Résultats, et une annonce plein écran quand tu as validé le dernier prono d'une journée. Jamais pendant que tu saisis un prono, ni dans le Club-house, et aucune pour les abonnés à la Loge. Dans l'Espace économique européen, un écran de consentement s'affiche une fois ton inscription terminée : si tu refuses, les annonces restent, mais sans personnalisation, et tu changes d'avis dans Profil → Réglages → Choix publicitaires. Les limites des annonces plein écran sont sur la page <a href="/publicite/">Tes choix publicitaires</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Comment supprimer ton compte ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Dans l'app, ouvre Profil → Réglages → Supprimer mon compte, puis touche « Supprimer définitivement ». La suppression est définitive et prend effet immédiatement : tes pronos, tes points, tes messages et ta place dans tes ligues sont effacés. Un abonnement à la Loge continue tant que tu ne l'annules pas, dans les réglages de ton iPhone ou dans Google Play. Sans passer par l'app, écris à <a href="mailto:contact@dropleague.app">contact@dropleague.app</a> depuis l'adresse de ton compte, avec « Suppression de compte » en objet, comme l'explique la page <a href="/delete-account/">Supprimer mon compte</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Où sont stockées tes données ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Ton compte et tes pronos sont hébergés dans l'Union européenne, en Irlande. Tes données ne sont ni vendues ni louées, et tu peux tout effacer toi-même depuis l'app. Pour les consulter, les corriger ou les récupérer, écris à <a href="mailto:contact@dropleague.app">contact@dropleague.app</a> depuis l'adresse de ton compte : on répond sous un mois. Tout est dans la <a href="/privacy/">politique de confidentialité</a>.</p></div>
-          </details>
-          <details>
-            <summary><h3>Comment contacter Drop League ?</h3><span class="fleche" aria-hidden="true"></span></summary>
-            <div class="reponse"><p>Écris à <a href="mailto:contact@dropleague.app">contact@dropleague.app</a> : on répond sous quelques jours ouvrés. Pour un problème technique, précise le modèle de ton téléphone, la version d'Android ou d'iOS et la version de l'app, affichée dans Profil → Réglages. Ces trois infos nous font gagner un aller-retour. Les questions les plus courantes sont aussi sur la page <a href="/support/">Support</a>.</p></div>
-          </details>
-        </div>
-      </section>
-
-    </div>
-  </section>
-
-  <div class="cadre">
-    <section class="definition" aria-labelledby="titre-definition">
-      <div>
-        <h2 id="titre-definition">C'est quoi, Drop League ?</h2>
-        <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
-      </div>
-      <div class="magasins">
-        <a class="bouton" href="https://apps.apple.com/fr/app/drop-league/id6814801571">App Store</a>
-        <a class="bouton" href="https://play.google.com/store/apps/details?id=com.dropleague.app">Google Play</a>
-      </div>
-    </section>
-  </div>
+<article class="largeur"><div class="texte-seo">
+  <h2>Les pronos rugby entre amis, en cinq rubriques</h2>
+  <div class="filet" aria-hidden="true"></div>
+  <p>Toutes les questions sur les pronos rugby entre amis avec Drop League, rangées en cinq rubriques : <a href="#le-jeu">le jeu</a>, <a href="#les-ligues">les ligues</a>, <a href="#les-points">le barème</a>, <a href="#les-gestes">les gestes techniques</a> et <a href="#ton-compte">ton compte</a>. Chaque réponse tient en quelques lignes et t'indique la page qui détaille. Si ça coince encore, la page <a href="/support/">Support</a> te dit comment nous écrire.</p>
+  <h2>C'est quoi, Drop League ?</h2>
+  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+  <details class="lire-plus"><summary>Lire plus</summary>
+  <h2>Comment se joue Drop League ?</h2>
+  <p>Drop League est le jeu de pronostics rugby entre amis : tu annonces le score exact des matchs, et les points ne servent qu'au classement. Voici l'essentiel pour découvrir le jeu ou l'expliquer à ta bande : les six <a href="/competitions/">compétitions</a>, <a href="/la-bagarre-generale/">La Bagarre Générale</a> et <a href="/la-loge/">la Loge</a>.</p>
+  <h2>Ta ligue, ton groupe à toi</h2>
+  <p>Une ligue Drop League, c'est ton groupe à toi : ses joueurs, ses compétitions, son classement et son Club-house. Tu la crées dans l'onglet Ligues, tu envoies un code de six caractères, et le classement démarre. Le pas-à-pas est dans le guide des <a href="/pronostics-rugby-entre-amis/">pronostics rugby entre amis</a> ; pour monter la ligue du bureau, suis le guide du <a href="/concours-pronostics-rugby/">concours de pronostics rugby</a>. Pour que le Club-house reste un bon endroit, il y a la <a href="/charte/">Charte de Drop League</a>.</p>
+  <h2>Que rapporte ton prono ?</h2>
+  <p>Ton prono, c'est le score exact du match : le vainqueur et l'écart suivent tout seuls. Le score exact des deux équipes, le graal, vaut 10 points, et tout le barème tient dans le tableau des <a href="/regles/">règles du jeu</a>.</p>
+  <h2>Quand poser ta Chistera et ton Caramel ?</h2>
+  <p>Pour chaque compétition, tu as deux gestes techniques dans ta manche : un de chaque par saison, les mêmes pour tout le monde. Tu les poses en secret avant le coup d'envoi de la journée, et tout se révèle aux résultats. Leurs cas particuliers sont sur la page <a href="/regles/gestes-techniques/">Gestes techniques</a>.</p>
+  <h2>Ton compte et tes données, entre tes mains</h2>
+  <p>Ton compte s'ouvre avec ton adresse e-mail, et tu peux tout effacer toi-même, depuis l'app. Drop League s'adresse aux personnes majeures. Ce qu'on garde de tes données est dans la <a href="/privacy/">politique de confidentialité</a>, et la page <a href="/delete-account/">Supprimer mon compte</a> explique comment tout effacer. Les limites des annonces plein écran sont sur la page <a href="/publicite/">Tes choix publicitaires</a>.</p>
+  </details>
+</div></article>
+<section class="largeur reassurance" aria-label="Drop League en bref"><ul>
+  <li><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.2"/><path d="M10.5 18.5h3M9.5 8l2 2 3.5-3.5"/></svg></span><b>iPhone et Android</b><span>Sur l'App Store et Google Play</span></li>
+  <li><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg></span><b>Six compétitions</b><span>Du Top 14 au 6 Nations</span></li>
+  <li><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5M10.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5"/></svg></span><b>Entre amis</b><span>Ta ligue privée, ton code d'invitation</span></li>
+  <li><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V13h4v7M10 20V8h4v12M16 20v-5h4v5M3 20h18"/></svg></span><b>Le classement</b><span>Les points ne servent qu'au classement</span></li>
+</ul></section>
 </main>
-
-<footer>
-  <div class="cadre">
+<footer class="pied">
+  <div class="largeur">
+    <p class="slogan">Deviens le meilleur pronostiqueur de ta ligue</p>
     <div class="colonnes">
-      <div><b>Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-loge/">La Loge</a></li><li><a aria-current="page">Questions fréquentes</a></li></ul></div>
-      <div><b>Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
-      <div><b>Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
-      <div><b>Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
+      <div><b class="titre petites-capitales">Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-loge/">La Loge</a></li><li><a aria-current="page">Questions fréquentes</a></li></ul></div>
+      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b class="titre petites-capitales">Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
+      <div><b class="titre petites-capitales">Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
+      <div class="appli"><b class="titre petites-capitales">L'app</b><p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p><div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div></div>
     </div>
-    <p class="copyright">© 2026 Drop League</p>
+    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
   </div>
 </footer>
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
- {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Questions fréquentes","item":"https://dropleague.app/questions/"}]},
- {"@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"Qu'est-ce que Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Drop League est le jeu de pronostics rugby entre amis, sur iPhone et Android. Tu annonces le score exact des matchs avant le coup d'envoi et tu grimpes au classement de ta ligue privée et de La Bagarre Générale. Six compétitions : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Pour l'installer, tout est sur la page de l'appli iPhone et Android."}},
-  {"@type":"Question","name":"Quelles compétitions peut-on pronostiquer ?","acceptedAnswer":{"@type":"Answer","text":"Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée. Chacune est présentée sur la page Compétitions."}},
-  {"@type":"Question","name":"À quoi servent les points ?","acceptedAnswer":{"@type":"Answer","text":"Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant. Ce que rapporte chaque prono est dans les règles du jeu."}},
-  {"@type":"Question","name":"Qu'est-ce que La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"La Bagarre Générale, c'est le classement de tous les joueurs de Drop League. Tu y es dès ton inscription : tu as toujours quelqu'un à dépasser. Ta Chistera y compte aussi, le Caramel reste dans tes ligues privées. Dans l'onglet Classement, la liste s'ouvre directement sur ta ligne."}},
-  {"@type":"Question","name":"Qu'est-ce que la Loge ?","acceptedAnswer":{"@type":"Answer","text":"La Loge est l'abonnement facultatif de Drop League : quatre stats en plus sur la page de chaque match (l'écart moyen de chaque équipe, le face-à-face, l'avis des tribunes, le bilan des équipes) et plus une seule pub. C'est le seul achat de l'application. Avec ou sans la Loge, tu marques exactement les mêmes points. Le détail est sur la page La Loge."}},
-  {"@type":"Question","name":"Comment créer une ligue de pronostics rugby entre amis ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue ». Donne-lui un nom, prends toutes les compétitions ou une seule, puis touche « Inviter des potes » pour envoyer le code d'invitation. Tes amis touchent « J'ai un code d'invitation » et tapent les six caractères. Le pas-à-pas est dans le guide des pronostics rugby entre amis."}},
-  {"@type":"Question","name":"Comment rejoindre une ligue avec un code ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'onglet Ligues, touche « J'ai un code d'invitation », tape les six caractères, puis touche « Rejoindre la ligue ». Tous les membres voient le code sur la carte de la ligue et peuvent le partager avec « Inviter des potes ». Si l'app te dit que le code ne correspond à aucune ligue, vérifie-le avec la personne qui te l'a envoyé. Tout est expliqué dans le guide entre amis."}},
-  {"@type":"Question","name":"On peut avoir plusieurs ligues ?","acceptedAnswer":{"@type":"Answer","text":"Oui : les collègues, la famille, la bande du club, chacune avec son classement. Tout le monde est aussi dans La Bagarre Générale, le classement de tous les joueurs de Drop League. Pour monter celle du bureau, suis le guide du concours de pronostics rugby."}},
-  {"@type":"Question","name":"Une ligue créée en cours de saison, ça marche ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Elle part de zéro : les journées déjà commencées ne comptent pas pour elle. Quelqu'un qui la rejoint plus tard marque à partir de son arrivée : les journées déjà jouées de la ligue ne lui sont pas attribuées. Ce cadre est rappelé dans les règles du jeu."}},
-  {"@type":"Question","name":"Qu'est-ce que le Club-house ?","acceptedAnswer":{"@type":"Answer","text":"Chaque ligue privée a son Club-house, son fil de discussion, réservé aux membres de la ligue. C'est là qu'on refait la journée, qu'on envoie un GIF, et qu'on rappelle pendant trois semaines le 40-0 annoncé par quelqu'un qui préférerait qu'on l'oublie. Dans l'onglet Ligues, touche « Discussion — Le Club-house » sur la carte de ta ligue. Pour que ça reste un bon endroit, il y a la Charte de Drop League."}},
-  {"@type":"Question","name":"Comment sont calculés les points ?","acceptedAnswer":{"@type":"Answer","text":"Chaque prono posé avant le coup d'envoi rapporte 1 point. Le bon vainqueur en rapporte 3 quand l'équipe qui reçoit gagne, 5 quand celle qui se déplace gagne ; en sélection, 3 ou 4 ; sur terrain neutre, 4. Avec le bon vainqueur, l'écart juste à 3 points près ajoute 2 points ; le score exact d'une équipe vaut 2 points, celui des deux équipes en vaut 10, à la place de ces 2. Un nul annoncé et joué vaut 15 points, et tout le barème tient dans le tableau des règles du jeu."}},
-  {"@type":"Question","name":"Combien de points vaut le score exact ?","acceptedAnswer":{"@type":"Answer","text":"Le score exact des deux équipes, c'est le graal : 10 points, qui s'ajoutent au reste et remplacent le buteur. Sur un match de club, un score exact rapporte en tout 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, et 26 sur un nul. Le score exact d'une seule des deux équipes vaut 2 points : le buteur. Trois exemples chiffrés t'attendent dans les règles du jeu."}},
-  {"@type":"Question","name":"Que vaut un match nul annoncé ?","acceptedAnswer":{"@type":"Answer","text":"Nul annoncé, nul joué : c'est le XV (le quinze), 15 points d'un coup. Il remplace le bon vainqueur, la transformation et le buteur. Avec la participation, ton prono rapporte 16 points, et 26 si tu as aussi le score exact. Le XV a sa ligne dans le barème des règles du jeu."}},
-  {"@type":"Question","name":"Jusqu'à quand peut-on modifier son prono ?","acceptedAnswer":{"@type":"Answer","text":"Jusqu'au coup d'envoi du match : les pronos ferment à ce moment-là. Le score retenu est celui de la fin des 80 minutes, sans les prolongations. Les points tombent quelques minutes après le coup de sifflet final : dans l'onglet Résultats, touche un match pour voir le détail de tes points. Le cadre de chaque match est dans les règles du jeu."}},
-  {"@type":"Question","name":"Que se passe-t-il si un match est reporté ?","acceptedAnswer":{"@type":"Answer","text":"Les pronos rouvrent jusqu'au nouveau coup d'envoi : tu peux poser ou modifier le tien. Un match annulé ou arrêté, lui, est neutralisé : 0 point pour tout le monde. Ces cas sont tranchés d'avance dans les règles du jeu."}},
-  {"@type":"Question","name":"C'est quoi, la Chistera dans Drop League ?","acceptedAnswer":{"@type":"Answer","text":"La Chistera est un geste technique : elle double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise. Tu la poses en secret avant le coup d'envoi de la journée, et elle se révèle aux résultats. Ses cas particuliers sont sur la page Gestes techniques."}},
-  {"@type":"Question","name":"C'est quoi, le Caramel ?","acceptedAnswer":{"@type":"Answer","text":"Le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement, arrondi au point supérieur. Une journée à 9 points passe à 5. Dans ses autres ligues et dans La Bagarre Générale, ses points restent entiers. Le plaquage dans le vide et les autres cas sont sur la page Gestes techniques."}},
-  {"@type":"Question","name":"Combien de Chisteras et de Caramels as-tu ?","acceptedAnswer":{"@type":"Answer","text":"Un de chaque par compétition et par saison, les mêmes pour tout le monde. Une Chistera et un Caramel pour le Top 14, une Chistera et un Caramel pour le 6 Nations, et ainsi de suite pour chaque compétition. Un seul Caramel par compétition, même avec plusieurs ligues : à toi de choisir où il fera le plus de bruit. Le détail est sur la page Gestes techniques."}},
-  {"@type":"Question","name":"Où et jusqu'à quand poser tes gestes ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'onglet Pronos, choisis la journée, puis touche « Tes gestes techniques — Chistera, Caramel ». Jusqu'au coup d'envoi de la journée, tu peux poser ton geste, le retirer ou le passer sur une autre journée. Il reste secret jusqu'aux résultats, puis le Club-house de ta ligue annonce qui a posé quoi. Le pas-à-pas est sur la page Gestes techniques."}},
-  {"@type":"Question","name":"Quand peut-on mettre son premier caramel ?","acceptedAnswer":{"@type":"Answer","text":"Le caramel se mérite sur le terrain : il te faut au moins un prono déjà réglé dans la compétition, sur une journée commencée après la création de la ligue. Réglé, c'est-à-dire avec ses points comptés. Il te faut aussi une ligue privée, la seule où le Caramel compte : pour monter la tienne, suis le guide des pronostics rugby entre amis."}},
-  {"@type":"Question","name":"Comment créer ton compte et te connecter ?","acceptedAnswer":{"@type":"Answer","text":"Le même écran crée ton compte ou te reconnecte : tape ton adresse e-mail, touche « Recevoir mon code », puis entre les six chiffres reçus. Sur Android, tu peux aussi toucher « Continuer avec Google ». Si le code n'arrive pas, vérifie tes courriers indésirables : il est valable une heure, et « Renvoyer le code » se réactive après un court compte à rebours. Si ça coince encore, la page Support te dit comment nous écrire."}},
-  {"@type":"Question","name":"Qui voit ton pseudo et ta fiche joueur ?","acceptedAnswer":{"@type":"Answer","text":"Toute personne connectée à Drop League peut ouvrir ta fiche joueur en touchant ta ligne dans un classement, La Bagarre Générale comprise. On y voit ton pseudo, ton avatar ou ta photo, ton club de cœur, le mois de ton inscription et tes chiffres de la saison, jamais tes pronos eux-mêmes ni un match à venir ou en cours. Pour changer de pseudo, ouvre ton Profil et touche « Modifier mon profil ». Le détail est dans la politique de confidentialité."}},
-  {"@type":"Question","name":"Comment signaler un message ou une photo ?","acceptedAnswer":{"@type":"Answer","text":"Appuie longuement sur le message ou sur la photo, puis touche « Signaler ce message » ou « Signaler la photo ». Un message ou une photo signalé par deux joueurs différents est retiré automatiquement, pour tout le monde ; un seul signalement ne change rien. La personne signalée ne sait pas qui l'a signalée. La Charte de Drop League tient en cinq règles simples, à relire dans Profil → Réglages."}},
-  {"@type":"Question","name":"Comment bloquer quelqu'un ?","acceptedAnswer":{"@type":"Answer","text":"Appuie longuement sur un de ses messages au Club-house, puis touche « Bloquer » suivi de son pseudo ; tu peux aussi passer par le bouton « … » de sa fiche joueur. Vous ne voyez plus vos messages ni vos photos, dans les deux sens, et la personne bloquée ne peut plus écrire dans les fils que vous partagez. Vos pseudos restent visibles dans les classements. Ce qu'on garde de tes blocages est dans la politique de confidentialité."}},
-  {"@type":"Question","name":"Comment fonctionne la publicité dans Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Drop League est financée par des annonces, fournies par Google AdMob : un bandeau en bas des écrans Pronos, Résultats, Ligues et Classement, une annonce glissée dans la liste des Résultats, et une annonce plein écran quand tu as validé le dernier prono d'une journée. Jamais pendant que tu saisis un prono, ni dans le Club-house, et aucune pour les abonnés à la Loge. Dans l'Espace économique européen, un écran de consentement s'affiche une fois ton inscription terminée : si tu refuses, les annonces restent, mais sans personnalisation, et tu changes d'avis dans Profil → Réglages → Choix publicitaires. Les limites des annonces plein écran sont sur la page Tes choix publicitaires."}},
-  {"@type":"Question","name":"Comment supprimer ton compte ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app, ouvre Profil → Réglages → Supprimer mon compte, puis touche « Supprimer définitivement ». La suppression est définitive et prend effet immédiatement : tes pronos, tes points, tes messages et ta place dans tes ligues sont effacés. Un abonnement à la Loge continue tant que tu ne l'annules pas, dans les réglages de ton iPhone ou dans Google Play. Sans passer par l'app, écris à contact@dropleague.app depuis l'adresse de ton compte, avec « Suppression de compte » en objet, comme l'explique la page Supprimer mon compte."}},
-  {"@type":"Question","name":"Où sont stockées tes données ?","acceptedAnswer":{"@type":"Answer","text":"Ton compte et tes pronos sont hébergés dans l'Union européenne, en Irlande. Tes données ne sont ni vendues ni louées, et tu peux tout effacer toi-même depuis l'app. Pour les consulter, les corriger ou les récupérer, écris à contact@dropleague.app depuis l'adresse de ton compte : on répond sous un mois. Tout est dans la politique de confidentialité."}},
-  {"@type":"Question","name":"Comment contacter Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Écris à contact@dropleague.app : on répond sous quelques jours ouvrés. Pour un problème technique, précise le modèle de ton téléphone, la version d'Android ou d'iOS et la version de l'app, affichée dans Profil → Réglages. Ces trois infos nous font gagner un aller-retour. Les questions les plus courantes sont aussi sur la page Support."}}
- ]}
-]}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Questions fréquentes","item":"https://dropleague.app/questions/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/questions/#page","url":"https://dropleague.app/questions/","name":"Questions fréquentes","description":"Monte ta ligue, annonce le score exact, pose ta Chistera : 29 réponses sur le barème, les ligues, ton compte et tes données, sur iPhone et Android.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Les rubriques des questions fréquentes sur Drop League, les règles et le Support","numberOfItems":7,"itemListElement":[{"@type":"ListItem","position":1,"name":"Le jeu · Pour découvrir le jeu","url":"https://dropleague.app/questions/#le-jeu"},{"@type":"ListItem","position":2,"name":"Les ligues et les invitations · Ta ligue, ton code","url":"https://dropleague.app/questions/#les-ligues"},{"@type":"ListItem","position":3,"name":"Les points et le barème · Ce que rapporte ton prono","url":"https://dropleague.app/questions/#les-points"},{"@type":"ListItem","position":4,"name":"La Chistera et Le Caramel · Les gestes techniques","url":"https://dropleague.app/questions/#les-gestes"},{"@type":"ListItem","position":5,"name":"Ton compte et tes données · Connexion, données, contact","url":"https://dropleague.app/questions/#ton-compte"},{"@type":"ListItem","position":6,"name":"Les règles du jeu · Le barème en détail","url":"https://dropleague.app/regles/"},{"@type":"ListItem","position":7,"name":"Le Support · Nous écrire","url":"https://dropleague.app/support/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce que Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Drop League est le jeu de pronostics rugby entre amis, sur iPhone et Android. Tu annonces le score exact des matchs avant le coup d'envoi et tu grimpes au classement de ta ligue privée et de La Bagarre Générale. Six compétitions : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Pour l'installer, tout est sur la page de l'appli iPhone et Android."}},{"@type":"Question","name":"Quelles compétitions peut-on pronostiquer ?","acceptedAnswer":{"@type":"Answer","text":"Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée. Chacune est présentée sur la page Compétitions."}},{"@type":"Question","name":"Où trouver le calendrier des matchs ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app Drop League, onglet Pronos : chaque journée de chaque compétition y est, avec la date et l'heure de chaque match. Le calendrier est relu chaque jour : un match reporté y change de date, et ses pronos rouvrent jusqu'au nouveau coup d'envoi."}},{"@type":"Question","name":"À quoi servent les points ?","acceptedAnswer":{"@type":"Answer","text":"Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant. Ce que rapporte chaque prono est dans les règles du jeu."}},{"@type":"Question","name":"Qu'est-ce que La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"La Bagarre Générale, c'est le classement de tous les joueurs de Drop League. Tu y es dès ton inscription : tu as toujours quelqu'un à dépasser. Ta Chistera y compte aussi, le Caramel reste dans tes ligues privées. Dans l'onglet Classement, la liste s'ouvre directement sur ta ligne."}},{"@type":"Question","name":"Qu'est-ce que la Loge ?","acceptedAnswer":{"@type":"Answer","text":"La Loge est l'abonnement facultatif de Drop League : quatre stats en plus sur la page de chaque match (l'écart moyen de chaque équipe, le face-à-face, l'avis des tribunes, le bilan des équipes) et plus une seule pub. C'est le seul achat de l'application. Avec ou sans la Loge, tu marques exactement les mêmes points. Le détail est sur la page La Loge."}},{"@type":"Question","name":"Comment créer une ligue de pronostics rugby entre amis ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue ». Donne-lui un nom, prends toutes les compétitions ou une seule, puis touche « Inviter des potes » pour envoyer le code d'invitation. Tes potes touchent « J'ai un code d'invitation » et tapent les six caractères. Le pas-à-pas est dans le guide des pronostics rugby entre amis."}},{"@type":"Question","name":"Comment rejoindre une ligue avec un code ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'onglet Ligues, touche « J'ai un code d'invitation », tape les six caractères, puis touche « Rejoindre la ligue ». Tous les membres voient le code sur la carte de la ligue et peuvent le partager avec « Inviter des potes ». Si l'app te dit que le code ne correspond à aucune ligue, vérifie-le avec la personne qui te l'a envoyé. Tout est expliqué dans le guide entre amis."}},{"@type":"Question","name":"On peut avoir plusieurs ligues ?","acceptedAnswer":{"@type":"Answer","text":"Oui : les collègues, la famille, la bande du club, chacune avec son classement. Tout le monde est aussi dans La Bagarre Générale, le classement de tous les joueurs de Drop League. Pour monter celle du bureau, suis le guide du concours de pronostics rugby."}},{"@type":"Question","name":"Une ligue créée en cours de saison, ça marche ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Elle part de zéro : les journées déjà commencées ne comptent pas pour elle. Quelqu'un qui la rejoint plus tard marque à partir de son arrivée : les journées déjà jouées de la ligue ne lui sont pas attribuées. Ce cadre est rappelé dans les règles du jeu."}},{"@type":"Question","name":"Qu'est-ce que le Club-house ?","acceptedAnswer":{"@type":"Answer","text":"Chaque ligue privée a son Club-house, son fil de discussion, réservé aux membres de la ligue. C'est là qu'on refait la journée, qu'on envoie un GIF, et qu'on rappelle pendant trois semaines le 40-0 annoncé par quelqu'un qui préférerait qu'on l'oublie. Dans l'onglet Ligues, touche « Discussion — Le Club-house » sur la carte de ta ligue. Pour que ça reste un bon endroit, il y a la Charte de Drop League."}},{"@type":"Question","name":"Comment sont calculés les points ?","acceptedAnswer":{"@type":"Answer","text":"Chaque prono posé avant le coup d'envoi rapporte 1 point. Le bon vainqueur en rapporte 3 quand l'équipe qui reçoit gagne, 5 quand celle qui se déplace gagne ; en sélection, 3 ou 4 ; sur terrain neutre, 4. Avec le bon vainqueur, l'écart juste à 3 points près ajoute 2 points ; le score exact d'une équipe vaut 2 points, celui des deux équipes en vaut 10, à la place de ces 2. Un nul annoncé et joué vaut 15 points, et tout le barème tient dans le tableau des règles du jeu."}},{"@type":"Question","name":"Combien de points vaut le score exact ?","acceptedAnswer":{"@type":"Answer","text":"Le score exact des deux équipes, c'est le graal : 10 points, qui s'ajoutent au reste et remplacent le buteur. Sur un match de club, un score exact rapporte en tout 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, et 26 sur un nul. Le score exact d'une seule des deux équipes vaut 2 points : le buteur. Trois exemples chiffrés t'attendent dans les règles du jeu."}},{"@type":"Question","name":"Que vaut un match nul annoncé ?","acceptedAnswer":{"@type":"Answer","text":"Nul annoncé, nul joué : c'est le XV (le quinze), 15 points d'un coup. Il remplace le bon vainqueur, la transformation et le buteur. Avec la participation, ton prono rapporte 16 points, et 26 si tu as aussi le score exact. Le XV a sa ligne dans le barème des règles du jeu."}},{"@type":"Question","name":"Jusqu'à quand peut-on modifier son prono ?","acceptedAnswer":{"@type":"Answer","text":"Jusqu'au coup d'envoi du match : les pronos ferment à ce moment-là. Le score retenu est celui de la fin des 80 minutes, sans les prolongations. Les points tombent quelques minutes après le coup de sifflet final : dans l'onglet Résultats, touche un match pour voir le détail de tes points. Le cadre de chaque match est dans les règles du jeu."}},{"@type":"Question","name":"Que se passe-t-il si un match est reporté ?","acceptedAnswer":{"@type":"Answer","text":"Les pronos rouvrent jusqu'au nouveau coup d'envoi : tu peux poser ou modifier le tien. Un match annulé ou arrêté, lui, est neutralisé : 0 point pour tout le monde. Ces cas sont tranchés d'avance dans les règles du jeu."}},{"@type":"Question","name":"C'est quoi, la Chistera dans Drop League ?","acceptedAnswer":{"@type":"Answer","text":"La Chistera est un geste technique : elle double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise. Tu la poses en secret avant le coup d'envoi de la journée, et elle se révèle aux résultats. Ses cas particuliers sont sur la page Gestes techniques."}},{"@type":"Question","name":"C'est quoi, le Caramel ?","acceptedAnswer":{"@type":"Answer","text":"Le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement, arrondi au point supérieur. Une journée à 9 points passe à 5. Dans ses autres ligues et dans La Bagarre Générale, ses points restent entiers. Le plaquage dans le vide et les autres cas sont sur la page Gestes techniques."}},{"@type":"Question","name":"Combien de Chisteras et de Caramels as-tu ?","acceptedAnswer":{"@type":"Answer","text":"Un de chaque par compétition et par saison, les mêmes pour tout le monde. Une Chistera et un Caramel pour le Top 14, une Chistera et un Caramel pour le 6 Nations, et ainsi de suite pour chaque compétition. Un seul Caramel par compétition, même avec plusieurs ligues : à toi de choisir où il fera le plus de bruit. Le détail est sur la page Gestes techniques."}},{"@type":"Question","name":"Où et jusqu'à quand poser tes gestes ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'onglet Pronos, choisis la journée, puis touche « Tes gestes techniques — Chistera, Caramel ». Jusqu'au coup d'envoi de la journée, tu peux poser ton geste, le retirer ou le passer sur une autre journée. Il reste secret jusqu'aux résultats, puis le Club-house de ta ligue annonce qui a posé quoi. Le pas-à-pas est sur la page Gestes techniques."}},{"@type":"Question","name":"Quand peut-on mettre son premier caramel ?","acceptedAnswer":{"@type":"Answer","text":"Le caramel se mérite sur le terrain : il te faut au moins un prono déjà réglé dans la compétition, sur une journée commencée après la création de la ligue. Réglé, c'est-à-dire avec ses points comptés. Il te faut aussi une ligue privée, la seule où le Caramel compte : pour monter la tienne, suis le guide des pronostics rugby entre amis."}},{"@type":"Question","name":"Comment créer ton compte et te connecter ?","acceptedAnswer":{"@type":"Answer","text":"Le même écran crée ton compte ou te reconnecte : tape ton adresse e-mail, touche « Recevoir mon code », puis entre les six chiffres reçus. Sur Android, tu peux aussi toucher « Continuer avec Google ». Si le code n'arrive pas, vérifie tes courriers indésirables : il est valable une heure, et « Renvoyer le code » se réactive après un court compte à rebours. Si ça coince encore, la page Support te dit comment nous écrire."}},{"@type":"Question","name":"Qui voit ton pseudo et ta fiche joueur ?","acceptedAnswer":{"@type":"Answer","text":"Toute personne connectée à Drop League peut ouvrir ta fiche joueur en touchant ta ligne dans un classement, La Bagarre Générale comprise. On y voit ton pseudo, ton avatar ou ta photo, ton club de cœur, le mois de ton inscription et tes chiffres de la saison, jamais tes pronos eux-mêmes ni un match à venir ou en cours. Pour changer de pseudo, ouvre ton Profil et touche « Modifier mon profil ». Le détail est dans la politique de confidentialité."}},{"@type":"Question","name":"Comment signaler un message ou une photo ?","acceptedAnswer":{"@type":"Answer","text":"Appuie longuement sur le message ou sur la photo, puis touche « Signaler ce message » ou « Signaler la photo ». Un message ou une photo signalé par deux joueurs différents est retiré automatiquement, pour tout le monde ; un seul signalement ne change rien. La personne signalée ne sait pas qui l'a signalée. La Charte de Drop League tient en cinq règles simples, à relire dans Profil → Réglages."}},{"@type":"Question","name":"Comment bloquer quelqu'un ?","acceptedAnswer":{"@type":"Answer","text":"Appuie longuement sur un de ses messages au Club-house, puis touche « Bloquer » suivi de son pseudo ; tu peux aussi passer par le bouton « … » de sa fiche joueur. Vous ne voyez plus vos messages ni vos photos, dans les deux sens, et la personne bloquée ne peut plus écrire dans les fils que vous partagez. Vos pseudos restent visibles dans les classements. Ce qu'on garde de tes blocages est dans la politique de confidentialité."}},{"@type":"Question","name":"Comment fonctionne la publicité dans Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Drop League est financée par des annonces, fournies par Google AdMob : un bandeau en bas des écrans Pronos, Résultats, Ligues et Classement, une annonce glissée dans la liste des Résultats, et une annonce plein écran quand tu as validé le dernier prono d'une journée. Jamais pendant que tu saisis un prono, ni dans le Club-house, et aucune pour les abonnés à la Loge. Dans l'Espace économique européen, un écran de consentement s'affiche une fois ton inscription terminée : si tu refuses, les annonces restent, mais sans personnalisation, et tu changes d'avis dans Profil → Réglages → Choix publicitaires. Les limites des annonces plein écran sont sur la page Tes choix publicitaires."}},{"@type":"Question","name":"Comment supprimer ton compte ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app, ouvre Profil → Réglages → Supprimer mon compte, puis touche « Supprimer définitivement ». La suppression est définitive et prend effet immédiatement : tes pronos, tes points, tes messages et ta place dans tes ligues sont effacés. Un abonnement à la Loge continue tant que tu ne l'annules pas, dans les réglages de ton iPhone ou dans Google Play. Sans passer par l'app, écris à contact@dropleague.app depuis l'adresse de ton compte, avec « Suppression de compte » en objet, comme l'explique la page Supprimer mon compte."}},{"@type":"Question","name":"Où sont stockées tes données ?","acceptedAnswer":{"@type":"Answer","text":"Ton compte et tes pronos sont hébergés dans l'Union européenne, en Irlande. Tes données ne sont ni vendues ni louées, et tu peux tout effacer toi-même depuis l'app. Pour les consulter, les corriger ou les récupérer, écris à contact@dropleague.app depuis l'adresse de ton compte : on répond sous un mois. Tout est dans la politique de confidentialité."}},{"@type":"Question","name":"Comment contacter Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Écris à contact@dropleague.app : on répond sous quelques jours ouvrés. Pour un problème technique, précise le modèle de ton téléphone, la version d'Android ou d'iOS et la version de l'app, affichée dans Profil → Réglages. Ces trois infos nous font gagner un aller-retour. Les questions les plus courantes sont aussi sur la page Support."}}]}]}</script>
 </body>
 </html>
