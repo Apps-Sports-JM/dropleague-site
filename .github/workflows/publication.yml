@@ -1,0 +1,57 @@
+# Publication du site dropleague.app par GitHub Pages (source « GitHub Actions »).
+# - À chaque push sur main : le site entier est publié, avec la page Classement fabriquée à la volée.
+# - Toutes les 15 minutes : la page Classement est relue ; le site n'est republié que si le classement a changé.
+# La page Classement n'est jamais commitée : l'historique public du dépôt ne garde aucun pseudo (voir _outils/LISEZMOI.md).
+name: Publication du site
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Préparer le site
+        run: rsync -a --exclude '.git' --exclude '.github' --exclude '_outils' --exclude '_site' --exclude '.gitignore' ./ _site/
+      - name: Classement de La Bagarre Générale
+        id: classement
+        continue-on-error: true
+        run: node _outils/classement.cjs --sortie _site
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+      - name: Garder la page en ligne si la base n'a pas répondu
+        if: steps.classement.outcome == 'failure'
+        run: |
+          mkdir -p _site/la-bagarre-generale/classement
+          curl -fsS https://dropleague.app/la-bagarre-generale/classement/ -o _site/la-bagarre-generale/classement/index.html || echo "Pas de page en ligne à reprendre"
+      - name: Garder la tâche planifiée active
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/publication.yml/enable" || true
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'schedule' || steps.classement.outputs.change == 'true'
+        with:
+          path: _site
+      - id: deploiement
+        if: github.event_name != 'schedule' || steps.classement.outputs.change == 'true'
+        uses: actions/deploy-pages@v4
