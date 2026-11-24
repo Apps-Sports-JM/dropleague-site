@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>À propos de Drop League, l'appli de pronos rugby</title>
-<meta name="description" content="Annonce le score exact et chambre ta bande : découvre Drop League, l'appli de pronos rugby entre amis, son barème et sa charte, sur iPhone et Android.">
+<title>Drop League, faite pour le rugby : barème, charte, données</title>
+<meta name="description" content="Pourquoi une appli de pronos faite pour le rugby ? Son barème qui parle pénalité et essai, sa charte, tes données dans l'UE et l'adresse pour nous écrire.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1B3A26">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
@@ -15,8 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Drop League">
-<meta property="og:title" content="À propos de Drop League, l'appli de pronos rugby">
-<meta property="og:description" content="Annonce le score exact et chambre ta bande : découvre Drop League, l'appli de pronos rugby entre amis, son barème et sa charte, sur iPhone et Android.">
+<meta property="og:title" content="Drop League, faite pour le rugby : barème, charte, données">
+<meta property="og:description" content="Pourquoi une appli de pronos faite pour le rugby ? Son barème qui parle pénalité et essai, sa charte, tes données dans l'UE et l'adresse pour nous écrire.">
 <meta property="og:image" content="https://dropleague.app/icon-256.png">
 <meta property="og:url" content="https://dropleague.app/a-propos/">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Tuile d'ambiance dans la grille */
 .tuile .visuel{background:var(--vert);color:var(--sur-vert);justify-content:flex-end;text-align:left}
-.tuile .dessin{position:absolute;top:0;left:0;width:100%;height:56%}
+.tuile .dessin{display:block;flex:1 1 0;min-height:90px;width:100%;margin:0 0 14px}
 .tuile h2{position:relative;margin:0;font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.05}
 .tuile h2 em{font-weight:400;color:var(--orange)}
 .tuile p{position:relative;margin:10px 0 0;font-size:13.5px;opacity:.9}
@@ -202,6 +202,20 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .progression i{position:absolute;inset:0 auto 0 0;background:var(--orange)}
 .suite-grille .voir{border:1px solid var(--texte);color:var(--texte);border-radius:999px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .suite-grille[open]>summary{display:none}
+
+/* Poules d'un tournoi : une carte par poule, chaque nation avec son drapeau */
+.poules{padding-block:70px 0;text-align:center}
+.poules h2{margin:0;font-family:var(--serif);font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.05;text-wrap:balance}
+.poules .filet{margin:22px auto 18px}
+.intro-poules{max-width:680px;margin:0 auto 30px;color:var(--doux);font-size:15px}
+.grille-poules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left}
+@media (max-width:989px){.grille-poules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grille-poules{grid-template-columns:1fr}}
+.poule{background:var(--sauge);border-radius:6px;padding:20px 22px}
+.poule h3{margin:0 0 12px;color:var(--orange);font-size:13px}
+.poule ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.poule li{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500}
+.poule .drapeau{flex:0 0 auto;width:30px;height:20px;border-radius:2px;display:block}
 
 /* FAQ */
 .faq{background:var(--sauge);margin-top:80px;padding-block:70px 76px}
@@ -277,7 +291,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
 </style>
 </head>
 <body>
-<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
+<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
 <header class="entete">
   <div class="largeur haut">
     <div class="gauche">
@@ -298,7 +312,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <div class="filet" aria-hidden="true"></div>
     <p class="intro"><strong>Drop League</strong>, c'est l'appli de pronos rugby entre amis, sur iPhone et Android. Ici, ce qui la rend faite pour le rugby, la charte qui tient la communauté, ce qu'on fait de tes données et comment nous écrire.</p>
     <div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div>
-    <p class="signature">Tu dis quoi, toi ?</p>
+    <p class="signature">Tu dis quoi, toi ?</p>
   </div>
   <figure class="cliche">
     <picture>
@@ -310,7 +324,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
 </section>
 <section class="largeur" aria-labelledby="titre-grille">
   <nav class="liees" aria-label="Pages liées"><a href="/regles/">Règles du jeu</a><a href="/regles/gestes-techniques/">Gestes techniques</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/la-loge/">La Loge</a><a href="/charte/">Charte</a><a href="/privacy/">Confidentialité</a><a href="/support/">Support</a><a href="/presse/">Presse</a><a href="/questions/">Questions fréquentes</a></nav>
-  <h2 id="titre-grille" class="cache">Drop League en bref : le jeu, la charte, tes données</h2>
+  <h2 id="titre-grille" class="cache">Drop League en bref : le jeu, la charte, tes données</h2>
   <div class="barre"><span class="gauche-barre">Drop League en bref</span><span class="compte">6 compétitions · 2 gestes techniques · 5 règles de charte</span><span class="droite">Fait pour le rugby</span></div>
   <ul class="grille">
 <li class="carte" id="l-appli-de-pronos-rugby-entre-amis">
@@ -328,7 +342,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Sur un match de club</span>
     <div class="numero"><b>+5</b><small>points</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Bon vainqueur : 3 points quand l'équipe qui reçoit gagne, comme une pénalité, 5 quand celle qui se déplace gagne, comme un essai.</p>
+    <p class="texte-carte">Bon vainqueur : 3 points quand l'équipe qui reçoit gagne, comme une pénalité, 5 quand celle qui se déplace gagne, comme un essai.</p>
   </div>
   <h3 class="nom-carte"><a href="/regles/">Un barème qui parle rugby</a></h3>
   <p class="prix">Le score exact vaut 10 points</p>
@@ -346,7 +360,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Gestes techniques</span>
     <div class="numero"><b>×2</b></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">La Chistera double tes points d'une journée ; le Caramel coupe en deux le total d'une journée d'un membre de ta ligue privée.</p>
+    <p class="texte-carte">La Chistera double tes points d'une journée ; le Caramel coupe en deux le total d'une journée d'un membre de ta ligue privée.</p>
   </div>
   <h3 class="nom-carte"><a href="/regles/gestes-techniques/">La Chistera et le Caramel</a></h3>
   <p class="prix">Un de chaque par compétition et par saison</p>
@@ -356,7 +370,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Les classements</span>
     <div class="numero"><b>1</b><small>seul usage</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Pronostics entre amis : les points ne servent qu'au classement.</p>
+    <p class="texte-carte">Pronostics entre amis : les points ne servent qu'au classement.</p>
   </div>
   <h3 class="nom-carte"><a href="/la-bagarre-generale/">Un seul usage pour tes points</a></h3>
   <p class="prix">Avec ou sans La Loge, les mêmes points</p>
@@ -376,71 +390,72 @@ details[open]>summary .plus{transform:rotate(45deg)}
     
     <div class="numero"><b>UE</b></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Le strict nécessaire pour faire tourner le jeu, et tout s'efface depuis l'app : Profil → Réglages → Supprimer mon compte.</p>
+    <p class="texte-carte">Le strict nécessaire pour faire tourner le jeu, et tout s'efface depuis l'app : Profil → Réglages → Supprimer mon compte.</p>
   </div>
   <h3 class="nom-carte"><a href="/privacy/">Tes données</a></h3>
   <p class="prix">Compte et pronos hébergés dans l'UE</p>
 </li>
 <li class="carte ton-orange" id="nous-ecrire">
   <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><line x1="30" y1="6" x2="30" y2="94"/><line x1="70" y1="6" x2="70" y2="94"/><line x1="30" y1="62" x2="70" y2="62"/></g></svg>
-    <span class="etiquette petites-capitales">Une question ?</span>
+    <span class="etiquette petites-capitales">Une question ?</span>
     <div class="numero"><b>@</b></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Une question, un souci, une remarque sur le jeu : écris à contact@dropleague.app.</p>
+    <p class="texte-carte">Une question, un souci, une remarque sur le jeu : écris à contact@dropleague.app.</p>
   </div>
   <h3 class="nom-carte"><a href="/support/">Nous écrire</a></h3>
   <p class="prix">Réponse sous quelques jours ouvrés</p>
 </li>
   </ul>
 </section>
+
 <section class="faq" aria-labelledby="titre-faq">
   <div class="largeur">
     <p class="accroche petites-capitales">Trouve vite la réponse à tes questions</p>
     <h2 id="titre-faq">FAQ Drop League</h2>
     <div class="filet" aria-hidden="true"></div>
     <div class="faq-liste">
-      <details><summary><h3>Qui est derrière Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Drop League est une application indépendante, faite par une équipe passionnée de rugby. Pour toute question, écris à contact@dropleague.app.</p></div></details>
-      <details><summary><h3>Drop League est-elle sur iPhone et Android ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android. Une même ligue réunit des joueurs sur iPhone et sur Android.</p></div></details>
-      <details><summary><h3>À quoi servent les points ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant.</p></div></details>
-      <details><summary><h3>Pourquoi dit-on que le barème parle rugby ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Sur un match de club, le bon vainqueur vaut 3 points quand l'équipe qui reçoit gagne, comme une pénalité, et 5 quand celle qui se déplace gagne, comme un essai : gagner chez l'adversaire, c'est plus dur, alors ça rapporte plus. Le score exact des deux équipes vaut 10 points, le graal, et un nul annoncé et joué en vaut 15 : le XV.</p></div></details>
-      <details><summary><h3>Comment signaler un message ou bloquer un joueur ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Au Club-house, fais un appui long sur le message : tu peux le signaler ou bloquer la personne qui l'a écrit. Un message signalé par deux joueurs différents est retiré automatiquement, pour tout le monde. Quand tu bloques un joueur, vous ne voyez plus vos messages ni vos photos, dans les deux sens.</p></div></details>
-      <details><summary><h3>Comment supprimer mon compte ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'application : Profil → Réglages → Supprimer mon compte. Ton compte est effacé de notre base sur-le-champ, et ta photo de profil, si tu en avais une, de notre stockage dans les 24 heures. Sans passer par l'application, écris à contact@dropleague.app depuis l'adresse e-mail de ton compte, avec « Suppression de compte » en objet.</p></div></details>
-      <details><summary><h3>Comment écrire à Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Écris à contact@dropleague.app. On répond sous quelques jours ouvrés ; pour une demande liée à tes données, compte jusqu'à un mois. Pour un problème technique, précise le modèle de ton téléphone, la version d'Android ou d'iOS et la version de l'application, affichée dans Profil → Réglages.</p></div></details>
+      <details><summary><h3>Qui est derrière Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Drop League est une application indépendante, faite par une équipe passionnée de rugby. Pour toute question, écris à contact@dropleague.app.</p></div></details>
+      <details><summary><h3>Drop League est-elle sur iPhone et Android ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android. Une même ligue réunit des joueurs sur iPhone et sur Android.</p></div></details>
+      <details><summary><h3>À quoi servent les points ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant.</p></div></details>
+      <details><summary><h3>Pourquoi dit-on que le barème parle rugby ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Sur un match de club, le bon vainqueur vaut 3 points quand l'équipe qui reçoit gagne, comme une pénalité, et 5 quand celle qui se déplace gagne, comme un essai : gagner chez l'adversaire, c'est plus dur, alors ça rapporte plus. Le score exact des deux équipes vaut 10 points, le graal, et un nul annoncé et joué en vaut 15 : le XV.</p></div></details>
+      <details><summary><h3>Comment signaler un message ou bloquer un joueur ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Au Club-house, fais un appui long sur le message : tu peux le signaler ou bloquer la personne qui l'a écrit. Un message signalé par deux joueurs différents est retiré automatiquement, pour tout le monde. Quand tu bloques un joueur, vous ne voyez plus vos messages ni vos photos, dans les deux sens.</p></div></details>
+      <details><summary><h3>Comment supprimer mon compte ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'application : Profil → Réglages → Supprimer mon compte. Ton compte est effacé de notre base sur-le-champ, et ta photo de profil, si tu en avais une, de notre stockage dans les 24 heures. Sans passer par l'application, écris à contact@dropleague.app depuis l'adresse e-mail de ton compte, avec « Suppression de compte » en objet.</p></div></details>
+      <details><summary><h3>Comment écrire à Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Écris à contact@dropleague.app. On répond sous quelques jours ouvrés ; pour une demande liée à tes données, compte jusqu'à un mois. Pour un problème technique, précise le modèle de ton téléphone, la version d'Android ou d'iOS et la version de l'application, affichée dans Profil → Réglages.</p></div></details>
     </div>
   </div>
 </section>
 <article class="largeur"><div class="texte-seo">
   <h2>Drop League, l'appli de pronos rugby entre amis</h2>
   <div class="filet" aria-hidden="true"></div>
-  <div class="exemple"><p>Le vendredi soir, la question tombe toujours : « Tu dis quoi, toi, pour le choc de samedi ? » Tout le monde a son idée, personne n'a la même, et le lundi matin quelqu'un avait raison.</p><p>Drop League sert à prouver que c'était toi.</p></div>
-  <p>Tu crées ta ligue, tu invites ta bande avec un code d'invitation, et tout le monde pose ses pronos jusqu'au coup d'envoi. Six compétitions au programme : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship.</p>
-  <h2>C'est quoi, Drop League ?</h2>
-  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+  <div class="exemple"><p>Le vendredi soir, la question tombe toujours : « Tu dis quoi, toi, pour le choc de samedi ? » Tout le monde a son idée, personne n'a la même, et le lundi matin quelqu'un avait raison.</p><p>Drop League sert à prouver que c'était toi.</p></div>
+  <p>Tu crées ta ligue, tu invites ta bande avec un code d'invitation, et tout le monde pose ses pronos jusqu'au coup d'envoi. Six compétitions au programme : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Bientôt, la <a href="/competitions/coupe-du-monde/">Coupe du monde de rugby</a> sera aussi à pronostiquer dans Drop League.</p>
+  <h2>C'est quoi, Drop League ?</h2>
+  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
   <details class="lire-plus"><summary>Lire plus</summary>
-  <h2>Pourquoi un jeu de pronos fait pour le rugby ?</h2>
-  <p>Le barème de Drop League parle rugby. Sur un match de club, le bon vainqueur vaut 3 points quand l'équipe qui reçoit gagne, comme une pénalité, et 5 quand celle qui se déplace gagne, comme un essai : gagner chez l'adversaire, c'est plus dur, alors ça rapporte plus. Le score exact des deux équipes vaut 10 points, le graal, et un nul annoncé et joué en vaut 15 : le XV.</p>
+  <h2>Pourquoi un jeu de pronos fait pour le rugby ?</h2>
+  <p>Le barème de Drop League parle rugby. Sur un match de club, le bon vainqueur vaut 3 points quand l'équipe qui reçoit gagne, comme une pénalité, et 5 quand celle qui se déplace gagne, comme un essai : gagner chez l'adversaire, c'est plus dur, alors ça rapporte plus. Le score exact des deux équipes vaut 10 points, le graal, et un nul annoncé et joué en vaut 15 : le XV.</p>
   <div class="tableau"><table><thead><tr><th scope="col">Points</th><th scope="col">Le nom</th><th scope="col">Sur le terrain</th><th scope="col">Dans Drop League</th></tr></thead><tbody><tr><td class="points">+3</td><td>La pénalité passée</td><td>Une pénalité réussie vaut 3 points.</td><td>Le bon vainqueur, quand l'équipe qui reçoit gagne.</td></tr><tr><td class="points">+5</td><td>L'essai</td><td>Un essai vaut 5 points.</td><td>Le bon vainqueur, quand l'équipe qui se déplace gagne.</td></tr><tr><td class="points">+2</td><td>La transformation</td><td>Elle se tente après un essai et vaut 2 points.</td><td>Avec le bon vainqueur, l'écart juste à 3 points près.</td></tr><tr><td class="points">+2</td><td>Le buteur</td><td>Il ou elle tente les coups de pied au but.</td><td>Le score exact d'une des deux équipes.</td></tr><tr><td class="points">+15</td><td>Le XV (le quinze)</td><td>Les quinze titulaires d'une équipe.</td><td>Nul annoncé, nul joué.</td></tr><tr><td class="points">×2</td><td>La Chistera</td><td>La passe dans le dos.</td><td>Tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise.</td></tr><tr><td class="points">÷2</td><td>Le Caramel</td><td>Le plaquage qu'on entend depuis la tribune.</td><td>Le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement.</td></tr></tbody></table></div>
-  <p>En sélection, le bon vainqueur vaut 3 ou 4 points ; sur terrain neutre, 4. Le score retenu est celui de la fin des 80 minutes : les prolongations ne comptent pas. La Chistera et le Caramel, tes deux gestes techniques, sont les mêmes pour tout le monde : un de chaque par compétition et par saison, posés en secret avant le coup d'envoi de la journée et révélés aux résultats.</p>
+  <p>En sélection, le bon vainqueur vaut 3 ou 4 points ; sur terrain neutre, 4. Le score retenu est celui de la fin des 80 minutes : les prolongations ne comptent pas. La Chistera et le Caramel, tes deux gestes techniques, sont les mêmes pour tout le monde : un de chaque par compétition et par saison, posés en secret avant le coup d'envoi de la journée et révélés aux résultats.</p>
   <p><a href="/regles/">Le barème complet et ses exemples chiffrés</a> · <a href="/regles/gestes-techniques/">la Chistera et le Caramel en détail</a>.</p>
-  <h2>Pronostics entre amis : les points ne servent qu'au classement</h2>
-  <p>Dans Drop League, tes points ont un seul usage : te placer au classement de ta ligue privée et de <a href="/la-bagarre-generale/">La Bagarre Générale</a>, le classement de tous les joueurs. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant.</p>
+  <h2>Pronostics entre amis : les points ne servent qu'au classement</h2>
+  <p>Dans Drop League, tes points ont un seul usage : te placer au classement de ta ligue privée et de <a href="/la-bagarre-generale/">La Bagarre Générale</a>, le classement de tous les joueurs. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant.</p>
   <p>Drop League est financée par des annonces, fournies par Google AdMob. <a href="/la-loge/">La Loge</a>, l'abonnement facultatif, c'est quatre stats en plus sur la page de chaque match, et plus une seule pub. Avec ou sans La Loge, tu marques exactement les mêmes points.</p>
   <h2>Une communauté qui se tient</h2>
-  <p>Le Club-house, les classements et les photos de profil suivent la Charte de Drop League : cinq règles simples, que chaque joueur accepte en utilisant l'app. Un message ou une photo signalé par deux joueurs différents est retiré automatiquement, pour tout le monde. Et quand tu bloques un joueur, vous ne voyez plus vos messages ni vos photos, dans les deux sens.</p>
+  <p>Le Club-house, les classements et les photos de profil suivent la Charte de Drop League : cinq règles simples, que chaque joueur accepte en utilisant l'app. Un message ou une photo signalé par deux joueurs différents est retiré automatiquement, pour tout le monde. Et quand tu bloques un joueur, vous ne voyez plus vos messages ni vos photos, dans les deux sens.</p>
   <h3>Les cinq règles de la charte</h3>
-  <ol><li>Respecte les autres joueurs.</li><li>Rien de choquant : ni en photo, ni en GIF, ni en message.</li><li>Ta photo te représente, ou montre quelque chose de correct.</li><li>Le Club-house sert à parler rugby entre amis : pas de publicité, pas de spam.</li><li>Ne te fais pas passer pour un autre.</li></ol>
+  <ol><li>Respecte les autres joueurs.</li><li>Rien de choquant : ni en photo, ni en GIF, ni en message.</li><li>Ta photo te représente, ou montre quelque chose de correct.</li><li>Le Club-house sert à parler rugby entre amis : pas de publicité, pas de spam.</li><li>Ne te fais pas passer pour un autre.</li></ol>
   <p>Drop League peut supprimer le compte d'un joueur qui ne respecte pas la charte. Tu la retrouves à tout moment dans l'app, dans Profil → Réglages.</p>
   <h3>Signaler d'un appui long</h3>
-  <p>Au Club-house, un appui long sur un message permet de le signaler, de bloquer la personne qui l'a écrit ou d'effacer le sien. Une photo se signale d'un appui long, dans un classement ou au Club-house, ou depuis le « … » de la fiche joueur. La personne signalée ne sait pas qui l'a signalée.</p>
+  <p>Au Club-house, un appui long sur un message permet de le signaler, de bloquer la personne qui l'a écrit ou d'effacer le sien. Une photo se signale d'un appui long, dans un classement ou au Club-house, ou depuis le « … » de la fiche joueur. La personne signalée ne sait pas qui l'a signalée.</p>
   <h3>Des photos vérifiées avant d'être montrées</h3>
   <p>Chaque photo de profil est vérifiée automatiquement avant d'être montrée aux autres joueurs. Jugée choquante, ou en cas de doute, elle est refusée, et tu peux en choisir une autre.</p>
   <p><a href="/charte/">La Charte de Drop League, en entier</a>.</p>
-  <h2>Que fait Drop League de tes données ?</h2>
-  <p>Drop League collecte le strict nécessaire pour faire tourner le jeu, et ton compte comme tes pronos sont hébergés dans l'Union européenne. Tu peux tout effacer toi-même, depuis l'application : Profil → Réglages → Supprimer mon compte. Dans l'Espace économique européen, un écran de consentement te laisse choisir la publicité personnalisée, et refuser y est aussi simple qu'accepter.</p>
+  <h2>Que fait Drop League de tes données ?</h2>
+  <p>Drop League collecte le strict nécessaire pour faire tourner le jeu, et ton compte comme tes pronos sont hébergés dans l'Union européenne. Tu peux tout effacer toi-même, depuis l'application : Profil → Réglages → Supprimer mon compte. Dans l'Espace économique européen, un écran de consentement te laisse choisir la publicité personnalisée, et refuser y est aussi simple qu'accepter.</p>
   <p><a href="/privacy/">La politique de confidentialité, en détail</a>.</p>
-  <h2>Comment écrire à Drop League ?</h2>
-  <p>Une question, un souci, une remarque sur le jeu : écris à <a href="mailto:contact@dropleague.app">contact@dropleague.app</a>. On répond sous quelques jours ouvrés ; pour une demande liée à tes données, compte jusqu'à un mois. Pour un problème technique, précise le modèle de ton téléphone, la version d'Android ou d'iOS et la version de l'application, affichée dans Profil → Réglages.</p>
-  <p><a href="/support/">La page Support</a> répond aux questions courantes. Tu écris sur Drop League ? Tout est sur <a href="/presse/">la page Presse</a>.</p>
+  <h2>Comment écrire à Drop League ?</h2>
+  <p>Une question, un souci, une remarque sur le jeu : écris à <a href="mailto:contact@dropleague.app">contact@dropleague.app</a>. On répond sous quelques jours ouvrés ; pour une demande liée à tes données, compte jusqu'à un mois. Pour un problème technique, précise le modèle de ton téléphone, la version d'Android ou d'iOS et la version de l'application, affichée dans Profil → Réglages.</p>
+  <p><a href="/support/">La page Support</a> répond aux questions courantes. Tu écris sur Drop League ? Tout est sur <a href="/presse/">la page Presse</a>.</p>
   </details>
 </div></article>
 <section class="largeur reassurance" aria-label="Drop League en bref"><ul>
@@ -455,14 +470,14 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="slogan">Deviens le meilleur pronostiqueur de ta ligue</p>
     <div class="colonnes">
       <div><b class="titre petites-capitales">Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-bagarre-generale/classement/">Le classement</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
-      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li><li><a href="/competitions/coupe-du-monde/">Coupe du monde</a></li></ul></div>
       <div><b class="titre petites-capitales">Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
       <div><b class="titre petites-capitales">Drop League</b><ul><li><a aria-current="page">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
       <div class="appli"><b class="titre petites-capitales">L'app</b><p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p><div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div></div>
     </div>
-    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
+    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
   </div>
 </footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"À propos","item":"https://dropleague.app/a-propos/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/a-propos/#page","url":"https://dropleague.app/a-propos/","name":"À propos de Drop League","description":"Annonce le score exact et chambre ta bande : découvre Drop League, l'appli de pronos rugby entre amis, son barème et sa charte, sur iPhone et Android.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Drop League en bref : le jeu, la charte, tes données et le contact","numberOfItems":7,"itemListElement":[{"@type":"ListItem","position":1,"name":"L'appli de pronos rugby entre amis · Sur iPhone et Android","url":"https://dropleague.app/competitions/"},{"@type":"ListItem","position":2,"name":"Un barème qui parle rugby · Le score exact vaut 10 points","url":"https://dropleague.app/regles/"},{"@type":"ListItem","position":3,"name":"La Chistera et le Caramel · Un de chaque par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/"},{"@type":"ListItem","position":4,"name":"Un seul usage pour tes points · Avec ou sans La Loge, les mêmes points","url":"https://dropleague.app/la-bagarre-generale/"},{"@type":"ListItem","position":5,"name":"La Charte de Drop League · À relire dans Profil → Réglages","url":"https://dropleague.app/charte/"},{"@type":"ListItem","position":6,"name":"Tes données · Compte et pronos hébergés dans l'UE","url":"https://dropleague.app/privacy/"},{"@type":"ListItem","position":7,"name":"Nous écrire · Réponse sous quelques jours ouvrés","url":"https://dropleague.app/support/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qui est derrière Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Drop League est une application indépendante, faite par une équipe passionnée de rugby. Pour toute question, écris à contact@dropleague.app."}},{"@type":"Question","name":"Drop League est-elle sur iPhone et Android ?","acceptedAnswer":{"@type":"Answer","text":"Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android. Une même ligue réunit des joueurs sur iPhone et sur Android."}},{"@type":"Question","name":"À quoi servent les points ?","acceptedAnswer":{"@type":"Answer","text":"Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant."}},{"@type":"Question","name":"Pourquoi dit-on que le barème parle rugby ?","acceptedAnswer":{"@type":"Answer","text":"Sur un match de club, le bon vainqueur vaut 3 points quand l'équipe qui reçoit gagne, comme une pénalité, et 5 quand celle qui se déplace gagne, comme un essai : gagner chez l'adversaire, c'est plus dur, alors ça rapporte plus. Le score exact des deux équipes vaut 10 points, le graal, et un nul annoncé et joué en vaut 15 : le XV."}},{"@type":"Question","name":"Comment signaler un message ou bloquer un joueur ?","acceptedAnswer":{"@type":"Answer","text":"Au Club-house, fais un appui long sur le message : tu peux le signaler ou bloquer la personne qui l'a écrit. Un message signalé par deux joueurs différents est retiré automatiquement, pour tout le monde. Quand tu bloques un joueur, vous ne voyez plus vos messages ni vos photos, dans les deux sens."}},{"@type":"Question","name":"Comment supprimer mon compte ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'application : Profil → Réglages → Supprimer mon compte. Ton compte est effacé de notre base sur-le-champ, et ta photo de profil, si tu en avais une, de notre stockage dans les 24 heures. Sans passer par l'application, écris à contact@dropleague.app depuis l'adresse e-mail de ton compte, avec « Suppression de compte » en objet."}},{"@type":"Question","name":"Comment écrire à Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Écris à contact@dropleague.app. On répond sous quelques jours ouvrés ; pour une demande liée à tes données, compte jusqu'à un mois. Pour un problème technique, précise le modèle de ton téléphone, la version d'Android ou d'iOS et la version de l'application, affichée dans Profil → Réglages."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"À propos","item":"https://dropleague.app/a-propos/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/a-propos/#page","url":"https://dropleague.app/a-propos/","name":"À propos de Drop League","description":"Pourquoi une appli de pronos faite pour le rugby ? Son barème qui parle pénalité et essai, sa charte, tes données dans l'UE et l'adresse pour nous écrire.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Drop League en bref : le jeu, la charte, tes données et le contact","numberOfItems":7,"itemListElement":[{"@type":"ListItem","position":1,"name":"L'appli de pronos rugby entre amis · Sur iPhone et Android","url":"https://dropleague.app/competitions/"},{"@type":"ListItem","position":2,"name":"Un barème qui parle rugby · Le score exact vaut 10 points","url":"https://dropleague.app/regles/"},{"@type":"ListItem","position":3,"name":"La Chistera et le Caramel · Un de chaque par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/"},{"@type":"ListItem","position":4,"name":"Un seul usage pour tes points · Avec ou sans La Loge, les mêmes points","url":"https://dropleague.app/la-bagarre-generale/"},{"@type":"ListItem","position":5,"name":"La Charte de Drop League · À relire dans Profil → Réglages","url":"https://dropleague.app/charte/"},{"@type":"ListItem","position":6,"name":"Tes données · Compte et pronos hébergés dans l'UE","url":"https://dropleague.app/privacy/"},{"@type":"ListItem","position":7,"name":"Nous écrire · Réponse sous quelques jours ouvrés","url":"https://dropleague.app/support/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qui est derrière Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Drop League est une application indépendante, faite par une équipe passionnée de rugby. Pour toute question, écris à contact@dropleague.app."}},{"@type":"Question","name":"Drop League est-elle sur iPhone et Android ?","acceptedAnswer":{"@type":"Answer","text":"Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android. Une même ligue réunit des joueurs sur iPhone et sur Android."}},{"@type":"Question","name":"À quoi servent les points ?","acceptedAnswer":{"@type":"Answer","text":"Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant."}},{"@type":"Question","name":"Pourquoi dit-on que le barème parle rugby ?","acceptedAnswer":{"@type":"Answer","text":"Sur un match de club, le bon vainqueur vaut 3 points quand l'équipe qui reçoit gagne, comme une pénalité, et 5 quand celle qui se déplace gagne, comme un essai : gagner chez l'adversaire, c'est plus dur, alors ça rapporte plus. Le score exact des deux équipes vaut 10 points, le graal, et un nul annoncé et joué en vaut 15 : le XV."}},{"@type":"Question","name":"Comment signaler un message ou bloquer un joueur ?","acceptedAnswer":{"@type":"Answer","text":"Au Club-house, fais un appui long sur le message : tu peux le signaler ou bloquer la personne qui l'a écrit. Un message signalé par deux joueurs différents est retiré automatiquement, pour tout le monde. Quand tu bloques un joueur, vous ne voyez plus vos messages ni vos photos, dans les deux sens."}},{"@type":"Question","name":"Comment supprimer mon compte ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'application : Profil → Réglages → Supprimer mon compte. Ton compte est effacé de notre base sur-le-champ, et ta photo de profil, si tu en avais une, de notre stockage dans les 24 heures. Sans passer par l'application, écris à contact@dropleague.app depuis l'adresse e-mail de ton compte, avec « Suppression de compte » en objet."}},{"@type":"Question","name":"Comment écrire à Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Écris à contact@dropleague.app. On répond sous quelques jours ouvrés ; pour une demande liée à tes données, compte jusqu'à un mois. Pour un problème technique, précise le modèle de ton téléphone, la version d'Android ou d'iOS et la version de l'application, affichée dans Profil → Réglages."}}]}]}</script>
 </body>
 </html>

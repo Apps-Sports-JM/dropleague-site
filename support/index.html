@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Support — Drop League</title>
-<meta name="description" content="Support de l'application Drop League : nous écrire, questions fréquentes sur le code de connexion, les pronos et la suppression du compte.">
+<title>Support et contact de l'appli · Drop League</title>
+<meta name="description" content="Un souci avec l'appli ? Écris-nous, réponse sous quelques jours ouvrés. Et la FAQ : code de connexion pas reçu, prono à modifier, compte à supprimer.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1B3A26">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
@@ -180,7 +180,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Tuile d'ambiance dans la grille */
 .tuile .visuel{background:var(--vert);color:var(--sur-vert);justify-content:flex-end;text-align:left}
-.tuile .dessin{position:absolute;top:0;left:0;width:100%;height:56%}
+.tuile .dessin{display:block;flex:1 1 0;min-height:90px;width:100%;margin:0 0 14px}
 .tuile h2{position:relative;margin:0;font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.05}
 .tuile h2 em{font-weight:400;color:var(--orange)}
 .tuile p{position:relative;margin:10px 0 0;font-size:13.5px;opacity:.9}
@@ -194,6 +194,20 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .progression i{position:absolute;inset:0 auto 0 0;background:var(--orange)}
 .suite-grille .voir{border:1px solid var(--texte);color:var(--texte);border-radius:999px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .suite-grille[open]>summary{display:none}
+
+/* Poules d'un tournoi : une carte par poule, chaque nation avec son drapeau */
+.poules{padding-block:70px 0;text-align:center}
+.poules h2{margin:0;font-family:var(--serif);font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.05;text-wrap:balance}
+.poules .filet{margin:22px auto 18px}
+.intro-poules{max-width:680px;margin:0 auto 30px;color:var(--doux);font-size:15px}
+.grille-poules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left}
+@media (max-width:989px){.grille-poules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grille-poules{grid-template-columns:1fr}}
+.poule{background:var(--sauge);border-radius:6px;padding:20px 22px}
+.poule h3{margin:0 0 12px;color:var(--orange);font-size:13px}
+.poule ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.poule li{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500}
+.poule .drapeau{flex:0 0 auto;width:30px;height:20px;border-radius:2px;display:block}
 
 /* FAQ */
 .faq{background:var(--sauge);margin-top:80px;padding-block:70px 76px}
@@ -370,7 +384,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
 </style>
 </head>
 <body>
-<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
+<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
 <header class="entete">
   <div class="largeur haut">
     <div class="gauche">
@@ -424,12 +438,12 @@ Réglages). Ces trois informations font gagner un aller-retour.</p>
     <p class="slogan">Deviens le meilleur pronostiqueur de ta ligue</p>
     <div class="colonnes">
       <div><b class="titre petites-capitales">Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-bagarre-generale/classement/">Le classement</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
-      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li><li><a href="/competitions/coupe-du-monde/">Coupe du monde</a></li></ul></div>
       <div><b class="titre petites-capitales">Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
       <div><b class="titre petites-capitales">Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a aria-current="page">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
       <div class="appli"><b class="titre petites-capitales">L'app</b><p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p><div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div></div>
     </div>
-    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
+    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
   </div>
 </footer>
 </body>

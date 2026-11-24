@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>La Bagarre Générale, le classement de tous les joueurs · Drop League</title>
-<meta name="description" content="Grimpe au classement de tous les joueurs de Drop League : La Bagarre Générale, ton rang dès l'inscription et ta Chistera comprise, sur iPhone et Android.">
+<title>La Bagarre Générale, tous les joueurs classés · Drop League</title>
+<meta name="description" content="Dès ton inscription, tu entres dans La Bagarre Générale, le classement de tous les joueurs : tous tes pronos y comptent, ta Chistera aussi, pas le Caramel.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1B3A26">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
@@ -15,8 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Drop League">
-<meta property="og:title" content="La Bagarre Générale, le classement de tous les joueurs · Drop League">
-<meta property="og:description" content="Grimpe au classement de tous les joueurs de Drop League : La Bagarre Générale, ton rang dès l'inscription et ta Chistera comprise, sur iPhone et Android.">
+<meta property="og:title" content="La Bagarre Générale, tous les joueurs classés · Drop League">
+<meta property="og:description" content="Dès ton inscription, tu entres dans La Bagarre Générale, le classement de tous les joueurs : tous tes pronos y comptent, ta Chistera aussi, pas le Caramel.">
 <meta property="og:image" content="https://dropleague.app/icon-256.png">
 <meta property="og:url" content="https://dropleague.app/la-bagarre-generale/">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Tuile d'ambiance dans la grille */
 .tuile .visuel{background:var(--vert);color:var(--sur-vert);justify-content:flex-end;text-align:left}
-.tuile .dessin{position:absolute;top:0;left:0;width:100%;height:56%}
+.tuile .dessin{display:block;flex:1 1 0;min-height:90px;width:100%;margin:0 0 14px}
 .tuile h2{position:relative;margin:0;font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.05}
 .tuile h2 em{font-weight:400;color:var(--orange)}
 .tuile p{position:relative;margin:10px 0 0;font-size:13.5px;opacity:.9}
@@ -202,6 +202,20 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .progression i{position:absolute;inset:0 auto 0 0;background:var(--orange)}
 .suite-grille .voir{border:1px solid var(--texte);color:var(--texte);border-radius:999px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .suite-grille[open]>summary{display:none}
+
+/* Poules d'un tournoi : une carte par poule, chaque nation avec son drapeau */
+.poules{padding-block:70px 0;text-align:center}
+.poules h2{margin:0;font-family:var(--serif);font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.05;text-wrap:balance}
+.poules .filet{margin:22px auto 18px}
+.intro-poules{max-width:680px;margin:0 auto 30px;color:var(--doux);font-size:15px}
+.grille-poules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left}
+@media (max-width:989px){.grille-poules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grille-poules{grid-template-columns:1fr}}
+.poule{background:var(--sauge);border-radius:6px;padding:20px 22px}
+.poule h3{margin:0 0 12px;color:var(--orange);font-size:13px}
+.poule ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.poule li{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500}
+.poule .drapeau{flex:0 0 auto;width:30px;height:20px;border-radius:2px;display:block}
 
 /* FAQ */
 .faq{background:var(--sauge);margin-top:80px;padding-block:70px 76px}
@@ -277,7 +291,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
 </style>
 </head>
 <body>
-<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
+<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
 <header class="entete">
   <div class="largeur haut">
     <div class="gauche">
@@ -296,9 +310,9 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="surtitre petites-capitales">Le jeu · La Bagarre Générale</p>
     <h1 id="titre-page">La Bagarre Générale, le classement de <em>tous les joueurs</em></h1>
     <div class="filet" aria-hidden="true"></div>
-    <p class="intro"><strong>La Bagarre Générale</strong>, c'est le classement de tous les joueurs de Drop League, potes et inconnus réunis. Tu y es dès ton inscription, avec tes pronos des <a href="/competitions/">six compétitions</a> et ta Chistera : tu as toujours quelqu'un à dépasser. <a href="/la-bagarre-generale/classement/">Voir le top 50</a>, mis à jour toutes les 15 minutes.</p>
+    <p class="intro"><strong>La Bagarre Générale</strong>, c'est le classement de tous les joueurs de Drop League, potes et inconnus réunis. Tu y es dès ton inscription, avec tes pronos des <a href="/competitions/">six compétitions</a> et ta Chistera : tu as toujours quelqu'un à dépasser. <a href="/la-bagarre-generale/classement/">Voir le top 50</a>, mis à jour toutes les 15 minutes.</p>
     <div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div>
-    <p class="signature">Tu dis quoi, toi ?</p>
+    <p class="signature">Tu dis quoi, toi ?</p>
   </div>
   <figure class="cliche">
     <picture>
@@ -309,7 +323,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
   </figure>
 </section>
 <section class="largeur" aria-labelledby="titre-grille">
-  <nav class="liees" aria-label="Pages liées"><a href="/la-bagarre-generale/classement/">Le classement en ligne</a><a href="/regles/">Règles du jeu</a><a href="/regles/gestes-techniques/">Gestes techniques</a><a href="/competitions/">Les compétitions</a><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/concours-pronostics-rugby/">Au bureau, au club</a><a href="/la-loge/">La Loge</a><a href="/questions/">Questions fréquentes</a><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></nav>
+  <nav class="liees" aria-label="Pages liées"><a href="/la-bagarre-generale/classement/">Le classement en ligne</a><a href="/regles/">Règles du jeu</a><a href="/regles/gestes-techniques/">Gestes techniques</a><a href="/competitions/">Les compétitions</a><a href="/competitions/coupe-du-monde/">Coupe du monde de rugby</a><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/concours-pronostics-rugby/">Au bureau, au club</a><a href="/la-loge/">La Loge</a><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></nav>
   <h2 id="titre-grille" class="cache">Comment fonctionne La Bagarre Générale</h2>
   <div class="barre"><span class="gauche-barre">La Bagarre Générale dans Drop League</span><span class="compte">Tous les joueurs · 6 compétitions · 1 classement</span><span class="droite">Le même classement que dans l'app</span></div>
   <ul class="grille">
@@ -318,7 +332,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Qui y joue</span>
     <div class="numero"><b>✓</b><small>dès l'inscription</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Tout le monde y est : dès ton inscription, tu entres dans La Bagarre Générale sans rien avoir à faire.</p>
+    <p class="texte-carte">Tout le monde y est : dès ton inscription, tu entres dans La Bagarre Générale sans rien avoir à faire.</p>
   </div>
   <h3 class="nom-carte"><a href="#tous-les-joueurs">Tous les joueurs</a></h3>
   <p class="prix">Ni code à taper, ni ligue à rejoindre</p>
@@ -328,7 +342,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     
     <div class="numero"><b>6</b><small>compétitions</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship : tes pronos réglés y comptent tous.</p>
+    <p class="texte-carte">Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship : tes pronos réglés y comptent tous.</p>
   </div>
   <h3 class="nom-carte"><a href="/competitions/">Les six compétitions</a></h3>
   <p class="prix">Dans un seul classement</p>
@@ -337,7 +351,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
   <div class="visuel">
     <svg class="dessin" viewBox="0 0 300 260" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><circle cx="104" cy="96" r="34" fill="#F4F6F1"/><circle cx="196" cy="96" r="34" fill="#EE8A10"/><path d="M40 236c6-46 34-72 64-72s58 26 64 72z" fill="#F4F6F1"/><path d="M132 236c6-46 34-72 64-72s58 26 64 72z" fill="#EE8A10"/></svg>
     <h2>Ta place dans <em>La Bagarre Générale</em></h2>
-    <p>Inscris-toi dans l'app : tu y entres aussitôt, et tu as toujours quelqu'un à dépasser.</p>
+    <p>Inscris-toi dans l'app : tu y entres aussitôt, et tu as toujours quelqu'un à dépasser.</p>
     <a class="cta" href="/application-pronostics-rugby/">Télécharger l'app</a>
   </div>
 </li>
@@ -346,7 +360,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Le calcul</span>
     <div class="numero"><b>+1</b><small>point</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Chaque prono rapporte selon le barème : 1 point de participation, puis le bon vainqueur, la transformation, le buteur, le graal ou le XV.</p>
+    <p class="texte-carte">Chaque prono rapporte selon le barème : 1 point de participation, puis le bon vainqueur, la transformation, le buteur, le graal ou le XV.</p>
   </div>
   <h3 class="nom-carte"><a href="/regles/">Le barème de l'app</a></h3>
   <p class="prix">Tous tes pronos réglés comptent</p>
@@ -356,7 +370,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Onglet Classement</span>
     <div class="numero"><b>Toi</b></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">La liste s'ouvre sur ta ligne, au milieu de l'écran : tu vois qui est juste devant toi et qui pousse derrière.</p>
+    <p class="texte-carte">La liste s'ouvre sur ta ligne, au milieu de l'écran : tu vois qui est juste devant toi et qui pousse derrière.</p>
   </div>
   <h3 class="nom-carte"><a href="#le-classement-autour-de-toi">Le classement autour de toi</a></h3>
   <p class="prix">Tes voisins au-dessus et au-dessous</p>
@@ -366,7 +380,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     
     <div class="numero"><b>5</b><small>repères</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Le rang, la photo, le nom de joueur, le nombre de pronos réglés et les points ; ta ligne commence par « Toi · ».</p>
+    <p class="texte-carte">Le rang, la photo, le nom de joueur, le nombre de pronos réglés et les points ; ta ligne commence par « Toi · ».</p>
   </div>
   <h3 class="nom-carte"><a href="#ce-que-montre-chaque-ligne">Ce que montre chaque ligne</a></h3>
   <p class="prix">La première ligne ressort en orange</p>
@@ -376,7 +390,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     
     <div class="numero"><b>1</b><small>toucher</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Touche la ligne d'un joueur : sa fiche s'ouvre, avec son club de cœur, ses points, sa réussite, sa moyenne par journée, sa meilleure journée et sa meilleure série.</p>
+    <p class="texte-carte">Touche la ligne d'un joueur : sa fiche s'ouvre, avec son club de cœur, ses points, sa réussite, sa moyenne par journée, sa meilleure journée et sa meilleure série.</p>
   </div>
   <h3 class="nom-carte"><a href="#la-fiche-de-chaque-joueur">La fiche de chaque joueur</a></h3>
   <p class="prix">Ta ligne à toi ouvre ton Profil</p>
@@ -396,7 +410,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Un exemple</span>
     <div class="numero"><b>28</b><small>points</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Ta journée à 14 points, avec ta Chistera : 28 points dans La Bagarre Générale, comme dans tes ligues.</p>
+    <p class="texte-carte">Ta journée à 14 points, avec ta Chistera : 28 points dans La Bagarre Générale, comme dans tes ligues.</p>
   </div>
   <h3 class="nom-carte"><a href="#ta-journee-qui-compte-double">Ta journée qui compte double</a></h3>
   <p class="prix">14 points × 2</p>
@@ -406,7 +420,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Geste technique</span>
     <div class="numero"><b>÷2</b></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Le Caramel coupe en deux la journée d'un membre d'une ligue privée, dans cette ligue seulement : dans La Bagarre Générale, tes points restent entiers.</p>
+    <p class="texte-carte">Le Caramel coupe en deux la journée d'un membre d'une ligue privée, dans cette ligue seulement : dans La Bagarre Générale, tes points restent entiers.</p>
   </div>
   <h3 class="nom-carte"><a href="#le-caramel">Le Caramel</a></h3>
   <p class="prix">En ligue privée seulement</p>
@@ -416,7 +430,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     
     <div class="numero"><b>0</b><small>point</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Tu t'inscris en cours de saison : tu entres à 0 point, et les pronos déjà réglés des autres y comptent, quelle que soit la journée.</p>
+    <p class="texte-carte">Tu t'inscris en cours de saison : tu entres à 0 point, et les pronos déjà réglés des autres y comptent, quelle que soit la journée.</p>
   </div>
   <h3 class="nom-carte"><a href="#l-arrivee-en-cours-de-saison">L'arrivée en cours de saison</a></h3>
   <p class="prix">Ta nouvelle ligue privée part de zéro</p>
@@ -426,41 +440,42 @@ details[open]>summary .plus{transform:rotate(45deg)}
     
     <div class="numero"><b>Tous</b></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Tu fais ton prono une fois : il compte dans La Bagarre Générale et dans chacune de tes ligues privées qui suit la compétition, à partir des journées commencées après sa création.</p>
+    <p class="texte-carte">Tu fais ton prono une fois : il compte dans La Bagarre Générale et dans chacune de tes ligues privées qui suit la compétition, à partir des journées commencées après sa création.</p>
   </div>
   <h3 class="nom-carte"><a href="/pronostics-rugby-entre-amis/">Un prono, tous tes classements</a></h3>
   <p class="prix">Tes ligues et La Bagarre Générale</p>
 </li>
   </ul>
 </section>
+
 <section class="faq" aria-labelledby="titre-faq">
   <div class="largeur">
     <p class="accroche petites-capitales">Trouve vite la réponse à tes questions</p>
     <h2 id="titre-faq">FAQ La Bagarre Générale</h2>
     <div class="filet" aria-hidden="true"></div>
     <div class="faq-liste">
-      <details><summary><h3>Qu'est-ce que La Bagarre Générale ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>La Bagarre Générale est le classement de tous les joueurs de Drop League, le jeu de pronostics rugby entre amis sur iPhone et Android. Tu y es dès ton inscription, avec tes pronos du Top 14, de la Pro D2, de la Champions Cup, de la Challenge Cup, du 6 Nations et du Nations Championship. Les points ne servent qu'au classement.</p></div></details>
-      <details><summary><h3>Comment entre-t-on dans La Bagarre Générale ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Automatiquement, à l'inscription : tu n'as ni code à taper ni ligue à rejoindre. Le code d'invitation, lui, sert aux ligues privées, pour jouer avec ta bande.</p></div></details>
-      <details><summary><h3>Peut-on jouer sans ligue privée ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui. Tes pronos comptent dans La Bagarre Générale dès le premier match réglé. Une ligue privée ajoute un classement entre potes et son Club-house, le fil de discussion de la ligue.</p></div></details>
-      <details><summary><h3>La Chistera et le Caramel comptent-ils dans La Bagarre Générale ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>La Chistera, oui : elle double tes points d'une journée dans toutes tes ligues, La Bagarre Générale comprise. Le Caramel joue seulement dans la ligue privée où il est posé : dans La Bagarre Générale, les points restent entiers.</p></div></details>
-      <details><summary><h3>Pourquoi les points de ta fiche joueur ne sont-ils pas ceux de La Bagarre Générale ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>La tuile des points de ta fiche joueur compte tes points sans geste technique. La Bagarre Générale compte aussi ta Chistera : la journée où tu l'as posée y pèse double. La fiche d'un joueur ouverte depuis La Bagarre Générale le rappelle : « Les points de la ligue comptent la Chistera. »</p></div></details>
-      <details><summary><h3>Et si tu t'inscris en cours de saison ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Tu entres dans La Bagarre Générale à 0 point, et les pronos déjà réglés des autres y comptent, quelle que soit la journée. Pour une course où tout le monde part du même point, crée ta ligue privée : une ligue créée en cours de saison part de zéro, les journées déjà commencées ne comptent pas pour elle.</p></div></details>
-      <details><summary><h3>La Loge change-t-elle quelque chose au classement ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Non. La Loge, l'abonnement facultatif de Drop League, ajoute quatre stats sur la page de chaque match, et plus une seule pub. Avec ou sans La Loge, tu marques exactement les mêmes points.</p></div></details>
+      <details><summary><h3>Qu'est-ce que La Bagarre Générale ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>La Bagarre Générale est le classement de tous les joueurs de Drop League, le jeu de pronostics rugby entre amis sur iPhone et Android. Tu y es dès ton inscription, avec tes pronos du Top 14, de la Pro D2, de la Champions Cup, de la Challenge Cup, du 6 Nations et du Nations Championship. Les points ne servent qu'au classement.</p></div></details>
+      <details><summary><h3>Comment entre-t-on dans La Bagarre Générale ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Automatiquement, à l'inscription : tu n'as ni code à taper ni ligue à rejoindre. Le code d'invitation, lui, sert aux ligues privées, pour jouer avec ta bande.</p></div></details>
+      <details><summary><h3>Peut-on jouer sans ligue privée ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui. Tes pronos comptent dans La Bagarre Générale dès le premier match réglé. Une ligue privée ajoute un classement entre potes et son Club-house, le fil de discussion de la ligue.</p></div></details>
+      <details><summary><h3>La Chistera et le Caramel comptent-ils dans La Bagarre Générale ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>La Chistera, oui : elle double tes points d'une journée dans toutes tes ligues, La Bagarre Générale comprise. Le Caramel joue seulement dans la ligue privée où il est posé : dans La Bagarre Générale, les points restent entiers.</p></div></details>
+      <details><summary><h3>Pourquoi les points de ta fiche joueur ne sont-ils pas ceux de La Bagarre Générale ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>La tuile des points de ta fiche joueur compte tes points sans geste technique. La Bagarre Générale compte aussi ta Chistera : la journée où tu l'as posée y pèse double. La fiche d'un joueur ouverte depuis La Bagarre Générale le rappelle : « Les points de la ligue comptent la Chistera. »</p></div></details>
+      <details><summary><h3>Et si tu t'inscris en cours de saison ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Tu entres dans La Bagarre Générale à 0 point, et les pronos déjà réglés des autres y comptent, quelle que soit la journée. Pour une course où tout le monde part du même point, crée ta ligue privée : une ligue créée en cours de saison part de zéro, les journées déjà commencées ne comptent pas pour elle.</p></div></details>
+      <details><summary><h3>La Loge change-t-elle quelque chose au classement ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Non. La Loge, l'abonnement facultatif de Drop League, ajoute quatre stats sur la page de chaque match, et plus une seule pub. Avec ou sans La Loge, tu marques exactement les mêmes points.</p></div></details>
     </div>
   </div>
 </section>
 <article class="largeur"><div class="texte-seo">
   <h2>Le classement de tous les joueurs</h2>
   <div class="filet" aria-hidden="true"></div>
-  <p>Pronostics entre amis : les points ne servent qu'au classement. La Bagarre Générale réunit tous les joueurs de Drop League dans un seul classement, et chaque match réglé rebat les places. Tu y es dès ton inscription, avec tes pronos du Top 14, de la Pro D2, de la Champions Cup, de la Challenge Cup, du 6 Nations et du Nations Championship.</p>
-  <h2>C'est quoi, Drop League ?</h2>
-  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+  <p>Pronostics entre amis : les points ne servent qu'au classement. La Bagarre Générale réunit tous les joueurs de Drop League dans un seul classement, et chaque match réglé rebat les places. Tu y es dès ton inscription, avec tes pronos du Top 14, de la Pro D2, de la Champions Cup, de la Challenge Cup, du 6 Nations et du Nations Championship.</p>
+  <h2>C'est quoi, Drop League ?</h2>
+  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
   <details class="lire-plus"><summary>Lire plus</summary>
-  <h2>Qui est dans La Bagarre Générale ?</h2>
+  <h2>Qui est dans La Bagarre Générale ?</h2>
   <p>Tout le monde. Dès ton inscription, tu entres dans La Bagarre Générale, le classement de tous les joueurs de Drop League, sans rien avoir à faire. Tes potes y sont, des gens que tu ne connais pas encore aussi, et chaque match réglé rebat les places.</p>
-  <p>Tu peux donc jouer sans ligue privée : tes pronos y comptent dès le premier match réglé. Dans l'onglet Ligues, sa carte est en tête, avec ton rang et le nombre de joueurs. Touche son « i » pour lire la définition : « Le classement de tous les joueurs de Drop League. »</p>
-  <h2>Comment se calcule le classement ?</h2>
-  <p>La Bagarre Générale additionne les points de tous tes pronos réglés, Chistera comprise, sur <a href="/competitions/">les six compétitions</a> : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Chaque prono rapporte selon le barème : 1 point de participation, puis le bon vainqueur, la transformation, le buteur, le graal ou le XV. Les points tombent quelques minutes après le coup de sifflet final, et le classement bouge avec eux.</p>
+  <p>Tu peux donc jouer sans ligue privée : tes pronos y comptent dès le premier match réglé. Dans l'onglet Ligues, sa carte est en tête, avec ton rang et le nombre de joueurs. Touche son « i » pour lire la définition : « Le classement de tous les joueurs de Drop League. »</p>
+  <h2>Comment se calcule le classement ?</h2>
+  <p>La Bagarre Générale additionne les points de tous tes pronos réglés, Chistera comprise, sur <a href="/competitions/">les six compétitions</a> : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Chaque prono rapporte selon le barème : 1 point de participation, puis le bon vainqueur, la transformation, le buteur, le graal ou le XV. Les points tombent quelques minutes après le coup de sifflet final, et le classement bouge avec eux.</p>
   <p>Ici, tous tes pronos réglés comptent, quelle que soit la journée. Avec ou sans <a href="/la-loge/">La Loge</a>, l'abonnement facultatif, tu marques exactement les mêmes points. Le barème complet et ses exemples sont sur la page <a href="/regles/">Règles du jeu</a>.</p>
   <h3>Ce que montre chaque ligne</h3>
   <div class="tableau"><table>
@@ -468,13 +483,13 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <tbody>
       <tr><td>Le rang</td><td>La place au classement. La première ligne ressort en orange.</td></tr>
       <tr><td>La photo</td><td>La photo du joueur, son avatar ou ses initiales.</td></tr>
-      <tr><td>Le nom de joueur</td><td>Celui choisi à l'inscription, modifiable dans ta fiche joueur. Le tien commence par « Toi · ».</td></tr>
+      <tr><td>Le nom de joueur</td><td>Celui choisi à l'inscription, modifiable dans ta fiche joueur. Le tien commence par « Toi · ».</td></tr>
       <tr><td>Les pronos réglés</td><td>Le nombre de pronos dont les points sont déjà comptés.</td></tr>
       <tr><td>Les points</td><td>Le total dans La Bagarre Générale, Chistera comprise.</td></tr>
     </tbody>
   </table></div>
   <h2>Le classement s'ouvre sur ta ligne</h2>
-  <p>Dans l'onglet Classement, la liste s'ouvre directement sur ta ligne, au milieu de l'écran. Tu vois d'un coup d'œil qui est juste devant toi et qui pousse derrière. Fais défiler vers le haut pour voir la tête du classement : la liste est à toi jusqu'à la prochaine ouverture.</p>
+  <p>Dans l'onglet Classement, la liste s'ouvre directement sur ta ligne, au milieu de l'écran. Tu vois d'un coup d'œil qui est juste devant toi et qui pousse derrière. Fais défiler vers le haut pour voir la tête du classement : la liste est à toi jusqu'à la prochaine ouverture.</p>
   <h3>Ouvre l'onglet Ligues</h3>
   <p>La carte de La Bagarre Générale est en tête, avec ton rang sur le nombre de joueurs.</p>
   <h3>Touche la carte</h3>
@@ -482,11 +497,11 @@ details[open]>summary .plus{transform:rotate(45deg)}
   <h3>Change de classement</h3>
   <p>Avec une ligue privée, des pastilles en haut de l'écran passent de La Bagarre Générale à tes ligues. Chaque classement s'ouvre, lui aussi, sur ta ligne.</p>
   <h2>La Chistera y compte aussi</h2>
-  <p>La Chistera, la passe dans le dos, double tes points d'une journée dans toutes tes ligues, La Bagarre Générale comprise. Tu la poses en secret avant le coup d'envoi de la journée ; une fois tous ses matchs joués, ton total de la journée compte double.</p>
-  <div class="exemple"><p>Ta journée : <span class="score">14</span> points.</p><p>Avec ta Chistera : <span class="score">28</span> points dans La Bagarre Générale, comme dans tes ligues.</p></div>
-  <p>Le Caramel, lui, se joue en ligue privée : il coupe en deux la journée d'un membre, dans cette ligue seulement. Dans La Bagarre Générale, tes points restent entiers. Et si tu prends un caramel la journée de ta Chistera, les deux s'annulent dans la ligue du caramel, le contre parfait, mais ici ta Chistera double. Une Chistera par compétition et par saison, la même pour tout le monde : choisis bien ta journée. <a href="/regles/gestes-techniques/">La Chistera, le Caramel et leurs cas particuliers</a>, en détail.</p>
-  <h2>Quelle différence entre ta ligue privée et La Bagarre Générale ?</h2>
-  <p>Tu fais ton prono une fois : il compte dans La Bagarre Générale et dans chacune de tes ligues privées qui suit la compétition, à partir des journées commencées après sa création. La Bagarre Générale te mesure à tous les joueurs ; ta ligue privée, à ta bande, avec son code d'invitation et son Club-house. Une ligue créée en cours de saison part de zéro : la course y repart du même point pour tout le monde.</p>
+  <p>La Chistera, la passe dans le dos, double tes points d'une journée dans toutes tes ligues, La Bagarre Générale comprise. Tu la poses en secret avant le coup d'envoi de la journée ; une fois tous ses matchs joués, ton total de la journée compte double.</p>
+  <div class="exemple"><p>Ta journée : <span class="score">14</span> points.</p><p>Avec ta Chistera : <span class="score">28</span> points dans La Bagarre Générale, comme dans tes ligues.</p></div>
+  <p>Le Caramel, lui, se joue en ligue privée : il coupe en deux la journée d'un membre, dans cette ligue seulement. Dans La Bagarre Générale, tes points restent entiers. Et si tu prends un caramel la journée de ta Chistera, les deux s'annulent dans la ligue du caramel, le contre parfait, mais ici ta Chistera double. Une Chistera par compétition et par saison, la même pour tout le monde : choisis bien ta journée. <a href="/regles/gestes-techniques/">La Chistera, le Caramel et leurs cas particuliers</a>, en détail.</p>
+  <h2>Quelle différence entre ta ligue privée et La Bagarre Générale ?</h2>
+  <p>Tu fais ton prono une fois : il compte dans La Bagarre Générale et dans chacune de tes ligues privées qui suit la compétition, à partir des journées commencées après sa création. La Bagarre Générale te mesure à tous les joueurs ; ta ligue privée, à ta bande, avec son code d'invitation et son Club-house. Une ligue créée en cours de saison part de zéro : la course y repart du même point pour tout le monde.</p>
   <div class="tableau"><table>
     <thead><tr><th scope="col">Le point</th><th scope="col">La Bagarre Générale</th><th scope="col">Ta ligue privée</th></tr></thead>
     <tbody>
@@ -498,11 +513,11 @@ details[open]>summary .plus{transform:rotate(45deg)}
       <tr><td>En plus du classement</td><td>La fiche de chaque joueur</td><td>La fiche de chaque joueur et le Club-house, le fil de discussion de la ligue</td></tr>
     </tbody>
   </table></div>
-  <p>Pour monter la tienne, suis le guide des <a href="/pronostics-rugby-entre-amis/">pronostics rugby entre amis</a>. Au bureau ou au club, c'est le même principe : <a href="/concours-pronostics-rugby/">ton concours de pronostics rugby</a>.</p>
+  <p>Pour monter la tienne, suis le guide des <a href="/pronostics-rugby-entre-amis/">pronostics rugby entre amis</a>. Au bureau ou au club, c'est le même principe : <a href="/concours-pronostics-rugby/">ton concours de pronostics rugby</a>.</p>
   <h2>Touche un joueur pour voir sa fiche</h2>
-  <p>Envie de savoir comment fait la personne juste devant toi ? Touche sa ligne : sa fiche joueur s'ouvre, avec sa photo ou son avatar, son club de cœur, ses points de la saison, sa réussite, sa moyenne par journée, sa meilleure journée et sa meilleure série. Elle redit aussi son rang et ses points dans La Bagarre Générale, avec cette précision : « Les points de la ligue comptent la Chistera. »</p>
+  <p>Envie de savoir comment fait la personne juste devant toi ? Touche sa ligne : sa fiche joueur s'ouvre, avec sa photo ou son avatar, son club de cœur, ses points de la saison, sa réussite, sa moyenne par journée, sa meilleure journée et sa meilleure série. Elle redit aussi son rang et ses points dans La Bagarre Générale, avec cette précision : « Les points de la ligue comptent la Chistera. »</p>
   <p>Sur une fiche joueur, tu ne vois que des matchs terminés. Ta propre ligne, elle, ouvre ton Profil. Au retour d'une fiche, la liste t'attend là où tu l'as laissée.</p>
-  <h3>Une photo qui dérange ?</h3>
+  <h3>Une photo qui dérange ?</h3>
   <p>Un appui long sur la photo d'un joueur permet de la signaler, ou de bloquer la personne. Une photo signalée par deux joueurs différents est retirée automatiquement.</p>
   </details>
 </div></article>
@@ -518,14 +533,14 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="slogan">Deviens le meilleur pronostiqueur de ta ligue</p>
     <div class="colonnes">
       <div><b class="titre petites-capitales">Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a aria-current="page">La Bagarre Générale</a></li><li><a href="/la-bagarre-generale/classement/">Le classement</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
-      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li><li><a href="/competitions/coupe-du-monde/">Coupe du monde</a></li></ul></div>
       <div><b class="titre petites-capitales">Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
       <div><b class="titre petites-capitales">Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
       <div class="appli"><b class="titre petites-capitales">L'app</b><p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p><div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div></div>
     </div>
-    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
+    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
   </div>
 </footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"La Bagarre Générale","item":"https://dropleague.app/la-bagarre-generale/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/la-bagarre-generale/#page","url":"https://dropleague.app/la-bagarre-generale/","name":"La Bagarre Générale, le classement de tous les joueurs","description":"Grimpe au classement de tous les joueurs de Drop League : La Bagarre Générale, ton rang dès l'inscription et ta Chistera comprise, sur iPhone et Android.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Comment fonctionne La Bagarre Générale, le classement de tous les joueurs","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"Tous les joueurs · Ni code à taper, ni ligue à rejoindre","url":"https://dropleague.app/la-bagarre-generale/#tous-les-joueurs"},{"@type":"ListItem","position":2,"name":"Les six compétitions · Dans un seul classement","url":"https://dropleague.app/competitions/"},{"@type":"ListItem","position":3,"name":"Le barème de l'app · Tous tes pronos réglés comptent","url":"https://dropleague.app/regles/"},{"@type":"ListItem","position":4,"name":"Le classement autour de toi · Tes voisins au-dessus et au-dessous","url":"https://dropleague.app/la-bagarre-generale/#le-classement-autour-de-toi"},{"@type":"ListItem","position":5,"name":"Ce que montre chaque ligne · La première ligne ressort en orange","url":"https://dropleague.app/la-bagarre-generale/#ce-que-montre-chaque-ligne"},{"@type":"ListItem","position":6,"name":"La fiche de chaque joueur · Ta ligne à toi ouvre ton Profil","url":"https://dropleague.app/la-bagarre-generale/#la-fiche-de-chaque-joueur"},{"@type":"ListItem","position":7,"name":"La Chistera y compte · Une par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/"},{"@type":"ListItem","position":8,"name":"Ta journée qui compte double · 14 points × 2","url":"https://dropleague.app/la-bagarre-generale/#ta-journee-qui-compte-double"},{"@type":"ListItem","position":9,"name":"Le Caramel · En ligue privée seulement","url":"https://dropleague.app/la-bagarre-generale/#le-caramel"},{"@type":"ListItem","position":10,"name":"L'arrivée en cours de saison · Ta nouvelle ligue privée part de zéro","url":"https://dropleague.app/la-bagarre-generale/#l-arrivee-en-cours-de-saison"},{"@type":"ListItem","position":11,"name":"Un prono, tous tes classements · Tes ligues et La Bagarre Générale","url":"https://dropleague.app/pronostics-rugby-entre-amis/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce que La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"La Bagarre Générale est le classement de tous les joueurs de Drop League, le jeu de pronostics rugby entre amis sur iPhone et Android. Tu y es dès ton inscription, avec tes pronos du Top 14, de la Pro D2, de la Champions Cup, de la Challenge Cup, du 6 Nations et du Nations Championship. Les points ne servent qu'au classement."}},{"@type":"Question","name":"Comment entre-t-on dans La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"Automatiquement, à l'inscription : tu n'as ni code à taper ni ligue à rejoindre. Le code d'invitation, lui, sert aux ligues privées, pour jouer avec ta bande."}},{"@type":"Question","name":"Peut-on jouer sans ligue privée ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Tes pronos comptent dans La Bagarre Générale dès le premier match réglé. Une ligue privée ajoute un classement entre potes et son Club-house, le fil de discussion de la ligue."}},{"@type":"Question","name":"La Chistera et le Caramel comptent-ils dans La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"La Chistera, oui : elle double tes points d'une journée dans toutes tes ligues, La Bagarre Générale comprise. Le Caramel joue seulement dans la ligue privée où il est posé : dans La Bagarre Générale, les points restent entiers."}},{"@type":"Question","name":"Pourquoi les points de ta fiche joueur ne sont-ils pas ceux de La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"La tuile des points de ta fiche joueur compte tes points sans geste technique. La Bagarre Générale compte aussi ta Chistera : la journée où tu l'as posée y pèse double. La fiche d'un joueur ouverte depuis La Bagarre Générale le rappelle : « Les points de la ligue comptent la Chistera. »"}},{"@type":"Question","name":"Et si tu t'inscris en cours de saison ?","acceptedAnswer":{"@type":"Answer","text":"Tu entres dans La Bagarre Générale à 0 point, et les pronos déjà réglés des autres y comptent, quelle que soit la journée. Pour une course où tout le monde part du même point, crée ta ligue privée : une ligue créée en cours de saison part de zéro, les journées déjà commencées ne comptent pas pour elle."}},{"@type":"Question","name":"La Loge change-t-elle quelque chose au classement ?","acceptedAnswer":{"@type":"Answer","text":"Non. La Loge, l'abonnement facultatif de Drop League, ajoute quatre stats sur la page de chaque match, et plus une seule pub. Avec ou sans La Loge, tu marques exactement les mêmes points."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"La Bagarre Générale","item":"https://dropleague.app/la-bagarre-generale/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/la-bagarre-generale/#page","url":"https://dropleague.app/la-bagarre-generale/","name":"La Bagarre Générale, le classement de tous les joueurs","description":"Dès ton inscription, tu entres dans La Bagarre Générale, le classement de tous les joueurs : tous tes pronos y comptent, ta Chistera aussi, pas le Caramel.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Comment fonctionne La Bagarre Générale, le classement de tous les joueurs","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"Tous les joueurs · Ni code à taper, ni ligue à rejoindre","url":"https://dropleague.app/la-bagarre-generale/#tous-les-joueurs"},{"@type":"ListItem","position":2,"name":"Les six compétitions · Dans un seul classement","url":"https://dropleague.app/competitions/"},{"@type":"ListItem","position":3,"name":"Le barème de l'app · Tous tes pronos réglés comptent","url":"https://dropleague.app/regles/"},{"@type":"ListItem","position":4,"name":"Le classement autour de toi · Tes voisins au-dessus et au-dessous","url":"https://dropleague.app/la-bagarre-generale/#le-classement-autour-de-toi"},{"@type":"ListItem","position":5,"name":"Ce que montre chaque ligne · La première ligne ressort en orange","url":"https://dropleague.app/la-bagarre-generale/#ce-que-montre-chaque-ligne"},{"@type":"ListItem","position":6,"name":"La fiche de chaque joueur · Ta ligne à toi ouvre ton Profil","url":"https://dropleague.app/la-bagarre-generale/#la-fiche-de-chaque-joueur"},{"@type":"ListItem","position":7,"name":"La Chistera y compte · Une par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/"},{"@type":"ListItem","position":8,"name":"Ta journée qui compte double · 14 points × 2","url":"https://dropleague.app/la-bagarre-generale/#ta-journee-qui-compte-double"},{"@type":"ListItem","position":9,"name":"Le Caramel · En ligue privée seulement","url":"https://dropleague.app/la-bagarre-generale/#le-caramel"},{"@type":"ListItem","position":10,"name":"L'arrivée en cours de saison · Ta nouvelle ligue privée part de zéro","url":"https://dropleague.app/la-bagarre-generale/#l-arrivee-en-cours-de-saison"},{"@type":"ListItem","position":11,"name":"Un prono, tous tes classements · Tes ligues et La Bagarre Générale","url":"https://dropleague.app/pronostics-rugby-entre-amis/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce que La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"La Bagarre Générale est le classement de tous les joueurs de Drop League, le jeu de pronostics rugby entre amis sur iPhone et Android. Tu y es dès ton inscription, avec tes pronos du Top 14, de la Pro D2, de la Champions Cup, de la Challenge Cup, du 6 Nations et du Nations Championship. Les points ne servent qu'au classement."}},{"@type":"Question","name":"Comment entre-t-on dans La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"Automatiquement, à l'inscription : tu n'as ni code à taper ni ligue à rejoindre. Le code d'invitation, lui, sert aux ligues privées, pour jouer avec ta bande."}},{"@type":"Question","name":"Peut-on jouer sans ligue privée ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Tes pronos comptent dans La Bagarre Générale dès le premier match réglé. Une ligue privée ajoute un classement entre potes et son Club-house, le fil de discussion de la ligue."}},{"@type":"Question","name":"La Chistera et le Caramel comptent-ils dans La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"La Chistera, oui : elle double tes points d'une journée dans toutes tes ligues, La Bagarre Générale comprise. Le Caramel joue seulement dans la ligue privée où il est posé : dans La Bagarre Générale, les points restent entiers."}},{"@type":"Question","name":"Pourquoi les points de ta fiche joueur ne sont-ils pas ceux de La Bagarre Générale ?","acceptedAnswer":{"@type":"Answer","text":"La tuile des points de ta fiche joueur compte tes points sans geste technique. La Bagarre Générale compte aussi ta Chistera : la journée où tu l'as posée y pèse double. La fiche d'un joueur ouverte depuis La Bagarre Générale le rappelle : « Les points de la ligue comptent la Chistera. »"}},{"@type":"Question","name":"Et si tu t'inscris en cours de saison ?","acceptedAnswer":{"@type":"Answer","text":"Tu entres dans La Bagarre Générale à 0 point, et les pronos déjà réglés des autres y comptent, quelle que soit la journée. Pour une course où tout le monde part du même point, crée ta ligue privée : une ligue créée en cours de saison part de zéro, les journées déjà commencées ne comptent pas pour elle."}},{"@type":"Question","name":"La Loge change-t-elle quelque chose au classement ?","acceptedAnswer":{"@type":"Answer","text":"Non. La Loge, l'abonnement facultatif de Drop League, ajoute quatre stats sur la page de chaque match, et plus une seule pub. Avec ou sans La Loge, tu marques exactement les mêmes points."}}]}]}</script>
 </body>
 </html>

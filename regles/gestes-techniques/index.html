@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Chistera et Caramel : les gestes techniques · Drop League</title>
-<meta name="description" content="Double tes points d'une journée avec la Chistera, coupe en deux celle d'un membre de ta ligue privée avec le Caramel, en secret, sur iPhone et Android.">
+<title>Chistera ×2, Caramel ÷2, tes gestes techniques · Drop League</title>
+<meta name="description" content="Double tes points d'une journée avec la Chistera, coupe en deux la journée d'un pote de ta ligue avec le Caramel : posés en secret, révélés aux résultats.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1B3A26">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
@@ -15,8 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Drop League">
-<meta property="og:title" content="Chistera et Caramel : les gestes techniques · Drop League">
-<meta property="og:description" content="Double tes points d'une journée avec la Chistera, coupe en deux celle d'un membre de ta ligue privée avec le Caramel, en secret, sur iPhone et Android.">
+<meta property="og:title" content="Chistera ×2, Caramel ÷2, tes gestes techniques · Drop League">
+<meta property="og:description" content="Double tes points d'une journée avec la Chistera, coupe en deux la journée d'un pote de ta ligue avec le Caramel : posés en secret, révélés aux résultats.">
 <meta property="og:image" content="https://dropleague.app/icon-256.png">
 <meta property="og:url" content="https://dropleague.app/regles/gestes-techniques/">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Tuile d'ambiance dans la grille */
 .tuile .visuel{background:var(--vert);color:var(--sur-vert);justify-content:flex-end;text-align:left}
-.tuile .dessin{position:absolute;top:0;left:0;width:100%;height:56%}
+.tuile .dessin{display:block;flex:1 1 0;min-height:90px;width:100%;margin:0 0 14px}
 .tuile h2{position:relative;margin:0;font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.05}
 .tuile h2 em{font-weight:400;color:var(--orange)}
 .tuile p{position:relative;margin:10px 0 0;font-size:13.5px;opacity:.9}
@@ -202,6 +202,20 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .progression i{position:absolute;inset:0 auto 0 0;background:var(--orange)}
 .suite-grille .voir{border:1px solid var(--texte);color:var(--texte);border-radius:999px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .suite-grille[open]>summary{display:none}
+
+/* Poules d'un tournoi : une carte par poule, chaque nation avec son drapeau */
+.poules{padding-block:70px 0;text-align:center}
+.poules h2{margin:0;font-family:var(--serif);font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.05;text-wrap:balance}
+.poules .filet{margin:22px auto 18px}
+.intro-poules{max-width:680px;margin:0 auto 30px;color:var(--doux);font-size:15px}
+.grille-poules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left}
+@media (max-width:989px){.grille-poules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grille-poules{grid-template-columns:1fr}}
+.poule{background:var(--sauge);border-radius:6px;padding:20px 22px}
+.poule h3{margin:0 0 12px;color:var(--orange);font-size:13px}
+.poule ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.poule li{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500}
+.poule .drapeau{flex:0 0 auto;width:30px;height:20px;border-radius:2px;display:block}
 
 /* FAQ */
 .faq{background:var(--sauge);margin-top:80px;padding-block:70px 76px}
@@ -277,7 +291,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
 </style>
 </head>
 <body>
-<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
+<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
 <header class="entete">
   <div class="largeur haut">
     <div class="gauche">
@@ -296,7 +310,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="surtitre petites-capitales">Le jeu · Gestes techniques</p>
     <h1 id="titre-page">La Chistera et Le Caramel, <em>tes gestes techniques</em></h1>
     <div class="filet" aria-hidden="true"></div>
-    <p class="intro">Tes <strong>gestes techniques</strong> dans Drop League : la Chistera double tes points d'une journée, le Caramel coupe en deux celle de quelqu'un de ta ligue privée. Un de chaque par compétition et par saison, posés en secret avant le coup d'envoi et révélés aux résultats.</p>
+    <p class="intro">Tes <strong>gestes techniques</strong> dans Drop League : la Chistera double tes points d'une journée, le Caramel coupe en deux celle de quelqu'un de ta ligue privée. Un de chaque par compétition et par saison, posés en secret avant le coup d'envoi et révélés aux résultats.</p>
     <div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div>
     <p class="signature">Motus jusqu'aux résultats.</p>
   </div>
@@ -309,7 +323,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
   </figure>
 </section>
 <section class="largeur" aria-labelledby="titre-grille">
-  <nav class="liees" aria-label="Pages liées"><a href="/regles/">Règles du jeu</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/competitions/top-14/">Top 14</a><a href="/competitions/pro-d2/">Pro D2</a><a href="/competitions/6-nations/">6 Nations</a><a href="/competitions/">Toutes les compétitions</a><a href="/questions/">Questions fréquentes</a></nav>
+  <nav class="liees" aria-label="Pages liées"><a href="/regles/">Règles du jeu</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/competitions/top-14/">Top 14</a><a href="/competitions/pro-d2/">Pro D2</a><a href="/competitions/6-nations/">6 Nations</a><a href="/competitions/coupe-du-monde/">Coupe du monde de rugby</a><a href="/competitions/">Toutes les compétitions</a><a href="/questions/">Questions fréquentes</a></nav>
   <h2 id="titre-grille" class="cache">La Chistera, le Caramel et les cas particuliers des gestes techniques</h2>
   <div class="barre"><span class="gauche-barre">Les gestes techniques de Drop League</span><span class="compte">2 gestes techniques · 5 cas particuliers</span><span class="droite">Les mêmes règles que dans l'app</span></div>
   <ul class="grille">
@@ -337,7 +351,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
   <div class="visuel">
     <svg class="dessin" viewBox="0 0 300 260" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect x="92" y="26" width="116" height="232" rx="20" fill="#F4F6F1"/><rect x="104" y="48" width="92" height="170" rx="6" fill="#2C5A3E"/><rect x="114" y="62" width="72" height="26" rx="5" fill="#EE8A10"/><rect x="114" y="100" width="72" height="12" rx="3" fill="#F4F6F1"/><rect x="114" y="120" width="54" height="12" rx="3" fill="#F4F6F1"/><rect x="114" y="150" width="72" height="12" rx="3" fill="#F4F6F1" fill-opacity=".5"/><rect x="134" y="232" width="32" height="6" rx="3" fill="#1B3A26"/></svg>
     <h2>Tes gestes, <em>en secret</em></h2>
-    <p>Dans l'onglet Pronos, choisis la journée et touche « Tes gestes techniques — Chistera, Caramel ».</p>
+    <p>Dans l'onglet Pronos, choisis la journée et touche « Tes gestes techniques — Chistera, Caramel ».</p>
     <a class="cta" href="/application-pronostics-rugby/">Télécharger l'app</a>
   </div>
 </li>
@@ -376,7 +390,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     
     <div class="numero"><b>5</b><small>au lieu de 9</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Le Caramel arrondit au point supérieur : une journée à 9 points passe à 5.</p>
+    <p class="texte-carte">Le Caramel arrondit au point supérieur : une journée à 9 points passe à 5.</p>
   </div>
   <h3 class="nom-carte"><a href="#l-arrondi-au-point-superieur">L'arrondi au point supérieur</a></h3>
   <p class="prix">Dans la ligue du caramel</p>
@@ -386,7 +400,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Cas particulier</span>
     <div class="numero"><b>×1</b></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Tu poses ta Chistera et tu prends un caramel la même journée : dans la ligue du caramel, ils s'annulent et tes points comptent tels quels.</p>
+    <p class="texte-carte">Tu poses ta Chistera et tu prends un caramel la même journée : dans la ligue du caramel, ils s'annulent et tes points comptent tels quels.</p>
   </div>
   <h3 class="nom-carte"><a href="#le-contre-parfait">Le contre parfait</a></h3>
   <p class="prix">Ailleurs, ta Chistera double</p>
@@ -396,7 +410,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Cas particulier</span>
     <div class="numero"><b>0</b><small>prono</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Tu n'as aucun prono sur la journée de ta Chistera : elle t'est rendue.</p>
+    <p class="texte-carte">Tu n'as aucun prono sur la journée de ta Chistera : elle t'est rendue.</p>
   </div>
   <h3 class="nom-carte"><a href="#le-retour-au-vestiaire">Le retour au vestiaire</a></h3>
   <p class="prix">Ta Chistera t'est rendue</p>
@@ -416,7 +430,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Cas particulier</span>
     <div class="numero"><b>÷2</b><small>une fois</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Plusieurs caramels sur la même personne, dans la même ligue, la même journée : un seul effet, tous consommés.</p>
+    <p class="texte-carte">Plusieurs caramels sur la même personne, dans la même ligue, la même journée : un seul effet, tous consommés.</p>
   </div>
   <h3 class="nom-carte"><a href="#le-plaquage-a-deux">Le plaquage à deux</a></h3>
   <p class="prix">Tous les caramels consommés</p>
@@ -426,65 +440,66 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Cas particulier</span>
     <div class="numero"><b>0</b><small>effet</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Ta cible n'a aucun prono sur la journée : ton caramel est consommé, sans effet, même si elle était déjà au sol.</p>
+    <p class="texte-carte">Ta cible n'a aucun prono sur la journée : ton caramel est consommé, sans effet, même si elle était déjà au sol.</p>
   </div>
   <h3 class="nom-carte"><a href="#le-plaquage-dans-le-vide">Le plaquage dans le vide</a></h3>
   <p class="prix">Ton caramel est consommé</p>
 </li>
   </ul>
 </section>
+
 <section class="faq" aria-labelledby="titre-faq">
   <div class="largeur">
     <p class="accroche petites-capitales">Trouve vite la réponse à tes questions</p>
     <h2 id="titre-faq">FAQ gestes techniques</h2>
     <div class="filet" aria-hidden="true"></div>
     <div class="faq-liste">
-      <details><summary><h3>C'est quoi, la Chistera dans Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>La Chistera est un geste technique : elle double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise. Tu la poses en secret avant le coup d'envoi de la journée, et elle se révèle aux résultats.</p></div></details>
-      <details><summary><h3>C'est quoi, le Caramel ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement, arrondi au point supérieur. Une journée à 9 points passe à 5.</p></div></details>
-      <details><summary><h3>Combien de Chisteras et de Caramels as-tu ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Un de chaque par compétition et par saison, les mêmes pour tout le monde. Une Chistera et un Caramel pour le Top 14, une Chistera et un Caramel pour le 6 Nations, et ainsi de suite pour chaque compétition.</p></div></details>
-      <details><summary><h3>Où et jusqu'à quand poser tes gestes ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'onglet Pronos, choisis la journée, puis touche « Tes gestes techniques — Chistera, Caramel ». Jusqu'au coup d'envoi de la journée, tu peux poser ton geste, le retirer ou le passer sur une autre journée. Il reste secret jusqu'aux résultats.</p></div></details>
-      <details><summary><h3>Quand peut-on mettre son premier caramel ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le caramel se mérite sur le terrain : il te faut au moins un prono déjà réglé dans la compétition, sur une journée commencée après la création de la ligue. Il te faut aussi une ligue privée, la seule où le Caramel compte.</p></div></details>
-      <details><summary><h3>Et si tu prends un caramel la journée de ta Chistera ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>C'est le contre parfait : dans la ligue du caramel, ils s'annulent et tes points comptent tels quels. Ailleurs, ta Chistera double. Les deux sont consommés.</p></div></details>
-      <details><summary><h3>Quand ton caramel t'est-il rendu ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Quand ta cible était déjà au sol : elle en a subi un dans cette ligue lors des 4 journées précédentes, ou elle en a déjà subi 2 dans cette ligue (1 si la compétition compte moins de 20 journées). Pour ce plafond, seuls comptent les caramels subis sur une journée où elle avait au moins 4 points. Si ta cible n'a aucun prono sur la journée, c'est le plaquage dans le vide : ton caramel est consommé, sans effet.</p></div></details>
+      <details><summary><h3>C'est quoi, la Chistera dans Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>La Chistera est un geste technique : elle double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise. Tu la poses en secret avant le coup d'envoi de la journée, et elle se révèle aux résultats.</p></div></details>
+      <details><summary><h3>C'est quoi, le Caramel ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement, arrondi au point supérieur. Une journée à 9 points passe à 5.</p></div></details>
+      <details><summary><h3>Combien de Chisteras et de Caramels as-tu ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Un de chaque par compétition et par saison, les mêmes pour tout le monde. Une Chistera et un Caramel pour le Top 14, une Chistera et un Caramel pour le 6 Nations, et ainsi de suite pour chaque compétition.</p></div></details>
+      <details><summary><h3>Où et jusqu'à quand poser tes gestes ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'onglet Pronos, choisis la journée, puis touche « Tes gestes techniques — Chistera, Caramel ». Jusqu'au coup d'envoi de la journée, tu peux poser ton geste, le retirer ou le passer sur une autre journée. Il reste secret jusqu'aux résultats.</p></div></details>
+      <details><summary><h3>Quand peut-on mettre son premier caramel ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le caramel se mérite sur le terrain : il te faut au moins un prono déjà réglé dans la compétition, sur une journée commencée après la création de la ligue. Il te faut aussi une ligue privée, la seule où le Caramel compte.</p></div></details>
+      <details><summary><h3>Et si tu prends un caramel la journée de ta Chistera ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>C'est le contre parfait : dans la ligue du caramel, ils s'annulent et tes points comptent tels quels. Ailleurs, ta Chistera double. Les deux sont consommés.</p></div></details>
+      <details><summary><h3>Quand ton caramel t'est-il rendu ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Quand ta cible était déjà au sol : elle en a subi un dans cette ligue lors des 4 journées précédentes, ou elle en a déjà subi 2 dans cette ligue (1 si la compétition compte moins de 20 journées). Pour ce plafond, seuls comptent les caramels subis sur une journée où elle avait au moins 4 points. Si ta cible n'a aucun prono sur la journée, c'est le plaquage dans le vide : ton caramel est consommé, sans effet.</p></div></details>
     </div>
   </div>
 </section>
 <article class="largeur"><div class="texte-seo">
   <h2>Les gestes techniques, mode d'emploi</h2>
   <div class="filet" aria-hidden="true"></div>
-  <p>Dans Drop League, la <strong>Chistera</strong> et le <strong>Caramel</strong> sont tes deux gestes techniques. La Chistera, c'est la passe dans le dos pleine de panache : elle double tes points d'une journée. Le Caramel, c'est le plaquage qu'on entend depuis la tribune : il coupe en deux le total d'une journée d'un membre de ta ligue privée. Pronostics entre amis : les points ne servent qu'au classement.</p>
-  <h2>C'est quoi, Drop League ?</h2>
-  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+  <p>Dans Drop League, la <strong>Chistera</strong> et le <strong>Caramel</strong> sont tes deux gestes techniques. La Chistera, c'est la passe dans le dos pleine de panache : elle double tes points d'une journée. Le Caramel, c'est le plaquage qu'on entend depuis la tribune : il coupe en deux le total d'une journée d'un membre de ta ligue privée. Pronostics entre amis : les points ne servent qu'au classement.</p>
+  <h2>C'est quoi, Drop League ?</h2>
+  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
   <details class="lire-plus"><summary>Lire plus</summary>
   <h2>La Chistera double tes points d'une journée</h2>
-  <p>La Chistera ×2, c'est la passe dans le dos : elle double tes points d'une journée, dans toutes tes ligues, <a href="/la-bagarre-generale/">La Bagarre Générale</a> comprise. Tu la poses sur la journée de ton choix, avant son coup d'envoi. Une fois tous les matchs de la journée joués, ton total compte double.</p>
-  <div class="exemple"><p>Ta journée : <span class="score">14</span> points.</p><p>Avec ta Chistera : <span class="score">28</span> points, dans tes ligues et dans La Bagarre Générale.</p></div>
-  <p>C'est le geste du panache : garde-la pour la journée où tu sens le coup.</p>
+  <p>La Chistera ×2, c'est la passe dans le dos : elle double tes points d'une journée, dans toutes tes ligues, <a href="/la-bagarre-generale/">La Bagarre Générale</a> comprise. Tu la poses sur la journée de ton choix, avant son coup d'envoi. Une fois tous les matchs de la journée joués, ton total compte double.</p>
+  <div class="exemple"><p>Ta journée : <span class="score">14</span> points.</p><p>Avec ta Chistera : <span class="score">28</span> points, dans tes ligues et dans La Bagarre Générale.</p></div>
+  <p>C'est le geste du panache : garde-la pour la journée où tu sens le coup.</p>
   <h2>Le Caramel coupe en deux la journée d'un membre de ta ligue</h2>
-  <p>Le Caramel ÷2, c'est le plaquage qu'on entend depuis la tribune : il coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement, arrondi au point supérieur. Dans ses autres ligues et dans La Bagarre Générale, ses points restent entiers.</p>
-  <div class="exemple"><p>Sa journée : <span class="score">9</span> points.</p><p>Avec ton Caramel : <span class="score">5</span> points, dans votre ligue.</p></div>
-  <p>Sur l'écran, tu choisis « Dans quelle ligue ? », puis « À qui ? », et tu touches « Mettre un caramel ». Un seul Caramel par compétition, même avec plusieurs ligues : à toi de choisir où il fera le plus de bruit.</p>
-  <h2>Combien de gestes as-tu, et quand les poser ?</h2>
-  <p>Un de chaque par compétition et par saison, les mêmes pour tout le monde : une Chistera et un Caramel pour le <a href="/competitions/top-14/">Top 14</a>, autant pour la <a href="/competitions/pro-d2/">Pro D2</a>, la <a href="/competitions/champions-cup/">Champions Cup</a>, la <a href="/competitions/challenge-cup/">Challenge Cup</a>, le <a href="/competitions/6-nations/">6 Nations</a> et le <a href="/competitions/nations-championship/">Nations Championship</a>. Ils se posent en secret avant le coup d'envoi de la journée, et se révèlent aux résultats.</p>
+  <p>Le Caramel ÷2, c'est le plaquage qu'on entend depuis la tribune : il coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement, arrondi au point supérieur. Dans ses autres ligues et dans La Bagarre Générale, ses points restent entiers.</p>
+  <div class="exemple"><p>Sa journée : <span class="score">9</span> points.</p><p>Avec ton Caramel : <span class="score">5</span> points, dans votre ligue.</p></div>
+  <p>Sur l'écran, tu choisis « Dans quelle ligue ? », puis « À qui ? », et tu touches « Mettre un caramel ». Un seul Caramel par compétition, même avec plusieurs ligues : à toi de choisir où il fera le plus de bruit.</p>
+  <h2>Combien de gestes as-tu, et quand les poser ?</h2>
+  <p>Un de chaque par compétition et par saison, les mêmes pour tout le monde : une Chistera et un Caramel pour le <a href="/competitions/top-14/">Top 14</a>, autant pour la <a href="/competitions/pro-d2/">Pro D2</a>, la <a href="/competitions/champions-cup/">Champions Cup</a>, la <a href="/competitions/challenge-cup/">Challenge Cup</a>, le <a href="/competitions/6-nations/">6 Nations</a> et le <a href="/competitions/nations-championship/">Nations Championship</a>. Ils se posent en secret avant le coup d'envoi de la journée, et se révèlent aux résultats.</p>
   <h3>Choisis la journée</h3>
-  <p>Dans l'onglet Pronos, prends la compétition et la journée, puis touche « Tes gestes techniques — Chistera, Caramel ».</p>
+  <p>Dans l'onglet Pronos, prends la compétition et la journée, puis touche « Tes gestes techniques — Chistera, Caramel ».</p>
   <h3>Pose en secret</h3>
-  <p>Touche « Poser ma chistera sur cette journée », ou « Mettre un caramel » à quelqu'un de ta ligue. Jusqu'au coup d'envoi de la journée, tu peux le retirer, ou le poser sur une autre journée : il se déplace.</p>
+  <p>Touche « Poser ma chistera sur cette journée », ou « Mettre un caramel » à quelqu'un de ta ligue. Jusqu'au coup d'envoi de la journée, tu peux le retirer, ou le poser sur une autre journée : il se déplace.</p>
   <h3>Rendez-vous aux résultats</h3>
-  <p>Une fois tous les matchs de la journée joués, le Club-house de ta ligue annonce qui a posé quoi : pour une Chistera, ses points comptent double ; pour un caramel, sa journée compte moitié.</p>
-  <h2>Quand peux-tu mettre ton premier caramel ?</h2>
-  <p>Le caramel se mérite sur le terrain : il te faut au moins un prono déjà réglé dans la compétition, sur une journée commencée après la création de la ligue. Réglé, c'est-à-dire avec ses points comptés.</p>
-  <p>Il te faut aussi une ligue privée : c'est là que le Caramel compte. <a href="/pronostics-rugby-entre-amis/">Monte ta ligue entre amis</a>.</p>
+  <p>Une fois tous les matchs de la journée joués, le Club-house de ta ligue annonce qui a posé quoi : pour une Chistera, ses points comptent double ; pour un caramel, sa journée compte moitié.</p>
+  <h2>Quand peux-tu mettre ton premier caramel ?</h2>
+  <p>Le caramel se mérite sur le terrain : il te faut au moins un prono déjà réglé dans la compétition, sur une journée commencée après la création de la ligue. Réglé, c'est-à-dire avec ses points comptés.</p>
+  <p>Il te faut aussi une ligue privée : c'est là que le Caramel compte. <a href="/pronostics-rugby-entre-amis/">Monte ta ligue entre amis</a>.</p>
   <h2>Les cas particuliers, tranchés d'avance</h2>
-  <p>Deux gestes la même journée, un caramel de trop, une cible sans prono : chaque cas a sa règle, appliquée automatiquement aux résultats. Voici les cinq de l'écran Règles du jeu.</p>
+  <p>Deux gestes la même journée, un caramel de trop, une cible sans prono : chaque cas a sa règle, appliquée automatiquement aux résultats. Voici les cinq de l'écran Règles du jeu.</p>
   <div class="tableau"><table><thead><tr><th scope="col">Le cas</th><th scope="col">Ce qui se passe</th></tr></thead><tbody>
-  <tr><td><strong>Le contre parfait</strong></td><td>Tu poses ta Chistera et tu prends un caramel la même journée : dans la ligue du caramel, ils s'annulent et tes points comptent tels quels. Ailleurs, ta Chistera double. Les deux sont consommés.</td></tr>
-  <tr><td><strong>Le plaquage à deux</strong></td><td>Plusieurs caramels sur la même personne, dans la même ligue, la même journée : un seul effet, tous consommés.</td></tr>
+  <tr><td><strong>Le contre parfait</strong></td><td>Tu poses ta Chistera et tu prends un caramel la même journée : dans la ligue du caramel, ils s'annulent et tes points comptent tels quels. Ailleurs, ta Chistera double. Les deux sont consommés.</td></tr>
+  <tr><td><strong>Le plaquage à deux</strong></td><td>Plusieurs caramels sur la même personne, dans la même ligue, la même journée : un seul effet, tous consommés.</td></tr>
   <tr><td><strong>La cible était déjà au sol</strong></td><td>Ton caramel t'est rendu si ta cible en a subi un dans cette ligue lors des 4 journées précédentes, ou si elle en a déjà subi 2 dans cette ligue (1 si la compétition compte moins de 20 journées). Pour ce plafond, seuls comptent les caramels subis sur une journée où elle avait au moins 4 points.</td></tr>
-  <tr><td><strong>Le plaquage dans le vide</strong></td><td>Ta cible n'a aucun prono sur la journée : ton caramel est consommé, sans effet, même si elle était déjà au sol.</td></tr>
-  <tr><td><strong>Le retour au vestiaire</strong></td><td>Tu n'as aucun prono sur la journée de ta Chistera : elle t'est rendue.</td></tr>
+  <tr><td><strong>Le plaquage dans le vide</strong></td><td>Ta cible n'a aucun prono sur la journée : ton caramel est consommé, sans effet, même si elle était déjà au sol.</td></tr>
+  <tr><td><strong>Le retour au vestiaire</strong></td><td>Tu n'as aucun prono sur la journée de ta Chistera : elle t'est rendue.</td></tr>
   </tbody></table></div>
-  <p>Le barème, l'exemple de Clermont et le cadre sont sur la page <a href="/regles/">Règles du jeu</a>. Dans l'app, tout est aussi écrit : Profil, puis Règles du jeu.</p>
+  <p>Le barème, l'exemple de Clermont et le cadre sont sur la page <a href="/regles/">Règles du jeu</a>. Dans l'app, tout est aussi écrit : Profil, puis Règles du jeu.</p>
   </details>
 </div></article>
 <section class="largeur reassurance" aria-label="Drop League en bref"><ul>
@@ -499,14 +514,14 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="slogan">Deviens le meilleur pronostiqueur de ta ligue</p>
     <div class="colonnes">
       <div><b class="titre petites-capitales">Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a aria-current="page">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-bagarre-generale/classement/">Le classement</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
-      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li><li><a href="/competitions/coupe-du-monde/">Coupe du monde</a></li></ul></div>
       <div><b class="titre petites-capitales">Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
       <div><b class="titre petites-capitales">Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
       <div class="appli"><b class="titre petites-capitales">L'app</b><p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p><div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div></div>
     </div>
-    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
+    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
   </div>
 </footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Règles du jeu","item":"https://dropleague.app/regles/"},{"@type":"ListItem","position":3,"name":"Gestes techniques","item":"https://dropleague.app/regles/gestes-techniques/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/regles/gestes-techniques/#page","url":"https://dropleague.app/regles/gestes-techniques/","name":"La Chistera et Le Caramel, tes gestes techniques","description":"Double tes points d'une journée avec la Chistera, coupe en deux celle d'un membre de ta ligue privée avec le Caramel, en secret, sur iPhone et Android.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Les gestes techniques de Drop League et leurs cas particuliers","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"La Chistera · Une par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/#la-chistera"},{"@type":"ListItem","position":2,"name":"Le Caramel · Un par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/#le-caramel"},{"@type":"ListItem","position":3,"name":"Un de chaque · Pour chaque compétition","url":"https://dropleague.app/regles/gestes-techniques/#un-de-chaque"},{"@type":"ListItem","position":4,"name":"Posés en secret, révélés aux résultats · À retirer ou déplacer jusqu'au coup d'envoi","url":"https://dropleague.app/regles/gestes-techniques/#poses-en-secret-reveles-aux-resultats"},{"@type":"ListItem","position":5,"name":"Le caramel se mérite · Dans une ligue privée","url":"https://dropleague.app/regles/gestes-techniques/#le-caramel-se-merite"},{"@type":"ListItem","position":6,"name":"L'arrondi au point supérieur · Dans la ligue du caramel","url":"https://dropleague.app/regles/gestes-techniques/#l-arrondi-au-point-superieur"},{"@type":"ListItem","position":7,"name":"Le contre parfait · Ailleurs, ta Chistera double","url":"https://dropleague.app/regles/gestes-techniques/#le-contre-parfait"},{"@type":"ListItem","position":8,"name":"Le retour au vestiaire · Ta Chistera t'est rendue","url":"https://dropleague.app/regles/gestes-techniques/#le-retour-au-vestiaire"},{"@type":"ListItem","position":9,"name":"La cible était déjà au sol · Ton caramel t'est rendu","url":"https://dropleague.app/regles/gestes-techniques/#la-cible-etait-deja-au-sol"},{"@type":"ListItem","position":10,"name":"Le plaquage à deux · Tous les caramels consommés","url":"https://dropleague.app/regles/gestes-techniques/#le-plaquage-a-deux"},{"@type":"ListItem","position":11,"name":"Le plaquage dans le vide · Ton caramel est consommé","url":"https://dropleague.app/regles/gestes-techniques/#le-plaquage-dans-le-vide"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"C'est quoi, la Chistera dans Drop League ?","acceptedAnswer":{"@type":"Answer","text":"La Chistera est un geste technique : elle double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise. Tu la poses en secret avant le coup d'envoi de la journée, et elle se révèle aux résultats."}},{"@type":"Question","name":"C'est quoi, le Caramel ?","acceptedAnswer":{"@type":"Answer","text":"Le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement, arrondi au point supérieur. Une journée à 9 points passe à 5."}},{"@type":"Question","name":"Combien de Chisteras et de Caramels as-tu ?","acceptedAnswer":{"@type":"Answer","text":"Un de chaque par compétition et par saison, les mêmes pour tout le monde. Une Chistera et un Caramel pour le Top 14, une Chistera et un Caramel pour le 6 Nations, et ainsi de suite pour chaque compétition."}},{"@type":"Question","name":"Où et jusqu'à quand poser tes gestes ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'onglet Pronos, choisis la journée, puis touche « Tes gestes techniques — Chistera, Caramel ». Jusqu'au coup d'envoi de la journée, tu peux poser ton geste, le retirer ou le passer sur une autre journée. Il reste secret jusqu'aux résultats."}},{"@type":"Question","name":"Quand peut-on mettre son premier caramel ?","acceptedAnswer":{"@type":"Answer","text":"Le caramel se mérite sur le terrain : il te faut au moins un prono déjà réglé dans la compétition, sur une journée commencée après la création de la ligue. Il te faut aussi une ligue privée, la seule où le Caramel compte."}},{"@type":"Question","name":"Et si tu prends un caramel la journée de ta Chistera ?","acceptedAnswer":{"@type":"Answer","text":"C'est le contre parfait : dans la ligue du caramel, ils s'annulent et tes points comptent tels quels. Ailleurs, ta Chistera double. Les deux sont consommés."}},{"@type":"Question","name":"Quand ton caramel t'est-il rendu ?","acceptedAnswer":{"@type":"Answer","text":"Quand ta cible était déjà au sol : elle en a subi un dans cette ligue lors des 4 journées précédentes, ou elle en a déjà subi 2 dans cette ligue (1 si la compétition compte moins de 20 journées). Pour ce plafond, seuls comptent les caramels subis sur une journée où elle avait au moins 4 points. Si ta cible n'a aucun prono sur la journée, c'est le plaquage dans le vide : ton caramel est consommé, sans effet."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Règles du jeu","item":"https://dropleague.app/regles/"},{"@type":"ListItem","position":3,"name":"Gestes techniques","item":"https://dropleague.app/regles/gestes-techniques/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/regles/gestes-techniques/#page","url":"https://dropleague.app/regles/gestes-techniques/","name":"La Chistera et Le Caramel, tes gestes techniques","description":"Double tes points d'une journée avec la Chistera, coupe en deux la journée d'un pote de ta ligue avec le Caramel : posés en secret, révélés aux résultats.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Les gestes techniques de Drop League et leurs cas particuliers","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"La Chistera · Une par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/#la-chistera"},{"@type":"ListItem","position":2,"name":"Le Caramel · Un par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/#le-caramel"},{"@type":"ListItem","position":3,"name":"Un de chaque · Pour chaque compétition","url":"https://dropleague.app/regles/gestes-techniques/#un-de-chaque"},{"@type":"ListItem","position":4,"name":"Posés en secret, révélés aux résultats · À retirer ou déplacer jusqu'au coup d'envoi","url":"https://dropleague.app/regles/gestes-techniques/#poses-en-secret-reveles-aux-resultats"},{"@type":"ListItem","position":5,"name":"Le caramel se mérite · Dans une ligue privée","url":"https://dropleague.app/regles/gestes-techniques/#le-caramel-se-merite"},{"@type":"ListItem","position":6,"name":"L'arrondi au point supérieur · Dans la ligue du caramel","url":"https://dropleague.app/regles/gestes-techniques/#l-arrondi-au-point-superieur"},{"@type":"ListItem","position":7,"name":"Le contre parfait · Ailleurs, ta Chistera double","url":"https://dropleague.app/regles/gestes-techniques/#le-contre-parfait"},{"@type":"ListItem","position":8,"name":"Le retour au vestiaire · Ta Chistera t'est rendue","url":"https://dropleague.app/regles/gestes-techniques/#le-retour-au-vestiaire"},{"@type":"ListItem","position":9,"name":"La cible était déjà au sol · Ton caramel t'est rendu","url":"https://dropleague.app/regles/gestes-techniques/#la-cible-etait-deja-au-sol"},{"@type":"ListItem","position":10,"name":"Le plaquage à deux · Tous les caramels consommés","url":"https://dropleague.app/regles/gestes-techniques/#le-plaquage-a-deux"},{"@type":"ListItem","position":11,"name":"Le plaquage dans le vide · Ton caramel est consommé","url":"https://dropleague.app/regles/gestes-techniques/#le-plaquage-dans-le-vide"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"C'est quoi, la Chistera dans Drop League ?","acceptedAnswer":{"@type":"Answer","text":"La Chistera est un geste technique : elle double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise. Tu la poses en secret avant le coup d'envoi de la journée, et elle se révèle aux résultats."}},{"@type":"Question","name":"C'est quoi, le Caramel ?","acceptedAnswer":{"@type":"Answer","text":"Le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement, arrondi au point supérieur. Une journée à 9 points passe à 5."}},{"@type":"Question","name":"Combien de Chisteras et de Caramels as-tu ?","acceptedAnswer":{"@type":"Answer","text":"Un de chaque par compétition et par saison, les mêmes pour tout le monde. Une Chistera et un Caramel pour le Top 14, une Chistera et un Caramel pour le 6 Nations, et ainsi de suite pour chaque compétition."}},{"@type":"Question","name":"Où et jusqu'à quand poser tes gestes ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'onglet Pronos, choisis la journée, puis touche « Tes gestes techniques — Chistera, Caramel ». Jusqu'au coup d'envoi de la journée, tu peux poser ton geste, le retirer ou le passer sur une autre journée. Il reste secret jusqu'aux résultats."}},{"@type":"Question","name":"Quand peut-on mettre son premier caramel ?","acceptedAnswer":{"@type":"Answer","text":"Le caramel se mérite sur le terrain : il te faut au moins un prono déjà réglé dans la compétition, sur une journée commencée après la création de la ligue. Il te faut aussi une ligue privée, la seule où le Caramel compte."}},{"@type":"Question","name":"Et si tu prends un caramel la journée de ta Chistera ?","acceptedAnswer":{"@type":"Answer","text":"C'est le contre parfait : dans la ligue du caramel, ils s'annulent et tes points comptent tels quels. Ailleurs, ta Chistera double. Les deux sont consommés."}},{"@type":"Question","name":"Quand ton caramel t'est-il rendu ?","acceptedAnswer":{"@type":"Answer","text":"Quand ta cible était déjà au sol : elle en a subi un dans cette ligue lors des 4 journées précédentes, ou elle en a déjà subi 2 dans cette ligue (1 si la compétition compte moins de 20 journées). Pour ce plafond, seuls comptent les caramels subis sur une journée où elle avait au moins 4 points. Si ta cible n'a aucun prono sur la journée, c'est le plaquage dans le vide : ton caramel est consommé, sans effet."}}]}]}</script>
 </body>
 </html>

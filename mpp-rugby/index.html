@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Les pronos entre potes, version rugby · Drop League</title>
-<meta name="description" content="Annonce le score exact des matchs avec ta bande, du Top 14 au 6 Nations : les pronos entre potes, version rugby, en ligue privée, sur iPhone et Android.">
+<title>MPP rugby : tes pronos entre potes, du Top 14 au 6 Nations</title>
+<meta name="description" content="Tes pronos entre potes, version rugby : Top 14, Pro D2, coupes d'Europe et 6 Nations, l'essai à l'extérieur à +5, dans une vraie appli iPhone et Android.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1B3A26">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
@@ -15,8 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Drop League">
-<meta property="og:title" content="Les pronos entre potes, version rugby · Drop League">
-<meta property="og:description" content="Annonce le score exact des matchs avec ta bande, du Top 14 au 6 Nations : les pronos entre potes, version rugby, en ligue privée, sur iPhone et Android.">
+<meta property="og:title" content="MPP rugby : tes pronos entre potes, du Top 14 au 6 Nations">
+<meta property="og:description" content="Tes pronos entre potes, version rugby : Top 14, Pro D2, coupes d'Europe et 6 Nations, l'essai à l'extérieur à +5, dans une vraie appli iPhone et Android.">
 <meta property="og:image" content="https://dropleague.app/icon-256.png">
 <meta property="og:url" content="https://dropleague.app/mpp-rugby/">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Tuile d'ambiance dans la grille */
 .tuile .visuel{background:var(--vert);color:var(--sur-vert);justify-content:flex-end;text-align:left}
-.tuile .dessin{position:absolute;top:0;left:0;width:100%;height:56%}
+.tuile .dessin{display:block;flex:1 1 0;min-height:90px;width:100%;margin:0 0 14px}
 .tuile h2{position:relative;margin:0;font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.05}
 .tuile h2 em{font-weight:400;color:var(--orange)}
 .tuile p{position:relative;margin:10px 0 0;font-size:13.5px;opacity:.9}
@@ -202,6 +202,20 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .progression i{position:absolute;inset:0 auto 0 0;background:var(--orange)}
 .suite-grille .voir{border:1px solid var(--texte);color:var(--texte);border-radius:999px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .suite-grille[open]>summary{display:none}
+
+/* Poules d'un tournoi : une carte par poule, chaque nation avec son drapeau */
+.poules{padding-block:70px 0;text-align:center}
+.poules h2{margin:0;font-family:var(--serif);font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.05;text-wrap:balance}
+.poules .filet{margin:22px auto 18px}
+.intro-poules{max-width:680px;margin:0 auto 30px;color:var(--doux);font-size:15px}
+.grille-poules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left}
+@media (max-width:989px){.grille-poules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grille-poules{grid-template-columns:1fr}}
+.poule{background:var(--sauge);border-radius:6px;padding:20px 22px}
+.poule h3{margin:0 0 12px;color:var(--orange);font-size:13px}
+.poule ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.poule li{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500}
+.poule .drapeau{flex:0 0 auto;width:30px;height:20px;border-radius:2px;display:block}
 
 /* FAQ */
 .faq{background:var(--sauge);margin-top:80px;padding-block:70px 76px}
@@ -277,7 +291,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
 </style>
 </head>
 <body>
-<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
+<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
 <header class="entete">
   <div class="largeur haut">
     <div class="gauche">
@@ -296,9 +310,9 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="surtitre petites-capitales">Jouer avec · Entre potes</p>
     <h1 id="titre-page">Les pronos entre potes, <em>version rugby</em></h1>
     <div class="filet" aria-hidden="true"></div>
-    <p class="intro">Une ligue privée, un code pour ta bande, et chacun annonce le score exact des matchs. Le principe des <strong>pronos entre potes</strong>, avec un barème qui parle rugby, du Top 14 au 6 Nations. Pronostics entre amis : les points ne servent qu'au classement.</p>
+    <p class="intro">Une ligue privée, un code pour ta bande, et chacun annonce le score exact des matchs. Le principe des <strong>pronos entre potes</strong>, avec un barème qui parle rugby, du Top 14 au 6 Nations ; la <a href="/competitions/coupe-du-monde/">Coupe du monde de rugby</a> sera bientôt à pronostiquer, elle aussi. Pronostics entre amis : les points ne servent qu'au classement.</p>
     <div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div>
-    <p class="signature">Tu dis quoi, toi ?</p>
+    <p class="signature">Tu dis quoi, toi ?</p>
   </div>
   <figure class="cliche">
     <picture>
@@ -309,7 +323,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
   </figure>
 </section>
 <section class="largeur" aria-labelledby="titre-grille">
-  <nav class="liees" aria-label="Pages liées"><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/concours-pronostics-rugby/">Au bureau, au club</a><a href="/regles/">Règles du jeu</a><a href="/regles/gestes-techniques/">Gestes techniques</a><a href="/competitions/">Toutes les compétitions</a><a href="/competitions/top-14/">Top 14</a><a href="/competitions/6-nations/">6 Nations</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></nav>
+  <nav class="liees" aria-label="Pages liées"><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/concours-pronostics-rugby/">Au bureau, au club</a><a href="/regles/">Règles du jeu</a><a href="/competitions/">Toutes les compétitions</a><a href="/competitions/top-14/">Top 14</a><a href="/competitions/6-nations/">6 Nations</a><a href="/competitions/coupe-du-monde/">Coupe du monde</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></nav>
   <h2 id="titre-grille" class="cache">Ce qui fait la version rugby des pronos entre potes</h2>
   <div class="barre"><span class="gauche-barre">La version rugby des pronos entre potes</span><span class="compte">Un barème rugby · 2 gestes techniques · 6 compétitions</span><span class="droite">Le même barème que dans l'app</span></div>
   <ul class="grille">
@@ -318,7 +332,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">À domicile</span>
     <div class="numero"><b>+3</b><small>points</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Bon vainqueur, quand l'équipe qui reçoit gagne : 3 points, comme une pénalité au rugby.</p>
+    <p class="texte-carte">Bon vainqueur, quand l'équipe qui reçoit gagne : 3 points, comme une pénalité au rugby.</p>
   </div>
   <h3 class="nom-carte"><a href="#la-penalite-passee">La pénalité passée</a></h3>
   <p class="prix">3 points</p>
@@ -328,7 +342,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">À l'extérieur</span>
     <div class="numero"><b>+5</b><small>points</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Bon vainqueur, quand l'équipe qui se déplace gagne : gagner chez l'adversaire, c'est plus dur.</p>
+    <p class="texte-carte">Bon vainqueur, quand l'équipe qui se déplace gagne : gagner chez l'adversaire, c'est plus dur.</p>
   </div>
   <h3 class="nom-carte"><a href="#l-essai">L'essai</a></h3>
   <p class="prix">5 points sur un match de club</p>
@@ -356,7 +370,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     
     <div class="numero"><b>+15</b><small>points</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Nul annoncé, nul joué : quinze points d'un coup, à la place du bon vainqueur, de la transformation et du buteur.</p>
+    <p class="texte-carte">Nul annoncé, nul joué : quinze points d'un coup, à la place du bon vainqueur, de la transformation et du buteur.</p>
   </div>
   <h3 class="nom-carte"><a href="#le-xv-le-quinze">Le XV (le quinze)</a></h3>
   <p class="prix">15 points</p>
@@ -366,7 +380,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Geste technique</span>
     <div class="numero"><b>×2</b></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">La passe dans le dos : tu doubles tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise.</p>
+    <p class="texte-carte">La passe dans le dos : tu doubles tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise.</p>
   </div>
   <h3 class="nom-carte"><a href="/regles/gestes-techniques/">La Chistera</a></h3>
   <p class="prix">Une par compétition et par saison</p>
@@ -376,7 +390,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Geste technique</span>
     <div class="numero"><b>÷2</b></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Le plaquage qu'on entend depuis la tribune : tu coupes en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement.</p>
+    <p class="texte-carte">Le plaquage qu'on entend depuis la tribune : tu coupes en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement.</p>
   </div>
   <h3 class="nom-carte"><a href="/regles/gestes-techniques/">Le Caramel</a></h3>
   <p class="prix">Un par compétition et par saison</p>
@@ -391,6 +405,16 @@ details[open]>summary .plus{transform:rotate(45deg)}
   <h3 class="nom-carte"><a href="/competitions/">Six compétitions</a></h3>
   <p class="prix">Toutes ou une seule, au choix</p>
 </li>
+<li class="carte" id="la-coupe-du-monde-de-rugby">
+  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><circle cx="40" cy="58" r="26" fill="none" stroke="currentColor" stroke-width="5"/><path d="M58 40 L94 22 M62 54 L94 40" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+    <span class="etiquette petites-capitales">À venir</span>
+    <div class="numero"><b>+1</b><small>compétition</small></div>
+    <div class="trait" aria-hidden="true"></div>
+    <p class="texte-carte">Bientôt à pronostiquer avec ta bande dans Drop League.</p>
+  </div>
+  <h3 class="nom-carte"><a href="/competitions/coupe-du-monde/">La Coupe du monde de rugby</a></h3>
+  <p class="prix">À découvrir sur sa page</p>
+</li>
 <li class="carte" id="la-ligue-privee">
   <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="40" ry="25" transform="rotate(-35 50 50)" fill="none" stroke="currentColor" stroke-width="5"/></svg>
     <span class="etiquette petites-capitales">Ta bande</span>
@@ -399,17 +423,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="texte-carte">Une ligue par bande, et tu peux en avoir plusieurs, chacune avec son classement.</p>
   </div>
   <h3 class="nom-carte"><a href="#la-ligue-privee">La ligue privée</a></h3>
-  <p class="prix">« Créer ma ligue », onglet Ligues</p>
-</li>
-<li class="carte" id="le-code-d-invitation">
-  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><line x1="30" y1="6" x2="30" y2="94"/><line x1="70" y1="6" x2="70" y2="94"/><line x1="30" y1="62" x2="70" y2="62"/></g></svg>
-    <span class="etiquette petites-capitales">Pour inviter</span>
-    <div class="numero"><b>6</b><small>caractères</small></div>
-    <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Touche « Inviter des potes » : le partage de ton téléphone s'ouvre avec un message tout prêt et le code.</p>
-  </div>
-  <h3 class="nom-carte"><a href="#le-code-d-invitation">Le code d'invitation</a></h3>
-  <p class="prix">À taper dans « J'ai un code d'invitation »</p>
+  <p class="prix">« Créer ma ligue », onglet Ligues</p>
 </li>
 <li class="carte ton-vert" id="le-club-house">
   <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><circle cx="40" cy="58" r="26" fill="none" stroke="currentColor" stroke-width="5"/><path d="M58 40 L94 22 M62 54 L94 40" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
@@ -419,63 +433,66 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="texte-carte">Chaque ligue privée a son Club-house, son fil de discussion.</p>
   </div>
   <h3 class="nom-carte"><a href="#le-club-house">Le Club-house</a></h3>
-  <p class="prix">« Discussion — Le Club-house », onglet Ligues</p>
+  <p class="prix">« Discussion — Le Club-house », onglet Ligues</p>
 </li>
 <li class="carte" id="la-bagarre-generale">
   <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="40" ry="25" transform="rotate(-35 50 50)" fill="none" stroke="currentColor" stroke-width="5"/></svg>
     <span class="etiquette petites-capitales">Tout le monde</span>
     <div class="numero"><b>✓</b><small>dès l'inscription</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Le classement de tous les joueurs de Drop League : en plus de ta ligue, tout le monde y entre.</p>
+    <p class="texte-carte">Le classement de tous les joueurs de Drop League : en plus de ta ligue, tout le monde y entre.</p>
   </div>
   <h3 class="nom-carte"><a href="/la-bagarre-generale/">La Bagarre Générale</a></h3>
   <p class="prix">Dans l'onglet Classement</p>
 </li>
   </ul>
 </section>
+
 <section class="faq" aria-labelledby="titre-faq">
   <div class="largeur">
     <p class="accroche petites-capitales">Trouve vite la réponse à tes questions</p>
     <h2 id="titre-faq">FAQ pronos rugby entre potes</h2>
     <div class="filet" aria-hidden="true"></div>
     <div class="faq-liste">
-      <details><summary><h3>Drop League, c'est Mon Petit Prono pour le rugby ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le principe est le même : des pronos entre potes, dans une ligue privée. Drop League est une application indépendante, sans lien avec Mon Petit Prono, pensée pour le rugby : tu annonces le score exact des matchs, du Top 14 au 6 Nations, avec un barème qui parle rugby.</p></div></details>
-      <details><summary><h3>MPP rugby, ça existe ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Pour des pronos entre potes sur le rugby, il y a Drop League : une application indépendante, pensée pour le rugby, sur iPhone et Android. Tu crées ta ligue privée, tu invites ta bande avec un code, et chacun annonce le score exact des matchs. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p></div></details>
-      <details><summary><h3>Comment jouer aux pronos rugby entre potes ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue », puis « Inviter des potes » pour envoyer le code d'invitation. Tes potes le tapent dans « J'ai un code d'invitation ». Ensuite, chacun annonce le score exact de chaque match avant le coup d'envoi.</p></div></details>
-      <details><summary><h3>Que rapporte la victoire de l'équipe qui se déplace ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Sur un match de club, le bon vainqueur vaut 5 points quand l'équipe qui se déplace gagne, comme un essai, et 3 quand celle qui reçoit gagne, comme une pénalité. En sélection, c'est 4 points quand celle qui se déplace gagne, 3 quand celle qui reçoit gagne. Sur terrain neutre, aucune équipe ne reçoit : 4 points, quelle que soit l'équipe qui gagne. Avec le score exact, un match de club rapporte jusqu'à 18 points quand l'équipe qui se déplace gagne.</p></div></details>
-      <details><summary><h3>Quelles compétitions peut-on pronostiquer ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée.</p></div></details>
-      <details><summary><h3>À quoi servent les points ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant.</p></div></details>
-      <details><summary><h3>Drop League est-elle sur iPhone et Android ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android.</p></div></details>
+      <details><summary><h3>Drop League, c'est Mon Petit Prono pour le rugby ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le principe est le même : des pronos entre potes, dans une ligue privée. Drop League est une application indépendante, sans lien avec Mon Petit Prono, pensée pour le rugby : tu annonces le score exact des matchs, du Top 14 au 6 Nations, avec un barème qui parle rugby.</p></div></details>
+      <details><summary><h3>MPP rugby, ça existe ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Pour des pronos entre potes sur le rugby, il y a Drop League : une application indépendante, pensée pour le rugby, sur iPhone et Android. Tu crées ta ligue privée, tu invites ta bande avec un code, et chacun annonce le score exact des matchs. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p></div></details>
+      <details><summary><h3>Comment jouer aux pronos rugby entre potes ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue », puis « Inviter des potes » pour envoyer le code d'invitation. Tes potes le tapent dans « J'ai un code d'invitation ». Ensuite, chacun annonce le score exact de chaque match avant le coup d'envoi.</p></div></details>
+      <details><summary><h3>Que rapporte la victoire de l'équipe qui se déplace ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Sur un match de club, le bon vainqueur vaut 5 points quand l'équipe qui se déplace gagne, comme un essai, et 3 quand celle qui reçoit gagne, comme une pénalité. En sélection, c'est 4 points quand celle qui se déplace gagne, 3 quand celle qui reçoit gagne. Sur terrain neutre, aucune équipe ne reçoit : 4 points, quelle que soit l'équipe qui gagne. Avec le score exact, un match de club rapporte jusqu'à 18 points quand l'équipe qui se déplace gagne.</p></div></details>
+      <details><summary><h3>Quelles compétitions peut-on pronostiquer ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée.</p></div></details>
+      <details><summary><h3>Peut-on faire les pronos de la Coupe du monde de rugby entre potes ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Bientôt : la Coupe du monde de rugby sera à pronostiquer dans Drop League, l'application de pronos entre potes pensée pour le rugby. En attendant, crée ta ligue privée et invite ta bande : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship se pronostiquent déjà.</p></div></details>
+      <details><summary><h3>À quoi servent les points ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant.</p></div></details>
+      <details><summary><h3>Drop League est-elle sur iPhone et Android ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android.</p></div></details>
     </div>
   </div>
 </section>
 <article class="largeur"><div class="texte-seo">
   <h2>Le même principe, pensé pour le rugby</h2>
   <div class="filet" aria-hidden="true"></div>
-  <p>Les <strong>pronos entre potes</strong>, c'est simple : une ligue privée, ta bande, et chacun annonce ses scores avant le coup d'envoi. Drop League garde ce principe et le pense pour le rugby : ton prono, c'est le score exact du match, et le barème parle pénalité, essai et transformation. Le classement de ta ligue bouge après le coup de sifflet final.</p>
+  <p>Les <strong>pronos entre potes</strong>, c'est simple : une ligue privée, ta bande, et chacun annonce ses scores avant le coup d'envoi. Drop League garde ce principe et le pense pour le rugby : ton prono, c'est le score exact du match, et le barème parle pénalité, essai et transformation. Le classement de ta ligue bouge après le coup de sifflet final.</p>
   <p>Drop League est une application indépendante, faite pour le rugby, sans lien avec Mon Petit Prono (MPP), la référence connue des pronos entre amis au football.</p>
-  <h2>C'est quoi, Drop League ?</h2>
-  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+  <h2>C'est quoi, Drop League ?</h2>
+  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
   <details class="lire-plus"><summary>Lire plus</summary>
-  <h2>Qu'est-ce qui change avec la version rugby ?</h2>
-  <p>C'est le barème qui change. Au rugby, la pénalité vaut 3 points et l'essai 5 : le barème de Drop League parle la même langue. Le bon vainqueur rapporte 3 points quand l'équipe qui reçoit gagne, et 5 quand celle qui se déplace gagne, parce que gagner chez l'adversaire, c'est plus dur. Le score exact des deux équipes, le graal, vaut 10 points.</p>
-  <div class="tableau"><table><thead><tr><th>Points</th><th>Ce qui les rapporte</th></tr></thead><tbody><tr><td class="points">+1</td><td>La participation : chaque prono posé avant le coup d'envoi.</td></tr><tr><td class="points">+3</td><td>La pénalité passée : bon vainqueur, quand l'équipe qui reçoit gagne.</td></tr><tr><td class="points">+5</td><td>L'essai : bon vainqueur, quand l'équipe qui se déplace gagne.</td></tr><tr><td class="points">+2</td><td>La transformation : bon vainqueur, et écart juste à 3 points près.</td></tr><tr><td class="points">+2</td><td>Le buteur : le score exact d'une des deux équipes.</td></tr><tr><td class="points">+10</td><td>Le graal : le score exact des deux équipes, à la place du buteur.</td></tr><tr><td class="points">+15</td><td>Le XV : nul annoncé, nul joué.</td></tr></tbody></table></div>
-  <div class="exemple"><p>Clermont reçoit et gagne <span class="score">27-21</span>. Prono <span class="score">27-21</span> : 1 + 3 + 2 + 10 = 16 points.</p><p>Sur un match de club, le score exact rapporte en tout 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne.</p></div>
-  <p>En sélection, le bon vainqueur vaut 3 ou 4 points ; sur terrain neutre, 4. <a href="/regles/">Toutes les règles du jeu</a>, avec trois exemples chiffrés.</p>
-  <h2>C'est quoi, la Chistera et le Caramel ?</h2>
-  <p>Ce sont les deux gestes techniques de Drop League. La Chistera, la passe dans le dos, double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise. Le Caramel, le plaquage qu'on entend depuis la tribune, coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement. Un de chaque par compétition et par saison : <a href="/regles/gestes-techniques/">les gestes techniques en détail</a>.</p>
-  <h2>Six compétitions, du Top 14 au 6 Nations</h2>
-  <p>Drop League suit le <a href="/competitions/top-14/">Top 14</a>, la <a href="/competitions/pro-d2/">Pro D2</a>, la <a href="/competitions/champions-cup/">Champions Cup</a>, la <a href="/competitions/challenge-cup/">Challenge Cup</a>, le <a href="/competitions/6-nations/">6 Nations</a> et le <a href="/competitions/nations-championship/">Nations Championship</a>. À la création de ta ligue, tu prends toutes les compétitions ou une seule. Toute la saison avec la bande du club, rien que le 6 Nations avec la famille : c'est toi qui choisis. <a href="/competitions/">Les six compétitions en détail</a>.</p>
+  <h2>Qu'est-ce qui change avec la version rugby ?</h2>
+  <p>C'est le barème qui change. Au rugby, la pénalité vaut 3 points et l'essai 5 : le barème de Drop League parle la même langue. Le bon vainqueur rapporte 3 points quand l'équipe qui reçoit gagne, et 5 quand celle qui se déplace gagne, parce que gagner chez l'adversaire, c'est plus dur. Le score exact des deux équipes, le graal, vaut 10 points.</p>
+  <div class="tableau"><table><thead><tr><th>Points</th><th>Ce qui les rapporte</th></tr></thead><tbody><tr><td class="points">+1</td><td>La participation : chaque prono posé avant le coup d'envoi.</td></tr><tr><td class="points">+3</td><td>La pénalité passée : bon vainqueur, quand l'équipe qui reçoit gagne.</td></tr><tr><td class="points">+5</td><td>L'essai : bon vainqueur, quand l'équipe qui se déplace gagne.</td></tr><tr><td class="points">+2</td><td>La transformation : bon vainqueur, et écart juste à 3 points près.</td></tr><tr><td class="points">+2</td><td>Le buteur : le score exact d'une des deux équipes.</td></tr><tr><td class="points">+10</td><td>Le graal : le score exact des deux équipes, à la place du buteur.</td></tr><tr><td class="points">+15</td><td>Le XV : nul annoncé, nul joué.</td></tr></tbody></table></div>
+  <div class="exemple"><p>Clermont reçoit et gagne <span class="score">27-21</span>. Prono <span class="score">27-21</span> : 1 + 3 + 2 + 10 = 16 points.</p><p>Sur un match de club, le score exact rapporte en tout 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne.</p></div>
+  <p>En sélection, le bon vainqueur vaut 3 ou 4 points ; sur terrain neutre, 4. <a href="/regles/">Toutes les règles du jeu</a>, avec trois exemples chiffrés.</p>
+  <h2>C'est quoi, la Chistera et le Caramel ?</h2>
+  <p>Ce sont les deux gestes techniques de Drop League. La Chistera, la passe dans le dos, double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise. Le Caramel, le plaquage qu'on entend depuis la tribune, coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement. Un de chaque par compétition et par saison : <a href="/regles/gestes-techniques/">les gestes techniques en détail</a>.</p>
+  <h2>Du Top 14 au 6 Nations, et bientôt la Coupe du monde</h2>
+  <p>Drop League suit le <a href="/competitions/top-14/">Top 14</a>, la <a href="/competitions/pro-d2/">Pro D2</a>, la <a href="/competitions/champions-cup/">Champions Cup</a>, la <a href="/competitions/challenge-cup/">Challenge Cup</a>, le <a href="/competitions/6-nations/">6 Nations</a> et le <a href="/competitions/nations-championship/">Nations Championship</a>. À la création de ta ligue, tu prends toutes les compétitions ou une seule. Toute la saison avec la bande du club, rien que le 6 Nations avec la famille : c'est toi qui choisis. <a href="/competitions/">Les six compétitions en détail</a>.</p>
+  <p>Bientôt, la <a href="/competitions/coupe-du-monde/">Coupe du monde de rugby</a> sera à pronostiquer dans Drop League : sa page te présente déjà la compétition.</p>
   <h2>Garde ta bande d'un sport à l'autre</h2>
-  <p>Ta bande fait déjà ses pronos sur un autre sport ? Garde-la pour le rugby : une ligue privée, un code de six caractères, et les mêmes potes annoncent leurs scores. Une ligue par bande, et tu peux en avoir plusieurs, chacune avec son classement.</p>
+  <p>Ta bande fait déjà ses pronos sur un autre sport ? Garde-la pour le rugby : une ligue privée, un code de six caractères, et les mêmes potes annoncent leurs scores. Une ligue par bande, et tu peux en avoir plusieurs, chacune avec son classement.</p>
   <h3>Crée ta ligue</h3>
-  <p>Dans l'onglet Ligues, touche « Créer ma ligue », donne-lui un nom, puis choisis « Toutes compétitions » ou une seule.</p>
+  <p>Dans l'onglet Ligues, touche « Créer ma ligue », donne-lui un nom, puis choisis « Toutes compétitions » ou une seule.</p>
   <h3>Envoie le code à ta bande</h3>
-  <p>Touche « Inviter des potes » : le partage de ton téléphone s'ouvre avec un message tout prêt et le code. Tes potes le tapent dans « J'ai un code d'invitation ».</p>
+  <p>Touche « Inviter des potes » : le partage de ton téléphone s'ouvre avec un message tout prêt et le code. Tes potes le tapent dans « J'ai un code d'invitation ».</p>
   <h3>Annonce le score exact</h3>
-  <p>Dans l'onglet Pronos, touche « Faire mon prono » et pose les deux chiffres. Ton prono reste modifiable jusqu'au coup d'envoi.</p>
-  <p>Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle. Pour chambrer, chaque ligue privée a son Club-house, son fil de discussion. Et tout le monde entre aussi dans <a href="/la-bagarre-generale/">La Bagarre Générale</a>, le classement de tous les joueurs de Drop League.</p>
-  <p>Le guide complet : <a href="/pronostics-rugby-entre-amis/">ta ligue de pronostics rugby entre amis</a>, ou <a href="/concours-pronostics-rugby/">ton concours au bureau ou au club</a>.</p>
+  <p>Dans l'onglet Pronos, touche « Faire mon prono » et pose les deux chiffres. Ton prono reste modifiable jusqu'au coup d'envoi.</p>
+  <p>Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle. Pour chambrer, chaque ligue privée a son Club-house, son fil de discussion. Et tout le monde entre aussi dans <a href="/la-bagarre-generale/">La Bagarre Générale</a>, le classement de tous les joueurs de Drop League.</p>
+  <p>Le guide complet : <a href="/pronostics-rugby-entre-amis/">ta ligue de pronostics rugby entre amis</a>, ou <a href="/concours-pronostics-rugby/">ton concours au bureau ou au club</a>.</p>
   </details>
 </div></article>
 <section class="largeur reassurance" aria-label="Drop League en bref"><ul>
@@ -490,14 +507,14 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="slogan">Deviens le meilleur pronostiqueur de ta ligue</p>
     <div class="colonnes">
       <div><b class="titre petites-capitales">Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-bagarre-generale/classement/">Le classement</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
-      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li><li><a href="/competitions/coupe-du-monde/">Coupe du monde</a></li></ul></div>
       <div><b class="titre petites-capitales">Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a aria-current="page">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
       <div><b class="titre petites-capitales">Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
       <div class="appli"><b class="titre petites-capitales">L'app</b><p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p><div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div></div>
     </div>
-    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
+    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
   </div>
 </footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Pronos entre potes, version rugby","item":"https://dropleague.app/mpp-rugby/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/mpp-rugby/#page","url":"https://dropleague.app/mpp-rugby/","name":"Les pronos entre potes, version rugby","description":"Annonce le score exact des matchs avec ta bande, du Top 14 au 6 Nations : les pronos entre potes, version rugby, en ligue privée, sur iPhone et Android.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Le barème, les gestes techniques et la ligue privée des pronos entre potes, version rugby","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"La pénalité passée · 3 points","url":"https://dropleague.app/mpp-rugby/#la-penalite-passee"},{"@type":"ListItem","position":2,"name":"L'essai · 5 points sur un match de club","url":"https://dropleague.app/mpp-rugby/#l-essai"},{"@type":"ListItem","position":3,"name":"Le graal · 10 points","url":"https://dropleague.app/mpp-rugby/#le-graal"},{"@type":"ListItem","position":4,"name":"Le XV (le quinze) · 15 points","url":"https://dropleague.app/mpp-rugby/#le-xv-le-quinze"},{"@type":"ListItem","position":5,"name":"La Chistera · Une par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/"},{"@type":"ListItem","position":6,"name":"Le Caramel · Un par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/"},{"@type":"ListItem","position":7,"name":"Six compétitions · Toutes ou une seule, au choix","url":"https://dropleague.app/competitions/"},{"@type":"ListItem","position":8,"name":"La ligue privée · « Créer ma ligue », onglet Ligues","url":"https://dropleague.app/mpp-rugby/#la-ligue-privee"},{"@type":"ListItem","position":9,"name":"Le code d'invitation · À taper dans « J'ai un code d'invitation »","url":"https://dropleague.app/mpp-rugby/#le-code-d-invitation"},{"@type":"ListItem","position":10,"name":"Le Club-house · « Discussion — Le Club-house », onglet Ligues","url":"https://dropleague.app/mpp-rugby/#le-club-house"},{"@type":"ListItem","position":11,"name":"La Bagarre Générale · Dans l'onglet Classement","url":"https://dropleague.app/la-bagarre-generale/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Drop League, c'est Mon Petit Prono pour le rugby ?","acceptedAnswer":{"@type":"Answer","text":"Le principe est le même : des pronos entre potes, dans une ligue privée. Drop League est une application indépendante, sans lien avec Mon Petit Prono, pensée pour le rugby : tu annonces le score exact des matchs, du Top 14 au 6 Nations, avec un barème qui parle rugby."}},{"@type":"Question","name":"MPP rugby, ça existe ?","acceptedAnswer":{"@type":"Answer","text":"Pour des pronos entre potes sur le rugby, il y a Drop League : une application indépendante, pensée pour le rugby, sur iPhone et Android. Tu crées ta ligue privée, tu invites ta bande avec un code, et chacun annonce le score exact des matchs. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship."}},{"@type":"Question","name":"Comment jouer aux pronos rugby entre potes ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue », puis « Inviter des potes » pour envoyer le code d'invitation. Tes potes le tapent dans « J'ai un code d'invitation ». Ensuite, chacun annonce le score exact de chaque match avant le coup d'envoi."}},{"@type":"Question","name":"Que rapporte la victoire de l'équipe qui se déplace ?","acceptedAnswer":{"@type":"Answer","text":"Sur un match de club, le bon vainqueur vaut 5 points quand l'équipe qui se déplace gagne, comme un essai, et 3 quand celle qui reçoit gagne, comme une pénalité. En sélection, c'est 4 points quand celle qui se déplace gagne, 3 quand celle qui reçoit gagne. Sur terrain neutre, aucune équipe ne reçoit : 4 points, quelle que soit l'équipe qui gagne. Avec le score exact, un match de club rapporte jusqu'à 18 points quand l'équipe qui se déplace gagne."}},{"@type":"Question","name":"Quelles compétitions peut-on pronostiquer ?","acceptedAnswer":{"@type":"Answer","text":"Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée."}},{"@type":"Question","name":"À quoi servent les points ?","acceptedAnswer":{"@type":"Answer","text":"Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant."}},{"@type":"Question","name":"Drop League est-elle sur iPhone et Android ?","acceptedAnswer":{"@type":"Answer","text":"Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Pronos entre potes, version rugby","item":"https://dropleague.app/mpp-rugby/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/mpp-rugby/#page","url":"https://dropleague.app/mpp-rugby/","name":"Les pronos entre potes, version rugby","description":"Tes pronos entre potes, version rugby : Top 14, Pro D2, coupes d'Europe et 6 Nations, l'essai à l'extérieur à +5, dans une vraie appli iPhone et Android.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Le barème, les gestes techniques et la ligue privée des pronos entre potes, version rugby","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"La pénalité passée · 3 points","url":"https://dropleague.app/mpp-rugby/#la-penalite-passee"},{"@type":"ListItem","position":2,"name":"L'essai · 5 points sur un match de club","url":"https://dropleague.app/mpp-rugby/#l-essai"},{"@type":"ListItem","position":3,"name":"Le graal · 10 points","url":"https://dropleague.app/mpp-rugby/#le-graal"},{"@type":"ListItem","position":4,"name":"Le XV (le quinze) · 15 points","url":"https://dropleague.app/mpp-rugby/#le-xv-le-quinze"},{"@type":"ListItem","position":5,"name":"La Chistera · Une par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/"},{"@type":"ListItem","position":6,"name":"Le Caramel · Un par compétition et par saison","url":"https://dropleague.app/regles/gestes-techniques/"},{"@type":"ListItem","position":7,"name":"Six compétitions · Toutes ou une seule, au choix","url":"https://dropleague.app/competitions/"},{"@type":"ListItem","position":8,"name":"La Coupe du monde de rugby · À découvrir sur sa page","url":"https://dropleague.app/competitions/coupe-du-monde/"},{"@type":"ListItem","position":9,"name":"La ligue privée · « Créer ma ligue », onglet Ligues","url":"https://dropleague.app/mpp-rugby/#la-ligue-privee"},{"@type":"ListItem","position":10,"name":"Le Club-house · « Discussion — Le Club-house », onglet Ligues","url":"https://dropleague.app/mpp-rugby/#le-club-house"},{"@type":"ListItem","position":11,"name":"La Bagarre Générale · Dans l'onglet Classement","url":"https://dropleague.app/la-bagarre-generale/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Drop League, c'est Mon Petit Prono pour le rugby ?","acceptedAnswer":{"@type":"Answer","text":"Le principe est le même : des pronos entre potes, dans une ligue privée. Drop League est une application indépendante, sans lien avec Mon Petit Prono, pensée pour le rugby : tu annonces le score exact des matchs, du Top 14 au 6 Nations, avec un barème qui parle rugby."}},{"@type":"Question","name":"MPP rugby, ça existe ?","acceptedAnswer":{"@type":"Answer","text":"Pour des pronos entre potes sur le rugby, il y a Drop League : une application indépendante, pensée pour le rugby, sur iPhone et Android. Tu crées ta ligue privée, tu invites ta bande avec un code, et chacun annonce le score exact des matchs. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship."}},{"@type":"Question","name":"Comment jouer aux pronos rugby entre potes ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue », puis « Inviter des potes » pour envoyer le code d'invitation. Tes potes le tapent dans « J'ai un code d'invitation ». Ensuite, chacun annonce le score exact de chaque match avant le coup d'envoi."}},{"@type":"Question","name":"Que rapporte la victoire de l'équipe qui se déplace ?","acceptedAnswer":{"@type":"Answer","text":"Sur un match de club, le bon vainqueur vaut 5 points quand l'équipe qui se déplace gagne, comme un essai, et 3 quand celle qui reçoit gagne, comme une pénalité. En sélection, c'est 4 points quand celle qui se déplace gagne, 3 quand celle qui reçoit gagne. Sur terrain neutre, aucune équipe ne reçoit : 4 points, quelle que soit l'équipe qui gagne. Avec le score exact, un match de club rapporte jusqu'à 18 points quand l'équipe qui se déplace gagne."}},{"@type":"Question","name":"Quelles compétitions peut-on pronostiquer ?","acceptedAnswer":{"@type":"Answer","text":"Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée."}},{"@type":"Question","name":"Peut-on faire les pronos de la Coupe du monde de rugby entre potes ?","acceptedAnswer":{"@type":"Answer","text":"Bientôt : la Coupe du monde de rugby sera à pronostiquer dans Drop League, l'application de pronos entre potes pensée pour le rugby. En attendant, crée ta ligue privée et invite ta bande : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship se pronostiquent déjà."}},{"@type":"Question","name":"À quoi servent les points ?","acceptedAnswer":{"@type":"Answer","text":"Les points ne servent qu'au classement : celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant."}},{"@type":"Question","name":"Drop League est-elle sur iPhone et Android ?","acceptedAnswer":{"@type":"Answer","text":"Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android."}}]}]}</script>
 </body>
 </html>

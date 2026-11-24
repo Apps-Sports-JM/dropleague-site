@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Règles du jeu de pronostics rugby et barème · Drop League</title>
-<meta name="description" content="Annonce le score exact et vois ce que rapporte ton prono : les règles du jeu, le barème, trois exemples chiffrés et le cadre, sur iPhone et Android.">
+<meta name="description" content="Combien rapporte ton prono ? Le barème : 1 point pour le poser, 3 à 5 au bon vainqueur, 10 au score exact, 15 au nul bien vu, et trois exemples chiffrés.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1B3A26">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Drop League">
 <meta property="og:title" content="Règles du jeu de pronostics rugby et barème · Drop League">
-<meta property="og:description" content="Annonce le score exact et vois ce que rapporte ton prono : les règles du jeu, le barème, trois exemples chiffrés et le cadre, sur iPhone et Android.">
+<meta property="og:description" content="Combien rapporte ton prono ? Le barème : 1 point pour le poser, 3 à 5 au bon vainqueur, 10 au score exact, 15 au nul bien vu, et trois exemples chiffrés.">
 <meta property="og:image" content="https://dropleague.app/icon-256.png">
 <meta property="og:url" content="https://dropleague.app/regles/">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Tuile d'ambiance dans la grille */
 .tuile .visuel{background:var(--vert);color:var(--sur-vert);justify-content:flex-end;text-align:left}
-.tuile .dessin{position:absolute;top:0;left:0;width:100%;height:56%}
+.tuile .dessin{display:block;flex:1 1 0;min-height:90px;width:100%;margin:0 0 14px}
 .tuile h2{position:relative;margin:0;font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.05}
 .tuile h2 em{font-weight:400;color:var(--orange)}
 .tuile p{position:relative;margin:10px 0 0;font-size:13.5px;opacity:.9}
@@ -202,6 +202,20 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .progression i{position:absolute;inset:0 auto 0 0;background:var(--orange)}
 .suite-grille .voir{border:1px solid var(--texte);color:var(--texte);border-radius:999px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .suite-grille[open]>summary{display:none}
+
+/* Poules d'un tournoi : une carte par poule, chaque nation avec son drapeau */
+.poules{padding-block:70px 0;text-align:center}
+.poules h2{margin:0;font-family:var(--serif);font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.05;text-wrap:balance}
+.poules .filet{margin:22px auto 18px}
+.intro-poules{max-width:680px;margin:0 auto 30px;color:var(--doux);font-size:15px}
+.grille-poules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left}
+@media (max-width:989px){.grille-poules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grille-poules{grid-template-columns:1fr}}
+.poule{background:var(--sauge);border-radius:6px;padding:20px 22px}
+.poule h3{margin:0 0 12px;color:var(--orange);font-size:13px}
+.poule ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.poule li{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500}
+.poule .drapeau{flex:0 0 auto;width:30px;height:20px;border-radius:2px;display:block}
 
 /* FAQ */
 .faq{background:var(--sauge);margin-top:80px;padding-block:70px 76px}
@@ -277,7 +291,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
 </style>
 </head>
 <body>
-<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
+<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
 <header class="entete">
   <div class="largeur haut">
     <div class="gauche">
@@ -296,9 +310,9 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="surtitre petites-capitales">Le jeu · Règles</p>
     <h1 id="titre-page">Les <em>règles du jeu</em> de Drop League</h1>
     <div class="filet" aria-hidden="true"></div>
-    <p class="intro">Les <strong>règles du jeu</strong> de Drop League, au complet. Ton prono, c'est le score exact d'un match : le vainqueur et l'écart suivent tout seuls. Le barème, ce que vaut le score exact, trois exemples chiffrés et le cadre de chaque match : tout ce qu'il faut pour savoir ce que rapporte ton prono.</p>
+    <p class="intro">Les <strong>règles du jeu</strong> de Drop League, au complet. Ton prono, c'est le score exact d'un match : le vainqueur et l'écart suivent tout seuls. Le barème, ce que vaut le score exact, trois exemples chiffrés et le cadre de chaque match : tout ce qu'il faut pour savoir ce que rapporte ton prono.</p>
     <div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div>
-    <p class="signature">Tu dis quoi, toi ?</p>
+    <p class="signature">Tu dis quoi, toi ?</p>
   </div>
   <figure class="cliche">
     <picture>
@@ -309,7 +323,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
   </figure>
 </section>
 <section class="largeur" aria-labelledby="titre-grille">
-  <nav class="liees" aria-label="Pages liées"><a href="/regles/gestes-techniques/">Gestes techniques</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/competitions/">Les compétitions</a><a href="/competitions/top-14/">Top 14</a><a href="/competitions/6-nations/">6 Nations</a><a href="/questions/">Questions fréquentes</a><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></nav>
+  <nav class="liees" aria-label="Pages liées"><a href="/regles/gestes-techniques/">Gestes techniques</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/competitions/">Les compétitions</a><a href="/competitions/top-14/">Top 14</a><a href="/competitions/6-nations/">6 Nations</a><a href="/competitions/coupe-du-monde/">Coupe du monde</a><a href="/questions/">Questions fréquentes</a><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></nav>
   <h2 id="titre-grille" class="cache">Le barème d'un match et le cadre des pronos</h2>
   <div class="barre"><span class="gauche-barre">Le barème d'un match</span><span class="compte">9 lignes de barème · 2 règles du cadre</span><span class="droite">Le même barème que dans l'app</span></div>
   <ul class="grille">
@@ -337,7 +351,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
   <div class="visuel">
     <svg class="dessin" viewBox="0 0 300 260" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect x="92" y="26" width="116" height="232" rx="20" fill="#F4F6F1"/><rect x="104" y="48" width="92" height="170" rx="6" fill="#2C5A3E"/><rect x="114" y="62" width="72" height="26" rx="5" fill="#EE8A10"/><rect x="114" y="100" width="72" height="12" rx="3" fill="#F4F6F1"/><rect x="114" y="120" width="54" height="12" rx="3" fill="#F4F6F1"/><rect x="114" y="150" width="72" height="12" rx="3" fill="#F4F6F1" fill-opacity=".5"/><rect x="134" y="232" width="32" height="6" rx="3" fill="#1B3A26"/></svg>
     <h2>Les règles, <em>dans l'app</em></h2>
-    <p>Ouvre ton Profil, puis touche « Règles du jeu » : le même barème, avec l'exemple et le cadre.</p>
+    <p>Ouvre ton Profil, puis touche « Règles du jeu » : le même barème, avec l'exemple et le cadre.</p>
     <a class="cta" href="/application-pronostics-rugby/">Télécharger l'app</a>
   </div>
 </li>
@@ -366,7 +380,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Terrain neutre</span>
     <div class="numero"><b>+4</b><small>points</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Aucune équipe ne reçoit : 4 points, quelle que soit l'équipe qui gagne.</p>
+    <p class="texte-carte">Aucune équipe ne reçoit : 4 points, quelle que soit l'équipe qui gagne.</p>
   </div>
   <h3 class="nom-carte"><a href="#bon-vainqueur-sur-terrain-neutre">Bon vainqueur sur terrain neutre</a></h3>
   <p class="prix">4 points</p>
@@ -406,7 +420,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Le nul</span>
     <div class="numero"><b>+15</b><small>points</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Nul annoncé, nul joué : quinze points d'un coup, à la place du bon vainqueur, de la transformation et du buteur.</p>
+    <p class="texte-carte">Nul annoncé, nul joué : quinze points d'un coup, à la place du bon vainqueur, de la transformation et du buteur.</p>
   </div>
   <h3 class="nom-carte"><a href="#le-xv-le-quinze">Le XV (le quinze)</a></h3>
   <p class="prix">15 points</p>
@@ -416,7 +430,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Le score retenu</span>
     <div class="numero"><b>80</b><small>minutes</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Le score retenu est celui de la fin des 80 minutes : les prolongations ne comptent pas.</p>
+    <p class="texte-carte">Le score retenu est celui de la fin des 80 minutes : les prolongations ne comptent pas.</p>
   </div>
   <h3 class="nom-carte"><a href="#les-80-minutes">Les 80 minutes</a></h3>
   <p class="prix">Sans les prolongations</p>
@@ -433,32 +447,33 @@ details[open]>summary .plus{transform:rotate(45deg)}
 </li>
   </ul>
 </section>
+
 <section class="faq" aria-labelledby="titre-faq">
   <div class="largeur">
     <p class="accroche petites-capitales">Trouve vite la réponse à tes questions</p>
     <h2 id="titre-faq">FAQ règles du jeu</h2>
     <div class="filet" aria-hidden="true"></div>
     <div class="faq-liste">
-      <details><summary><h3>Combien de points vaut le score exact ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le score exact des deux équipes, c'est le graal : 10 points, qui s'ajoutent au reste et remplacent le buteur. Sur un match de club, un score exact rapporte en tout 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, et 26 sur un nul. Le score exact d'une seule des deux équipes vaut 2 points : le buteur.</p></div></details>
-      <details><summary><h3>Que vaut un match nul annoncé ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Nul annoncé, nul joué : c'est le XV (le quinze), 15 points d'un coup. Il remplace le bon vainqueur, la transformation et le buteur. Avec la participation, ton prono rapporte 16 points, et 26 si tu as aussi le score exact.</p></div></details>
-      <details><summary><h3>Quand les pronos ferment-ils ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Les pronos ferment au coup d'envoi de chaque match. Jusque-là, tu peux modifier le tien. Chaque prono posé avant le coup d'envoi rapporte déjà 1 point : la participation.</p></div></details>
-      <details><summary><h3>Les prolongations comptent-elles ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Non. Le score retenu est celui de la fin des 80 minutes : les prolongations ne comptent pas. Ton prono, c'est donc le score au bout des 80 minutes.</p></div></details>
-      <details><summary><h3>Que se passe-t-il si un match est reporté ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Les pronos rouvrent jusqu'au nouveau coup d'envoi : tu peux poser ou modifier le tien. Un match annulé ou arrêté, lui, est neutralisé : 0 point pour tout le monde.</p></div></details>
-      <details><summary><h3>Combien de points au plus sur un match ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Au plus 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, 26 sur un nul. En sélection, 17 quand celle qui se déplace gagne ; sur terrain neutre, 17 quelle que soit l'équipe qui gagne. Les 26 points d'un nul, c'est le score exact : 1 + 15 + 10.</p></div></details>
-      <details><summary><h3>Où trouver les règles du jeu dans l'app ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Ouvre ton Profil, puis touche « Règles du jeu ». Tu y arrives aussi par le lien « Règles du jeu » au pied de la liste de Pronos, et par « Toutes les règles du jeu », sous le barème du résultat d'un match.</p></div></details>
+      <details><summary><h3>Combien de points vaut le score exact ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le score exact des deux équipes, c'est le graal : 10 points, qui s'ajoutent au reste et remplacent le buteur. Sur un match de club, un score exact rapporte en tout 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, et 26 sur un nul. Le score exact d'une seule des deux équipes vaut 2 points : le buteur.</p></div></details>
+      <details><summary><h3>Que vaut un match nul annoncé ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Nul annoncé, nul joué : c'est le XV (le quinze), 15 points d'un coup. Il remplace le bon vainqueur, la transformation et le buteur. Avec la participation, ton prono rapporte 16 points, et 26 si tu as aussi le score exact.</p></div></details>
+      <details><summary><h3>Quand les pronos ferment-ils ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Les pronos ferment au coup d'envoi de chaque match. Jusque-là, tu peux modifier le tien. Chaque prono posé avant le coup d'envoi rapporte déjà 1 point : la participation.</p></div></details>
+      <details><summary><h3>Les prolongations comptent-elles ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Non. Le score retenu est celui de la fin des 80 minutes : les prolongations ne comptent pas. Ton prono, c'est donc le score au bout des 80 minutes.</p></div></details>
+      <details><summary><h3>Que se passe-t-il si un match est reporté ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Les pronos rouvrent jusqu'au nouveau coup d'envoi : tu peux poser ou modifier le tien. Un match annulé ou arrêté, lui, est neutralisé : 0 point pour tout le monde.</p></div></details>
+      <details><summary><h3>Combien de points au plus sur un match ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Au plus 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, 26 sur un nul. En sélection, 17 quand celle qui se déplace gagne ; sur terrain neutre, 17 quelle que soit l'équipe qui gagne. Les 26 points d'un nul, c'est le score exact : 1 + 15 + 10.</p></div></details>
+      <details><summary><h3>Où trouver les règles du jeu dans l'app ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Ouvre ton Profil, puis touche « Règles du jeu ». Tu y arrives aussi par le lien « Règles du jeu » au pied de la liste de Pronos, et par « Toutes les règles du jeu », sous le barème du résultat d'un match.</p></div></details>
     </div>
   </div>
 </section>
 <article class="largeur"><div class="texte-seo">
-  <h2>Comment marchent les règles du jeu ?</h2>
+  <h2>Comment marchent les règles du jeu ?</h2>
   <div class="filet" aria-hidden="true"></div>
-  <p>Pronostics entre amis : les points ne servent qu'au classement. Ton prono, c'est le score exact d'un match. Le vainqueur et l'écart suivent tout seuls. Chaque prono posé avant le coup d'envoi rapporte déjà 1 point, et tout se joue au classement de ta ligue et de La Bagarre Générale.</p>
-  <p>Ces règles sont aussi dans l'app : ouvre ton Profil, puis touche « Règles du jeu ». Tu y arrives aussi par le lien « Règles du jeu » au pied de la liste de Pronos, et par « Toutes les règles du jeu », sous le barème du résultat d'un match.</p>
-  <h2>C'est quoi, Drop League ?</h2>
-  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+  <p>Pronostics entre amis : les points ne servent qu'au classement. Ton prono, c'est le score exact d'un match. Le vainqueur et l'écart suivent tout seuls. Chaque prono posé avant le coup d'envoi rapporte déjà 1 point, et tout se joue au classement de ta ligue et de La Bagarre Générale.</p>
+  <p>Ces règles sont aussi dans l'app : ouvre ton Profil, puis touche « Règles du jeu ». Tu y arrives aussi par le lien « Règles du jeu » au pied de la liste de Pronos, et par « Toutes les règles du jeu », sous le barème du résultat d'un match.</p>
+  <h2>C'est quoi, Drop League ?</h2>
+  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
   <details class="lire-plus"><summary>Lire plus</summary>
-  <h2>Que rapporte chaque ligne du barème ?</h2>
-  <p>Neuf lignes, et c'est tout le barème d'un match. Sur un même prono, les lignes s'additionnent : la participation, le bon vainqueur, la transformation, puis le buteur ou le graal. Le XV, lui, prend la place du bon vainqueur, de la transformation et du buteur.</p>
+  <h2>Que rapporte chaque ligne du barème ?</h2>
+  <p>Neuf lignes, et c'est tout le barème d'un match. Sur un même prono, les lignes s'additionnent : la participation, le bon vainqueur, la transformation, puis le buteur ou le graal. Le XV, lui, prend la place du bon vainqueur, de la transformation et du buteur.</p>
   <div class="tableau"><table>
     <thead><tr><th scope="col">Points</th><th scope="col">Nom</th><th scope="col">Ce qui les rapporte</th></tr></thead>
     <tbody>
@@ -466,19 +481,19 @@ details[open]>summary .plus{transform:rotate(45deg)}
       <tr><td class="points">+3</td><td>La pénalité passée</td><td>Bon vainqueur, quand l'équipe qui reçoit gagne.</td></tr>
       <tr><td class="points">+5</td><td>L'essai</td><td>Bon vainqueur, quand l'équipe qui se déplace gagne.</td></tr>
       <tr><td class="points">+3 ou +4</td><td>Bon vainqueur en sélection</td><td>3 si l'équipe qui reçoit gagne, 4 si celle qui se déplace gagne.</td></tr>
-      <tr><td class="points">+4</td><td>Bon vainqueur sur terrain neutre</td><td>Aucune équipe ne reçoit : 4, quelle que soit l'équipe qui gagne.</td></tr>
+      <tr><td class="points">+4</td><td>Bon vainqueur sur terrain neutre</td><td>Aucune équipe ne reçoit : 4, quelle que soit l'équipe qui gagne.</td></tr>
       <tr><td class="points">+2</td><td>La transformation</td><td>Bon vainqueur, et écart juste à 3 points près.</td></tr>
       <tr><td class="points">+2</td><td>Le buteur</td><td>Le score exact d'une des deux équipes.</td></tr>
       <tr><td class="points">+10</td><td>Le graal</td><td>Le score exact des deux équipes. Il s'ajoute au reste et remplace le buteur.</td></tr>
-      <tr><td class="points">+15</td><td>Le XV (le quinze)</td><td>Nul annoncé, nul joué : quinze points d'un coup. Il remplace le bon vainqueur, la transformation et le buteur.</td></tr>
+      <tr><td class="points">+15</td><td>Le XV (le quinze)</td><td>Nul annoncé, nul joué : quinze points d'un coup. Il remplace le bon vainqueur, la transformation et le buteur.</td></tr>
     </tbody>
   </table></div>
-  <p><strong>Le plafond d'un match.</strong> Au plus 16 points sur un match quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, 26 sur un nul. En sélection, 17 quand celle qui se déplace gagne ; sur terrain neutre, 17 quelle que soit l'équipe qui gagne.</p>
-  <h2>Combien rapporte ton prono ? Trois exemples chiffrés</h2>
-  <p>Clermont reçoit et gagne 27-21 : 6 points d'écart. L'équipe qui reçoit gagne, donc chaque bon vainqueur prend 3 points, la pénalité passée. Voici ce que rapportent trois pronos sur ce match.</p>
-  <div class="exemple"><p>Prono <span class="score">25-19</span> : 1 + 3 + 2 = 6 points (participation, pénalité passée, transformation). Bon vainqueur, et le même écart de 6 : la transformation.</p><p>Prono <span class="score">27-18</span> : 1 + 3 + 2 + 2 = 8 points (participation, pénalité passée, transformation, buteur). Un écart de 9, juste à 3 points près : la transformation. Et les 27 de Clermont : le buteur.</p><p>Prono <span class="score">27-21</span> : 1 + 3 + 2 + 10 = 16 points (participation, pénalité passée, transformation, graal). Le graal, qui remplace le buteur.</p></div>
-  <h2>Que vaut le bon vainqueur en sélection et sur terrain neutre ?</h2>
-  <p>Dans un match entre sélections nationales, au <a href="/competitions/6-nations/">6 Nations</a> par exemple, le bon vainqueur vaut 3 points si l'équipe qui reçoit gagne, 4 si celle qui se déplace gagne. Sur terrain neutre, aucune équipe ne reçoit : le bon vainqueur vaut 4 points, quelle que soit l'équipe qui gagne. C'est le cas, par exemple, des demi-finales et de la finale du <a href="/competitions/top-14/">Top 14</a>. Dans l'app, un badge « Terrain neutre » le signale sur l'écran du match, avant ta saisie.</p>
+  <p><strong>Le plafond d'un match.</strong> Au plus 16 points sur un match quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, 26 sur un nul. En sélection, 17 quand celle qui se déplace gagne ; sur terrain neutre, 17 quelle que soit l'équipe qui gagne.</p>
+  <h2>Combien rapporte ton prono ? Trois exemples chiffrés</h2>
+  <p>Clermont reçoit et gagne 27-21 : 6 points d'écart. L'équipe qui reçoit gagne, donc chaque bon vainqueur prend 3 points, la pénalité passée. Voici ce que rapportent trois pronos sur ce match.</p>
+  <div class="exemple"><p>Prono <span class="score">25-19</span> : 1 + 3 + 2 = 6 points (participation, pénalité passée, transformation). Bon vainqueur, et le même écart de 6 : la transformation.</p><p>Prono <span class="score">27-18</span> : 1 + 3 + 2 + 2 = 8 points (participation, pénalité passée, transformation, buteur). Un écart de 9, juste à 3 points près : la transformation. Et les 27 de Clermont : le buteur.</p><p>Prono <span class="score">27-21</span> : 1 + 3 + 2 + 10 = 16 points (participation, pénalité passée, transformation, graal). Le graal, qui remplace le buteur.</p></div>
+  <h2>Que vaut le bon vainqueur en sélection et sur terrain neutre ?</h2>
+  <p>Dans un match entre sélections nationales, au <a href="/competitions/6-nations/">6 Nations</a> par exemple, le bon vainqueur vaut 3 points si l'équipe qui reçoit gagne, 4 si celle qui se déplace gagne. Sur terrain neutre, aucune équipe ne reçoit : le bon vainqueur vaut 4 points, quelle que soit l'équipe qui gagne. C'est le cas, par exemple, des demi-finales et de la finale du <a href="/competitions/top-14/">Top 14</a>. Dans l'app, un badge « Terrain neutre » le signale sur l'écran du match, avant ta saisie.</p>
   <div class="tableau"><table>
     <thead><tr><th scope="col">Le match</th><th scope="col">L'équipe qui reçoit gagne</th><th scope="col">L'équipe qui se déplace gagne</th></tr></thead>
     <tbody>
@@ -487,18 +502,18 @@ details[open]>summary .plus{transform:rotate(45deg)}
       <tr><td>Terrain neutre, aucune équipe ne reçoit</td><td class="points" colspan="2">+4</td></tr>
     </tbody>
   </table></div>
-  <h2>Quand ferment les pronos, quand tombent les points ?</h2>
+  <h2>Quand ferment les pronos, quand tombent les points ?</h2>
   <p>Les pronos ferment au coup d'envoi de chaque match. Jusque-là, tu peux modifier le tien. Les points sont comptés après le coup de sifflet final, en quelques minutes.</p>
   <h3>Les 80 minutes</h3>
-  <p>Le score retenu est celui de la fin des 80 minutes : les prolongations ne comptent pas.</p>
+  <p>Le score retenu est celui de la fin des 80 minutes : les prolongations ne comptent pas.</p>
   <h3>Match reporté</h3>
   <p>Les pronos rouvrent jusqu'au nouveau coup d'envoi.</p>
   <h3>Match annulé ou arrêté</h3>
-  <p>Il est neutralisé : 0 point pour tout le monde.</p>
-  <h2>Une ligue créée en cours de saison : à partir de quand ça compte ?</h2>
-  <p>Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle. Seules comptent les journées dont le premier coup d'envoi tombe après la création de la ligue. À la création, l'app te le rappelle : « Le classement démarre aujourd'hui : les journées déjà commencées ne comptent pas. »</p>
+  <p>Il est neutralisé : 0 point pour tout le monde.</p>
+  <h2>Une ligue créée en cours de saison : à partir de quand ça compte ?</h2>
+  <p>Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle. Seules comptent les journées dont le premier coup d'envoi tombe après la création de la ligue. À la création, l'app te le rappelle : « Le classement démarre aujourd'hui : les journées déjà commencées ne comptent pas. »</p>
   <p>Pour monter la tienne, suis le guide des <a href="/pronostics-rugby-entre-amis/">pronostics rugby entre amis</a>.</p>
-  <h2>Que font la Chistera et le Caramel ?</h2>
+  <h2>Que font la Chistera et le Caramel ?</h2>
   <p>La Chistera double tes points d'une journée, dans toutes tes ligues, La Bagarre Générale comprise. Le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement, arrondi au point supérieur. Tu as un de chaque par compétition et par saison, les mêmes pour tout le monde.</p>
   <p><a href="/regles/gestes-techniques/">La Chistera, le Caramel et leurs cas particuliers, en détail</a></p>
   </details>
@@ -515,14 +530,14 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="slogan">Deviens le meilleur pronostiqueur de ta ligue</p>
     <div class="colonnes">
       <div><b class="titre petites-capitales">Le jeu</b><ul><li><a aria-current="page">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-bagarre-generale/classement/">Le classement</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
-      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li><li><a href="/competitions/coupe-du-monde/">Coupe du monde</a></li></ul></div>
       <div><b class="titre petites-capitales">Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
       <div><b class="titre petites-capitales">Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
       <div class="appli"><b class="titre petites-capitales">L'app</b><p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p><div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div></div>
     </div>
-    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
+    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
   </div>
 </footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Règles du jeu","item":"https://dropleague.app/regles/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/regles/#page","url":"https://dropleague.app/regles/","name":"Les règles du jeu de Drop League","description":"Annonce le score exact et vois ce que rapporte ton prono : les règles du jeu, le barème, trois exemples chiffrés et le cadre, sur iPhone et Android.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Le barème et le cadre des règles du jeu de Drop League","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"La participation · 1 point","url":"https://dropleague.app/regles/#la-participation"},{"@type":"ListItem","position":2,"name":"La pénalité passée · 3 points","url":"https://dropleague.app/regles/#la-penalite-passee"},{"@type":"ListItem","position":3,"name":"L'essai · 5 points","url":"https://dropleague.app/regles/#l-essai"},{"@type":"ListItem","position":4,"name":"Bon vainqueur en sélection · 3 ou 4 points","url":"https://dropleague.app/regles/#bon-vainqueur-en-selection"},{"@type":"ListItem","position":5,"name":"Bon vainqueur sur terrain neutre · 4 points","url":"https://dropleague.app/regles/#bon-vainqueur-sur-terrain-neutre"},{"@type":"ListItem","position":6,"name":"La transformation · 2 points","url":"https://dropleague.app/regles/#la-transformation"},{"@type":"ListItem","position":7,"name":"Le buteur · 2 points","url":"https://dropleague.app/regles/#le-buteur"},{"@type":"ListItem","position":8,"name":"Le graal · 10 points","url":"https://dropleague.app/regles/#le-graal"},{"@type":"ListItem","position":9,"name":"Le XV (le quinze) · 15 points","url":"https://dropleague.app/regles/#le-xv-le-quinze"},{"@type":"ListItem","position":10,"name":"Les 80 minutes · Sans les prolongations","url":"https://dropleague.app/regles/#les-80-minutes"},{"@type":"ListItem","position":11,"name":"La fermeture des pronos au coup d'envoi · Modifiable jusque-là","url":"https://dropleague.app/regles/#la-fermeture-des-pronos-au-coup-d-envoi"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien de points vaut le score exact ?","acceptedAnswer":{"@type":"Answer","text":"Le score exact des deux équipes, c'est le graal : 10 points, qui s'ajoutent au reste et remplacent le buteur. Sur un match de club, un score exact rapporte en tout 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, et 26 sur un nul. Le score exact d'une seule des deux équipes vaut 2 points : le buteur."}},{"@type":"Question","name":"Que vaut un match nul annoncé ?","acceptedAnswer":{"@type":"Answer","text":"Nul annoncé, nul joué : c'est le XV (le quinze), 15 points d'un coup. Il remplace le bon vainqueur, la transformation et le buteur. Avec la participation, ton prono rapporte 16 points, et 26 si tu as aussi le score exact."}},{"@type":"Question","name":"Quand les pronos ferment-ils ?","acceptedAnswer":{"@type":"Answer","text":"Les pronos ferment au coup d'envoi de chaque match. Jusque-là, tu peux modifier le tien. Chaque prono posé avant le coup d'envoi rapporte déjà 1 point : la participation."}},{"@type":"Question","name":"Les prolongations comptent-elles ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le score retenu est celui de la fin des 80 minutes : les prolongations ne comptent pas. Ton prono, c'est donc le score au bout des 80 minutes."}},{"@type":"Question","name":"Que se passe-t-il si un match est reporté ?","acceptedAnswer":{"@type":"Answer","text":"Les pronos rouvrent jusqu'au nouveau coup d'envoi : tu peux poser ou modifier le tien. Un match annulé ou arrêté, lui, est neutralisé : 0 point pour tout le monde."}},{"@type":"Question","name":"Combien de points au plus sur un match ?","acceptedAnswer":{"@type":"Answer","text":"Au plus 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, 26 sur un nul. En sélection, 17 quand celle qui se déplace gagne ; sur terrain neutre, 17 quelle que soit l'équipe qui gagne. Les 26 points d'un nul, c'est le score exact : 1 + 15 + 10."}},{"@type":"Question","name":"Où trouver les règles du jeu dans l'app ?","acceptedAnswer":{"@type":"Answer","text":"Ouvre ton Profil, puis touche « Règles du jeu ». Tu y arrives aussi par le lien « Règles du jeu » au pied de la liste de Pronos, et par « Toutes les règles du jeu », sous le barème du résultat d'un match."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Règles du jeu","item":"https://dropleague.app/regles/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/regles/#page","url":"https://dropleague.app/regles/","name":"Les règles du jeu de Drop League","description":"Combien rapporte ton prono ? Le barème : 1 point pour le poser, 3 à 5 au bon vainqueur, 10 au score exact, 15 au nul bien vu, et trois exemples chiffrés.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Le barème et le cadre des règles du jeu de Drop League","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"La participation · 1 point","url":"https://dropleague.app/regles/#la-participation"},{"@type":"ListItem","position":2,"name":"La pénalité passée · 3 points","url":"https://dropleague.app/regles/#la-penalite-passee"},{"@type":"ListItem","position":3,"name":"L'essai · 5 points","url":"https://dropleague.app/regles/#l-essai"},{"@type":"ListItem","position":4,"name":"Bon vainqueur en sélection · 3 ou 4 points","url":"https://dropleague.app/regles/#bon-vainqueur-en-selection"},{"@type":"ListItem","position":5,"name":"Bon vainqueur sur terrain neutre · 4 points","url":"https://dropleague.app/regles/#bon-vainqueur-sur-terrain-neutre"},{"@type":"ListItem","position":6,"name":"La transformation · 2 points","url":"https://dropleague.app/regles/#la-transformation"},{"@type":"ListItem","position":7,"name":"Le buteur · 2 points","url":"https://dropleague.app/regles/#le-buteur"},{"@type":"ListItem","position":8,"name":"Le graal · 10 points","url":"https://dropleague.app/regles/#le-graal"},{"@type":"ListItem","position":9,"name":"Le XV (le quinze) · 15 points","url":"https://dropleague.app/regles/#le-xv-le-quinze"},{"@type":"ListItem","position":10,"name":"Les 80 minutes · Sans les prolongations","url":"https://dropleague.app/regles/#les-80-minutes"},{"@type":"ListItem","position":11,"name":"La fermeture des pronos au coup d'envoi · Modifiable jusque-là","url":"https://dropleague.app/regles/#la-fermeture-des-pronos-au-coup-d-envoi"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien de points vaut le score exact ?","acceptedAnswer":{"@type":"Answer","text":"Le score exact des deux équipes, c'est le graal : 10 points, qui s'ajoutent au reste et remplacent le buteur. Sur un match de club, un score exact rapporte en tout 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, et 26 sur un nul. Le score exact d'une seule des deux équipes vaut 2 points : le buteur."}},{"@type":"Question","name":"Que vaut un match nul annoncé ?","acceptedAnswer":{"@type":"Answer","text":"Nul annoncé, nul joué : c'est le XV (le quinze), 15 points d'un coup. Il remplace le bon vainqueur, la transformation et le buteur. Avec la participation, ton prono rapporte 16 points, et 26 si tu as aussi le score exact."}},{"@type":"Question","name":"Quand les pronos ferment-ils ?","acceptedAnswer":{"@type":"Answer","text":"Les pronos ferment au coup d'envoi de chaque match. Jusque-là, tu peux modifier le tien. Chaque prono posé avant le coup d'envoi rapporte déjà 1 point : la participation."}},{"@type":"Question","name":"Les prolongations comptent-elles ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le score retenu est celui de la fin des 80 minutes : les prolongations ne comptent pas. Ton prono, c'est donc le score au bout des 80 minutes."}},{"@type":"Question","name":"Que se passe-t-il si un match est reporté ?","acceptedAnswer":{"@type":"Answer","text":"Les pronos rouvrent jusqu'au nouveau coup d'envoi : tu peux poser ou modifier le tien. Un match annulé ou arrêté, lui, est neutralisé : 0 point pour tout le monde."}},{"@type":"Question","name":"Combien de points au plus sur un match ?","acceptedAnswer":{"@type":"Answer","text":"Au plus 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, 26 sur un nul. En sélection, 17 quand celle qui se déplace gagne ; sur terrain neutre, 17 quelle que soit l'équipe qui gagne. Les 26 points d'un nul, c'est le score exact : 1 + 15 + 10."}},{"@type":"Question","name":"Où trouver les règles du jeu dans l'app ?","acceptedAnswer":{"@type":"Answer","text":"Ouvre ton Profil, puis touche « Règles du jeu ». Tu y arrives aussi par le lien « Règles du jeu » au pied de la liste de Pronos, et par « Toutes les règles du jeu », sous le barème du résultat d'un match."}}]}]}</script>
 </body>
 </html>

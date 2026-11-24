@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Six compétitions de rugby à pronostiquer entre amis · Drop League</title>
-<meta name="description" content="Pronostique six compétitions de rugby entre amis : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship, sur iPhone et Android.">
+<title>Compétitions de rugby à pronostiquer · Drop League</title>
+<meta name="description" content="Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship à pronostiquer entre amis, et bientôt la Coupe du monde de rugby.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1B3A26">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
@@ -15,8 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Drop League">
-<meta property="og:title" content="Six compétitions de rugby à pronostiquer entre amis · Drop League">
-<meta property="og:description" content="Pronostique six compétitions de rugby entre amis : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship, sur iPhone et Android.">
+<meta property="og:title" content="Compétitions de rugby à pronostiquer · Drop League">
+<meta property="og:description" content="Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship à pronostiquer entre amis, et bientôt la Coupe du monde de rugby.">
 <meta property="og:image" content="https://dropleague.app/icon-256.png">
 <meta property="og:url" content="https://dropleague.app/competitions/">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Tuile d'ambiance dans la grille */
 .tuile .visuel{background:var(--vert);color:var(--sur-vert);justify-content:flex-end;text-align:left}
-.tuile .dessin{position:absolute;top:0;left:0;width:100%;height:56%}
+.tuile .dessin{display:block;flex:1 1 0;min-height:90px;width:100%;margin:0 0 14px}
 .tuile h2{position:relative;margin:0;font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.05}
 .tuile h2 em{font-weight:400;color:var(--orange)}
 .tuile p{position:relative;margin:10px 0 0;font-size:13.5px;opacity:.9}
@@ -202,6 +202,20 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .progression i{position:absolute;inset:0 auto 0 0;background:var(--orange)}
 .suite-grille .voir{border:1px solid var(--texte);color:var(--texte);border-radius:999px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .suite-grille[open]>summary{display:none}
+
+/* Poules d'un tournoi : une carte par poule, chaque nation avec son drapeau */
+.poules{padding-block:70px 0;text-align:center}
+.poules h2{margin:0;font-family:var(--serif);font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.05;text-wrap:balance}
+.poules .filet{margin:22px auto 18px}
+.intro-poules{max-width:680px;margin:0 auto 30px;color:var(--doux);font-size:15px}
+.grille-poules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left}
+@media (max-width:989px){.grille-poules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grille-poules{grid-template-columns:1fr}}
+.poule{background:var(--sauge);border-radius:6px;padding:20px 22px}
+.poule h3{margin:0 0 12px;color:var(--orange);font-size:13px}
+.poule ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.poule li{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500}
+.poule .drapeau{flex:0 0 auto;width:30px;height:20px;border-radius:2px;display:block}
 
 /* FAQ */
 .faq{background:var(--sauge);margin-top:80px;padding-block:70px 76px}
@@ -277,7 +291,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
 </style>
 </head>
 <body>
-<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
+<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
 <header class="entete">
   <div class="largeur haut">
     <div class="gauche">
@@ -296,9 +310,9 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="surtitre petites-capitales">Compétitions</p>
     <h1 id="titre-page">Six compétitions de rugby, <em>toute la saison</em></h1>
     <div class="filet" aria-hidden="true"></div>
-    <p class="intro">Les <strong>compétitions de rugby</strong> de Drop League : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Pour chaque match, tu annonces le score exact avant le coup d'envoi. Ta ligue les prend toutes, ou une seule.</p>
+    <p class="intro">Les <strong>compétitions de rugby</strong> de Drop League : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Pour chaque match, tu annonces le score exact avant le coup d'envoi, et ta ligue les prend toutes, ou une seule. Bientôt, la <a href="/competitions/coupe-du-monde/">Coupe du monde de rugby</a> sera aussi à pronostiquer dans Drop League.</p>
     <div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div>
-    <p class="signature">Tu dis quoi, toi ?</p>
+    <p class="signature">Tu dis quoi, toi ?</p>
   </div>
   <figure class="cliche">
     <picture>
@@ -309,8 +323,8 @@ details[open]>summary .plus{transform:rotate(45deg)}
   </figure>
 </section>
 <section class="largeur" aria-labelledby="titre-grille">
-  <nav class="liees" aria-label="Pages liées"><a href="/competitions/top-14/">Top 14</a><a href="/competitions/pro-d2/">Pro D2</a><a href="/competitions/champions-cup/">Champions Cup</a><a href="/competitions/challenge-cup/">Challenge Cup</a><a href="/competitions/6-nations/">6 Nations</a><a href="/competitions/nations-championship/">Nations Championship</a><a href="/regles/">Règles du jeu</a><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/la-bagarre-generale/">La Bagarre Générale</a></nav>
-  <h2 id="titre-grille" class="cache">Les six compétitions de Drop League et leurs barèmes</h2>
+  <nav class="liees" aria-label="Pages liées"><a href="/competitions/top-14/">Top 14</a><a href="/competitions/pro-d2/">Pro D2</a><a href="/competitions/champions-cup/">Champions Cup</a><a href="/competitions/challenge-cup/">Challenge Cup</a><a href="/competitions/6-nations/">6 Nations</a><a href="/competitions/nations-championship/">Nations Championship</a><a href="/competitions/coupe-du-monde/">Coupe du monde</a><a href="/regles/">Règles du jeu</a><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a></nav>
+  <h2 id="titre-grille" class="cache">Les six compétitions de Drop League, leurs barèmes et la Coupe du monde de rugby à venir</h2>
   <div class="barre"><span class="gauche-barre">Les compétitions de Drop League</span><span class="compte">6 compétitions · 2 barèmes</span><span class="droite">Ta ligue les prend toutes, ou une seule</span></div>
   <ul class="grille">
 <li class="carte" id="top-14">
@@ -376,40 +390,40 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Sélections</span>
     <div class="numero"><b>12</b><small>sélections</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Trois journées en juillet, trois en novembre : les six du 6 Nations y retrouvent notamment l'Afrique du Sud, la Nouvelle-Zélande et l'Argentine.</p>
+    <p class="texte-carte">Trois journées en juillet, trois en novembre : les six du 6 Nations y retrouvent notamment l'Afrique du Sud, la Nouvelle-Zélande et l'Argentine.</p>
   </div>
   <h3 class="nom-carte"><a href="/competitions/nations-championship/">Nations Championship</a></h3>
   <p class="prix">6 journées · 36 matchs</p>
 </li>
-<li class="carte ton-orange" id="le-bareme-des-clubs">
+<li class="carte ton-orange" id="coupe-du-monde-de-rugby">
+  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><line x1="30" y1="6" x2="30" y2="94"/><line x1="70" y1="6" x2="70" y2="94"/><line x1="30" y1="62" x2="70" y2="62"/></g></svg>
+    <span class="etiquette petites-capitales">À venir</span>
+    <div class="numero"><b>+1</b><small>compétition</small></div>
+    <div class="trait" aria-hidden="true"></div>
+    <p class="texte-carte">Elle rejoindra bientôt les six compétitions de l'app : sa page te présente déjà ses dates et son format.</p>
+  </div>
+  <h3 class="nom-carte"><a href="/competitions/coupe-du-monde/">Coupe du monde de rugby</a></h3>
+  <p class="prix">Bientôt à pronostiquer dans Drop League</p>
+</li>
+<li class="carte ton-vert" id="le-bareme-des-clubs">
   <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="40" ry="25" transform="rotate(-35 50 50)" fill="none" stroke="currentColor" stroke-width="5"/></svg>
     <span class="etiquette petites-capitales">En club</span>
     <div class="numero"><b>+5</b><small>points</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Bon vainqueur quand l'équipe qui se déplace gagne, 3 points quand celle qui reçoit gagne : Top 14, Pro D2 et coupes d'Europe.</p>
+    <p class="texte-carte">Bon vainqueur quand l'équipe qui se déplace gagne, 3 points quand celle qui reçoit gagne : Top 14, Pro D2 et coupes d'Europe.</p>
   </div>
   <h3 class="nom-carte"><a href="/regles/">Le barème des clubs</a></h3>
   <p class="prix">3 ou 5 points pour le bon vainqueur</p>
 </li>
-<li class="carte ton-vert" id="le-bareme-des-selections">
+<li class="carte ton-orange" id="le-bareme-des-selections">
   <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><line x1="30" y1="6" x2="30" y2="94"/><line x1="70" y1="6" x2="70" y2="94"/><line x1="30" y1="62" x2="70" y2="62"/></g></svg>
     <span class="etiquette petites-capitales">En sélection</span>
     <div class="numero"><b>+4</b><small>points</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Bon vainqueur quand l'équipe qui se déplace gagne, 3 points quand celle qui reçoit gagne : 6 Nations et Nations Championship.</p>
+    <p class="texte-carte">Bon vainqueur quand l'équipe qui se déplace gagne, 3 points quand celle qui reçoit gagne : 6 Nations et Nations Championship.</p>
   </div>
   <h3 class="nom-carte"><a href="/regles/">Le barème des sélections</a></h3>
   <p class="prix">3 ou 4 points pour le bon vainqueur</p>
-</li>
-<li class="carte ton-orange" id="bon-vainqueur-sur-terrain-neutre">
-  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><circle cx="40" cy="58" r="26" fill="none" stroke="currentColor" stroke-width="5"/><path d="M58 40 L94 22 M62 54 L94 40" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
-    <span class="etiquette petites-capitales">Terrain neutre</span>
-    <div class="numero"><b>+4</b><small>points</small></div>
-    <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Aucune équipe ne reçoit : 4 points quelle que soit l'équipe qui gagne, et un badge le signale sur l'écran du match avant ta saisie.</p>
-  </div>
-  <h3 class="nom-carte"><a href="#bon-vainqueur-sur-terrain-neutre">Bon vainqueur sur terrain neutre</a></h3>
-  <p class="prix">« Pas d'équipe à domicile : bon vainqueur +4 »</p>
 </li>
 <li class="carte ton-vert" id="tes-gestes-techniques">
   <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="40" ry="25" transform="rotate(-35 50 50)" fill="none" stroke="currentColor" stroke-width="5"/></svg>
@@ -426,48 +440,52 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Ta ligue</span>
     <div class="numero"><b>1</b><small>ou toutes</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Sous « Sur quelle compétition ? », touche « Toutes compétitions » ou une seule : une ligue sur une seule compétition ne compte que ses matchs.</p>
+    <p class="texte-carte">Sous « Sur quelle compétition ? », touche « Toutes compétitions » ou une seule : une ligue sur une seule compétition ne compte que ses matchs.</p>
   </div>
   <h3 class="nom-carte"><a href="/pronostics-rugby-entre-amis/">Une compétition, ou toutes</a></h3>
   <p class="prix">Rien que le 6 Nations avec la famille</p>
 </li>
   </ul>
 </section>
+
 <section class="faq" aria-labelledby="titre-faq">
   <div class="largeur">
     <p class="accroche petites-capitales">Trouve vite la réponse à tes questions</p>
     <h2 id="titre-faq">FAQ compétitions de rugby</h2>
     <div class="filet" aria-hidden="true"></div>
     <div class="faq-liste">
-      <details><summary><h3>Quelles compétitions de rugby peut-on pronostiquer ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Deux championnats de clubs, deux coupes d'Europe et deux compétitions de sélections. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée.</p></div></details>
-      <details><summary><h3>Où trouver le calendrier des matchs ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'app Drop League, onglet Pronos : chaque compétition y a ses matchs, avec la date et l'heure de chaque match. Le calendrier est relu chaque jour : un match reporté y change de date, et ses pronos rouvrent jusqu'au nouveau coup d'envoi. En haut de l'onglet, tu passes d'une compétition à l'autre d'une touche.</p></div></details>
-      <details><summary><h3>Quand se jouent les compétitions de rugby ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le Top 14 et la Pro D2 se jouent de la fin de l'été au printemps, journée après journée, avant leurs phases finales. La Champions Cup et la Challenge Cup jouent leurs 4 journées de poule les mêmes week-ends. Le 6 Nations se joue en février et en mars, le Nations Championship en juillet et en novembre.</p></div></details>
-      <details><summary><h3>Peut-on faire une ligue rien que sur le 6 Nations ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui. À la création de ta ligue, sous « Sur quelle compétition ? », choisis le 6 Nations au lieu de « Toutes compétitions ». Ta ligue ne compte alors que les matchs du 6 Nations : 15 matchs, en 5 journées. Touche ensuite « Inviter des potes » pour envoyer le code d'invitation.</p></div></details>
-      <details><summary><h3>Le bon vainqueur vaut-il la même chose en club et en sélection ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Non. En club, au Top 14, en Pro D2 et en coupe d'Europe, il vaut 3 points quand l'équipe qui reçoit gagne et 5 quand celle qui se déplace gagne. En sélection, au 6 Nations et au Nations Championship, il vaut 3 points quand l'équipe qui reçoit gagne et 4 quand celle qui se déplace gagne. Sur terrain neutre, c'est 4, quelle que soit l'équipe qui gagne.</p></div></details>
-      <details><summary><h3>Qu'est-ce qu'un match sur terrain neutre ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Un match où aucune équipe ne reçoit, comme les demi-finales et la finale du Top 14, ou la finale de la Pro D2, de la Champions Cup et de la Challenge Cup. Le bon vainqueur y vaut 4 points, quelle que soit l'équipe qui gagne. Dans l'app, un badge « Terrain neutre » le signale sur l'écran du match, avant ta saisie.</p></div></details>
-      <details><summary><h3>Combien de gestes techniques par compétition ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Un de chaque par compétition et par saison : une Chistera, qui double tes points d'une journée, et un Caramel, qui coupe en deux le total d'une journée d'un membre d'une de tes ligues privées. Ce sont les mêmes pour tout le monde, posés en secret avant le coup d'envoi de la journée et révélés aux résultats.</p></div></details>
+      <details><summary><h3>Quelles compétitions de rugby peut-on pronostiquer ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Deux championnats de clubs, deux coupes d'Europe et deux compétitions de sélections. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée.</p></div></details>
+      <details><summary><h3>La Coupe du monde de rugby sera-t-elle dans Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui, bientôt : la Coupe du monde de rugby sera à pronostiquer dans Drop League, en plus des six compétitions déjà dans l'app, du Top 14 au Nations Championship. En attendant, sa page sur le site te présente ses dates et son format.</p></div></details>
+      <details><summary><h3>Où trouver le calendrier des matchs ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'app Drop League, onglet Pronos : chaque compétition y a ses matchs, avec la date et l'heure de chaque match. Le calendrier est relu chaque jour : un match reporté y change de date, et ses pronos rouvrent jusqu'au nouveau coup d'envoi. En haut de l'onglet, tu passes d'une compétition à l'autre d'une touche.</p></div></details>
+      <details><summary><h3>Quand se jouent les compétitions de rugby ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Le Top 14 et la Pro D2 se jouent de la fin de l'été au printemps, journée après journée, avant leurs phases finales. La Champions Cup et la Challenge Cup jouent leurs 4 journées de poule les mêmes week-ends. Le 6 Nations se joue en février et en mars, le Nations Championship en juillet et en novembre.</p></div></details>
+      <details><summary><h3>Peut-on faire une ligue rien que sur le 6 Nations ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui. À la création de ta ligue, sous « Sur quelle compétition ? », choisis le 6 Nations au lieu de « Toutes compétitions ». Ta ligue ne compte alors que les matchs du 6 Nations : 15 matchs, en 5 journées. Touche ensuite « Inviter des potes » pour envoyer le code d'invitation.</p></div></details>
+      <details><summary><h3>Le bon vainqueur vaut-il la même chose en club et en sélection ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Non. En club, au Top 14, en Pro D2 et en coupe d'Europe, il vaut 3 points quand l'équipe qui reçoit gagne et 5 quand celle qui se déplace gagne. En sélection, au 6 Nations et au Nations Championship, il vaut 3 points quand l'équipe qui reçoit gagne et 4 quand celle qui se déplace gagne. Sur terrain neutre, c'est 4, quelle que soit l'équipe qui gagne.</p></div></details>
+      <details><summary><h3>Qu'est-ce qu'un match sur terrain neutre ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Un match où aucune équipe ne reçoit, comme les demi-finales et la finale du Top 14, ou la finale de la Pro D2, de la Champions Cup et de la Challenge Cup. Le bon vainqueur y vaut 4 points, quelle que soit l'équipe qui gagne. Dans l'app, un badge « Terrain neutre » le signale sur l'écran du match, avant ta saisie.</p></div></details>
+      <details><summary><h3>Combien de gestes techniques par compétition ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Un de chaque par compétition et par saison : une Chistera, qui double tes points d'une journée, et un Caramel, qui coupe en deux le total d'une journée d'un membre d'une de tes ligues privées. Ce sont les mêmes pour tout le monde, posés en secret avant le coup d'envoi de la journée et révélés aux résultats.</p></div></details>
     </div>
   </div>
 </section>
 <article class="largeur"><div class="texte-seo">
   <h2>Six compétitions de rugby entre amis</h2>
   <div class="filet" aria-hidden="true"></div>
-  <p>Drop League suit six compétitions de rugby : deux championnats de clubs, le Top 14 et la Pro D2 ; deux coupes d'Europe, la Champions Cup et la Challenge Cup ; et deux compétitions de sélections, le 6 Nations et le Nations Championship. Pour chaque match, tu annonces le score exact avant le coup d'envoi, et ta ligue les prend toutes, ou une seule.</p>
-  <h2>C'est quoi, Drop League ?</h2>
-  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+  <p>Drop League suit six compétitions de rugby : deux championnats de clubs, le Top 14 et la Pro D2 ; deux coupes d'Europe, la Champions Cup et la Challenge Cup ; et deux compétitions de sélections, le 6 Nations et le Nations Championship. Pour chaque match, tu annonces le score exact avant le coup d'envoi, et ta ligue les prend toutes, ou une seule.</p>
+  <h2>C'est quoi, Drop League ?</h2>
+  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
   <details class="lire-plus"><summary>Lire plus</summary>
-  <h2>Quelles compétitions de rugby peux-tu pronostiquer ?</h2>
+  <h2>Quelles compétitions de rugby peux-tu pronostiquer ?</h2>
   <ul>
-    <li><a href="/competitions/top-14/">Top 14</a> : le championnat de France, 14 clubs et 26 journées, puis les phases finales, dont les demi-finales et la finale se jouent sur terrain neutre.</li>
-    <li><a href="/competitions/pro-d2/">Pro D2</a> : 16 clubs et 30 journées, la compétition qui en compte le plus. Seule sa finale se joue sur terrain neutre.</li>
-    <li><a href="/competitions/champions-cup/">Champions Cup</a> : 24 clubs, 4 journées de poule, puis les phases finales. Des clubs du Top 14 y croisent notamment Leinster, Munster, les Saracens ou les Stormers. La finale se joue sur terrain neutre.</li>
-    <li><a href="/competitions/challenge-cup/">Challenge Cup</a> : 18 clubs, 4 journées de poule, les mêmes week-ends que la Champions Cup. Comme en Champions Cup, la finale se joue sur terrain neutre.</li>
-    <li><a href="/competitions/6-nations/">6 Nations</a> : l'Angleterre, l'Écosse, la France, l'Irlande, l'Italie et le Pays de Galles, en 5 journées, en février et en mars.</li>
-    <li><a href="/competitions/nations-championship/">Nations Championship</a> : 12 sélections, 6 journées, trois en juillet et trois en novembre. Les six du 6 Nations y retrouvent notamment l'Afrique du Sud, l'Australie, la Nouvelle-Zélande et l'Argentine.</li>
+    <li><a href="/competitions/top-14/">Top 14</a> : le championnat de France, 14 clubs et 26 journées, puis les phases finales, dont les demi-finales et la finale se jouent sur terrain neutre.</li>
+    <li><a href="/competitions/pro-d2/">Pro D2</a> : 16 clubs et 30 journées, la compétition qui en compte le plus. Seule sa finale se joue sur terrain neutre.</li>
+    <li><a href="/competitions/champions-cup/">Champions Cup</a> : 24 clubs, 4 journées de poule, puis les phases finales. Des clubs du Top 14 y croisent notamment Leinster, Munster, les Saracens ou les Stormers. La finale se joue sur terrain neutre.</li>
+    <li><a href="/competitions/challenge-cup/">Challenge Cup</a> : 18 clubs, 4 journées de poule, les mêmes week-ends que la Champions Cup. Comme en Champions Cup, la finale se joue sur terrain neutre.</li>
+    <li><a href="/competitions/6-nations/">6 Nations</a> : l'Angleterre, l'Écosse, la France, l'Irlande, l'Italie et le Pays de Galles, en 5 journées, en février et en mars.</li>
+    <li><a href="/competitions/nations-championship/">Nations Championship</a> : 12 sélections, 6 journées, trois en juillet et trois en novembre. Les six du 6 Nations y retrouvent notamment l'Afrique du Sud, l'Australie, la Nouvelle-Zélande et l'Argentine.</li>
   </ul>
-  <p>Beaucoup de clubs du Top 14 jouent aussi une coupe d'Europe, en Champions Cup ou en Challenge Cup. Avec « Toutes compétitions », ta ligue suit aussi leurs matchs européens.</p>
-  <h2>Combien vaut ton bon vainqueur en club et en sélection ?</h2>
-  <p>Le bon vainqueur ne vaut pas la même chose selon le match. En club, au Top 14, en Pro D2 et en coupe d'Europe, il vaut 3 points quand l'équipe qui reçoit gagne, 5 quand celle qui se déplace gagne. En sélection, au 6 Nations et au Nations Championship, c'est 3 quand l'équipe qui reçoit gagne, 4 quand celle qui se déplace gagne. Sur terrain neutre, aucune équipe ne reçoit : 4 points, quelle que soit l'équipe qui gagne.</p>
+  <p>Beaucoup de clubs du Top 14 jouent aussi une coupe d'Europe, en Champions Cup ou en Challenge Cup. Avec « Toutes compétitions », ta ligue suit aussi leurs matchs européens.</p>
+  <h2>La Coupe du monde de rugby, bientôt dans Drop League</h2>
+  <p>Elle viendra s'ajouter aux six compétitions que tu pronostiques déjà dans l'app. En attendant, découvre les dates et le format de <a href="/competitions/coupe-du-monde/">la Coupe du monde de rugby</a> sur sa page.</p>
+  <h2>Combien vaut ton bon vainqueur en club et en sélection ?</h2>
+  <p>Le bon vainqueur ne vaut pas la même chose selon le match. En club, au Top 14, en Pro D2 et en coupe d'Europe, il vaut 3 points quand l'équipe qui reçoit gagne, 5 quand celle qui se déplace gagne. En sélection, au 6 Nations et au Nations Championship, c'est 3 quand l'équipe qui reçoit gagne, 4 quand celle qui se déplace gagne. Sur terrain neutre, aucune équipe ne reçoit : 4 points, quelle que soit l'équipe qui gagne.</p>
   <div class="tableau"><table>
     <thead><tr><th scope="col">Compétition</th><th scope="col">L'équipe qui reçoit gagne</th><th scope="col">L'équipe qui se déplace gagne</th><th scope="col">Terrain neutre, +4</th></tr></thead>
     <tbody>
@@ -479,16 +497,16 @@ details[open]>summary .plus{transform:rotate(45deg)}
       <tr><td>Nations Championship</td><td class="points">+3</td><td class="points">+4</td><td>Aucun sur les six journées</td></tr>
     </tbody>
   </table></div>
-  <p>Dans l'app, un badge « Terrain neutre » le signale sur l'écran du match, avant ta saisie : « Pas d'équipe à domicile : bon vainqueur +4 ». Le reste du barème ne bouge pas d'une compétition à l'autre : la participation, la transformation, le buteur, le graal et le XV valent partout la même chose. <a href="/regles/">Le barème complet</a>, avec trois exemples chiffrés.</p>
+  <p>Dans l'app, un badge « Terrain neutre » le signale sur l'écran du match, avant ta saisie : « Pas d'équipe à domicile : bon vainqueur +4 ». Le reste du barème ne bouge pas d'une compétition à l'autre : la participation, la transformation, le buteur, le graal et le XV valent partout la même chose. <a href="/regles/">Le barème complet</a>, avec trois exemples chiffrés.</p>
   <h2>Ta ligue sur toutes les compétitions, ou sur une seule</h2>
-  <p>À la création de ta ligue, sous « Sur quelle compétition ? », tu touches « Toutes compétitions » ou tu en prends une seule. Une ligue sur une seule compétition ne compte que ses matchs : rien que le 6 Nations avec la famille, toute la saison avec la bande du club. La Bagarre Générale, le classement de tous les joueurs, compte toutes les compétitions.</p>
-  <p>En haut des onglets Pronos et Résultats, tu passes d'une compétition à l'autre d'une touche. Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle. Une ligue 6 Nations montée en janvier démarre donc à la première journée.</p>
-  <p>Pour monter la tienne : <a href="/pronostics-rugby-entre-amis/">ta ligue entre amis</a> ou <a href="/concours-pronostics-rugby/">ton concours au bureau ou au club</a>. Et pour te mesurer à tout le monde : <a href="/la-bagarre-generale/">La Bagarre Générale</a>.</p>
-  <h2>Où trouver le calendrier de chaque compétition ?</h2>
-  <p>Le calendrier est dans l'app, onglet Pronos, avec la date et l'heure de chaque match. Il est relu chaque jour : un match reporté y change de date, et ses pronos rouvrent jusqu'au nouveau coup d'envoi. Le Top 14 et la Pro D2 se jouent de la fin de l'été au printemps, avant leurs phases finales ; le 6 Nations s'y ajoute en février et en mars, et le Nations Championship se joue en juillet et en novembre.</p>
+  <p>À la création de ta ligue, sous « Sur quelle compétition ? », tu touches « Toutes compétitions » ou tu en prends une seule. Une ligue sur une seule compétition ne compte que ses matchs : rien que le 6 Nations avec la famille, toute la saison avec la bande du club. La Bagarre Générale, le classement de tous les joueurs, compte toutes les compétitions.</p>
+  <p>En haut des onglets Pronos et Résultats, tu passes d'une compétition à l'autre d'une touche. Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle. Une ligue 6 Nations montée en janvier démarre donc à la première journée.</p>
+  <p>Pour monter la tienne : <a href="/pronostics-rugby-entre-amis/">ta ligue entre amis</a> ou <a href="/concours-pronostics-rugby/">ton concours au bureau ou au club</a>. Et pour te mesurer à tout le monde : <a href="/la-bagarre-generale/">La Bagarre Générale</a>.</p>
+  <h2>Où trouver le calendrier de chaque compétition ?</h2>
+  <p>Le calendrier est dans l'app, onglet Pronos, avec la date et l'heure de chaque match. Il est relu chaque jour : un match reporté y change de date, et ses pronos rouvrent jusqu'au nouveau coup d'envoi. Le Top 14 et la Pro D2 se jouent de la fin de l'été au printemps, avant leurs phases finales ; le 6 Nations s'y ajoute en février et en mars, et le Nations Championship se joue en juillet et en novembre.</p>
   <h2>Tes gestes techniques, compétition par compétition</h2>
-  <p>Tes gestes techniques se comptent par compétition : une Chistera et un Caramel par compétition et par saison, les mêmes pour tout le monde. Tu les poses en secret avant le coup d'envoi de la journée, et tout se révèle aux résultats. <a href="/regles/gestes-techniques/">La page des gestes techniques</a> détaille leurs cas particuliers.</p>
-  <p>Pronostics entre amis : les points ne servent qu'au classement.</p>
+  <p>Tes gestes techniques se comptent par compétition : une Chistera et un Caramel par compétition et par saison, les mêmes pour tout le monde. Tu les poses en secret avant le coup d'envoi de la journée, et tout se révèle aux résultats. <a href="/regles/gestes-techniques/">La page des gestes techniques</a> détaille leurs cas particuliers.</p>
+  <p>Pronostics entre amis : les points ne servent qu'au classement.</p>
   </details>
 </div></article>
 <section class="largeur reassurance" aria-label="Drop League en bref"><ul>
@@ -503,14 +521,14 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="slogan">Deviens le meilleur pronostiqueur de ta ligue</p>
     <div class="colonnes">
       <div><b class="titre petites-capitales">Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-bagarre-generale/classement/">Le classement</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
-      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li><li><a href="/competitions/coupe-du-monde/">Coupe du monde</a></li></ul></div>
       <div><b class="titre petites-capitales">Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
       <div><b class="titre petites-capitales">Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
       <div class="appli"><b class="titre petites-capitales">L'app</b><p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p><div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div></div>
     </div>
-    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
+    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
   </div>
 </footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Compétitions","item":"https://dropleague.app/competitions/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/competitions/#page","url":"https://dropleague.app/competitions/","name":"Six compétitions de rugby, toute la saison","description":"Pronostique six compétitions de rugby entre amis : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship, sur iPhone et Android.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Les compétitions de rugby à pronostiquer dans Drop League","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"Top 14 · 26 journées · 182 matchs","url":"https://dropleague.app/competitions/top-14/"},{"@type":"ListItem","position":2,"name":"Pro D2 · 30 journées · 240 matchs","url":"https://dropleague.app/competitions/pro-d2/"},{"@type":"ListItem","position":3,"name":"Champions Cup · 4 journées de poule · 48 matchs","url":"https://dropleague.app/competitions/champions-cup/"},{"@type":"ListItem","position":4,"name":"Challenge Cup · 4 journées de poule · 36 matchs","url":"https://dropleague.app/competitions/challenge-cup/"},{"@type":"ListItem","position":5,"name":"6 Nations · 5 journées · 15 matchs","url":"https://dropleague.app/competitions/6-nations/"},{"@type":"ListItem","position":6,"name":"Nations Championship · 6 journées · 36 matchs","url":"https://dropleague.app/competitions/nations-championship/"},{"@type":"ListItem","position":7,"name":"Le barème des clubs · 3 ou 5 points pour le bon vainqueur","url":"https://dropleague.app/regles/"},{"@type":"ListItem","position":8,"name":"Le barème des sélections · 3 ou 4 points pour le bon vainqueur","url":"https://dropleague.app/regles/"},{"@type":"ListItem","position":9,"name":"Bon vainqueur sur terrain neutre · « Pas d'équipe à domicile : bon vainqueur +4 »","url":"https://dropleague.app/competitions/#bon-vainqueur-sur-terrain-neutre"},{"@type":"ListItem","position":10,"name":"Tes gestes techniques · Un de chaque par compétition","url":"https://dropleague.app/regles/gestes-techniques/"},{"@type":"ListItem","position":11,"name":"Une compétition, ou toutes · Rien que le 6 Nations avec la famille","url":"https://dropleague.app/pronostics-rugby-entre-amis/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quelles compétitions de rugby peut-on pronostiquer ?","acceptedAnswer":{"@type":"Answer","text":"Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Deux championnats de clubs, deux coupes d'Europe et deux compétitions de sélections. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée."}},{"@type":"Question","name":"Où trouver le calendrier des matchs ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app Drop League, onglet Pronos : chaque compétition y a ses matchs, avec la date et l'heure de chaque match. Le calendrier est relu chaque jour : un match reporté y change de date, et ses pronos rouvrent jusqu'au nouveau coup d'envoi. En haut de l'onglet, tu passes d'une compétition à l'autre d'une touche."}},{"@type":"Question","name":"Quand se jouent les compétitions de rugby ?","acceptedAnswer":{"@type":"Answer","text":"Le Top 14 et la Pro D2 se jouent de la fin de l'été au printemps, journée après journée, avant leurs phases finales. La Champions Cup et la Challenge Cup jouent leurs 4 journées de poule les mêmes week-ends. Le 6 Nations se joue en février et en mars, le Nations Championship en juillet et en novembre."}},{"@type":"Question","name":"Peut-on faire une ligue rien que sur le 6 Nations ?","acceptedAnswer":{"@type":"Answer","text":"Oui. À la création de ta ligue, sous « Sur quelle compétition ? », choisis le 6 Nations au lieu de « Toutes compétitions ». Ta ligue ne compte alors que les matchs du 6 Nations : 15 matchs, en 5 journées. Touche ensuite « Inviter des potes » pour envoyer le code d'invitation."}},{"@type":"Question","name":"Le bon vainqueur vaut-il la même chose en club et en sélection ?","acceptedAnswer":{"@type":"Answer","text":"Non. En club, au Top 14, en Pro D2 et en coupe d'Europe, il vaut 3 points quand l'équipe qui reçoit gagne et 5 quand celle qui se déplace gagne. En sélection, au 6 Nations et au Nations Championship, il vaut 3 points quand l'équipe qui reçoit gagne et 4 quand celle qui se déplace gagne. Sur terrain neutre, c'est 4, quelle que soit l'équipe qui gagne."}},{"@type":"Question","name":"Qu'est-ce qu'un match sur terrain neutre ?","acceptedAnswer":{"@type":"Answer","text":"Un match où aucune équipe ne reçoit, comme les demi-finales et la finale du Top 14, ou la finale de la Pro D2, de la Champions Cup et de la Challenge Cup. Le bon vainqueur y vaut 4 points, quelle que soit l'équipe qui gagne. Dans l'app, un badge « Terrain neutre » le signale sur l'écran du match, avant ta saisie."}},{"@type":"Question","name":"Combien de gestes techniques par compétition ?","acceptedAnswer":{"@type":"Answer","text":"Un de chaque par compétition et par saison : une Chistera, qui double tes points d'une journée, et un Caramel, qui coupe en deux le total d'une journée d'un membre d'une de tes ligues privées. Ce sont les mêmes pour tout le monde, posés en secret avant le coup d'envoi de la journée et révélés aux résultats."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Compétitions","item":"https://dropleague.app/competitions/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/competitions/#page","url":"https://dropleague.app/competitions/","name":"Six compétitions de rugby, toute la saison","description":"Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship à pronostiquer entre amis, et bientôt la Coupe du monde de rugby.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Les compétitions de rugby à pronostiquer dans Drop League","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"Top 14 · 26 journées · 182 matchs","url":"https://dropleague.app/competitions/top-14/"},{"@type":"ListItem","position":2,"name":"Pro D2 · 30 journées · 240 matchs","url":"https://dropleague.app/competitions/pro-d2/"},{"@type":"ListItem","position":3,"name":"Champions Cup · 4 journées de poule · 48 matchs","url":"https://dropleague.app/competitions/champions-cup/"},{"@type":"ListItem","position":4,"name":"Challenge Cup · 4 journées de poule · 36 matchs","url":"https://dropleague.app/competitions/challenge-cup/"},{"@type":"ListItem","position":5,"name":"6 Nations · 5 journées · 15 matchs","url":"https://dropleague.app/competitions/6-nations/"},{"@type":"ListItem","position":6,"name":"Nations Championship · 6 journées · 36 matchs","url":"https://dropleague.app/competitions/nations-championship/"},{"@type":"ListItem","position":7,"name":"Coupe du monde de rugby · Bientôt à pronostiquer dans Drop League","url":"https://dropleague.app/competitions/coupe-du-monde/"},{"@type":"ListItem","position":8,"name":"Le barème des clubs · 3 ou 5 points pour le bon vainqueur","url":"https://dropleague.app/regles/"},{"@type":"ListItem","position":9,"name":"Le barème des sélections · 3 ou 4 points pour le bon vainqueur","url":"https://dropleague.app/regles/"},{"@type":"ListItem","position":10,"name":"Tes gestes techniques · Un de chaque par compétition","url":"https://dropleague.app/regles/gestes-techniques/"},{"@type":"ListItem","position":11,"name":"Une compétition, ou toutes · Rien que le 6 Nations avec la famille","url":"https://dropleague.app/pronostics-rugby-entre-amis/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quelles compétitions de rugby peut-on pronostiquer ?","acceptedAnswer":{"@type":"Answer","text":"Six compétitions : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations et le Nations Championship. Deux championnats de clubs, deux coupes d'Europe et deux compétitions de sélections. Une ligue suit toutes les compétitions ou une seule, au choix de qui la crée."}},{"@type":"Question","name":"La Coupe du monde de rugby sera-t-elle dans Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Oui, bientôt : la Coupe du monde de rugby sera à pronostiquer dans Drop League, en plus des six compétitions déjà dans l'app, du Top 14 au Nations Championship. En attendant, sa page sur le site te présente ses dates et son format."}},{"@type":"Question","name":"Où trouver le calendrier des matchs ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app Drop League, onglet Pronos : chaque compétition y a ses matchs, avec la date et l'heure de chaque match. Le calendrier est relu chaque jour : un match reporté y change de date, et ses pronos rouvrent jusqu'au nouveau coup d'envoi. En haut de l'onglet, tu passes d'une compétition à l'autre d'une touche."}},{"@type":"Question","name":"Quand se jouent les compétitions de rugby ?","acceptedAnswer":{"@type":"Answer","text":"Le Top 14 et la Pro D2 se jouent de la fin de l'été au printemps, journée après journée, avant leurs phases finales. La Champions Cup et la Challenge Cup jouent leurs 4 journées de poule les mêmes week-ends. Le 6 Nations se joue en février et en mars, le Nations Championship en juillet et en novembre."}},{"@type":"Question","name":"Peut-on faire une ligue rien que sur le 6 Nations ?","acceptedAnswer":{"@type":"Answer","text":"Oui. À la création de ta ligue, sous « Sur quelle compétition ? », choisis le 6 Nations au lieu de « Toutes compétitions ». Ta ligue ne compte alors que les matchs du 6 Nations : 15 matchs, en 5 journées. Touche ensuite « Inviter des potes » pour envoyer le code d'invitation."}},{"@type":"Question","name":"Le bon vainqueur vaut-il la même chose en club et en sélection ?","acceptedAnswer":{"@type":"Answer","text":"Non. En club, au Top 14, en Pro D2 et en coupe d'Europe, il vaut 3 points quand l'équipe qui reçoit gagne et 5 quand celle qui se déplace gagne. En sélection, au 6 Nations et au Nations Championship, il vaut 3 points quand l'équipe qui reçoit gagne et 4 quand celle qui se déplace gagne. Sur terrain neutre, c'est 4, quelle que soit l'équipe qui gagne."}},{"@type":"Question","name":"Qu'est-ce qu'un match sur terrain neutre ?","acceptedAnswer":{"@type":"Answer","text":"Un match où aucune équipe ne reçoit, comme les demi-finales et la finale du Top 14, ou la finale de la Pro D2, de la Champions Cup et de la Challenge Cup. Le bon vainqueur y vaut 4 points, quelle que soit l'équipe qui gagne. Dans l'app, un badge « Terrain neutre » le signale sur l'écran du match, avant ta saisie."}},{"@type":"Question","name":"Combien de gestes techniques par compétition ?","acceptedAnswer":{"@type":"Answer","text":"Un de chaque par compétition et par saison : une Chistera, qui double tes points d'une journée, et un Caramel, qui coupe en deux le total d'une journée d'un membre d'une de tes ligues privées. Ce sont les mêmes pour tout le monde, posés en secret avant le coup d'envoi de la journée et révélés aux résultats."}}]}]}</script>
 </body>
 </html>

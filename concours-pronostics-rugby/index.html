@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Concours de pronostics rugby : bureau, club, famille · Drop League</title>
-<meta name="description" content="Organise un concours de pronostics rugby au bureau, au club ou en famille : une ligue privée, un code et un classement à jour, sur iPhone et Android.">
+<title>Concours de pronostics rugby, sans tableur · Drop League</title>
+<meta name="description" content="Lance le concours de pronostics rugby du bureau, du club ou de la famille : une ligue, un code, un classement automatique, et bientôt la Coupe du monde.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1B3A26">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
@@ -15,8 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Drop League">
-<meta property="og:title" content="Concours de pronostics rugby : bureau, club, famille · Drop League">
-<meta property="og:description" content="Organise un concours de pronostics rugby au bureau, au club ou en famille : une ligue privée, un code et un classement à jour, sur iPhone et Android.">
+<meta property="og:title" content="Concours de pronostics rugby, sans tableur · Drop League">
+<meta property="og:description" content="Lance le concours de pronostics rugby du bureau, du club ou de la famille : une ligue, un code, un classement automatique, et bientôt la Coupe du monde.">
 <meta property="og:image" content="https://dropleague.app/icon-256.png">
 <meta property="og:url" content="https://dropleague.app/concours-pronostics-rugby/">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Tuile d'ambiance dans la grille */
 .tuile .visuel{background:var(--vert);color:var(--sur-vert);justify-content:flex-end;text-align:left}
-.tuile .dessin{position:absolute;top:0;left:0;width:100%;height:56%}
+.tuile .dessin{display:block;flex:1 1 0;min-height:90px;width:100%;margin:0 0 14px}
 .tuile h2{position:relative;margin:0;font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.05}
 .tuile h2 em{font-weight:400;color:var(--orange)}
 .tuile p{position:relative;margin:10px 0 0;font-size:13.5px;opacity:.9}
@@ -202,6 +202,20 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .progression i{position:absolute;inset:0 auto 0 0;background:var(--orange)}
 .suite-grille .voir{border:1px solid var(--texte);color:var(--texte);border-radius:999px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .suite-grille[open]>summary{display:none}
+
+/* Poules d'un tournoi : une carte par poule, chaque nation avec son drapeau */
+.poules{padding-block:70px 0;text-align:center}
+.poules h2{margin:0;font-family:var(--serif);font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.05;text-wrap:balance}
+.poules .filet{margin:22px auto 18px}
+.intro-poules{max-width:680px;margin:0 auto 30px;color:var(--doux);font-size:15px}
+.grille-poules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left}
+@media (max-width:989px){.grille-poules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grille-poules{grid-template-columns:1fr}}
+.poule{background:var(--sauge);border-radius:6px;padding:20px 22px}
+.poule h3{margin:0 0 12px;color:var(--orange);font-size:13px}
+.poule ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.poule li{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500}
+.poule .drapeau{flex:0 0 auto;width:30px;height:20px;border-radius:2px;display:block}
 
 /* FAQ */
 .faq{background:var(--sauge);margin-top:80px;padding-block:70px 76px}
@@ -277,7 +291,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
 </style>
 </head>
 <body>
-<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
+<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
 <header class="entete">
   <div class="largeur haut">
     <div class="gauche">
@@ -296,9 +310,9 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="surtitre petites-capitales">Jouer avec · Concours</p>
     <h1 id="titre-page">Un concours de pronostics rugby, <em>au bureau, au club ou en famille</em></h1>
     <div class="filet" aria-hidden="true"></div>
-    <p class="intro">Un <strong>concours de pronostics rugby</strong>, sur Drop League, c'est une ligue privée : tu la crées, tu partages son code, et chacun annonce le score exact des matchs. Le classement se met à jour tout seul : il ne te reste que le chambrage.</p>
+    <p class="intro">Un <strong>concours de pronostics rugby</strong>, sur Drop League, c'est une ligue privée : tu la crées, tu partages son code, et chacun annonce le score exact des matchs. Le classement se met à jour tout seul : il ne te reste que le chambrage. Et bientôt, la <a href="/competitions/coupe-du-monde/">Coupe du monde de rugby</a> sera à pronostiquer dans Drop League : le concours que tout le bureau voudra rejoindre.</p>
     <div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div>
-    <p class="signature">Tu dis quoi, toi ?</p>
+    <p class="signature">Tu dis quoi, toi ?</p>
   </div>
   <figure class="cliche">
     <picture>
@@ -309,7 +323,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
   </figure>
 </section>
 <section class="largeur" aria-labelledby="titre-grille">
-  <nav class="liees" aria-label="Pages liées"><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/regles/">Règles du jeu</a><a href="/regles/gestes-techniques/">Gestes techniques</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/la-loge/">La Loge</a><a href="/competitions/">Les compétitions</a><a href="/competitions/top-14/">Top 14</a><a href="/competitions/6-nations/">6 Nations</a><a href="/application-pronostics-rugby/">L'app iPhone et Android</a></nav>
+  <nav class="liees" aria-label="Pages liées"><a href="/pronostics-rugby-entre-amis/">Pronos entre amis</a><a href="/competitions/coupe-du-monde/">Coupe du monde de rugby</a><a href="/regles/">Règles du jeu</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/la-loge/">La Loge</a><a href="/competitions/">Les compétitions</a><a href="/competitions/top-14/">Top 14</a><a href="/competitions/6-nations/">6 Nations</a><a href="/application-pronostics-rugby/">L'app iPhone et Android</a></nav>
   <h2 id="titre-grille" class="cache">Organiser un concours de pronostics rugby au bureau, au club ou en famille</h2>
   <div class="barre"><span class="gauche-barre">Le concours dans Drop League</span><span class="compte">3 étapes · 1 code · 1 classement</span><span class="droite">Les points ne servent qu'au classement</span></div>
   <ul class="grille">
@@ -318,7 +332,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Étape 1</span>
     <div class="numero"><b>1</b><small>ligue</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Dans l'onglet Ligues, touche « Créer ma ligue » et donne-lui un nom.</p>
+    <p class="texte-carte">Dans l'onglet Ligues, touche « Créer ma ligue » et donne-lui un nom.</p>
   </div>
   <h3 class="nom-carte"><a href="#cree-la-ligue">Crée la ligue</a></h3>
   <p class="prix">Une ligue privée</p>
@@ -328,10 +342,10 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Étape 2</span>
     <div class="numero"><b>6</b><small>caractères</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Touche « Inviter des potes » : le partage de ton téléphone s'ouvre avec le code.</p>
+    <p class="texte-carte">Touche « Inviter des potes » : le partage de ton téléphone s'ouvre avec le code.</p>
   </div>
   <h3 class="nom-carte"><a href="#partage-le-code">Partage le code</a></h3>
-  <p class="prix">À taper dans « J'ai un code d'invitation »</p>
+  <p class="prix">À taper dans « J'ai un code d'invitation »</p>
 </li>
 <li class="carte tuile">
   <div class="visuel">
@@ -346,7 +360,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Étape 3</span>
     <div class="numero"><b>2</b><small>chiffres</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Dans l'onglet Pronos, chacun touche « Faire mon prono » et pose les deux chiffres du score.</p>
+    <p class="texte-carte">Dans l'onglet Pronos, chacun touche « Faire mon prono » et pose les deux chiffres du score.</p>
   </div>
   <h3 class="nom-carte"><a href="#chacun-annonce-ses-scores">Chacun annonce ses scores</a></h3>
   <p class="prix">Modifiable jusqu'au coup d'envoi</p>
@@ -366,7 +380,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
     
     <div class="numero"><b>=</b><small>classement</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Joueurs et joueuses, encadrement, bénévoles, parents du bord du terrain : tout le monde au même classement.</p>
+    <p class="texte-carte">Joueurs et joueuses, encadrement, bénévoles, parents du bord du terrain : tout le monde au même classement.</p>
   </div>
   <h3 class="nom-carte"><a href="#au-club">Au club</a></h3>
   <p class="prix">Le même code pour tout le monde</p>
@@ -376,17 +390,27 @@ details[open]>summary .plus{transform:rotate(45deg)}
     
     <div class="numero"><b>0</b><small>au départ</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Chaque nouvelle ligue part de zéro le jour de sa création : à chaque saison, tu peux en lancer une neuve.</p>
+    <p class="texte-carte">Chaque nouvelle ligue part de zéro le jour de sa création : à chaque saison, tu peux en lancer une neuve.</p>
   </div>
   <h3 class="nom-carte"><a href="#en-famille">En famille</a></h3>
   <p class="prix">D'une saison à l'autre</p>
+</li>
+<li class="carte" id="la-coupe-du-monde-de-rugby">
+  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="40" ry="25" transform="rotate(-35 50 50)" fill="none" stroke="currentColor" stroke-width="5"/></svg>
+    <span class="etiquette petites-capitales">Bientôt</span>
+    <div class="numero"><b>Tous</b><small>partants</small></div>
+    <div class="trait" aria-hidden="true"></div>
+    <p class="texte-carte">Elle sera à pronostiquer dans Drop League, et même les collègues qui ne suivent pas le Top 14 voudront en être.</p>
+  </div>
+  <h3 class="nom-carte"><a href="/competitions/coupe-du-monde/">La Coupe du monde de rugby</a></h3>
+  <p class="prix">Le grand concours du bureau</p>
 </li>
 <li class="carte" id="une-competition-ou-toutes">
   <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><line x1="30" y1="6" x2="30" y2="94"/><line x1="70" y1="6" x2="70" y2="94"/><line x1="30" y1="62" x2="70" y2="62"/></g></svg>
     <span class="etiquette petites-capitales">Ta ligue</span>
     <div class="numero"><b>6</b><small>au choix</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Sous « Sur quelle compétition ? », touche « Toutes compétitions » ou une seule : rien que le Top 14, ou rien que le 6 Nations.</p>
+    <p class="texte-carte">Sous « Sur quelle compétition ? », touche « Toutes compétitions » ou une seule : rien que le Top 14, ou rien que le 6 Nations.</p>
   </div>
   <h3 class="nom-carte"><a href="/competitions/">Une compétition ou toutes</a></h3>
   <p class="prix">C'est toi qui choisis</p>
@@ -421,77 +445,72 @@ details[open]>summary .plus{transform:rotate(45deg)}
   <h3 class="nom-carte"><a href="/regles/gestes-techniques/">Le Caramel</a></h3>
   <p class="prix">Pour la personne en tête du concours</p>
 </li>
-<li class="carte" id="plusieurs-concours-a-la-fois">
-  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><line x1="30" y1="6" x2="30" y2="94"/><line x1="70" y1="6" x2="70" y2="94"/><line x1="30" y1="62" x2="70" y2="62"/></g></svg>
-    
-    <div class="numero"><b>3+</b><small>ligues</small></div>
-    <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">La ligue du bureau, celle du club, celle de la famille : chacune avec son classement.</p>
-  </div>
-  <h3 class="nom-carte"><a href="/la-bagarre-generale/">Plusieurs concours à la fois</a></h3>
-  <p class="prix">Et La Bagarre Générale</p>
-</li>
   </ul>
 </section>
+
 <section class="faq" aria-labelledby="titre-faq">
   <div class="largeur">
     <p class="accroche petites-capitales">Trouve vite la réponse à tes questions</p>
     <h2 id="titre-faq">FAQ concours de pronostics rugby</h2>
     <div class="filet" aria-hidden="true"></div>
     <div class="faq-liste">
-      <details><summary><h3>Comment organiser un concours de pronostics rugby ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue ». Donne-lui un nom, prends toutes les compétitions ou une seule, puis touche « Inviter des potes » pour partager le code d'invitation de six caractères. Les personnes invitées le tapent dans « J'ai un code d'invitation », puis tout le monde annonce le score exact des matchs avant le coup d'envoi.</p></div></details>
-      <details><summary><h3>On peut faire un concours sur une seule compétition ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui. À la création de la ligue, sous « Sur quelle compétition ? », tu touches « Toutes compétitions » ou une seule : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations ou le Nations Championship. Le classement de la ligue ne compte alors que les matchs de cette compétition.</p></div></details>
-      <details><summary><h3>Un concours lancé en cours de saison, ça marche ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui. Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle. Quelqu'un qui la rejoint plus tard marque à partir de son arrivée : les journées déjà jouées de la ligue ne lui sont pas attribuées.</p></div></details>
-      <details><summary><h3>Qui tient le classement du concours ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Drop League s'en charge. Les points sont comptés après le coup de sifflet final, en quelques minutes, et le classement de la ligue suit tout seul. Chaque membre le retrouve dans l'onglet Classement.</p></div></details>
-      <details><summary><h3>On peut être dans plusieurs concours à la fois ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui : la ligue du bureau, celle du club, celle de la famille, chacune avec son classement. Tu es aussi dans La Bagarre Générale, le classement de tout le monde sur Drop League, dès ton inscription.</p></div></details>
-      <details><summary><h3>À quoi servent les points ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Pronostics entre amis : les points ne servent qu'au classement, celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant.</p></div></details>
-      <details><summary><h3>Drop League est-elle sur iPhone et Android ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android.</p></div></details>
+      <details><summary><h3>Comment organiser un concours de pronostics rugby ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue ». Donne-lui un nom, prends toutes les compétitions ou une seule, puis touche « Inviter des potes » pour partager le code d'invitation de six caractères. Les personnes invitées le tapent dans « J'ai un code d'invitation », puis tout le monde annonce le score exact des matchs avant le coup d'envoi.</p></div></details>
+      <details><summary><h3>On peut faire un concours sur une seule compétition ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui. À la création de la ligue, sous « Sur quelle compétition ? », tu touches « Toutes compétitions » ou une seule : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations ou le Nations Championship. Le classement de la ligue ne compte alors que les matchs de cette compétition.</p></div></details>
+      <details><summary><h3>On peut faire un concours de pronostics pour la Coupe du monde de rugby ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Bientôt : la Coupe du monde de rugby sera à pronostiquer dans Drop League, mais elle n'y est pas encore. En attendant, tu peux déjà lancer un concours sur le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations ou le Nations Championship : crée ta ligue, partage le code, et ta bande aura l'app en main le jour où la Coupe du monde y arrivera.</p></div></details>
+      <details><summary><h3>Un concours lancé en cours de saison, ça marche ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui. Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle. Quelqu'un qui la rejoint plus tard marque à partir de son arrivée : les journées déjà jouées de la ligue ne lui sont pas attribuées.</p></div></details>
+      <details><summary><h3>Qui tient le classement du concours ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Drop League s'en charge. Les points sont comptés après le coup de sifflet final, en quelques minutes, et le classement de la ligue suit tout seul. Chaque membre le retrouve dans l'onglet Classement.</p></div></details>
+      <details><summary><h3>On peut être dans plusieurs concours à la fois ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui : la ligue du bureau, celle du club, celle de la famille, chacune avec son classement. Tu es aussi dans La Bagarre Générale, le classement de tout le monde sur Drop League, dès ton inscription.</p></div></details>
+      <details><summary><h3>À quoi servent les points ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Pronostics entre amis : les points ne servent qu'au classement, celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant.</p></div></details>
+      <details><summary><h3>Drop League est-elle sur iPhone et Android ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android.</p></div></details>
     </div>
   </div>
 </section>
 <article class="largeur"><div class="texte-seo">
   <h2>Le concours de pronostics rugby</h2>
   <div class="filet" aria-hidden="true"></div>
-  <p>Sur Drop League, un concours de pronostics rugby, c'est une ligue privée. Tu la crées dans l'app, tu partages son code d'invitation de six caractères, et chaque membre annonce le score exact des matchs avant le coup d'envoi. Le classement se tient tout seul, au bureau, au club ou en famille : il ne te reste que le chambrage.</p>
-  <h2>C'est quoi, Drop League ?</h2>
-  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+  <p>Sur Drop League, un concours de pronostics rugby, c'est une ligue privée. Tu la crées dans l'app, tu partages son code d'invitation de six caractères, et chaque membre annonce le score exact des matchs avant le coup d'envoi. Le classement se tient tout seul, au bureau, au club ou en famille : il ne te reste que le chambrage. Bientôt, la Coupe du monde de rugby sera aussi à pronostiquer dans Drop League : le moment rêvé pour lancer le concours de tout le bureau.</p>
+  <h2>C'est quoi, Drop League ?</h2>
+  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
   <details class="lire-plus"><summary>Lire plus</summary>
-  <h2>Comment organiser un concours de pronostics rugby en trois étapes ?</h2>
+  <h2>Comment organiser un concours de pronostics rugby en trois étapes ?</h2>
   <p>Tu crées une ligue privée dans l'app, tu partages son code d'invitation de six caractères, et chaque membre annonce le score exact des matchs avant le coup d'envoi. Le classement se tient tout seul.</p>
   <h3>Crée la ligue</h3>
-  <p>Dans l'onglet Ligues, touche « Créer ma ligue » et donne-lui un nom. Sous « Sur quelle compétition ? », choisis « Toutes compétitions » ou une seule.</p>
+  <p>Dans l'onglet Ligues, touche « Créer ma ligue » et donne-lui un nom. Sous « Sur quelle compétition ? », choisis « Toutes compétitions » ou une seule.</p>
   <h3>Partage le code</h3>
-  <p>Touche « Inviter des potes » : le partage de ton téléphone s'ouvre avec le code. Les autres touchent « J'ai un code d'invitation », tapent les six caractères, puis « Rejoindre la ligue ».</p>
+  <p>Touche « Inviter des potes » : le partage de ton téléphone s'ouvre avec le code. Les autres touchent « J'ai un code d'invitation », tapent les six caractères, puis « Rejoindre la ligue ».</p>
   <h3>Chacun annonce ses scores</h3>
-  <p>Dans l'onglet Pronos, chacun touche « Faire mon prono », pose les deux chiffres et touche « Valider mon prono ». Le prono reste modifiable jusqu'au coup d'envoi.</p>
-  <h2>Comment lancer le concours de pronos rugby du bureau ?</h2>
-  <p>Le concours de pronos au bureau se tient sans tableur : chaque collègue pose ses scores dans l'app, et le classement de la ligue se met à jour tout seul après chaque match. Les points tombent quelques minutes après le coup de sifflet final. Le lundi matin, il ne reste qu'à commenter.</p>
-  <p>Entre collègues, le code circule comme tu veux : le bouton « Inviter des potes » ouvre le partage de ton téléphone avec un message tout prêt. Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle, et personne n'arrive avec de l'avance. Le concours de l'équipe démarre le jour où tu le lances.</p>
-  <h2>Comment mettre tout le club au même classement ?</h2>
-  <p>Au club, une seule ligue met tout le monde au même classement : joueurs et joueuses, encadrement, bénévoles, parents du bord du terrain. Chacun la rejoint avec le même code de six caractères, et tout le monde est compté au même barème.</p>
-  <p>Pour la compétition, c'est la personne qui crée la ligue qui choisit : toutes les compétitions, ou rien que le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations ou le Nations Championship. Et chacun peut être dans plusieurs ligues, celle du club et celle de la bande de l'équipe, chacune avec son classement. <a href="/competitions/">Les six compétitions de Drop League</a>.</p>
-  <h2>Comment monter un concours en famille, d'une saison à l'autre ?</h2>
-  <p>Une ligue de famille se monte pour toute la saison ou rien que pour le 6 Nations. Chaque nouvelle ligue part de zéro le jour de sa création : à chaque saison, tu peux en lancer une neuve. Et chaque saison, dans chaque compétition, chacun a sa Chistera et son Caramel, les mêmes pour tout le monde.</p>
-  <p>Le Top 14 le week-end, le 6 Nations en février et en mars, et de quoi parler au repas du dimanche. Le montage est le même que pour la bande de potes : suis le guide des <a href="/pronostics-rugby-entre-amis/">pronostics rugby entre amis</a>.</p>
+  <p>Dans l'onglet Pronos, chacun touche « Faire mon prono », pose les deux chiffres et touche « Valider mon prono ». Le prono reste modifiable jusqu'au coup d'envoi.</p>
+  <h2>Comment lancer le concours de pronos rugby du bureau ?</h2>
+  <p>Le concours de pronos au bureau se tient sans tableur : chaque collègue pose ses scores dans l'app, et le classement de la ligue se met à jour tout seul après chaque match. Les points tombent quelques minutes après le coup de sifflet final. Le lundi matin, il ne reste qu'à commenter.</p>
+  <p>Entre collègues, le code circule comme tu veux : le bouton « Inviter des potes » ouvre le partage de ton téléphone avec un message tout prêt. Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle, et personne n'arrive avec de l'avance. Le concours de l'équipe démarre le jour où tu le lances.</p>
+  <h2>Un concours de pronostics pour la Coupe du monde de rugby ?</h2>
+  <p>La <a href="/competitions/coupe-du-monde/">Coupe du monde de rugby</a> sera bientôt à pronostiquer dans Drop League, mais elle n'y est pas encore. Au bureau, ce sera le concours dont tout le monde voudra être, même les collègues qui ne regardent jamais un match le week-end, et on en reparlera longtemps à la machine à café.</p>
+  <p>En attendant, rien ne t'empêche de lancer un concours dès maintenant sur une compétition déjà dans l'app, du Top 14 au 6 Nations : le code circule, chacun installe Drop League et prend le réflexe du score exact. Le jour venu, personne n'aura à découvrir l'app.</p>
+  <h2>Comment mettre tout le club au même classement ?</h2>
+  <p>Au club, une seule ligue met tout le monde au même classement : joueurs et joueuses, encadrement, bénévoles, parents du bord du terrain. Chacun la rejoint avec le même code de six caractères, et tout le monde est compté au même barème.</p>
+  <p>Pour la compétition, c'est la personne qui crée la ligue qui choisit : toutes les compétitions, ou rien que le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations ou le Nations Championship. Et chacun peut être dans plusieurs ligues, celle du club et celle de la bande de l'équipe, chacune avec son classement. <a href="/competitions/">Les six compétitions de Drop League</a>.</p>
+  <h2>Comment monter un concours en famille, d'une saison à l'autre ?</h2>
+  <p>Une ligue de famille se monte pour toute la saison ou rien que pour le 6 Nations. Chaque nouvelle ligue part de zéro le jour de sa création : à chaque saison, tu peux en lancer une neuve. Et chaque saison, dans chaque compétition, chacun a sa Chistera et son Caramel, les mêmes pour tout le monde.</p>
+  <p>Le Top 14 le week-end, le 6 Nations en février et en mars, et de quoi parler au repas du dimanche. Le montage est le même que pour la bande de potes : suis le guide des <a href="/pronostics-rugby-entre-amis/">pronostics rugby entre amis</a>.</p>
   <h2>Le même barème pour tout le monde</h2>
-  <p>Dans ton concours, tout le monde joue au barème de Drop League. Ton prono, c'est le score exact du match : le vainqueur et l'écart suivent tout seuls. Avec ou sans <a href="/la-loge/">La Loge</a>, chacun marque exactement les mêmes points.</p>
+  <p>Dans ton concours, tout le monde joue au barème de Drop League. Ton prono, c'est le score exact du match : le vainqueur et l'écart suivent tout seuls. Avec ou sans <a href="/la-loge/">La Loge</a>, chacun marque exactement les mêmes points.</p>
   <div class="tableau"><table>
     <thead><tr><th scope="col">Points</th><th scope="col">Ce qui les rapporte</th></tr></thead>
     <tbody>
-      <tr><td class="points">+1</td><td>La participation : chaque prono posé avant le coup d'envoi.</td></tr>
-      <tr><td class="points">+3</td><td>La pénalité passée : bon vainqueur, quand l'équipe qui reçoit gagne.</td></tr>
-      <tr><td class="points">+5</td><td>L'essai : bon vainqueur, quand l'équipe qui se déplace gagne.</td></tr>
-      <tr><td class="points">+2</td><td>La transformation : bon vainqueur, et écart juste à 3 points près.</td></tr>
-      <tr><td class="points">+2</td><td>Le buteur : le score exact d'une des deux équipes.</td></tr>
-      <tr><td class="points">+10</td><td>Le graal : le score exact des deux équipes, à la place du buteur.</td></tr>
-      <tr><td class="points">+15</td><td>Le XV : nul annoncé, nul joué.</td></tr>
+      <tr><td class="points">+1</td><td>La participation : chaque prono posé avant le coup d'envoi.</td></tr>
+      <tr><td class="points">+3</td><td>La pénalité passée : bon vainqueur, quand l'équipe qui reçoit gagne.</td></tr>
+      <tr><td class="points">+5</td><td>L'essai : bon vainqueur, quand l'équipe qui se déplace gagne.</td></tr>
+      <tr><td class="points">+2</td><td>La transformation : bon vainqueur, et écart juste à 3 points près.</td></tr>
+      <tr><td class="points">+2</td><td>Le buteur : le score exact d'une des deux équipes.</td></tr>
+      <tr><td class="points">+10</td><td>Le graal : le score exact des deux équipes, à la place du buteur.</td></tr>
+      <tr><td class="points">+15</td><td>Le XV : nul annoncé, nul joué.</td></tr>
     </tbody>
   </table></div>
-  <p>En sélection, le bon vainqueur vaut 3 ou 4 points ; sur terrain neutre, 4. Sur un match de club, au plus 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, 26 sur un nul. <a href="/regles/">Toutes les règles du jeu</a>, avec trois exemples chiffrés.</p>
-  <p>Pronostics entre amis : les points ne servent qu'au classement.</p>
+  <p>En sélection, le bon vainqueur vaut 3 ou 4 points ; sur terrain neutre, 4. Sur un match de club, au plus 16 points quand l'équipe qui reçoit gagne, 18 quand celle qui se déplace gagne, 26 sur un nul. <a href="/regles/">Toutes les règles du jeu</a>, avec trois exemples chiffrés.</p>
+  <p>Pronostics entre amis : les points ne servent qu'au classement.</p>
   <h2>Chambrer au Club-house</h2>
   <p>Chaque ligue privée a son Club-house, son fil de discussion. C'est là qu'on refait la journée, qu'on envoie un GIF, et qu'on rappelle pendant trois semaines le 40-0 annoncé par quelqu'un qui préférerait qu'on l'oublie. Aux résultats de la journée, les Chisteras et les Caramels s'y révèlent.</p>
-  <p>Dans l'onglet Ligues, touche « Discussion — Le Club-house » sur la carte de ta ligue : le champ de saisie t'attend avec un « Chambre un peu… ». Et pour la personne en tête du concours, il y a le Caramel : il coupe en deux le total d'une journée d'un membre de ta ligue privée, dans cette ligue seulement. <a href="/regles/gestes-techniques/">Les gestes techniques en détail</a>.</p>
+  <p>Dans l'onglet Ligues, touche « Discussion — Le Club-house » sur la carte de ta ligue : le champ de saisie t'attend avec un « Chambre un peu… ». Et pour la personne en tête du concours, il y a le Caramel : il coupe en deux le total d'une journée d'un membre de ta ligue privée, dans cette ligue seulement. <a href="/regles/gestes-techniques/">Les gestes techniques en détail</a>.</p>
   </details>
 </div></article>
 <section class="largeur reassurance" aria-label="Drop League en bref"><ul>
@@ -506,14 +525,14 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="slogan">Deviens le meilleur pronostiqueur de ta ligue</p>
     <div class="colonnes">
       <div><b class="titre petites-capitales">Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-bagarre-generale/classement/">Le classement</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
-      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li><li><a href="/competitions/coupe-du-monde/">Coupe du monde</a></li></ul></div>
       <div><b class="titre petites-capitales">Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a aria-current="page">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
       <div><b class="titre petites-capitales">Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
       <div class="appli"><b class="titre petites-capitales">L'app</b><p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p><div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div></div>
     </div>
-    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
+    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
   </div>
 </footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Concours de pronostics rugby","item":"https://dropleague.app/concours-pronostics-rugby/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/concours-pronostics-rugby/#page","url":"https://dropleague.app/concours-pronostics-rugby/","name":"Un concours de pronostics rugby, au bureau, au club ou en famille","description":"Organise un concours de pronostics rugby au bureau, au club ou en famille : une ligue privée, un code et un classement à jour, sur iPhone et Android.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Les étapes et les règles d'un concours de pronostics rugby","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"Crée la ligue · Une ligue privée","url":"https://dropleague.app/concours-pronostics-rugby/#cree-la-ligue"},{"@type":"ListItem","position":2,"name":"Partage le code · À taper dans « J'ai un code d'invitation »","url":"https://dropleague.app/concours-pronostics-rugby/#partage-le-code"},{"@type":"ListItem","position":3,"name":"Chacun annonce ses scores · Modifiable jusqu'au coup d'envoi","url":"https://dropleague.app/concours-pronostics-rugby/#chacun-annonce-ses-scores"},{"@type":"ListItem","position":4,"name":"Au bureau · Le concours de l'équipe","url":"https://dropleague.app/concours-pronostics-rugby/#au-bureau"},{"@type":"ListItem","position":5,"name":"Au club · Le même code pour tout le monde","url":"https://dropleague.app/concours-pronostics-rugby/#au-club"},{"@type":"ListItem","position":6,"name":"En famille · D'une saison à l'autre","url":"https://dropleague.app/concours-pronostics-rugby/#en-famille"},{"@type":"ListItem","position":7,"name":"Une compétition ou toutes · C'est toi qui choisis","url":"https://dropleague.app/competitions/"},{"@type":"ListItem","position":8,"name":"Le même barème · Pour tout le monde","url":"https://dropleague.app/regles/"},{"@type":"ListItem","position":9,"name":"Le Club-house · Le fil de discussion de ta ligue","url":"https://dropleague.app/concours-pronostics-rugby/#le-club-house"},{"@type":"ListItem","position":10,"name":"Le Caramel · Pour la personne en tête du concours","url":"https://dropleague.app/regles/gestes-techniques/"},{"@type":"ListItem","position":11,"name":"Plusieurs concours à la fois · Et La Bagarre Générale","url":"https://dropleague.app/la-bagarre-generale/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Comment organiser un concours de pronostics rugby ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue ». Donne-lui un nom, prends toutes les compétitions ou une seule, puis touche « Inviter des potes » pour partager le code d'invitation de six caractères. Les personnes invitées le tapent dans « J'ai un code d'invitation », puis tout le monde annonce le score exact des matchs avant le coup d'envoi."}},{"@type":"Question","name":"On peut faire un concours sur une seule compétition ?","acceptedAnswer":{"@type":"Answer","text":"Oui. À la création de la ligue, sous « Sur quelle compétition ? », tu touches « Toutes compétitions » ou une seule : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations ou le Nations Championship. Le classement de la ligue ne compte alors que les matchs de cette compétition."}},{"@type":"Question","name":"Un concours lancé en cours de saison, ça marche ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle. Quelqu'un qui la rejoint plus tard marque à partir de son arrivée : les journées déjà jouées de la ligue ne lui sont pas attribuées."}},{"@type":"Question","name":"Qui tient le classement du concours ?","acceptedAnswer":{"@type":"Answer","text":"Drop League s'en charge. Les points sont comptés après le coup de sifflet final, en quelques minutes, et le classement de la ligue suit tout seul. Chaque membre le retrouve dans l'onglet Classement."}},{"@type":"Question","name":"On peut être dans plusieurs concours à la fois ?","acceptedAnswer":{"@type":"Answer","text":"Oui : la ligue du bureau, celle du club, celle de la famille, chacune avec son classement. Tu es aussi dans La Bagarre Générale, le classement de tout le monde sur Drop League, dès ton inscription."}},{"@type":"Question","name":"À quoi servent les points ?","acceptedAnswer":{"@type":"Answer","text":"Pronostics entre amis : les points ne servent qu'au classement, celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant."}},{"@type":"Question","name":"Drop League est-elle sur iPhone et Android ?","acceptedAnswer":{"@type":"Answer","text":"Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Concours de pronostics rugby","item":"https://dropleague.app/concours-pronostics-rugby/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/concours-pronostics-rugby/#page","url":"https://dropleague.app/concours-pronostics-rugby/","name":"Un concours de pronostics rugby, au bureau, au club ou en famille","description":"Lance le concours de pronostics rugby du bureau, du club ou de la famille : une ligue, un code, un classement automatique, et bientôt la Coupe du monde.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"Les étapes et les règles d'un concours de pronostics rugby","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"Crée la ligue · Une ligue privée","url":"https://dropleague.app/concours-pronostics-rugby/#cree-la-ligue"},{"@type":"ListItem","position":2,"name":"Partage le code · À taper dans « J'ai un code d'invitation »","url":"https://dropleague.app/concours-pronostics-rugby/#partage-le-code"},{"@type":"ListItem","position":3,"name":"Chacun annonce ses scores · Modifiable jusqu'au coup d'envoi","url":"https://dropleague.app/concours-pronostics-rugby/#chacun-annonce-ses-scores"},{"@type":"ListItem","position":4,"name":"Au bureau · Le concours de l'équipe","url":"https://dropleague.app/concours-pronostics-rugby/#au-bureau"},{"@type":"ListItem","position":5,"name":"Au club · Le même code pour tout le monde","url":"https://dropleague.app/concours-pronostics-rugby/#au-club"},{"@type":"ListItem","position":6,"name":"En famille · D'une saison à l'autre","url":"https://dropleague.app/concours-pronostics-rugby/#en-famille"},{"@type":"ListItem","position":7,"name":"La Coupe du monde de rugby · Le grand concours du bureau","url":"https://dropleague.app/competitions/coupe-du-monde/"},{"@type":"ListItem","position":8,"name":"Une compétition ou toutes · C'est toi qui choisis","url":"https://dropleague.app/competitions/"},{"@type":"ListItem","position":9,"name":"Le même barème · Pour tout le monde","url":"https://dropleague.app/regles/"},{"@type":"ListItem","position":10,"name":"Le Club-house · Le fil de discussion de ta ligue","url":"https://dropleague.app/concours-pronostics-rugby/#le-club-house"},{"@type":"ListItem","position":11,"name":"Le Caramel · Pour la personne en tête du concours","url":"https://dropleague.app/regles/gestes-techniques/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Comment organiser un concours de pronostics rugby ?","acceptedAnswer":{"@type":"Answer","text":"Dans l'app Drop League, ouvre l'onglet Ligues et touche « Créer ma ligue ». Donne-lui un nom, prends toutes les compétitions ou une seule, puis touche « Inviter des potes » pour partager le code d'invitation de six caractères. Les personnes invitées le tapent dans « J'ai un code d'invitation », puis tout le monde annonce le score exact des matchs avant le coup d'envoi."}},{"@type":"Question","name":"On peut faire un concours sur une seule compétition ?","acceptedAnswer":{"@type":"Answer","text":"Oui. À la création de la ligue, sous « Sur quelle compétition ? », tu touches « Toutes compétitions » ou une seule : le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations ou le Nations Championship. Le classement de la ligue ne compte alors que les matchs de cette compétition."}},{"@type":"Question","name":"On peut faire un concours de pronostics pour la Coupe du monde de rugby ?","acceptedAnswer":{"@type":"Answer","text":"Bientôt : la Coupe du monde de rugby sera à pronostiquer dans Drop League, mais elle n'y est pas encore. En attendant, tu peux déjà lancer un concours sur le Top 14, la Pro D2, la Champions Cup, la Challenge Cup, le 6 Nations ou le Nations Championship : crée ta ligue, partage le code, et ta bande aura l'app en main le jour où la Coupe du monde y arrivera."}},{"@type":"Question","name":"Un concours lancé en cours de saison, ça marche ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Une ligue créée en cours de saison part de zéro : les journées déjà commencées ne comptent pas pour elle. Quelqu'un qui la rejoint plus tard marque à partir de son arrivée : les journées déjà jouées de la ligue ne lui sont pas attribuées."}},{"@type":"Question","name":"Qui tient le classement du concours ?","acceptedAnswer":{"@type":"Answer","text":"Drop League s'en charge. Les points sont comptés après le coup de sifflet final, en quelques minutes, et le classement de la ligue suit tout seul. Chaque membre le retrouve dans l'onglet Classement."}},{"@type":"Question","name":"On peut être dans plusieurs concours à la fois ?","acceptedAnswer":{"@type":"Answer","text":"Oui : la ligue du bureau, celle du club, celle de la famille, chacune avec son classement. Tu es aussi dans La Bagarre Générale, le classement de tout le monde sur Drop League, dès ton inscription."}},{"@type":"Question","name":"À quoi servent les points ?","acceptedAnswer":{"@type":"Answer","text":"Pronostics entre amis : les points ne servent qu'au classement, celui de ta ligue et celui de La Bagarre Générale. Ce qui se remporte ici, c'est une place au classement et le droit d'en reparler jusqu'au week-end suivant."}},{"@type":"Question","name":"Drop League est-elle sur iPhone et Android ?","acceptedAnswer":{"@type":"Answer","text":"Oui : sur l'App Store pour l'iPhone et sur Google Play pour Android."}}]}]}</script>
 </body>
 </html>

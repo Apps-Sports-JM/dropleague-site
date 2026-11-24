@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Drop League pour la presse : faits, visuels, contact</title>
-<meta name="description" content="Annonce le score exact des matchs de rugby entre amis avec Drop League : fiche presse, faits clés, icône, visuels et contact, sur iPhone et Android.">
+<title>Drop League pour la presse : l'appli de pronos rugby</title>
+<meta name="description" content="Tout pour parler de Drop League, l'appli française de pronostics rugby entre amis, bientôt avec la Coupe du monde : faits clés, icône, visuels sur demande.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1B3A26">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
@@ -15,8 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Drop League">
-<meta property="og:title" content="Drop League pour la presse : faits, visuels, contact">
-<meta property="og:description" content="Annonce le score exact des matchs de rugby entre amis avec Drop League : fiche presse, faits clés, icône, visuels et contact, sur iPhone et Android.">
+<meta property="og:title" content="Drop League pour la presse : l'appli de pronos rugby">
+<meta property="og:description" content="Tout pour parler de Drop League, l'appli française de pronostics rugby entre amis, bientôt avec la Coupe du monde : faits clés, icône, visuels sur demande.">
 <meta property="og:image" content="https://dropleague.app/icon-256.png">
 <meta property="og:url" content="https://dropleague.app/presse/">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Tuile d'ambiance dans la grille */
 .tuile .visuel{background:var(--vert);color:var(--sur-vert);justify-content:flex-end;text-align:left}
-.tuile .dessin{position:absolute;top:0;left:0;width:100%;height:56%}
+.tuile .dessin{display:block;flex:1 1 0;min-height:90px;width:100%;margin:0 0 14px}
 .tuile h2{position:relative;margin:0;font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.05}
 .tuile h2 em{font-weight:400;color:var(--orange)}
 .tuile p{position:relative;margin:10px 0 0;font-size:13.5px;opacity:.9}
@@ -202,6 +202,20 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .progression i{position:absolute;inset:0 auto 0 0;background:var(--orange)}
 .suite-grille .voir{border:1px solid var(--texte);color:var(--texte);border-radius:999px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .suite-grille[open]>summary{display:none}
+
+/* Poules d'un tournoi : une carte par poule, chaque nation avec son drapeau */
+.poules{padding-block:70px 0;text-align:center}
+.poules h2{margin:0;font-family:var(--serif);font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.05;text-wrap:balance}
+.poules .filet{margin:22px auto 18px}
+.intro-poules{max-width:680px;margin:0 auto 30px;color:var(--doux);font-size:15px}
+.grille-poules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left}
+@media (max-width:989px){.grille-poules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grille-poules{grid-template-columns:1fr}}
+.poule{background:var(--sauge);border-radius:6px;padding:20px 22px}
+.poule h3{margin:0 0 12px;color:var(--orange);font-size:13px}
+.poule ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.poule li{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500}
+.poule .drapeau{flex:0 0 auto;width:30px;height:20px;border-radius:2px;display:block}
 
 /* FAQ */
 .faq{background:var(--sauge);margin-top:80px;padding-block:70px 76px}
@@ -277,7 +291,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
 </style>
 </head>
 <body>
-<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
+<div class="annonce" aria-label="Annonces"><div class="defile"><span>Pronostics entre amis : les points ne servent qu'au classement</span><span>Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span>Sur iPhone et Android</span><span>Tu dis quoi, toi ?</span><span aria-hidden="true">Pronostics entre amis : les points ne servent qu'au classement</span><span aria-hidden="true">Top 14 · Pro D2 · Champions Cup · Challenge Cup · 6 Nations · Nations Championship</span><span aria-hidden="true">Sur iPhone et Android</span><span aria-hidden="true">Tu dis quoi, toi ?</span></div></div>
 <header class="entete">
   <div class="largeur haut">
     <div class="gauche">
@@ -296,9 +310,9 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="surtitre petites-capitales">Drop League · Presse</p>
     <h1 id="titre-page">Drop League <em>pour la presse</em></h1>
     <div class="filet" aria-hidden="true"></div>
-    <p class="intro">Les faits clés, l'icône de l'app et l'adresse pour nous écrire : tout ce qu'il faut pour parler de <strong>Drop League</strong>, l'app de pronostics rugby entre amis. Captures d'écran et visuels en haute définition sur demande.</p>
+    <p class="intro">Les faits clés, l'icône de l'app et l'adresse pour nous écrire : tout ce qu'il faut pour parler de <strong>Drop League</strong>, l'app de pronostics rugby entre amis. Captures d'écran et visuels en haute définition sur demande. Bientôt, la <a href="/competitions/coupe-du-monde/">Coupe du monde de rugby</a> sera aussi à pronostiquer dans l'app.</p>
     <div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div>
-    <p class="signature">Pronostics entre amis : les points ne servent qu'au classement.</p>
+    <p class="signature">Pronostics entre amis : les points ne servent qu'au classement.</p>
   </div>
   <figure class="cliche">
     <picture>
@@ -309,7 +323,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
   </figure>
 </section>
 <section class="largeur" aria-labelledby="titre-grille">
-  <nav class="liees" aria-label="Pages liées"><a href="/a-propos/">À propos</a><a href="/regles/">Règles du jeu</a><a href="/regles/gestes-techniques/">Gestes techniques</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/competitions/">Les six compétitions</a><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a><a href="/questions/">Questions fréquentes</a><a href="/support/">Support</a></nav>
+  <nav class="liees" aria-label="Pages liées"><a href="/a-propos/">À propos</a><a href="/regles/">Règles du jeu</a><a href="/regles/gestes-techniques/">Gestes techniques</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/competitions/">Les six compétitions</a><a href="/competitions/coupe-du-monde/">Coupe du monde</a><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a><a href="/questions/">Questions fréquentes</a><a href="/support/">Support</a></nav>
   <h2 id="titre-grille" class="cache">La fiche presse de Drop League</h2>
   <div class="barre"><span class="gauche-barre">Drop League pour la presse</span><span class="compte">2 plateformes · 6 compétitions · 1 adresse</span><span class="droite">Visuels en haute définition sur demande</span></div>
   <ul class="grille">
@@ -341,18 +355,8 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <a class="cta" href="/application-pronostics-rugby/">Télécharger l'app</a>
   </div>
 </li>
-<li class="carte" id="la-langue">
+<li class="carte" id="les-competitions">
   <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><circle cx="40" cy="58" r="26" fill="none" stroke="currentColor" stroke-width="5"/><path d="M58 40 L94 22 M62 54 L94 40" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
-    <span class="etiquette petites-capitales">Langue</span>
-    <div class="numero"><b>FR</b></div>
-    <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">L'app Drop League est en français, sur iPhone et sur Android.</p>
-  </div>
-  <h3 class="nom-carte"><a href="#la-langue">La langue</a></h3>
-  <p class="prix">Français</p>
-</li>
-<li class="carte ton-vert" id="les-competitions">
-  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><line x1="30" y1="6" x2="30" y2="94"/><line x1="70" y1="6" x2="70" y2="94"/><line x1="30" y1="62" x2="70" y2="62"/></g></svg>
     <span class="etiquette petites-capitales">Compétitions</span>
     <div class="numero"><b>6</b><small>compétitions</small></div>
     <div class="trait" aria-hidden="true"></div>
@@ -361,12 +365,22 @@ details[open]>summary .plus{transform:rotate(45deg)}
   <h3 class="nom-carte"><a href="/competitions/">Les compétitions</a></h3>
   <p class="prix">Toutes, ou une seule par ligue</p>
 </li>
+<li class="carte ton-vert" id="la-coupe-du-monde-de-rugby">
+  <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><line x1="30" y1="6" x2="30" y2="94"/><line x1="70" y1="6" x2="70" y2="94"/><line x1="30" y1="62" x2="70" y2="62"/></g></svg>
+    <span class="etiquette petites-capitales">À venir</span>
+    <div class="numero"><b>+1</b><small>compétition</small></div>
+    <div class="trait" aria-hidden="true"></div>
+    <p class="texte-carte">La Coupe du monde de rugby sera bientôt à pronostiquer dans Drop League, entre amis : sa page présente déjà la compétition.</p>
+  </div>
+  <h3 class="nom-carte"><a href="/competitions/coupe-du-monde/">La Coupe du monde de rugby</a></h3>
+  <p class="prix">Bientôt dans l'app</p>
+</li>
 <li class="carte" id="le-contact">
   <div class="visuel"><svg class="motif" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="40" ry="25" transform="rotate(-35 50 50)" fill="none" stroke="currentColor" stroke-width="5"/></svg>
     <span class="etiquette petites-capitales">Contact presse</span>
     <div class="numero"><b>@</b></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Pour un entretien, une info ou un visuel, précise ton média, ton sujet et ce qu'il te faut : on te répond par e-mail.</p>
+    <p class="texte-carte">Pour un entretien, une info ou un visuel, précise ton média, ton sujet et ce qu'il te faut : on te répond par e-mail.</p>
   </div>
   <h3 class="nom-carte"><a href="#le-contact">Le contact</a></h3>
   <p class="prix">contact@dropleague.app</p>
@@ -386,56 +400,58 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <span class="etiquette petites-capitales">Sa différence</span>
     <div class="numero"><b>2</b><small>chiffres</small></div>
     <div class="trait" aria-hidden="true"></div>
-    <p class="texte-carte">Ton prono, c'est le score exact du match : tu ne dis pas seulement qui gagne, tu dis 27-21.</p>
+    <p class="texte-carte">Ton prono, c'est le score exact du match : tu ne dis pas seulement qui gagne, tu dis 27-21.</p>
   </div>
   <h3 class="nom-carte"><a href="/regles/">Le score exact, compté façon rugby</a></h3>
   <p class="prix">Un barème qui parle rugby</p>
 </li>
   </ul>
 </section>
+
 <section class="faq" aria-labelledby="titre-faq">
   <div class="largeur">
     <p class="accroche petites-capitales">Trouve vite la réponse à tes questions</p>
     <h2 id="titre-faq">FAQ presse Drop League</h2>
     <div class="filet" aria-hidden="true"></div>
     <div class="faq-liste">
-      <details><summary><h3>Qu'est-ce que Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Chaque membre d'une ligue annonce le score exact des matchs avant le coup d'envoi, et les points ne servent qu'au classement de sa ligue privée et de La Bagarre Générale.</p></div></details>
-      <details><summary><h3>Qu'est-ce qui rend Drop League différente ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Drop League demande le score exact, pas seulement le vainqueur, et le compte avec un barème qui parle rugby. Autour du prono, tout est fait pour jouer en bande : des ligues privées, deux gestes techniques, la Chistera et le Caramel, et le Club-house, un fil de discussion par ligue privée.</p></div></details>
-      <details><summary><h3>Quelles compétitions de rugby sont dans Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Six compétitions : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Chaque ligue suit toutes les compétitions ou une seule, et La Bagarre Générale classe tous les joueurs de Drop League.</p></div></details>
-      <details><summary><h3>Comment contacter Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Par e-mail, à contact@dropleague.app : c'est l'adresse de la presse, des questions et du support. Précise ton média, ton sujet et ce qu'il te faut, et on te répond par e-mail.</p></div></details>
-      <details><summary><h3>Où télécharger Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Sur l'App Store pour l'iPhone et sur Google Play pour Android. Cherche « Drop League » dans le magasin de ton téléphone, ou passe par les boutons de cette page.</p></div></details>
-      <details><summary><h3>Peut-on utiliser l'icône de Drop League dans un article ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui, pour parler de l'app : un article, un reportage ou une chronique sur Drop League. Utilise-la telle quelle, sans la modifier. Pour tout autre usage, écris d'abord à contact@dropleague.app.</p></div></details>
-      <details><summary><h3>Peut-on obtenir des captures d'écran de l'app ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui. Captures d'écran et visuels en haute définition sur demande : écris à contact@dropleague.app en précisant ton média et ce qu'il te faut.</p></div></details>
+      <details><summary><h3>Qu'est-ce que Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Chaque membre d'une ligue annonce le score exact des matchs avant le coup d'envoi, et les points ne servent qu'au classement de sa ligue privée et de La Bagarre Générale.</p></div></details>
+      <details><summary><h3>Qu'est-ce qui rend Drop League différente ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Drop League demande le score exact, pas seulement le vainqueur, et le compte avec un barème qui parle rugby. Autour du prono, tout est fait pour jouer en bande : des ligues privées, deux gestes techniques, la Chistera et le Caramel, et le Club-house, un fil de discussion par ligue privée.</p></div></details>
+      <details><summary><h3>Quelles compétitions de rugby sont dans Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Six compétitions : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Chaque ligue suit toutes les compétitions ou une seule, et La Bagarre Générale classe tous les joueurs de Drop League.</p></div></details>
+      <details><summary><h3>Drop League proposera-t-elle la Coupe du monde de rugby ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui, la Coupe du monde de rugby sera bientôt à pronostiquer dans Drop League. Aujourd'hui, l'app propose six compétitions, du Top 14 au Nations Championship, et le tournoi a déjà sa page sur le site. Pour un sujet, écris à contact@dropleague.app en précisant ton média et ce qu'il te faut.</p></div></details>
+      <details><summary><h3>Comment contacter Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Par e-mail, à contact@dropleague.app : c'est l'adresse de la presse, des questions et du support. Précise ton média, ton sujet et ce qu'il te faut, et on te répond par e-mail.</p></div></details>
+      <details><summary><h3>Où télécharger Drop League ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Sur l'App Store pour l'iPhone et sur Google Play pour Android. Cherche « Drop League » dans le magasin de ton téléphone, ou passe par les boutons de cette page.</p></div></details>
+      <details><summary><h3>Peut-on utiliser l'icône de Drop League dans un article ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui, pour parler de l'app : un article, un reportage ou une chronique sur Drop League. Utilise-la telle quelle, sans la modifier. Pour tout autre usage, écris d'abord à contact@dropleague.app.</p></div></details>
+      <details><summary><h3>Peut-on obtenir des captures d'écran de l'app ?</h3><span class="plus" aria-hidden="true"></span></summary><div class="reponse"><p>Oui. Captures d'écran et visuels en haute définition sur demande : écris à contact@dropleague.app en précisant ton média et ce qu'il te faut.</p></div></details>
     </div>
   </div>
 </section>
 <article class="largeur"><div class="texte-seo">
   <h2>Drop League en bref</h2>
   <div class="filet" aria-hidden="true"></div>
-  <p>Drop League est une application de pronostics de rugby entre amis : chaque membre d'une ligue annonce le score exact des matchs avant le coup d'envoi. L'app est en français, sur iPhone et Android, avec six compétitions : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Pour la presse, une seule adresse : <a href="mailto:contact@dropleague.app">contact@dropleague.app</a>.</p>
-  <h2>C'est quoi, Drop League ?</h2>
-  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
+  <p>Drop League est une application de pronostics de rugby entre amis : chaque membre d'une ligue annonce le score exact des matchs avant le coup d'envoi. L'app est en français, sur iPhone et Android, avec six compétitions : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Pour la presse, une seule adresse : <a href="mailto:contact@dropleague.app">contact@dropleague.app</a>.</p>
+  <h2>C'est quoi, Drop League ?</h2>
+  <p>Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Tu annonces le score exact avant le coup d'envoi ; les points ne servent qu'au classement de ta ligue privée et de La Bagarre Générale. Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship.</p>
   <details class="lire-plus"><summary>Lire plus</summary>
   <h2>La fiche de Drop League, en un coup d'œil</h2>
   <p>Les faits clés de Drop League, à reprendre tels quels dans ton article.</p>
-  <div class="tableau"><table><tbody><tr><th scope="row">Nom</th><td>Drop League</td></tr><tr><th scope="row">Ce que c'est</th><td>Une application de pronostics de rugby entre amis : chaque membre d'une ligue annonce le score exact des matchs avant le coup d'envoi. Les points ne servent qu'au classement.</td></tr><tr><th scope="row">Plateformes</th><td>iPhone (<a href="https://apps.apple.com/fr/app/drop-league/id6814801571">App Store</a>) et Android (<a href="https://play.google.com/store/apps/details?id=com.dropleague.app">Google Play</a>)</td></tr><tr><th scope="row">Compétitions</th><td>Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship (<a href="/competitions/">les six compétitions</a>)</td></tr><tr><th scope="row">Langue</th><td>Français</td></tr><tr><th scope="row">Contact</th><td><a href="mailto:contact@dropleague.app">contact@dropleague.app</a></td></tr></tbody></table></div>
+  <div class="tableau"><table><tbody><tr><th scope="row">Nom</th><td>Drop League</td></tr><tr><th scope="row">Ce que c'est</th><td>Une application de pronostics de rugby entre amis : chaque membre d'une ligue annonce le score exact des matchs avant le coup d'envoi. Les points ne servent qu'au classement.</td></tr><tr><th scope="row">Plateformes</th><td>iPhone (<a href="https://apps.apple.com/fr/app/drop-league/id6814801571">App Store</a>) et Android (<a href="https://play.google.com/store/apps/details?id=com.dropleague.app">Google Play</a>)</td></tr><tr><th scope="row">Compétitions</th><td>Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship (<a href="/competitions/">les six compétitions</a>)</td></tr><tr><th scope="row">À venir</th><td>La Coupe du monde de rugby, bientôt à pronostiquer dans l'app</td></tr><tr><th scope="row">Langue</th><td>Français</td></tr><tr><th scope="row">Contact</th><td><a href="mailto:contact@dropleague.app">contact@dropleague.app</a></td></tr></tbody></table></div>
   <h2>Ce qui rend Drop League différente</h2>
-  <p>Drop League demande le score exact, pas seulement le vainqueur, et le compte avec un barème qui parle rugby. Autour du prono, tout est fait pour jouer en bande : des ligues privées, deux gestes techniques et un fil de discussion par ligue privée.</p>
+  <p>Drop League demande le score exact, pas seulement le vainqueur, et le compte avec un barème qui parle rugby. Autour du prono, tout est fait pour jouer en bande : des ligues privées, deux gestes techniques et un fil de discussion par ligue privée.</p>
   <h3>Le score exact, compté façon rugby</h3>
-  <p>Ton prono, c'est le score exact du match : tu ne dis pas seulement qui gagne, tu dis 27-21. Le bon vainqueur vaut 3 points quand l'équipe qui reçoit gagne, comme une pénalité, et 5 quand celle qui se déplace gagne, comme un essai (3 ou 4 en sélection, 4 sur terrain neutre). Le score exact des deux équipes, c'est le graal : 10 points. <a href="/regles/">Toutes les règles du jeu</a>.</p>
+  <p>Ton prono, c'est le score exact du match : tu ne dis pas seulement qui gagne, tu dis 27-21. Le bon vainqueur vaut 3 points quand l'équipe qui reçoit gagne, comme une pénalité, et 5 quand celle qui se déplace gagne, comme un essai (3 ou 4 en sélection, 4 sur terrain neutre). Le score exact des deux équipes, c'est le graal : 10 points. <a href="/regles/">Toutes les règles du jeu</a>.</p>
   <h3>Deux gestes techniques, la Chistera et le Caramel</h3>
-  <p>La Chistera double tes points d'une journée, dans toutes tes ligues. Le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement. Un de chaque par compétition et par saison, posés en secret et révélés aux résultats : les <a href="/regles/gestes-techniques/">gestes techniques en détail</a>.</p>
+  <p>La Chistera double tes points d'une journée, dans toutes tes ligues. Le Caramel coupe en deux le total d'une journée d'un membre d'une de tes ligues privées, dans cette ligue seulement. Un de chaque par compétition et par saison, posés en secret et révélés aux résultats : les <a href="/regles/gestes-techniques/">gestes techniques en détail</a>.</p>
   <h3>Des ligues privées, et La Bagarre Générale</h3>
-  <p>Tu crées ta ligue, tu invites ta bande avec un code de six caractères, et le classement démarre. Chaque ligue suit toutes les compétitions ou une seule. En plus, <a href="/la-bagarre-generale/">La Bagarre Générale</a> classe tous les joueurs de Drop League : tu y es dès ton inscription.</p>
+  <p>Tu crées ta ligue, tu invites ta bande avec un code de six caractères, et le classement démarre. Chaque ligue suit toutes les compétitions ou une seule. En plus, <a href="/la-bagarre-generale/">La Bagarre Générale</a> classe tous les joueurs de Drop League : tu y es dès ton inscription.</p>
   <h3>Le Club-house, pour chambrer</h3>
   <p>Chaque ligue privée a son Club-house, son fil de discussion. On y refait la journée, on y envoie un GIF, et les Chisteras et les Caramels s'y révèlent aux résultats.</p>
-  <h2>Quels visuels de Drop League pour ton article ?</h2>
-  <p>L'icône de l'app Drop League est en ligne, au format PNG, en 256 × 256 pixels : <a href="/icon-256.png">télécharge l'icône</a>. Utilise-la telle quelle, sans la modifier, pour parler de l'app. Captures d'écran et visuels en haute définition sur demande, à <a href="mailto:contact@dropleague.app">contact@dropleague.app</a>.</p>
-  <h2>Comment joindre Drop League pour un sujet ?</h2>
-  <p>Pour un entretien, une info ou un visuel, écris à <a href="mailto:contact@dropleague.app">contact@dropleague.app</a>. Précise ton média, ton sujet et ce qu'il te faut : on te répond par e-mail.</p>
-  <h2>Où en savoir plus sur Drop League ?</h2>
+  <h2>Quels visuels de Drop League pour ton article ?</h2>
+  <p>L'icône de l'app Drop League est en ligne, au format PNG, en 256 × 256 pixels : <a href="/icon-256.png">télécharge l'icône</a>. Utilise-la telle quelle, sans la modifier, pour parler de l'app. Captures d'écran et visuels en haute définition sur demande, à <a href="mailto:contact@dropleague.app">contact@dropleague.app</a>.</p>
+  <h2>Comment joindre Drop League pour un sujet ?</h2>
+  <p>Pour un entretien, une info ou un visuel, écris à <a href="mailto:contact@dropleague.app">contact@dropleague.app</a>. Précise ton média, ton sujet et ce qu'il te faut : on te répond par e-mail.</p>
+  <h2>Où en savoir plus sur Drop League ?</h2>
   <p>Trois pages du site racontent Drop League en détail. À propos présente l'app et sa charte, les règles donnent le barème complet, et les questions fréquentes répondent aux cas pratiques.</p>
-  <ul><li><a href="/a-propos/">À propos</a> : l'app, sa charte, tes données.</li><li><a href="/regles/">Règles du jeu</a> : le barème complet, avec trois exemples chiffrés.</li><li><a href="/questions/">Questions fréquentes</a> : les réponses aux questions des joueurs.</li></ul>
+  <ul><li><a href="/a-propos/">À propos</a> : l'app, sa charte, tes données.</li><li><a href="/regles/">Règles du jeu</a> : le barème complet, avec trois exemples chiffrés.</li><li><a href="/questions/">Questions fréquentes</a> : les réponses aux questions des joueurs.</li></ul>
   </details>
 </div></article>
 <section class="largeur reassurance" aria-label="Drop League en bref"><ul>
@@ -450,14 +466,14 @@ details[open]>summary .plus{transform:rotate(45deg)}
     <p class="slogan">Deviens le meilleur pronostiqueur de ta ligue</p>
     <div class="colonnes">
       <div><b class="titre petites-capitales">Le jeu</b><ul><li><a href="/regles/">Règles du jeu</a></li><li><a href="/regles/gestes-techniques/">Gestes techniques</a></li><li><a href="/la-bagarre-generale/">La Bagarre Générale</a></li><li><a href="/la-bagarre-generale/classement/">Le classement</a></li><li><a href="/la-loge/">La Loge</a></li><li><a href="/questions/">Questions fréquentes</a></li></ul></div>
-      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li></ul></div>
+      <div><b class="titre petites-capitales">Compétitions</b><ul><li><a href="/competitions/top-14/">Top 14</a></li><li><a href="/competitions/pro-d2/">Pro D2</a></li><li><a href="/competitions/champions-cup/">Champions Cup</a></li><li><a href="/competitions/challenge-cup/">Challenge Cup</a></li><li><a href="/competitions/6-nations/">6 Nations</a></li><li><a href="/competitions/nations-championship/">Nations Championship</a></li><li><a href="/competitions/coupe-du-monde/">Coupe du monde</a></li></ul></div>
       <div><b class="titre petites-capitales">Jouer avec</b><ul><li><a href="/pronostics-rugby-entre-amis/">Entre amis</a></li><li><a href="/concours-pronostics-rugby/">Au bureau, au club</a></li><li><a href="/mpp-rugby/">MPP rugby</a></li><li><a href="/application-pronostics-rugby/">L'appli iPhone et Android</a></li></ul></div>
       <div><b class="titre petites-capitales">Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a aria-current="page">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
       <div class="appli"><b class="titre petites-capitales">L'app</b><p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p><div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div></div>
     </div>
-    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
+    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
   </div>
 </footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Presse","item":"https://dropleague.app/presse/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/presse/#page","url":"https://dropleague.app/presse/","name":"Drop League pour la presse","description":"Annonce le score exact des matchs de rugby entre amis avec Drop League : fiche presse, faits clés, icône, visuels et contact, sur iPhone et Android.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"La fiche presse de Drop League : faits clés, icône et contact","numberOfItems":7,"itemListElement":[{"@type":"ListItem","position":1,"name":"Le nom · Drop League","url":"https://dropleague.app/presse/#le-nom"},{"@type":"ListItem","position":2,"name":"Les plateformes · iPhone et Android","url":"https://dropleague.app/application-pronostics-rugby/"},{"@type":"ListItem","position":3,"name":"La langue · Français","url":"https://dropleague.app/presse/#la-langue"},{"@type":"ListItem","position":4,"name":"Les compétitions · Toutes, ou une seule par ligue","url":"https://dropleague.app/competitions/"},{"@type":"ListItem","position":5,"name":"Le contact · contact@dropleague.app","url":"https://dropleague.app/presse/#le-contact"},{"@type":"ListItem","position":6,"name":"L'icône de l'app · PNG · 256 × 256 pixels","url":"https://dropleague.app/icon-256.png"},{"@type":"ListItem","position":7,"name":"Le score exact, compté façon rugby · Un barème qui parle rugby","url":"https://dropleague.app/regles/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce que Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Chaque membre d'une ligue annonce le score exact des matchs avant le coup d'envoi, et les points ne servent qu'au classement de sa ligue privée et de La Bagarre Générale."}},{"@type":"Question","name":"Qu'est-ce qui rend Drop League différente ?","acceptedAnswer":{"@type":"Answer","text":"Drop League demande le score exact, pas seulement le vainqueur, et le compte avec un barème qui parle rugby. Autour du prono, tout est fait pour jouer en bande : des ligues privées, deux gestes techniques, la Chistera et le Caramel, et le Club-house, un fil de discussion par ligue privée."}},{"@type":"Question","name":"Quelles compétitions de rugby sont dans Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Six compétitions : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Chaque ligue suit toutes les compétitions ou une seule, et La Bagarre Générale classe tous les joueurs de Drop League."}},{"@type":"Question","name":"Comment contacter Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Par e-mail, à contact@dropleague.app : c'est l'adresse de la presse, des questions et du support. Précise ton média, ton sujet et ce qu'il te faut, et on te répond par e-mail."}},{"@type":"Question","name":"Où télécharger Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Sur l'App Store pour l'iPhone et sur Google Play pour Android. Cherche « Drop League » dans le magasin de ton téléphone, ou passe par les boutons de cette page."}},{"@type":"Question","name":"Peut-on utiliser l'icône de Drop League dans un article ?","acceptedAnswer":{"@type":"Answer","text":"Oui, pour parler de l'app : un article, un reportage ou une chronique sur Drop League. Utilise-la telle quelle, sans la modifier. Pour tout autre usage, écris d'abord à contact@dropleague.app."}},{"@type":"Question","name":"Peut-on obtenir des captures d'écran de l'app ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Captures d'écran et visuels en haute définition sur demande : écris à contact@dropleague.app en précisant ton média et ce qu'il te faut."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dropleague.app/"},{"@type":"ListItem","position":2,"name":"Presse","item":"https://dropleague.app/presse/"}]},{"@type":"CollectionPage","@id":"https://dropleague.app/presse/#page","url":"https://dropleague.app/presse/","name":"Drop League pour la presse","description":"Tout pour parler de Drop League, l'appli française de pronostics rugby entre amis, bientôt avec la Coupe du monde : faits clés, icône, visuels sur demande.","inLanguage":"fr","isPartOf":{"@id":"https://dropleague.app/#site"},"mainEntity":{"@type":"ItemList","name":"La fiche presse de Drop League : faits clés, icône et contact","numberOfItems":7,"itemListElement":[{"@type":"ListItem","position":1,"name":"Le nom · Drop League","url":"https://dropleague.app/presse/#le-nom"},{"@type":"ListItem","position":2,"name":"Les plateformes · iPhone et Android","url":"https://dropleague.app/application-pronostics-rugby/"},{"@type":"ListItem","position":3,"name":"Les compétitions · Toutes, ou une seule par ligue","url":"https://dropleague.app/competitions/"},{"@type":"ListItem","position":4,"name":"La Coupe du monde de rugby · Bientôt dans l'app","url":"https://dropleague.app/competitions/coupe-du-monde/"},{"@type":"ListItem","position":5,"name":"Le contact · contact@dropleague.app","url":"https://dropleague.app/presse/#le-contact"},{"@type":"ListItem","position":6,"name":"L'icône de l'app · PNG · 256 × 256 pixels","url":"https://dropleague.app/icon-256.png"},{"@type":"ListItem","position":7,"name":"Le score exact, compté façon rugby · Un barème qui parle rugby","url":"https://dropleague.app/regles/"}]}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce que Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Drop League est une application française de pronostics de rugby entre amis, sur iPhone et Android. Chaque membre d'une ligue annonce le score exact des matchs avant le coup d'envoi, et les points ne servent qu'au classement de sa ligue privée et de La Bagarre Générale."}},{"@type":"Question","name":"Qu'est-ce qui rend Drop League différente ?","acceptedAnswer":{"@type":"Answer","text":"Drop League demande le score exact, pas seulement le vainqueur, et le compte avec un barème qui parle rugby. Autour du prono, tout est fait pour jouer en bande : des ligues privées, deux gestes techniques, la Chistera et le Caramel, et le Club-house, un fil de discussion par ligue privée."}},{"@type":"Question","name":"Quelles compétitions de rugby sont dans Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Six compétitions : Top 14, Pro D2, Champions Cup, Challenge Cup, 6 Nations et Nations Championship. Chaque ligue suit toutes les compétitions ou une seule, et La Bagarre Générale classe tous les joueurs de Drop League."}},{"@type":"Question","name":"Drop League proposera-t-elle la Coupe du monde de rugby ?","acceptedAnswer":{"@type":"Answer","text":"Oui, la Coupe du monde de rugby sera bientôt à pronostiquer dans Drop League. Aujourd'hui, l'app propose six compétitions, du Top 14 au Nations Championship, et le tournoi a déjà sa page sur le site. Pour un sujet, écris à contact@dropleague.app en précisant ton média et ce qu'il te faut."}},{"@type":"Question","name":"Comment contacter Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Par e-mail, à contact@dropleague.app : c'est l'adresse de la presse, des questions et du support. Précise ton média, ton sujet et ce qu'il te faut, et on te répond par e-mail."}},{"@type":"Question","name":"Où télécharger Drop League ?","acceptedAnswer":{"@type":"Answer","text":"Sur l'App Store pour l'iPhone et sur Google Play pour Android. Cherche « Drop League » dans le magasin de ton téléphone, ou passe par les boutons de cette page."}},{"@type":"Question","name":"Peut-on utiliser l'icône de Drop League dans un article ?","acceptedAnswer":{"@type":"Answer","text":"Oui, pour parler de l'app : un article, un reportage ou une chronique sur Drop League. Utilise-la telle quelle, sans la modifier. Pour tout autre usage, écris d'abord à contact@dropleague.app."}},{"@type":"Question","name":"Peut-on obtenir des captures d'écran de l'app ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Captures d'écran et visuels en haute définition sur demande : écris à contact@dropleague.app en précisant ton média et ce qu'il te faut."}}]}]}</script>
 </body>
 </html>
