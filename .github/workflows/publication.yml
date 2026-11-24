@@ -17,13 +17,15 @@ permissions:
 concurrency:
   group: pages
   cancel-in-progress: false
+# Deux tâches, comme le modèle officiel de GitHub : l'archive du site est déposée par « construire » et lue par
+# « deployer ». Dans une seule tâche, le déploiement cherchait parfois l'archive avant que GitHub ne la liste
+# (échec « No artifacts named github-pages » du 24/11/2026, deux fois de suite).
 jobs:
-  publier:
+  construire:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    environment:
-      name: github-pages
-      url: ${{ steps.deploiement.outputs.page_url }}
+    outputs:
+      publier: ${{ steps.decision.outputs.publier }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -48,10 +50,21 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/publication.yml/enable" || true
+      - name: Décider s'il faut republier
+        id: decision
+        run: echo "publier=${{ github.event_name != 'schedule' || steps.classement.outputs.change == 'true' }}" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name != 'schedule' || steps.classement.outputs.change == 'true'
+        if: steps.decision.outputs.publier == 'true'
         with:
           path: _site
+  deployer:
+    needs: construire
+    if: needs.construire.outputs.publier == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
       - id: deploiement
-        if: github.event_name != 'schedule' || steps.classement.outputs.change == 'true'
         uses: actions/deploy-pages@v4
