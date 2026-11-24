@@ -9,26 +9,31 @@
 <meta name="theme-color" content="#1B3A26">
 <link rel="icon" type="image/png" sizes="256x256" href="/icon-256.png">
 <link rel="apple-touch-icon" href="/icon-256.png">
+<link rel="preload" href="/polices/crimson-pro.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="apple-itunes-app" content="app-id=6814801571">
 <style>/* Crimson Pro, © The Crimson Pro Project Authors, licence SIL Open Font License 1.1 */
+@font-face{font-family:"Crimson Repli";src:local("Georgia");font-weight:400 500;font-style:normal;size-adjust:88.7%;ascent-override:101%;descent-override:24.2%;line-gap-override:0%}
+@font-face{font-family:"Crimson Repli";src:local("Georgia Bold"),local("Georgia-Bold");font-weight:600 700;font-style:normal;size-adjust:79.6%;ascent-override:112.6%;descent-override:27%;line-gap-override:0%}
+@font-face{font-family:"Crimson Repli";src:local("Georgia Italic"),local("Georgia-Italic");font-weight:400 500;font-style:italic;size-adjust:81.7%;ascent-override:109.7%;descent-override:26.3%;line-gap-override:0%}
 @font-face{font-family:"Crimson Pro";src:url("/polices/crimson-pro.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
 @font-face{font-family:"Crimson Pro";src:url("/polices/crimson-pro-italique.woff2") format("woff2");font-weight:400 700;font-style:italic;font-display:swap}
 
-/* Mise en page : colonne large (1440), bannière et pied pleine largeur en vert profond, grille de 4 affiches. */
+/* Disposition : colonne large (1440), bannière et pied pleine largeur en vert profond, grille de 4 affiches. */
 :root{
   --fond:#FFFFFF; --texte:#14201A; --doux:#5C665F; --trait:#E2E7E1; --sauge:#EEF2EC; --carte:#FFFFFF;
   --vert:#1B3A26; --vert-ligne:#2C5A3E; --sur-vert:#F4F6F1; --orange:#EE8A10; --sur-orange:#1B2A1F;
+  --orange-texte:#9A5A00; /* petit texte orange sur fond clair : 5,47:1 sur blanc, 4,83:1 sur la sauge */
   --noir:#0B0F0C;
-  --serif:"Crimson Pro","Minion Pro","Minion",Georgia,"Times New Roman",serif;
+  --serif:"Crimson Pro","Crimson Repli","Minion Pro","Minion",Georgia,"Times New Roman",serif;
   --sans:"Helvetica Neue",Helvetica,"Segoe UI",Roboto,Arial,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --fond:#0C130F; --texte:#EAF0EB; --doux:#A3ADA6; --trait:#243028; --sauge:#142019; --carte:#111A14;
-  --vert:#173322; --vert-ligne:#2A5139; color-scheme:dark}}
+  --vert:#173322; --vert-ligne:#2A5139; --orange-texte:var(--orange); color-scheme:dark}}
 :root[data-theme="dark"]{
   --fond:#0C130F; --texte:#EAF0EB; --doux:#A3ADA6; --trait:#243028; --sauge:#142019; --carte:#111A14;
-  --vert:#173322; --vert-ligne:#2A5139; color-scheme:dark}
+  --vert:#173322; --vert-ligne:#2A5139; --orange-texte:var(--orange); color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -48,7 +53,11 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--orange);outline-of
 .defile span{padding-inline:28px}
 .defile span::after{content:"✦";color:var(--orange);margin-left:56px;letter-spacing:0}
 @keyframes defile{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.defile{animation:none}}
+@media (prefers-reduced-motion:reduce){
+  .defile{animation:none}
+  .annonce{white-space:normal;text-align:center;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+  .defile{width:auto;display:block}.defile span{display:none;padding-inline:0}.defile span:first-child{display:inline}.defile span::after{content:none}
+}
 
 /* En-tête collant : logo centré, menu en capitales dessous */
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--fond)}
@@ -72,10 +81,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .menu{display:none}
   .gauche .lien-questions{display:none}
   .menu-mobile{display:block}
-  .menu-mobile summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .menu-mobile summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;min-height:44px;margin-block:-12px;padding:0 12px;margin-left:-12px}
+  .menu-mobile summary span{display:flex;align-items:center;gap:8px}
+  .menu-mobile .fermer,.menu-mobile[open] .ouvrir{display:none}
+  .menu-mobile[open] .fermer{display:flex}
   .menu-mobile summary::-webkit-details-marker{display:none}
   .menu-mobile .liste{position:absolute;left:0;right:0;top:100%;background:var(--fond);border-bottom:1px solid var(--trait);display:flex;flex-direction:column;padding:6px max(20px,env(safe-area-inset-right,0px)) 16px max(20px,env(safe-area-inset-left,0px))}
   .menu-mobile .liste a{font-family:var(--serif);font-size:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--trait)}
+  .menu-mobile .liste a[aria-current]{color:var(--orange-texte);font-weight:600}
   .marque b{font-size:15px;letter-spacing:.16em}
   .icones a.appli span{display:none}
   .icones a.appli{padding:8px 10px}
@@ -90,6 +103,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .ariane ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
 .ariane li+li::before{content:"/";margin-right:6px;opacity:.7}
 .ariane a{text-decoration:none}
+.ariane a,.lire-plus>summary,.gauche .lien-questions{position:relative}
+.ariane a::before,.lire-plus>summary::before,.gauche .lien-questions::before{content:"";position:absolute;inset:-12px -4px}
 .ariane a:hover{text-decoration:underline}
 .surtitre{margin:0;color:var(--orange)}
 .banniere h1{margin:14px auto 0;max-width:900px;font-family:var(--serif);font-weight:600;font-size:clamp(40px,6vw,76px);line-height:1;letter-spacing:-.01em;text-wrap:balance}
@@ -106,7 +121,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .badge-magasin:hover{box-shadow:0 0 0 2px var(--orange)}
 .signature{margin:26px 0 0;font-family:var(--serif);font-style:italic;font-size:26px;color:var(--orange)}
 .banniere.photo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);text-align:left}
-.banniere.photo .bloc{position:relative;display:flex;flex-direction:column;justify-content:center;padding:28px max(48px,env(safe-area-inset-left,0px)) 56px;min-height:600px}
+.banniere.photo .bloc{grid-column:1;grid-row:1;position:relative;display:flex;flex-direction:column;justify-content:center;padding:28px max(48px,env(safe-area-inset-left,0px)) 56px;min-height:600px}
 .banniere.photo .bloc>*{max-width:600px}
 .banniere.photo .ariane{margin-bottom:auto;padding-bottom:40px}
 .banniere.photo h1{margin:14px 0 0;font-size:clamp(40px,4.6vw,72px)}
@@ -114,7 +129,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .banniere.photo .intro{margin:0}
 .banniere.photo .badges{justify-content:flex-start}
 .banniere.photo .signature{margin-top:22px}
-.banniere.photo .cliche{position:relative;min-height:100%;margin:0}
+.banniere.photo .cliche{grid-column:2;grid-row:1;position:relative;min-height:100%;margin:0}
 .banniere.photo .cliche img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .banniere.photo .credit{position:absolute;right:10px;bottom:8px;font-size:10.5px;color:#FFFFFF;opacity:.75;text-shadow:0 1px 2px rgba(0,0,0,.6)}
 .banniere.photo .credit a{color:inherit}
@@ -124,17 +139,26 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .banniere.photo.courte .intro{font-size:15px}
 @media (max-width:899px){
   .banniere.photo{grid-template-columns:1fr}
-  .banniere.photo .cliche{order:-1;aspect-ratio:16/10}
+  .banniere.photo .bloc,.banniere.photo .cliche{grid-column:1;grid-row:auto}
+  .banniere.photo .cliche{aspect-ratio:16/10}
   .banniere.photo.courte .cliche{aspect-ratio:16/8}
   .banniere.photo .bloc,.banniere.photo.courte .bloc{min-height:0;padding:22px max(20px,env(safe-area-inset-right,0px)) 40px max(20px,env(safe-area-inset-left,0px))}
   .banniere.photo .ariane{padding-bottom:22px}
 }
+@media (max-width:899px) and (min-width:560px) and (orientation:landscape){
+  .banniere.photo{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .banniere.photo .bloc{grid-column:1;grid-row:1}
+  .banniere.photo .cliche,.banniere.photo.courte .cliche{grid-column:2;grid-row:1;aspect-ratio:auto}
+}
+@media (orientation:landscape) and (max-height:500px){.entete{position:relative}}
 
 /* Pastilles des pages liées */
 .liees{display:flex;gap:10px;overflow-x:auto;padding-block:30px 6px;scrollbar-width:none}
 .liees::-webkit-scrollbar{display:none}
 .liees a{flex:0 0 auto;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid var(--trait);border-radius:999px;padding:11px 18px;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
 .liees a:hover{background:var(--vert);border-color:var(--vert);color:var(--sur-vert)}
+@media (max-width:899px){.liees::after{content:"\203A";content:"\203A" / "";position:sticky;right:0;flex:0 0 auto;display:grid;place-items:center;width:42px;background:var(--fond);border:1px solid var(--trait);border-radius:999px;color:var(--orange-texte);font-size:22px;line-height:1}}
+@media (min-width:900px),(hover:hover) and (pointer:fine){.liees{flex-wrap:wrap;overflow:visible}.liees::after{content:none}}
 
 /* Barre de comptage */
 .barre{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;font-size:12.5px;letter-spacing:.04em;color:var(--doux);padding-block:22px 16px;border-bottom:1px solid var(--trait);margin-bottom:22px}
@@ -147,14 +171,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:1099px){.grille{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:749px){.grille{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 10px}}
 @media (max-width:480px){.grille{grid-template-columns:1fr}}
-.carte{display:flex;flex-direction:column;gap:12px;min-width:0;scroll-margin-top:140px}
-.visuel{position:relative;aspect-ratio:4/5;border-radius:4px;padding:22px;display:flex;flex-direction:column;overflow:hidden;background:var(--sauge);color:var(--texte);transition:box-shadow .25s}
-.carte:hover .visuel{box-shadow:inset 0 0 0 2px var(--orange)}
+.carte{position:relative;display:flex;flex-direction:column;gap:12px;min-width:0;scroll-margin-top:140px}
+.visuel{position:relative;aspect-ratio:4/5;border-radius:4px;padding:22px;display:flex;flex-direction:column;overflow:hidden;overflow:clip;background:var(--sauge);color:var(--texte);transition:box-shadow .25s}
+@media (hover:hover){.carte:hover .visuel{box-shadow:inset 0 0 0 2px var(--orange)}.carte:hover .numero b{transform:translateY(-5px)}}
+.carte:has(.nom-carte a:focus-visible) .visuel{box-shadow:inset 0 0 0 2px var(--orange)}
 @media (max-width:480px){.visuel{aspect-ratio:auto;min-height:300px}.tuile .visuel{min-height:460px}}
+/* Téléphone en paysage : affiches moins hautes, pour qu'une carte tienne à l'écran (écrite après la règle de base) */
+@media (max-width:899px) and (min-width:560px) and (orientation:landscape){.visuel{aspect-ratio:5/4}}
 .visuel .etiquette{color:var(--orange);font-size:11.5px}
-.visuel .numero{margin:auto 0 0;display:flex;align-items:baseline;gap:10px}
-.visuel .numero b{font-family:var(--serif);font-weight:600;font-size:clamp(70px,7vw,104px);line-height:.85;letter-spacing:-.03em;color:var(--vert);font-variant-numeric:lining-nums;transition:transform .35s}
-.carte:hover .numero b{transform:translateY(-5px)}
+.visuel .numero{margin:auto 0 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;row-gap:2px}
+.visuel .numero b{font-family:var(--serif);font-weight:600;font-size:clamp(70px,7vw,104px);line-height:.85;letter-spacing:-.03em;color:var(--vert);font-variant-numeric:lining-nums;white-space:nowrap;transition:transform .35s}
 .visuel .numero small{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--doux)}
 .visuel .trait{width:36px;height:2px;background:var(--orange);margin:16px 0 12px}
 .texte-carte{margin:0;font-size:13.5px;line-height:1.5;color:var(--doux)}
@@ -170,16 +196,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .ton-orange .visuel .numero small,.ton-orange .texte-carte{color:var(--sur-orange);opacity:.85}
 .nom-carte{margin:0;font-size:14.5px;font-weight:500;line-height:1.35}
 .nom-carte a{text-decoration:none}
+.nom-carte a::after{content:"";position:absolute;inset:0;border-radius:4px}
 .nom-carte a:hover{text-decoration:underline;text-underline-offset:3px}
 .prix{margin:-6px 0 0;font-family:var(--serif);font-size:17px;font-weight:600;color:var(--vert)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .prix,:root:not([data-theme="light"]) .visuel .numero b{color:#9FD3AE}}
-:root[data-theme="dark"] .prix,:root[data-theme="dark"] .visuel .numero b{color:#9FD3AE}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .prix,:root:not([data-theme="light"]) .carte:not(.ton-vert):not(.ton-orange) .visuel .numero b{color:#9FD3AE}}
+:root[data-theme="dark"] .prix,:root[data-theme="dark"] .carte:not(.ton-vert):not(.ton-orange) .visuel .numero b{color:#9FD3AE}
 .ton-vert .visuel .numero b,.ton-orange .visuel .numero b{color:inherit}
 @media (prefers-reduced-motion:reduce){.numero b,.visuel,.liees a{transition:none}}
 
 /* Tuile d'ambiance dans la grille */
 .tuile .visuel{background:var(--vert);color:var(--sur-vert);justify-content:flex-end;text-align:left}
 .tuile .dessin{display:block;flex:1 1 0;min-height:90px;width:100%;margin:0 0 14px}
+@media (orientation:landscape) and (max-height:500px){.tuile .dessin{min-height:40px}}
 .tuile h2{position:relative;margin:0;font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.05}
 .tuile h2 em{font-weight:400;color:var(--orange)}
 .tuile p{position:relative;margin:10px 0 0;font-size:13.5px;opacity:.9}
@@ -227,11 +255,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .plus::after{transform:rotate(90deg)}
 details[open]>summary .plus{transform:rotate(45deg)}
 .faq .reponse{padding:0 22px 20px;font-size:14.5px;color:var(--doux)}
-.faq .reponse p{margin:0}
+.faq .reponse p{margin:0;max-width:62ch}
 @media (prefers-reduced-motion:reduce){.plus,.faq details{transition:none}}
 
 /* Texte de référencement, colonne étroite centrée */
-.texte-seo{max-width:760px;margin:0 auto;padding-block:76px 10px;font-size:15px;line-height:1.7}
+.texte-seo{max-width:64ch;margin:0 auto;padding-block:76px 10px;font-size:15px;line-height:1.7}
 .texte-seo>h2:first-child{text-align:center;font-family:var(--serif);font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.05;margin:0}
 .texte-seo>h2:first-child+.filet{margin:22px auto 30px}
 .texte-seo h2{font-family:var(--serif);font-size:27px;font-weight:600;line-height:1.15;margin:40px 0 10px;text-wrap:balance}
@@ -244,10 +272,13 @@ details[open]>summary .plus{transform:rotate(45deg)}
 .lire-plus>summary::-webkit-details-marker{display:none}
 .lire-plus[open]>summary{display:none}
 .tableau{overflow-x:auto;margin:14px 0 18px;border:1px solid var(--trait);border-radius:8px}
-.tableau table{border-collapse:collapse;width:100%;min-width:420px;font-size:14px}
+.tableau table{border-collapse:collapse;width:100%;font-size:14px}
 .tableau th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--doux);font-weight:600;background:var(--sauge);padding:11px 14px}
 .tableau td{padding:11px 14px;border-top:1px solid var(--trait);vertical-align:top}
 .tableau td.points{font-family:var(--serif);font-size:17px;font-weight:600;white-space:nowrap}
+@media (max-width:480px){.tableau th,.tableau td{padding-left:8px;padding-right:8px}.tableau th{letter-spacing:.04em}}
+/* Sous 360 px : mots longs entiers, sans défilement (hors classement) */
+@media (max-width:360px){.tableau:not(.classement) table{font-size:13px}.tableau:not(.classement) th,.tableau:not(.classement) td{padding-left:6px;padding-right:6px}.tableau:not(.classement) th{letter-spacing:0}}
 .exemple{background:var(--sauge);border-left:2px solid var(--orange);padding:16px 20px;margin:0 0 16px}
 .exemple p{margin:0 0 6px}.exemple p:last-child{margin:0}
 .score{font-family:var(--serif);font-size:17px;font-weight:600}
@@ -279,6 +310,11 @@ details[open]>summary .plus{transform:rotate(45deg)}
 .pied .bas .marque img{width:30px;height:30px}
 @media (max-width:1100px){.pied .colonnes{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:600px){.pied .colonnes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.reassurance b,.pied .titre{overflow-wrap:break-word}
+@media (max-width:299px){.reassurance ul,.pied .colonnes{grid-template-columns:1fr}}
+
+/* Petit texte orange sur fond clair : à la fin, pour l'emporter sur les règles d'origine de même poids */
+.carte:not(.ton-vert):not(.ton-orange) .visuel .etiquette,.faq .accroche,.poule h3,.texte-seo h3{color:var(--orange-texte)}
 
 .page-legale{
   --vert:#193925; --vert-haut:#1F5636; --orange:#F28E00; --blanc:#F5F7FA;
@@ -380,6 +416,16 @@ details[open]>summary .plus{transform:rotate(45deg)}
 .banniere.simple .contenu{padding-block:22px 46px}
 .banniere.simple h1{font-size:clamp(34px,4.4vw,56px)}
 .banniere.simple .intro{max-width:700px}
+.page-legale{overflow-wrap:break-word}
+.page-legale a{overflow-wrap:anywhere}
+.page-legale p,.page-legale li{max-width:62ch}
+.page-legale .donnees li,.page-legale .maj{max-width:none}
+.page-legale h2{scroll-margin-top:140px}
+.page-legale .sommaire{border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:12px;padding:10px 16px;margin:0 0 26px;background:var(--surface)}
+.page-legale .sommaire ol{margin:0;padding-left:22px}
+.page-legale .sommaire li{margin:0}
+.page-legale .sommaire a{display:block;padding:5px 0}
+@media (min-width:700px){.page-legale .sommaire ol{columns:2;column-gap:36px}.page-legale .sommaire li{break-inside:avoid}}
 </style>
 </head>
 <body>
@@ -387,11 +433,11 @@ details[open]>summary .plus{transform:rotate(45deg)}
 <header class="entete">
   <div class="largeur haut">
     <div class="gauche">
-      <details class="menu-mobile"><summary aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</summary><nav class="liste" aria-label="Menu principal"><a href="/regles/">Le jeu</a><a href="/competitions/">Compétitions</a><a href="/pronostics-rugby-entre-amis/">Entre amis</a><a href="/concours-pronostics-rugby/">Concours</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/la-loge/">La Loge</a><a href="/questions/">Questions</a></nav></details>
+      <details class="menu-mobile"><summary><span class="ouvrir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</span><span class="fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Fermer</span></summary><nav class="liste" aria-label="Menu principal"><a href="/regles/">Le jeu</a><a href="/competitions/">Compétitions</a><a href="/pronostics-rugby-entre-amis/">Entre amis</a><a href="/concours-pronostics-rugby/">Concours</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/la-loge/">La Loge</a><a href="/questions/">Questions</a></nav></details>
       <a class="lien-questions" href="/questions/"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.6 2.3c-.8.4-1.2 1-1.2 1.9v.4"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Questions</a>
     </div>
-    <a class="marque" href="/"><img src="/icon-256.png" alt="" width="38" height="38"><b>Drop League</b></a>
-    <div class="icones"><a class="appli" href="/application-pronostics-rugby/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.2"/><path d="M10.5 18.5h3"/></svg><span>Télécharger</span></a></div>
+    <a class="marque" href="/" aria-label="Drop League, accueil"><img src="/icon-256.png" alt="" width="38" height="38"><b>Drop League</b></a>
+    <div class="icones"><a class="appli" href="/application-pronostics-rugby/" aria-label="Télécharger l'appli"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.2"/><path d="M10.5 18.5h3"/></svg><span>Télécharger</span></a></div>
   </div>
   <nav class="largeur menu" aria-label="Menu principal"><a href="/regles/">Le jeu</a><a href="/competitions/">Compétitions</a><a href="/pronostics-rugby-entre-amis/">Entre amis</a><a href="/concours-pronostics-rugby/">Concours</a><a href="/la-bagarre-generale/">La Bagarre Générale</a><a href="/la-loge/">La Loge</a><a href="/questions/">Questions</a></nav>
 </header>
@@ -425,7 +471,7 @@ details[open]>summary .plus{transform:rotate(45deg)}
       <div><b class="titre petites-capitales">Drop League</b><ul><li><a href="/a-propos/">À propos</a></li><li><a href="/presse/">Presse</a></li><li><a href="/support/">Support</a></li><li><a href="/privacy/">Confidentialité</a></li><li><a href="/charte/">Charte</a></li><li><a href="/publicite/">Choix publicitaires</a></li><li><a href="/delete-account/">Supprimer mon compte</a></li></ul></div>
       <div class="appli"><b class="titre petites-capitales">L'app</b><p>Crée ta ligue, invite ta bande et annonce le score exact avant le coup d'envoi.</p><div class="badges"><a class="badge-magasin" href="https://apps.apple.com/fr/app/drop-league/id6814801571"><img src="/badges/app-store-fr.svg" alt="Télécharger dans l'App Store" width="139" height="44"></a><a class="badge-magasin" href="https://play.google.com/store/apps/details?id=com.dropleague.app"><img src="/badges/google-play-fr.png" alt="Disponible sur Google Play" width="114" height="44"></a></div></div>
     </div>
-    <div class="bas"><a class="marque" href="/"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
+    <div class="bas"><a class="marque" href="/" aria-label="Drop League, accueil"><img src="/icon-256.png" alt="" width="30" height="30"><b>Drop League</b></a><span>© Drop League · Pronostics entre amis : les points ne servent qu'au classement</span></div>
   </div>
 </footer>
 </body>
